@@ -1,0 +1,3162 @@
+{
+  "name": "Adult Initial Clinical Evaluation Form",
+  "uuid": "37211017-cbf5-497e-a4cc-05b388d9ebf0",
+  "processor": "EncounterFormProcessor",
+  "pages": [
+    {
+      "label": "Adult Clinical Evaluation",
+      "sections": [
+        {
+          "label": "Adult ICE Form",
+          "questions": [
+            {
+              "label": "Visit Date",
+              "type": "encounterDatetime",
+              "required": true,
+              "id": "visitDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "6bcaf85b-8504-4c7f-b510-a50436236b80"
+              }
+            },
+            {
+              "label": "Presenting Complaint:",
+              "id": "Presenting_Complaint",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "9af18de0-431e-4467-84d7-1a09996853ed"
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Symptom review",
+      "sections": [
+        {
+          "label": "Symptom review",
+          "questions": [
+            {
+              "type": "obsGroup",
+              "label": "Fever/Chills",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Fever/Chills"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Burning on urination",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "163606AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "163606AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Burning on urination"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Genital Discharge",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "5dbeb247-ca0c-4f4f-8929-b3e6c1c1ebce"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "5dbeb247-ca0c-4f4f-8929-b3e6c1c1ebce",
+                        "label": "Genital Discharge"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Genital Sores",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "864AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "864AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Genital Sores"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Night sweats",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "133027AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "133027AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Night Sweats"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Numbness and tingling of skin",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "163074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "163074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Numbness/Tingling"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Symptom review",
+      "sections": [
+        {
+          "label": "Symptom review",
+          "questions": [
+            {
+              "type": "obsGroup",
+              "label": "Irritability",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "6023AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "6023AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Irritability"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Convulsions",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "113054AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "113054AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Convulsions"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Difficulty Sleeping",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "142371AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "142371AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Difficulty Sleeping"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Rash",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Rash"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Headache",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "139084AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "139084AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Headache"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Itching/Pruritus",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "879AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "879AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Itching/Pruritus"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Symptom review",
+      "sections": [
+        {
+          "label": "Symptom review",
+          "questions": [
+            {
+              "type": "obsGroup",
+              "label": "Visual Impairment",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "159298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "159298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Visual Impairment"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Oral Sores",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "5244AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "5244AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Oral Sores"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Ear discharge",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "873AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "873AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Ear discharge"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Difficulty breathing",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Difficulty breathing"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Cough",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Cough"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Loss of Appetite/Food refusal",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "135595AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "135595AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Loss of Appetite/Food refusal"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Diarrhoea",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "142412AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "142412AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Diarrhoea"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "obsGroup",
+              "label": "Nausea and Vomiting",
+              "questionOptions": {
+                "rendering": "group",
+                "concept": "1727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "repeatConcept": "133473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "questions": [
+                {
+                  "label": "Sign/Symptom Name",
+                  "type": "obs",
+                  "id": "SIGN_SYMPTOM_NAME",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "133473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Nausea and Vomiting"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Sign/Symptom Duration",
+                  "questionOptions": {
+                    "rendering": "number",
+                    "concept": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "max": "1000",
+                    "min": "0"
+                  },
+                  "type": "obs",
+                  "validators": []
+                },
+                {
+                  "label": "Duration units:",
+                  "type": "obs",
+                  "id": "Duration_units",
+                  "questionOptions": {
+                    "rendering": "select",
+                    "concept": "1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers": [
+                      {
+                        "concept": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Days"
+                      },
+                      {
+                        "concept": "1073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Weeks"
+                      },
+                      {
+                        "concept": "1074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label": "Months"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "TB Status",
+      "sections": [
+        {
+          "label": "TB Status",
+          "questions": [
+            {
+              "label": "Patient Assessed for TB:",
+              "type": "obs",
+              "id": "Patient_Assessed_for_TB",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "1659AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "1659AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "select"
+                    }
+                  ]
+                },
+                "concept": "164800AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Tuberculosis disease status:",
+              "type": "obs",
+              "id": "Tuberculosis_disease_status",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "1659AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1660AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No Signs"
+                  },
+                  {
+                    "concept": "142177AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Presumptive TB"
+                  },
+                  {
+                    "concept": "1662AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TPT(IPT)"
+                  },
+                  {
+                    "concept": "1661AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Confirmed TB"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Additional Information",
+      "sections": [
+        {
+          "label": "Additional Information",
+          "questions": [
+            {
+              "label": "Additional Comments:",
+              "id": "Additional_Comments",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "85dc128f-271d-414e-9c17-b1be523d2fe7"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Past medical history:",
+              "id": "Past_medical_history",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Relevant Family History:",
+              "id": "Relevant_Family_History",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "4f93a2d8-e2ec-4356-b11b-d3bdc30f74d6"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Hospitalization:",
+              "id": "hospitalization",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "cbaa0597-881b-42b6-9155-ebf3c34c16b6"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Drug Allergies:",
+              "id": "Drug_Allergies",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "103ab3a1-ce33-452c-b476-e639c9d95db3"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Currently Pregnant:",
+              "type": "obs",
+              "id": "Currently_Pregnant",
+              "genderSpecificConcept": "F",
+              "defaultDisplay": "show",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "1438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "number"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "hide",
+                      "childControl": "5632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "hide",
+                      "childControl": "d063984d-622c-470a-bb08-61fa833a1be2",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "1438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "number"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "show",
+                      "childControl": "5632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "select"
+                    }
+                  ]
+                },
+                "concept": "1434AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Last menstrual period",
+              "type": "obs",
+              "required": false,
+              "id": "last_menDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            },
+            {
+              "label": "Gestational age:",
+              "id": "Gestational_age",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "1438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "350",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Expected date of delivery",
+              "type": "obs",
+              "required": false,
+              "id": "edd",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            },
+            {
+              "label": "Currently breastfeeding:",
+              "type": "obs",
+              "id": "Currently_breastfeeding",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "d063984d-622c-470a-bb08-61fa833a1be2",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "d063984d-622c-470a-bb08-61fa833a1be2",
+                      "controlType": "select"
+                    }
+                  ]
+                },
+                "concept": "5632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Did Child Receive Prophylaxis:",
+              "type": "obs",
+              "id": "Did_Child_Receive_Prophylaxis",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "d063984d-622c-470a-bb08-61fa833a1be2",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Additional Information",
+      "sections": [
+        {
+          "label": "Additional Information",
+          "questions": [
+            {
+              "label": "Previous ARV exposure:",
+              "type": "obs",
+              "id": "Previous_ARV_exposure",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "ff4de471-adbc-4c9c-a499-041639506cfc",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "162724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "text"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "124f851e-7b6f-4f5b-99a0-6d6b12e04147",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "Yes",
+                      "displayType": "show",
+                      "childControl": "48aaea0d-4224-4568-9c4e-d351fc04b697",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "ff4de471-adbc-4c9c-a499-041639506cfc",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "162724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "text"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "124f851e-7b6f-4f5b-99a0-6d6b12e04147",
+                      "controlType": "date"
+                    },
+                    {
+                      "when": "No",
+                      "displayType": "hide",
+                      "childControl": "48aaea0d-4224-4568-9c4e-d351fc04b697",
+                      "controlType": "date"
+                    }
+                  ]
+                },
+                "concept": "4b24ffc8-dce0-43c9-9663-fc03919c766c",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Which one:",
+              "type": "obs",
+              "id": "Which_one",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "ff4de471-adbc-4c9c-a499-041639506cfc",
+                "answers": [
+                  {
+                    "concept": "1f596b89-23e2-4ece-ab45-154acb673a57",
+                    "label": "Earlier ARV but not a transfer in"
+                  },
+                  {
+                    "concept": "27a32d83-4ad0-4289-9510-a2a5819eedea",
+                    "label": "Has never received ARVs"
+                  },
+                  {
+                    "concept": "25472538-f8c0-4e72-8ed9-d7f472d78baf",
+                    "label": "PMTCT Only"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Name of facility:",
+              "id": "Name_of_facility",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "162724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Duration of Care from: ",
+              "type": "obs",
+              "required": false,
+              "id": "durationOfCare",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "124f851e-7b6f-4f5b-99a0-6d6b12e04147"
+              }
+            },
+            {
+              "label": "Duration of Care to: ",
+              "type": "obs",
+              "required": false,
+              "id": "durationOfCareto",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "48aaea0d-4224-4568-9c4e-d351fc04b697"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Current medications",
+      "sections": [
+        {
+          "label": "Current medications",
+          "questions": [
+            {
+              "label": "Current medications:",
+              "type": "obs",
+              "id": "Current_medications",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "3bdef117-6740-4561-8546-f3899a680ca0",
+                "answers": [
+                  {
+                    "concept": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "None"
+                  },
+                  {
+                    "concept": "9b49eb5e-9ca9-4494-a2ff-f1d62b6feecc",
+                    "label": "Antiretroviral Therapy"
+                  },
+                  {
+                    "concept": "105281AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "SULFAMETHOXAZOLE / TRIMETHOPRIM"
+                  },
+                  {
+                    "concept": "3e6d3fbc-a059-4b9d-8427-202e612fb15e",
+                    "label": "Anti-TB Drugs"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Patient has disclosed status to",
+      "sections": [
+        {
+          "label": "Patient has disclosed status to",
+          "questions": [
+            {
+              "label": "Patient has disclosed status to:",
+              "type": "obs",
+              "id": "Patient_has_disclosed_status_to",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "f8ed7b35-d0be-4ea3-8edc-bc59da161f38",
+                "answers": [
+                  {
+                    "concept": "3a4b4f01-2251-4b65-8761-5410e4d0f778",
+                    "label": "No one"
+                  },
+                  {
+                    "concept": "159424AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Family Member"
+                  },
+                  {
+                    "concept": "159425AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Friend/Neighbors"
+                  },
+                  {
+                    "concept": "159423AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Spouse/Partner"
+                  },
+                  {
+                    "concept": "3085a508-74a8-48fa-a966-0e3ca3caf77e",
+                    "label": "Spiritual leader"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "HIV status can be discussed with:",
+              "id": "HIV_status_can_be_discussed_with",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "6fe9e9b8-5186-45c8-94c3-f2997ed98c8a"
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Past or current ARV side effects",
+      "sections": [
+        {
+          "label": "Past or current ARV side effects ",
+          "questions": [
+            {
+              "label": "Past or current ARV side effects:",
+              "type": "obs",
+              "id": "Past_or_current ARV_side_effects",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "f8035a8e-942c-4087-a795-94b2f2090959",
+                "answers": [
+                  {
+                    "concept": "133473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Nausea and Vomiting"
+                  },
+                  {
+                    "concept": "116743AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "INSOMNIA"
+                  },
+                  {
+                    "concept": "125886AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Stevens-Johnson Syndrome"
+                  },
+                  {
+                    "concept": "138291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Hyperglycaemia/elevated blood glucose"
+                  },
+                  {
+                    "concept": "139084AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Headache"
+                  },
+                  {
+                    "concept": "120345AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Confusion/Dizzy"
+                  },
+                  {
+                    "concept": "136455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Itching"
+                  },
+                  {
+                    "concept": "116505AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kidney Problems"
+                  },
+                  {
+                    "concept": "121697AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Allergic Diarrhea"
+                  },
+                  {
+                    "concept": "51cf537a-f92d-4770-9585-97ae1b28e305",
+                    "label": "Tingling of extremities"
+                  },
+                  {
+                    "concept": "121629AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Anaemia"
+                  },
+                  {
+                    "concept": "c71081f7-ef31-495d-8c82-580d593dd047",
+                    "label": "Liver problems"
+                  },
+                  {
+                    "concept": "1b10c84d-4dd6-4797-855d-b2c4fd5e8bbb",
+                    "label": "Pain in abdomen or muscle"
+                  },
+                  {
+                    "concept": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Rash"
+                  },
+                  {
+                    "concept": "5226AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Weakness/fatigue"
+                  },
+                  {
+                    "concept": "136443AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Jaundice"
+                  },
+                  {
+                    "concept": "114382AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Pancreatitis"
+                  },
+                  {
+                    "concept": "1dbbce81-ab01-4c4d-9c07-135ce7fe0d02",
+                    "label": "Fat accumulation or loss"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Other Specify:",
+              "id": "Other_Specify",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "c826058c-4e05-4a58-800f-2eafc2a3ce47"
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Physical exam",
+      "sections": [
+        {
+          "label": "Physical exam",
+          "questions": [
+            {
+              "label": "Temp(C):",
+              "id": "temperature",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "1000",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Pulse:",
+              "id": "pulse",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5087AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "1000",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Weight (kg):",
+              "id": "weight",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "300",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Systolic blood pressure:",
+              "id": "Systolic_blood_pressure",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "1000",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Diastolic blood pressure:",
+              "id": "Diastolic_blood_pressure",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "1000",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Height (cm):",
+              "id": "Height",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max": "100",
+                "min": "0"
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "General Appearance",
+      "sections": [
+        {
+          "label": "General Appearance",
+          "questions": [
+            {
+              "label": "General Appearance:",
+              "type": "obs",
+              "id": "General_Appearance",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "10f72296-2d66-4142-a710-d0da62d45143",
+                "answers": [
+                  {
+                    "concept": "147096AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Pale"
+                  },
+                  {
+                    "concept": "142630AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Dehydration"
+                  },
+                  {
+                    "concept": "136443AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Jaundice"
+                  },
+                  {
+                    "concept": "9db42979-53eb-45c7-912d-48f52faebd9e",
+                    "label": "Febrile "
+                  },
+                  {
+                    "concept": "130428AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Peripheral edema"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Skin",
+      "sections": [
+        {
+          "label": "Skin",
+          "questions": [
+            {
+              "label": "Skin:",
+              "type": "obs",
+              "id": "Skin",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "2f3315ec-b8d6-478a-b317-e3e7139a102b",
+                "answers": [
+                  {
+                    "concept": "1249AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Pruritic paplar dermatitis"
+                  },
+                  {
+                    "concept": "140AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Scabies"
+                  },
+                  {
+                    "concept": "117543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Herpes Zoster"
+                  },
+                  {
+                    "concept": "150632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Abscess"
+                  },
+                  {
+                    "concept": "fd0c08e5-4564-4d95-b454-d47d6fe93f4e",
+                    "label": "Kaposi's Lesions"
+                  },
+                  {
+                    "concept": "113116AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Seborrheic Dermatitis"
+                  },
+                  {
+                    "concept": "171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Fungal infection"
+                  },
+                  {
+                    "concept": "a603691f-3eb0-40db-805c-edbf4c64451a",
+                    "label": "No Significant Findings"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Head/Eye/ENT",
+      "sections": [
+        {
+          "label": "Head/Eye/ENT",
+          "questions": [
+            {
+              "label": "Head/Eye/ENT:",
+              "type": "obs",
+              "id": "Head-Eye-ENT",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "8328c5b1-5eed-4936-a5da-0b9fef5f6040",
+                "answers": [
+                  {
+                    "concept": "5334AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THRUSH"
+                  },
+                  {
+                    "concept": "644AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KAPOSI SARCOMA ORAL"
+                  },
+                  {
+                    "concept": "139438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Gingivitis"
+                  },
+                  {
+                    "concept": "131113AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Otitis media"
+                  },
+                  {
+                    "concept": "873AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "EAR DISCHARGE"
+                  },
+                  {
+                    "concept": "111721AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mouth ulceration"
+                  },
+                  {
+                    "concept": "5192AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Icteric sclera"
+                  },
+                  {
+                    "concept": "156441AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "fundoscopy abnormal"
+                  },
+                  {
+                    "concept": "a603691f-3eb0-40db-805c-edbf4c64451a",
+                    "label": "No Significant Findings"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Breasts",
+      "sections": [
+        {
+          "label": "Breasts",
+          "questions": [
+            {
+              "label": "Breasts:",
+              "type": "obs",
+              "id": "Breasts",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "e00ea28d-3858-4ea7-abc6-0b17b5f21e9d",
+                "answers": [
+                  {
+                    "concept": "c2f23c86-56f9-48c8-8b7a-f1e3def96746",
+                    "label": "Lumps"
+                  },
+                  {
+                    "concept": "f656b5b2-d01d-4f1f-956e-4df3ae128f68",
+                    "label": "Discharge from breasts"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Respiratory",
+      "sections": [
+        {
+          "label": "Respiratory",
+          "questions": [
+            {
+              "label": "Respiratory:",
+              "type": "obs",
+              "id": "Respiratory",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "e18554f1-7f0b-44d4-810b-32b51f23455c",
+                "answers": [
+                  {
+                    "concept": "5242AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Respiratory rate"
+                  },
+                  {
+                    "concept": "136201AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Labored Breathing"
+                  },
+                  {
+                    "concept": "122863AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Wheezing"
+                  },
+                  {
+                    "concept": "40b8be0f-2de7-4c09-999f-7f16f50a37a2",
+                    "label": "Inter/Subcostal recession"
+                  },
+                  {
+                    "concept": "143050AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Cyanosis"
+                  },
+                  {
+                    "concept": "1d8a5b08-f32e-4356-907a-ce76f89233cc",
+                    "label": "Auscultation finding"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Gastrointestinal",
+      "sections": [
+        {
+          "label": "Gastrointestinal",
+          "questions": [
+            {
+              "label": "Gastrointestinal:",
+              "type": "obs",
+              "id": "Gastrointestinal",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "6db8624d-8443-41fa-ae44-a31d83cd2ec3",
+                "answers": [
+                  {
+                    "concept": "5008AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Hepatomegaly"
+                  },
+                  {
+                    "concept": "5009AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Splenomegaly"
+                  },
+                  {
+                    "concept": "212894c5-3caa-49b0-b9e1-36d8c9d2d228",
+                    "label": "Tenderness"
+                  },
+                  {
+                    "concept": "f1651820-8767-40bc-a81e-dfc4ddf19358",
+                    "label": "Distention"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Neurological",
+      "sections": [
+        {
+          "label": "Neurological",
+          "questions": [
+            {
+              "label": "Neurological:",
+              "type": "obs",
+              "id": "Neurological",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "a31dac0e-2cd4-4a6e-9f02-ac1bbd65e8bc",
+                "answers": [
+                  {
+                    "concept": "58386240-09c9-4bba-893d-5fa9ef31c5b3",
+                    "label": "Disorientated in TPP"
+                  },
+                  {
+                    "concept": "c93452d5-b2c8-437f-afb0-d2b3601a15fb",
+                    "label": "Impaired Consciousness"
+                  },
+                  {
+                    "concept": "126351AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Slurred Speech"
+                  },
+                  {
+                    "concept": "5170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STIFF NECK"
+                  },
+                  {
+                    "concept": "ca648ba9-a023-4084-a12a-a0a69d40d2d0",
+                    "label": "Blindness 1 or 2 eyes"
+                  },
+                  {
+                    "concept": "e6e245ac-fe51-41e7-add5-20fe38bc9059",
+                    "label": "Weakness/Paralysis"
+                  },
+                  {
+                    "concept": "4768c46c-3767-474d-a553-17216003f8b8",
+                    "label": "Numbness of extremities"
+                  },
+                  {
+                    "concept": "feb6308d-9417-464b-acfc-baf124908053",
+                    "label": "Fisting/Spacsticity"
+                  },
+                  {
+                    "concept": "117655AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Hemiplegia"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Mental status",
+      "sections": [
+        {
+          "label": "Mental status",
+          "questions": [
+            {
+              "label": "Mental status:",
+              "type": "obs",
+              "id": "Mental_status",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "d86ff25b-59a5-4a00-a793-796937f99cb2",
+                "answers": [
+                  {
+                    "concept": "e0d6ae3d-de09-40fb-b8ae-f03120a954d9",
+                    "label": "Slow mentation"
+                  },
+                  {
+                    "concept": "121657AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Memory Loss"
+                  },
+                  {
+                    "concept": "822ff101-03d8-44ec-9cbe-2956dbca1f54",
+                    "label": "Mood swings"
+                  },
+                  {
+                    "concept": "119537AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Depression"
+                  },
+                  {
+                    "concept": "121543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Anxiety"
+                  },
+                  {
+                    "concept": "3f0b5876-1fc1-48e9-b8ab-421bd842a998",
+                    "label": "Suicidal ideation"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Adult ICE Form",
+      "sections": [
+        {
+          "label": "Cardiovascular",
+          "questions": [
+            {
+              "label": "Cardiovascular:",
+              "type": "obs",
+              "id": "Cardiovascular",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "a4f10547-79ed-47af-8b58-50d8f3ae193b",
+                "answers": [
+                  {
+                    "concept": "136522AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Irregular Heartbeat"
+                  },
+                  {
+                    "concept": "1d8a5b08-f32e-4356-907a-ce76f89233cc",
+                    "label": "Auscultation finding"
+                  },
+                  {
+                    "concept": "3f0b5876-1fc1-48e9-b8ab-421bd842a998",
+                    "label": "Suicidal ideation"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Adult ICE Form",
+      "sections": [
+        {
+          "label": "Genitalia",
+          "questions": [
+            {
+              "label": "Genitalia:",
+              "type": "obs",
+              "id": "Genitalia",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "c894e67d-7ece-4cbe-b611-e780e9d00c5c",
+                "answers": [
+                  {
+                    "concept": "43ee7724-5198-4b3d-9089-c07dc1dc483a",
+                    "label": "Genital Lesions"
+                  },
+                  {
+                    "concept": "5dbeb247-ca0c-4f4f-8929-b3e6c1c1ebce",
+                    "label": "Genital Discharge"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Adult ICE Form",
+      "sections": [
+        {
+          "label": "Additional and detailed findings",
+          "questions": [
+            {
+              "label": "Additional and detailed findings:",
+              "id": "Additional_and_detailed_findings",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "a480bcdb-066b-432a-a2a3-98e4e9054afa"
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Adult ICE Form",
+      "sections": [
+        {
+          "label": "Assessment",
+          "questions": [
+            {
+              "label": "Assessment:",
+              "type": "obs",
+              "id": "assessment",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "Asymptomatic",
+                      "displayType": "show",
+                      "childControl": "8d2ee131-1179-4527-84f0-44e81cc894fc",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "Symptomatic",
+                      "displayType": "hide",
+                      "childControl": "8d2ee131-1179-4527-84f0-44e81cc894fc",
+                      "controlType": "check"
+                    }
+                  ]
+                },
+                "concept": "26dfd44b-bfd4-4d0e-be75-411ebf9e849b",
+                "answers": [
+                  {
+                    "concept": "5006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Asymptomatic"
+                  },
+                  {
+                    "concept": "1068AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Symptomatic"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Assessment Symptomatic:",
+              "type": "obs",
+              "id": "Assessment_Symptomatic",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "8d2ee131-1179-4527-84f0-44e81cc894fc",
+                "answers": [
+                  {
+                    "concept": "71902AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "BCG vaccination"
+                  },
+                  {
+                    "concept": "782AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Hepatitis B vaccination"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "WHO HIV STAGE:",
+              "type": "obs",
+              "id": "WHO_HIV_STAGE",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "STAGE 1",
+                      "displayType": "show",
+                      "childControl": "1204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 1",
+                      "displayType": "hide",
+                      "childControl": "1205AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 1",
+                      "displayType": "hide",
+                      "childControl": "1206AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 1",
+                      "displayType": "hide",
+                      "childControl": "1207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 2",
+                      "displayType": "hide",
+                      "childControl": "1204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 2",
+                      "displayType": "show",
+                      "childControl": "1205AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 2",
+                      "displayType": "hide",
+                      "childControl": "1206AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 2",
+                      "displayType": "hide",
+                      "childControl": "1207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 3",
+                      "displayType": "hide",
+                      "childControl": "1204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 3",
+                      "displayType": "hide",
+                      "childControl": "1205AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 3",
+                      "displayType": "show",
+                      "childControl": "1206AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 3",
+                      "displayType": "hide",
+                      "childControl": "1207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 4",
+                      "displayType": "hide",
+                      "childControl": "1204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 4",
+                      "displayType": "hide",
+                      "childControl": "1205AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 4",
+                      "displayType": "hide",
+                      "childControl": "1206AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    },
+                    {
+                      "when": "STAGE 4",
+                      "displayType": "show",
+                      "childControl": "1207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType": "check"
+                    }
+                  ]
+                },
+                "concept": "5356AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STAGE 1"
+                  },
+                  {
+                    "concept": "1205AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STAGE 2"
+                  },
+                  {
+                    "concept": "1206AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STAGE 3"
+                  },
+                  {
+                    "concept": "1207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STAGE 4"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "STAGE 1:",
+              "type": "obs",
+              "id": "WHO_HIV_STAGE_one",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "1204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "5327AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Asymptomatic"
+                  },
+                  {
+                    "concept": "5328AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Persistent generalized lymphadenopathy"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "STAGE 2:",
+              "type": "obs",
+              "id": "WHO_HIV_STAGE_two",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "1205AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "5332AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Weight loss less than 10% of body weight"
+                  },
+                  {
+                    "concept": "5330AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Minor Mucocutaneous Manifestations"
+                  },
+                  {
+                    "concept": "5329AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Herpes Zoster (within last 5 years)"
+                  },
+                  {
+                    "concept": "5012AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Recurrent Upper Respiratory Tract Infections"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "STAGE 3:",
+              "type": "obs",
+              "id": "WHO_HIV_STAGE_three",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "1206AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "5339AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Weight loss >10% of body weight"
+                  },
+                  {
+                    "concept": "5018AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unexplained Chronic Diarrhea (>1 month)"
+                  },
+                  {
+                    "concept": "5027AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unexplained Prolonged Fever"
+                  },
+                  {
+                    "concept": "5334AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Oral Candidiasis"
+                  },
+                  {
+                    "concept": "5337AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Oral Hairy Leukoplakia"
+                  },
+                  {
+                    "concept": "5338AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TB, Pulmonary (within previous year)"
+                  },
+                  {
+                    "concept": "5030AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Severe Bacterial Infections"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "STAGE 4:",
+              "type": "obs",
+              "id": "WHO_HIV_STAGE_four",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "1207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "823AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HIV Wasting syndrome"
+                  },
+                  {
+                    "concept": "882AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PCP"
+                  },
+                  {
+                    "concept": "990AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Toxoplasmosis, CNS"
+                  },
+                  {
+                    "concept": "5034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Cryptosporidiosis with Diarrhea (>1 month)"
+                  },
+                  {
+                    "concept": "5033AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Cryptococcosis, Extrapulmonary"
+                  },
+                  {
+                    "concept": "5035AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Cytomegalovirus disease"
+                  },
+                  {
+                    "concept": "5344AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Herpes Simplex (mucotaneous >1 month)"
+                  },
+                  {
+                    "concept": "5046AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Progressive Multifocal Leukoencephalopathy"
+                  },
+                  {
+                    "concept": "5350AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mycosis, disseminated"
+                  },
+                  {
+                    "concept": "5340AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Esophageal Candidiasis"
+                  },
+                  {
+                    "concept": "5043AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Atypical Mycobacteriosis, disseminated"
+                  },
+                  {
+                    "concept": "5354AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Salmonella Septicemia, Non-typhoid"
+                  },
+                  {
+                    "concept": "5042AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TB, Extrapulmonary"
+                  },
+                  {
+                    "concept": "5041AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Lymphoma"
+                  },
+                  {
+                    "concept": "507AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kaposi's Sarcoma"
+                  },
+                  {
+                    "concept": "5345AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HIV encephalopathy"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Plan (specify orders on requisition)",
+      "sections": [
+        {
+          "label": "Plan (specify orders on requisition)",
+          "questions": [
+            {
+              "label": "Plan (specify orders on requisition):",
+              "type": "obs",
+              "id": "Plan",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "71a91295-6ced-4cc3-b499-5c5d73139d89",
+                "answers": [
+                  {
+                    "concept": "1a635051-414c-4f98-8a03-38af759e962f",
+                    "label": "Lab Evaluation"
+                  },
+                  {
+                    "concept": "a7c432e9-d9b4-4e93-93e1-ea75ab8877e7",
+                    "label": "OI Therapy"
+                  },
+                  {
+                    "concept": "164800AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Screened for tuberculosis"
+                  },
+                  {
+                    "concept": "f7ea0048-1c57-4a5c-9973-f2e7f16ee17c",
+                    "label": "Admission"
+                  },
+                  {
+                    "concept": "78df7810-c8bb-4e93-af99-80b607423c2d",
+                    "label": "OI Prophylaxis"
+                  },
+                  {
+                    "concept": "164800AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Screened for tuberculosis"
+                  },
+                  {
+                    "concept": "f7ea0048-1c57-4a5c-9973-f2e7f16ee17c",
+                    "label": "Admission"
+                  },
+                  {
+                    "concept": "78df7810-c8bb-4e93-af99-80b607423c2d",
+                    "label": "OI Prophylaxis"
+                  },
+                  {
+                    "concept": "61c854e7-bd6c-468a-b0bb-5030a98fd1ee",
+                    "label": "Symptomatic treatment/Pain control"
+                  },
+                  {
+                    "concept": "ba4a0960-3ab7-495a-aa52-dfe2004281c0",
+                    "label": "Other referrals"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Enrol in:",
+              "type": "obs",
+              "id": "Enrol_in",
+              "questionOptions": {
+                "rendering": "check",
+                "concept": "498b5159-d383-4e10-8631-005b0e0645d6",
+                "answers": [
+                  {
+                    "concept": "686f6301-86fe-4aa2-afb7-9e36946591dc",
+                    "label": "General Medical Follow-Up"
+                  },
+                  {
+                    "concept": "9b49eb5e-9ca9-4494-a2ff-f1d62b6feecc",
+                    "label": "Antiretroviral Therapy"
+                  },
+                  {
+                    "concept": "ed01b2e9-583d-4ab5-be4f-fb3e86a2706f",
+                    "label": "Pending Lab Results"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Plan for ARV therapy:",
+              "type": "obs",
+              "id": "Plan_for_ARV_therapy",
+              "questionOptions": {
+                "rendering": "select",
+                "control": {
+                  "conditionOptions": [
+                    {
+                      "when": "Change treatment",
+                      "displayType": "show",
+                      "childControl": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Change treatment",
+                      "displayType": "hide",
+                      "childControl": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Stop ART",
+                      "displayType": "show",
+                      "childControl": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Stop ART",
+                      "displayType": "hide",
+                      "childControl": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Continue current treatment",
+                      "displayType": "hide",
+                      "childControl": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Continue current treatment",
+                      "displayType": "hide",
+                      "childControl": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Start new treatment",
+                      "displayType": "hide",
+                      "childControl": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Start new treatment",
+                      "displayType": "hide",
+                      "childControl": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Restart medication",
+                      "displayType": "hide",
+                      "childControl": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                      "controlType": "select"
+                    },
+                    {
+                      "when": "Restart medication",
+                      "displayType": "hide",
+                      "childControl": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                      "controlType": "select"
+                    }
+                  ]
+                },
+                "concept": "82cec84a-74f2-4256-9487-a2cd07690efb",
+                "answers": [
+                  {
+                    "concept": "5fc04a4d-67b7-4c14-95fb-1f78c4df2eb6",
+                    "label": "Continue current treatment"
+                  },
+                  {
+                    "concept": "56d6bfe6-8545-4a77-9b67-89597dccade3",
+                    "label": "Start new treatment"
+                  },
+                  {
+                    "concept": "162904AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Restart medication"
+                  },
+                  {
+                    "concept": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                    "label": "Change treatment"
+                  },
+                  {
+                    "concept": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                    "label": "Stop ART"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Change treatment Reason:",
+              "type": "obs",
+              "id": "Change_treatment_Reason",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f31a5793-d9cd-48fc-a79f-1cc741cab937",
+                "answers": [
+                  {
+                    "concept": "b146558d-48e4-4341-987a-f1760da2af9b",
+                    "label": "Can't adhere to schedule"
+                  },
+                  {
+                    "concept": "127750AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Patient refusal/preference"
+                  },
+                  {
+                    "concept": "ee418ed7-b351-4769-bcc4-fc4b3394d972",
+                    "label": "Doctor's Instruction"
+                  },
+                  {
+                    "concept": "160584AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Ran out of medicine"
+                  },
+                  {
+                    "concept": "1754AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Drugs not available"
+                  },
+                  {
+                    "concept": "102AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Toxicity"
+                  },
+                  {
+                    "concept": "160569AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Virologic failure"
+                  },
+                  {
+                    "concept": "163523AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Clinical failure"
+                  },
+                  {
+                    "concept": "141748AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Drug interaction"
+                  },
+                  {
+                    "concept": "160566AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Immunologic failure"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Stop ART Reason:",
+              "type": "obs",
+              "id": "Stop_ART_Reason",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "d61330bf-ac49-4f5e-bb1f-03b7747b5c47",
+                "answers": [
+                  {
+                    "concept": "b146558d-48e4-4341-987a-f1760da2af9b",
+                    "label": "Can't adhere to schedule"
+                  },
+                  {
+                    "concept": "127750AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Patient refusal/preference"
+                  },
+                  {
+                    "concept": "ee418ed7-b351-4769-bcc4-fc4b3394d972",
+                    "label": "Doctor's Instruction"
+                  },
+                  {
+                    "concept": "160584AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Ran out of medicine"
+                  },
+                  {
+                    "concept": "1754AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Drugs not available"
+                  },
+                  {
+                    "concept": "102AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Toxicity"
+                  },
+                  {
+                    "concept": "160569AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Virologic failure"
+                  },
+                  {
+                    "concept": "163523AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Clinical failure"
+                  },
+                  {
+                    "concept": "141748AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Drug interaction"
+                  },
+                  {
+                    "concept": "160566AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Immunologic failure"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Next Appointment Date",
+      "sections": [
+        {
+          "label": "Next Appointment Date",
+          "questions": [
+            {
+              "label": "Next Appointment Date:",
+              "id": "Next_Appointment_Date",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "3a203c32-739d-4fd6-9803-322e43dbf2c2"
+              },
+              "type": "obs",
+              "validators": [
+                {
+                  "type": "date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "2.2",
+  "description": "Adult Initial Clinical Evaluation Form",
+  "encounterType": "8c53ed84-7d89-4db9-aa57-04392849084b"
+}
