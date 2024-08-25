@@ -1,0 +1,791 @@
+{
+  "name": "HIV Enrollment Form",
+  "uuid": "c2df5a7d-05ac-4ae3-bcd0-39969f17dbab",
+  "processor": "EncounterFormProcessor",
+  "pages": [
+    {
+      "label": "Enrollment Details",
+      "sections": [
+        {
+          "label": "Enrollment Details",
+          "questions": [
+            {
+              "label": "Patient Unique ID/ART No",
+              "type": "patientIdentifier",
+              "required": true,
+              "id": "patientUniqueId/ArtNo",
+              "questionOptions": {
+                "rendering": "text",
+                "identifierType": "c82916e4-168c-495f-8ed0-b1b286c30a05"
+              },
+              "validators": []
+            },
+            {
+              "label": "Date Enrolled in Care",
+              "type": "obs",
+              "required": false,
+              "id": "dateEnrolledInCare",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "160555AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160555"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Date Confirmed HIV+",
+              "type": "obs",
+              "required": false,
+              "id": "dateConfirmedHiv+",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "432213005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160554"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "86406008"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "PIH",
+                    "value": "2515"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Mode of HIV Test:",
+              "type": "obs",
+              "required": false,
+              "id": "mode_of_hiv",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7c59e7a9-275b-4cbd-bec7-94bb7b7b65ab",
+                "answers": [
+                  {
+                    "concept": "c540c044-72f2-4086-bcee-df7d2e7c062f",
+                    "label": "HIV-AB"
+                  },
+                  {
+                    "concept": "01cde148-b2e4-41e1-8fb4-3946b6a53a43",
+                    "label": "PCR"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Care Entry Point:",
+              "type": "obs",
+              "required": false,
+              "id": "care_entry_point",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "160540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "160536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Impatient"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Others"
+                  },
+                  {
+                    "concept": "160542AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OPD"
+                  },
+                  {
+                    "concept": "160545AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Outreaches"
+                  },
+                  {
+                    "concept": "160538AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ANC/PMTCT"
+                  },
+                  {
+                    "concept": "160546AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STI Clinic"
+                  },
+                  {
+                    "concept": "160541AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TB DOT"
+                  },
+                  {
+                    "concept": "160563AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Transfer In"
+                  },
+                  {
+                    "concept": "549a1ef8-4e02-4a68-ae7c-66f84155e8f2",
+                    "label": "Index testing"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Was patient previously on ART:",
+              "type": "obs",
+              "required": false,
+              "id": "previous_on_art",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "cbc9904b-2eee-473c-862c-6e64a0378c0f",
+                "answers": [
+                  {
+                    "concept": "false",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "true",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Previous Anti-Retroviral Treatment:",
+              "id": "prior_art",
+              "defaultDisplay": "hide",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7d979596-18ba-475e-93ae-e7981bf5a5aa",
+                "answers": [
+                  {
+                    "concept": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "None"
+                  },
+                  {
+                    "concept": "d7efa204-5009-45ae-bf76-1547d2bbe87b",
+                    "label": "PEP"
+                  },
+                  {
+                    "concept": "25472538-f8c0-4e72-8ed9-d7f472d78baf",
+                    "label": "PMTCT Only"
+                  },
+                  {
+                    "concept": "5c2c1190-144c-414a-b422-4d9c9a573dd5",
+                    "label": "Transfer in with records"
+                  },
+                  {
+                    "concept": "bfc0058d-16fc-48a3-9dcb-71580d375540",
+                    "label": "Transfer in without records"
+                  }
+                ]
+              },
+              "type": "obs",
+              "validators": [
+                {
+                  "type": "select "
+                }
+              ]
+            },
+            {
+              "label": "Facility transferred in from:",
+              "type": "obs",
+              "required": false,
+              "id": "facility_transferred_in",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "160535AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160535"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "309037001"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "ART Start Date",
+              "type": "obs",
+              "required": false,
+              "id": "artStartDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "159599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "AMPATH",
+                    "value": "5869"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "AMPATH",
+                    "value": "1499"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "PIH",
+                    "value": "2516"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "159599"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "413946009"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "PIH Malawi",
+                    "value": "2516"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED MVP",
+                    "value": "1595991000105005"
+                  }
+                ]
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Social Demography",
+      "sections": [
+        {
+          "label": "Social Demography",
+          "questions": [
+            {
+              "label": "Occupation:",
+              "type": "obs",
+              "id": "occupation",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "1542AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown"
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable"
+                  },
+                  {
+                    "concept": "159461AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Retired"
+                  },
+                  {
+                    "concept": "159465AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Student"
+                  },
+                  {
+                    "concept": "1540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Employed"
+                  },
+                  {
+                    "concept": "123801AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unemployed"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Marital Status:",
+              "type": "obs",
+              "id": "civil_status",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "1054AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1058AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Divorced"
+                  },
+                  {
+                    "concept": "1060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Cohabiting"
+                  },
+                  {
+                    "concept": "5555AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Married"
+                  },
+                  {
+                    "concept": "1057AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Single"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  },
+                  {
+                    "concept": "1056AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Separated"
+                  },
+                  {
+                    "concept": "1059AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Widow/er"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Educational Level:",
+              "type": "obs",
+              "id": "Educational_Level",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "1712AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No education"
+                  },
+                  {
+                    "concept": "1713AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Primary Education"
+                  },
+                  {
+                    "concept": "1714AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Secondary Education"
+                  },
+                  {
+                    "concept": "160292AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Tertiary Education"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Breast Feeding Status:",
+              "id": "Breast_Feeding_Status",
+              "genderSpecificConcept": "F",
+              "defaultDisplay": "show",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7dbae89a-7811-430b-83fb-0b8fc78cfc77",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              },
+              "type": "obs",
+              "validators": [
+                {
+                  "type": "select "
+                }
+              ]
+            },
+            {
+              "label": "Pregnancy Status:",
+              "id": "Pregnancy_Status",
+              "defaultDisplay": "show",
+              "genderSpecificConcept": "F",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "1434AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "false",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "true",
+                    "label": "Yes"
+                  }
+                ]
+              },
+              "type": "obs",
+              "validators": [
+                {
+                  "type": "select "
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Next of Kin Information",
+      "sections": [
+        {
+          "label": "Next of Kin Information",
+          "questions": [
+            {
+              "label": "Name of next of kin:",
+              "id": "name_of_next_of_kin",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "162729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "label": "Relationship with next of kin:",
+              "type": "obs",
+              "id": "relationship_of_kin",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "d6597735-e13b-4a86-ba47-4b1eddec36cd",
+                "answers": [
+                  {
+                    "concept": "975AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Aunt"
+                  },
+                  {
+                    "concept": "160729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Brother"
+                  },
+                  {
+                    "concept": "160728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Daughter"
+                  },
+                  {
+                    "concept": "1560AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Family member"
+                  },
+                  {
+                    "concept": "971AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Father"
+                  },
+                  {
+                    "concept": "41c14fe4-4196-4985-8ddd-b9bad84b6c45",
+                    "label": "Husband"
+                  },
+                  {
+                    "concept": "970AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mother"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  },
+                  {
+                    "concept": "160730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Sister"
+                  },
+                  {
+                    "concept": "160727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Son"
+                  },
+                  {
+                    "concept": "974AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Uncle"
+                  },
+                  {
+                    "concept": "0a1b360b-e3b3-4c8d-9994-4686cbf496dd",
+                    "label": "Wife"
+                  },
+                  {
+                    "concept": "5618AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Friend"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Phone number of next of Kin:",
+              "id": "phone_next_of_kin",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Treatment Supporter",
+      "sections": [
+        {
+          "label": "Treatment Supporter",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Name of Treatment Supporter",
+              "type": "obs",
+              "required": false,
+              "id": "nameOfTreatmentSupporter",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "160638AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160638"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "444018008"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Address of Treatment Supporter",
+              "type": "obs",
+              "required": false,
+              "id": "addressOfTreatmentSupporter",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "160641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "444018008"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160641"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Relationship with Treatment Supporter",
+              "type": "obs",
+              "required": false,
+              "id": "relationshipWithTreatmentSupporter",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "160640AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160640"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "444018008"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1018BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Mother"
+                  },
+                  {
+                    "concept": "1019BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Father"
+                  },
+                  {
+                    "concept": "1022BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Uncle"
+                  },
+                  {
+                    "concept": "1023BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Aunt"
+                  },
+                  {
+                    "concept": "1786BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Parent"
+                  },
+                  {
+                    "concept": "2757BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Friend"
+                  },
+                  {
+                    "concept": "126207BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "other"
+                  },
+                  {
+                    "concept": "109248BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Son"
+                  },
+                  {
+                    "concept": "109249BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Daughter"
+                  },
+                  {
+                    "concept": "109250BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Brother"
+                  },
+                  {
+                    "concept": "109251BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+                    "label": "Sister"
+                  },
+                  {
+                    "concept": "27d226d1-3e6a-42bd-bf39-5ab2f41d5b05",
+                    "label": "Wife"
+                  },
+                  {
+                    "concept": "34095cae-107d-4b57-b0ba-50202e06f060",
+                    "label": "Husband"
+                  },
+                  {
+                    "concept": "648967bc-6eca-438e-89c9-e383ff849357",
+                    "label": "PLHIV"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Phone number of Treatment Suppoter",
+              "type": "obs",
+              "required": false,
+              "id": "phoneNumberOfTreatmentSuppoter",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "160642AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "444018008"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160642"
+                  }
+                ],
+                "answers": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Population Type",
+      "sections": [
+        {
+          "label": "Population Type",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Population Type",
+              "type": "obs",
+              "required": false,
+              "id": "populationType",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "0e708cf9-599a-41cd-af9e-3b18fc436288",
+                "answers": [
+                  {
+                    "concept": "88f595d3-36c1-4792-9223-865f791bb35f",
+                    "label": "Key Population"
+                  },
+                  {
+                    "concept": "d85872a2-0783-4838-aaa0-0572d40a252d",
+                    "label": "General Population"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Key Population Type",
+              "type": "obs",
+              "required": false,
+              "id": "keyPopulationType",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6a62cbe5-955f-46ce-a038-d023372fc2de",
+                "answers": [
+                  {
+                    "concept": "027baa4f-84b2-44f4-a9e2-d5138ad7ff9f",
+                    "label": "Transgender"
+                  },
+                  {
+                    "concept": "3cc9f0bb-c3df-43cd-94af-8dc04169cb37",
+                    "label": "PWID"
+                  },
+                  {
+                    "concept": "160578AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Male who has sex with men"
+                  },
+                  {
+                    "concept": "162277AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "In prison"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Signature",
+      "sections": [
+        {
+          "label": "Signature",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Enrolled by:",
+              "type": "encounterProvider",
+              "required": true,
+              "id": "enrolledBy:",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            },
+            {
+              "label": "Facility:",
+              "type": "encounterLocation",
+              "required": true,
+              "id": "facility:",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "1.0",
+  "description": "HIV Enrollment Form",
+  "encounterType": "11eb2647-91b4-482a-9cb3-08573e0d219b"
+}
