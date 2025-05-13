@@ -1,0 +1,359 @@
+{
+  "name": "Child Birth Registration Form",
+  "description": "Child Birth Registration Form version 3",
+  "version": "3",
+  "published": true,
+  "uuid": "923f39a2-85ab-433d-ae62-c2e3b7566cd9",
+  "processor": "EncounterFormProcessor",
+  "encounter": "Consultation",
+  "retired": false,
+  "referencedForms": [],
+  "pages": [
+    {
+      "label": "Birth Details",
+      "sections": [
+        {
+          "label": "Birth Details",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "HEI No.",
+              "type": "patientIdentifier",
+              "required": true,
+              "id": "heiId",
+              "questionOptions": {
+                "rendering": "text"
+              }
+            },
+            {
+              "label": "Enrollment Date",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "enroldate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "164856"
+              }
+            },
+            {
+              "label": "Weight(KG)",
+              "type": "obs",
+              "required": false,
+              "id": "we_no",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5916AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "AMPATH",
+                    "value": "5916"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "AMPATH",
+                    "value": "6433"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "LOINC",
+                    "value": "8339-4"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "5916"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "PIH Malawi",
+                    "value": "5916"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "364589006"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Length(cm)",
+              "type": "obs",
+              "required": false,
+              "id": "le_no",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "1503AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "1503"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "169886007"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Head circumference(cm)",
+              "type": "obs",
+              "required": false,
+              "id": "Head_no",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5314AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "5314"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "AMPATH",
+                    "value": "5314"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "LOINC",
+                    "value": "8287-5"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "363812007"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "IMO ProcedureIT",
+                    "value": "29947201"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "MUAC",
+              "type": "obs",
+              "required": false,
+              "id": "muac",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f887befe-01dd-43f5-bb3e-b1f83db1836e",
+                "answers": [
+                  {
+                    "concept": "dcd7075c-3163-4797-9516-1b9f4b0fa387",
+                    "label": "MUAC Normal"
+                  },
+                  {
+                    "concept": "44cab759-360c-4aa8-be1b-285cf364b0b2",
+                    "label": "MUAC Over"
+                  },
+                  {
+                    "concept": "8a160f90-ad58-43de-9e6e-65faf63bd699",
+                    "label": "MUAC Under"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "APGAR Score",
+              "type": "obs",
+              "required": false,
+              "id": "apg_no",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "AMPATH",
+                    "value": "2369"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "302083008"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "1504"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Child given Hapatitis B Immunoglobulin (Hep B lg within 24 hrs of delivery)?",
+              "type": "obs",
+              "required": false,
+              "id": "hpb_q",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f70f2160-b4e0-4934-85cd-d23c5a297d2d",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165667"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223662004"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "High risk HIV exposed infant?",
+              "type": "obs",
+              "required": false,
+              "id": "hivrsk_q",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "0839fd67-3a20-48a1-a455-b2d4d13549e8",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165668"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223636008"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "ARV Prophylaxis",
+              "type": "obs",
+              "required": false,
+              "id": "arv_no",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "163764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "163764"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Timing of Arv Prophylaxis",
+              "type": "obs",
+              "required": false,
+              "id": "arv_time",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f87fd02f-8b54-4e9f-934a-b64ebf9b2262",
+                "answers": [
+                  {
+                    "concept": "389c76d0-4004-4c56-a644-fa9fb19c743a",
+                    "label": "After 72 hrs of delivery outside facility"
+                  },
+                  {
+                    "concept": "d34bb5a6-7d57-454b-990e-ae2486d33580",
+                    "label": "After 72 hrs of facility delivery"
+                  },
+                  {
+                    "concept": "9f84435c-740f-4abc-9780-2de7b0f3b9e2",
+                    "label": "Within 72 hrs of delivery outside facility"
+                  },
+                  {
+                    "concept": "f48d131b-de33-41d1-9a35-c58c58df29c4",
+                    "label": "Within 72hrs of facility delivery"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Immunization Detail",
+      "sections": [
+        {
+          "label": "Immunization Detail",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Immunisation received at birth",
+              "type": "obs",
+              "required": false,
+              "id": "Immune",
+              "questionOptions": {
+                "rendering": "multiCheckbox",
+                "concept": "8d2ee131-1179-4527-84f0-44e81cc894fc",
+                "answers": [
+                  {
+                    "concept": "71902AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "BCG VACCINE"
+                  },
+                  {
+                    "concept": "782AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HEPATITIS B VACCINATION"
+                  },
+                  {
+                    "concept": "783AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "POLIO VACCINATION, ORAL"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "encounterType": "51139c37-6fc2-4858-8a62-a57e08655262"
+}

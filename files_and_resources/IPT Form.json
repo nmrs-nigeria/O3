@@ -1,0 +1,677 @@
+{
+  "name": "IPT Form",
+  "version": "3",
+  "pages": [
+    {
+      "label": "Section 1: TB Screening",
+      "sections": [
+        {
+          "label": "Section 1: TB Screening",
+          "questions": [
+            {
+              "label": "Visit Date",
+              "type": "obs",
+              "required": false,
+              "id": "visitDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "6bcaf85b-8504-4c7f-b510-a50436236b80",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165785"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223563002"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Are you coughing currently?",
+              "type": "obs",
+              "required": false,
+              "id": "q_143264_1",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "143264",
+                "answers": [
+                  {
+                    "concept": "1066",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Sputum AFB TB",
+              "type": "obs",
+              "required": false,
+              "id": "q_166141_2",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "166141"
+              }
+            },
+            {
+              "id": "q_165968_3",
+              "label": "Sputum AFB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165968",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Negative",
+                    "concept": "664"
+                  },
+                  {
+                    "label": "Positive",
+                    "concept": "703"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_832_4",
+              "label": "Do you have fever?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "832",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166142_5",
+              "label": "GeneXpert TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166142",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165975_6",
+              "label": "GeneXpert",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165975",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "PTB Negative",
+                    "concept": "164096"
+                  },
+                  {
+                    "label": "PTB positive MTB not detected",
+                    "concept": "165974"
+                  },
+                  {
+                    "label": "PTB positive MTB detected",
+                    "concept": "165973"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_140238_7",
+              "label": "Are you losing weight?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "140238",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166143_8",
+              "label": "Chest X-ray TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166143",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165972_9",
+              "label": "Chest X-ray",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165972",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Not Suggestive",
+                    "concept": "165971"
+                  },
+                  {
+                    "label": "Suggestive",
+                    "concept": "165970"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_133027_10",
+              "label": "Are you having night sweats?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "133027",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166144_11",
+              "label": "Culture TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166144",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165969_12",
+              "label": "Culture",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165969",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165967_13",
+              "label": "History of contacts with TB patients? (Pead. group)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165967",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Section 2: TPT Screening",
+      "sections": [
+        {
+          "label": "Section 2: TPT Screening",
+          "questions": [
+            {
+              "id": "q_164500_14",
+              "label": "Active TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "164500",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165982_15",
+              "label": "Age < 1 yr without history of close contact with TB patient",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165982",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_152526_16",
+              "label": "Abnormal Chest X-Ray",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "152526",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165983_17",
+              "label": "Active hepatitis (clinical or lab)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165983",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165981_18",
+              "label": "Diagnosis of TB in the past 3 years",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165981",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165984_19",
+              "label": "High alcohol consumption",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165984",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165979_20",
+              "label": "Severe immune suppression (CD4<200 cells)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165979",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165985_21",
+              "label": "Prior allergy to INH",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165985",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165980_22",
+              "label": "History of poor treatment adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165980",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Section 3: TPT Monitoring",
+      "sections": [
+        {
+          "label": "Section 3: TPT Monitoring",
+          "questions": [
+            {
+              "id": "q_165986_23",
+              "label": "Is Patient Eligible For TPT?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165986",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165994_24",
+              "label": "Date TPT start",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165994",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165996_25",
+              "label": "Weight at start of TPT",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165996",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_167176_26",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "167176",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": "167208"
+                  },
+                  {
+                    "label": "3HP Weekly",
+                    "concept": "167177"
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": "167178"
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": "167179"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167176_27",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "167176",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": "167208"
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": "167178"
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": "167179"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167176_28",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "167176",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": "167208"
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": "167178"
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": "167179"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167177_29",
+              "label": "3HP Weekly",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "167177",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "900/900mg",
+                    "concept": "167180"
+                  },
+                  {
+                    "label": "600/600mg",
+                    "concept": "167181"
+                  },
+                  {
+                    "label": "300/300mg",
+                    "concept": "165621"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1754_30",
+              "label": "Medications out of stock",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1754",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "300/600mg",
+                    "concept": "167185"
+                  },
+                  {
+                    "label": "150/600mg",
+                    "concept": "167182"
+                  },
+                  {
+                    "label": "150/75mg",
+                    "concept": "167106"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167179_31",
+              "label": "1HP Daily",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "167179",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "300/600mg",
+                    "concept": "167185"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165080_32",
+              "label": "INH Dose",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165080",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "100mg",
+                    "concept": "165076"
+                  },
+                  {
+                    "label": "150mg",
+                    "concept": "165075"
+                  },
+                  {
+                    "label": "300mg",
+                    "concept": "165074"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165998_33",
+              "label": "TB Symptoms [cough, fever, night sweats, weight loss, contacts]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165998",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165999_34",
+              "label": "Hepatitis Symptoms[Abdominal pain, nausea, vomiting, abnormal LFTs, Children:\r\n                        persistent irritability, yellowish urine and eyes]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "165999",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166000_35",
+              "label": "Neurologic Symptoms [Numbness, tingling, paresthesias]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166000",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_512_36",
+              "label": "Rash",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "512",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166001_37",
+              "label": "Adherence[ > 80% doses = Good < 80% doses = Poor ]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166001",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166002_38",
+              "label": "Referred for further services",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166002",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166141_39",
+              "label": "Sputum AFB TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166141",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166142_40",
+              "label": "GeneXpert TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166142",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166143_41",
+              "label": "Chest X-ray TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166143",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166144_42",
+              "label": "Culture TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166144",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166007_43",
+              "label": "Outcome of TPT",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166007",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166008_44",
+              "label": "Date of Outcome",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166008",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166012_45",
+              "label": "Reasons for stopping TPT",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166012",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Appointment and Signatures",
+      "sections": [
+        {
+          "label": "Appointment and Signatures",
+          "questions": [
+            {
+              "id": "q_5096_46",
+              "label": "Next Appointment Date:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5096",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "version 3",
+  "encounterType": "fed74d87-1e07-459e-a9ee-5d8d5d611a3c",
+  "uuid": "779f1e3e-61d2-492b-a56a-4fe27f449c0d"
+}

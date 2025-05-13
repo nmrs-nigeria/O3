@@ -1,0 +1,1461 @@
+{
+  "name": "DR-TB Treatment Register Form",
+  "version": "3",
+  "pages": [
+    {
+      "label": "DR-TB Treatment Register Form",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_166583_1",
+              "label": "Patient Serial Number:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166583",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_166534_2",
+              "label": "Place of Initiation:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166534",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166537_3",
+              "label": "LGA DR-TB RegNo :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166537",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_161550_4",
+              "label": "Referring Health Facility :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "161550",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166535_5",
+              "label": "Referring Facility State :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166535",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_166536_6",
+              "label": "Referring Facility LGA:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166536",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166538_7",
+              "label": "Previously On TB 2nd line Drug ? :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166538",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166539_8",
+              "label": "2nd line drug start date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166539",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5089_9",
+              "label": "Weight(kg) :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5089",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_5090_10",
+              "label": "Height(cm):",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5090",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166540_11",
+              "label": "Type of Treatment Regimen :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166540",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Shorter Regimen(Injectable)",
+                    "concept": "166575"
+                  },
+                  {
+                    "label": "Shorter Regimen(BDQ)",
+                    "concept": "166576"
+                  },
+                  {
+                    "label": "Individualized(PRE XDR)",
+                    "concept": "166577"
+                  },
+                  {
+                    "label": "Individualized(XDR)",
+                    "concept": "166578"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166541_12",
+              "label": "Enter BDQ or Dim (if patient regimen contains new drugs )",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166541",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166692_13",
+              "label": "Date treatment started:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166692",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_166696_14",
+              "label": "Site of Disease:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166696",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Pulmonary",
+                    "concept": "831"
+                  },
+                  {
+                    "label": "Extra Pulmonary",
+                    "concept": "156204"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159990_15",
+              "label": "Registration Group :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159990",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "New",
+                    "concept": "159977"
+                  },
+                  {
+                    "label": "Relapse",
+                    "concept": "160033"
+                  },
+                  {
+                    "label": "Treatment after failure",
+                    "concept": "166641"
+                  },
+                  {
+                    "label": "Treatment after lost to follow up",
+                    "concept": "166642"
+                  },
+                  {
+                    "label": "other previously treated",
+                    "concept": "166643"
+                  },
+                  {
+                    "label": "TB patient",
+                    "concept": "166707"
+                  },
+                  {
+                    "label": "Unknown previous TB TX history",
+                    "concept": "166644"
+                  },
+                  {
+                    "label": "Transferred in",
+                    "concept": "166711"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Diagnosis and Baseline Investigations (Xpert/AFB/Culture/Second Line LPA and DST) and X-ray features Diagnosis)",
+          "questions": [
+            {
+              "id": "q_166646_16",
+              "label": "GeneXpert:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166646",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "160247"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166722"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166595_17",
+              "label": "AFB:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166595",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Postive Smear",
+                    "concept": "164412"
+                  },
+                  {
+                    "label": "Negative Smear",
+                    "concept": "164413"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159982_18",
+              "label": "Culture",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159982",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Positive culture",
+                    "concept": "703"
+                  },
+                  {
+                    "label": "Negative culture",
+                    "concept": "664"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "160008"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166758_19",
+              "label": "Name of Aminoglycoside",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166758",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Kanamycin(Km)",
+                    "concept": "166795"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166760_20",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166758_21",
+              "label": "Name of Aminoglycoside",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166758",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Amikacin(Am)",
+                    "concept": "71060"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166760_22",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166758_23",
+              "label": "Name of Aminoglycoside",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166758",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Capreomycin(Cm)",
+                    "concept": "72794"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166760_24",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166758_25",
+              "label": "Name of Aminoglycoside",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166758",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "STREPTOMYCIN",
+                    "concept": "438"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166760_26",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166759_27",
+              "label": "Name of  Quinolone",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166759",
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_166760_28",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166759_29",
+              "label": "Name of  Quinolone",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166759",
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_166760_30",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166759_31",
+              "label": "Name of  Quinolone",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166759",
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_166760_32",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166758_33",
+              "label": "Name of Aminoglycoside",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166758",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "CIPROFLOXACIN",
+                    "concept": "73449"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166760_34",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166760",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "166792"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "166793"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_35",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "ISONIAZID",
+                    "concept": "78280"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_36",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_37",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "RIFAMPICIN",
+                    "concept": "767"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_38",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_39",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "PYRAZINAMIDE",
+                    "concept": "82900"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_40",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_41",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "STREPTOMYCIN",
+                    "concept": "84360"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_42",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_43",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "CAPREOMYCIN",
+                    "concept": "72794"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_44",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_45",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "LEVOFLOXACIN",
+                    "concept": "78788"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_46",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_47",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "MOXIFLOXACIN",
+                    "concept": "80133"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_48",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_49",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "KANAMYCIN",
+                    "concept": "78385"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_50",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_51",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "AMIKACIN",
+                    "concept": "71060"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_52",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_53",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "CIPROFLOXACIN",
+                    "concept": "73449"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_54",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_55",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "OFLOXACIN",
+                    "concept": "81022"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_56",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_57",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "ETHIONAMIDE",
+                    "concept": "75976"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_58",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_59",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "CYCLOSERINE",
+                    "concept": "74123"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_60",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_61",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "PROTHIONAMIDE",
+                    "concept": "82772"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_62",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_160021_63",
+              "label": "TB drugs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160021",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "TERIZIDONE",
+                    "concept": "84836"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159984_64",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166543_65",
+              "label": "X-Ray done ?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166543",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166761_66",
+              "label": "if(X-Ray was done)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166761",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Follow up investigation",
+          "questions": [
+            {
+              "id": "q_167003_67",
+              "label": "Months (1-27)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "167003",
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_166580_68",
+              "label": "Smear Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166580",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166783_69",
+              "label": "Culture Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166783",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166574_70",
+              "label": "Smear and Culture result Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166574",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "TB/HIV activities",
+          "questions": [
+            {
+              "id": "q_159576_71",
+              "label": "HIV Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159576",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Positive",
+                    "concept": "138571"
+                  },
+                  {
+                    "label": "Negative",
+                    "concept": "664"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159811_72",
+              "label": "ART :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159811",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_159599_73",
+              "label": "ART Start Date :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159599",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_160434_74",
+              "label": "CPT :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160434",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166582_75",
+              "label": "CPT Start Date :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "166582",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Form",
+      "sections": [
+        {
+          "label": "Treatment Outcome",
+          "questions": [
+            {
+              "id": "q_159786_76",
+              "label": "Outcome",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159786",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_159787_77",
+              "label": "Outcome Date:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159787",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5528_78",
+              "label": "Comment :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5528",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "version 3",
+  "encounterType": "7400c3ce-8ac1-4f36-846d-7ddea6286645",
+  "uuid": "60b895a8-1a2b-4e9c-92a9-88d549f81c97"
+}
