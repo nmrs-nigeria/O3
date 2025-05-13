@@ -1,0 +1,2101 @@
+{
+  "name": "Care Card",
+  "version": "1.0",
+  "pages": [
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Vital Signs",
+          "questions": [
+            {
+              "id": "q_165050_1",
+              "label": "Pregnancy / Breastfeeding status:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165050,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Pregnant",
+                    "concept": 165048
+                  },
+                  {
+                    "label": "Breastfeeding",
+                    "concept": 165049
+                  },
+                  {
+                    "label": "Not Pregnant",
+                    "concept": 165047
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1427_2",
+              "label": "Last menstrual period:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1427,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_1438_3",
+              "label": "Gestational age in weeks:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1438,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5596_4",
+              "label": "Expected date of delivery:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5596,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165977_5",
+              "label": "Did child receive prophylaxis?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165977,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5089_6",
+              "label": "Weight (kg)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5089,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5090_7",
+              "label": "Height (cm)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5090,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5090_8",
+              "label": "Length (cm)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5090,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5088_9",
+              "label": "Temp (c)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5088,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5085_10",
+              "label": "SYSTOLIC",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5085,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5086_11",
+              "label": "/",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5086,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_1342_12",
+              "label": "Body Mass Index (BMI)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1342,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165935_13",
+              "label": "MUAC Interpretation",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165935,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Overweight",
+                    "concept": 165932
+                  },
+                  {
+                    "label": "Underweight",
+                    "concept": 165933
+                  },
+                  {
+                    "label": "Normal",
+                    "concept": 165934
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165243_14",
+              "label": "MUAC",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165243,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5271_15",
+              "label": "Is Patient on Family Planning",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5271,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_374_16",
+              "label": "Family planning Method:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 374,
+                "rendering": "select"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_165050_17",
+              "label": "Pregnancy / Breastfeeding status:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165050,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Pregnant",
+                    "concept": 165048
+                  },
+                  {
+                    "label": "Breastfeeding",
+                    "concept": 165049
+                  },
+                  {
+                    "label": "Not Pregnant",
+                    "concept": 165047
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1427_18",
+              "label": "Last menstrual period:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1427,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_1438_19",
+              "label": "Gestational age in weeks:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1438,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_5596_20",
+              "label": "Expected date of delivery:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5596,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165977_21",
+              "label": "Did child receive prophylaxis?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165977,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Clinical Information",
+          "questions": [
+            {
+              "id": "q_165039_22",
+              "label": "Functional Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165039,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "1. Working",
+                    "concept": 159468
+                  },
+                  {
+                    "label": "2. Bedridden",
+                    "concept": 162752
+                  },
+                  {
+                    "label": "3. Patient Ambulatory",
+                    "concept": 160026
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_5356_23",
+              "label": "WHO Clinical stage",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5356,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "1",
+                    "concept": 1204
+                  },
+                  {
+                    "label": "2",
+                    "concept": 1205
+                  },
+                  {
+                    "label": "3",
+                    "concept": 1206
+                  },
+                  {
+                    "label": "4",
+                    "concept": 1207
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1659_24",
+              "label": "TB Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1659,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "1. No Signs",
+                    "concept": 1660
+                  },
+                  {
+                    "label": "2. Presumptive TB",
+                    "concept": 142177
+                  },
+                  {
+                    "label": "3. TPT",
+                    "concept": 166042
+                  },
+                  {
+                    "label": "4. Confirmed TB",
+                    "concept": 1661
+                  },
+                  {
+                    "label": "5. TB Treatment",
+                    "concept": 1662
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165995_25",
+              "label": "Method of Diagnosis",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165995,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Confirmed with GeneXpert",
+                    "concept": 165990
+                  },
+                  {
+                    "label": "Confirmed with CXR",
+                    "concept": 165991
+                  },
+                  {
+                    "label": "Confirmed with LF LAM",
+                    "concept": 165991
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_167130_26",
+              "label": "Cryptococcal Screening status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167130,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Not screened",
+                    "concept": 167131
+                  },
+                  {
+                    "label": "Screened for Cryptococcus Ag",
+                    "concept": 167132
+                  },
+                  {
+                    "label": "Cr Ag negative",
+                    "concept": 167133
+                  },
+                  {
+                    "label": "Cr Ag positive",
+                    "concept": 167134
+                  },
+                  {
+                    "label": "Cr Ag positive commenced on pre-emptive therapy",
+                    "concept": 167135
+                  },
+                  {
+                    "label": "Diagnosed with Cryptococcal meningitis",
+                    "concept": 167136
+                  },
+                  {
+                    "label": "Commenced treatment for cryptococcal meningitis",
+                    "concept": 167137
+                  },
+                  {
+                    "label": "Completed treatment for cryptococcal meningitis",
+                    "concept": 167138
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167139_27",
+              "label": "Cervical Cancer Screening Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167139,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Not ordered",
+                    "concept": 167140
+                  },
+                  {
+                    "label": "Ordered yet to screen",
+                    "concept": 167141
+                  },
+                  {
+                    "label": "Screened negative",
+                    "concept": 167142
+                  },
+                  {
+                    "label": "Screened positive yet to treat",
+                    "concept": 167143
+                  },
+                  {
+                    "label": "Screened positive and treated",
+                    "concept": 167144
+                  },
+                  {
+                    "label": "Screened positive and referred",
+                    "concept": 167145
+                  },
+                  {
+                    "label": "Screened positive and declined treatment",
+                    "concept": 167146
+                  },
+                  {
+                    "label": "Suspicious for cancer",
+                    "concept": 167147
+                  },
+                  {
+                    "label": "Other findings",
+                    "concept": 167148
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167149_28",
+              "label": "Specify:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167149,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_167150_29",
+              "label": "Treatment Provided",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167150,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Cryotherapy",
+                    "concept": 167151
+                  },
+                  {
+                    "label": "Thermal ablation",
+                    "concept": 167152
+                  },
+                  {
+                    "label": "LEEP",
+                    "concept": 167153
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Fields",
+          "questions": [
+            {
+              "id": "q_160170_30",
+              "label": "ICPC HIV and opportunistic infection diagnoses",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 160170,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_160170_31",
+              "label": "ICPC HIV and opportunistic infection diagnoses",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 160170,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_160170_32",
+              "label": "ICPC HIV and opportunistic infection diagnoses",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 160170,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_160170_33",
+              "label": "ICPC HIV and opportunistic infection diagnoses",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 160170,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_165613_34",
+              "label": "Other Symptom",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165613,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_159935_35",
+              "label": "antiretroviral drug side effects, since last visit",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_36",
+              "label": "antiretroviral drug side effects, since last visit",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_37",
+              "label": "antiretroviral drug side effects, since last visit",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_38",
+              "label": "antiretroviral drug side effects, since last visit",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_39",
+              "label": "antiretroviral drug side effects, since last visit",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_40",
+              "label": "antiretroviral drug side effects, since last visit",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_41",
+              "label": "Nausea and Vomiting\r\n                                \n\r\n                                Headache\r\n                                \n\r\n                                Insomnia\r\n                                \n\r\n                                Weakness\r\n                                \n\r\n                                PV Bleeding / Discharge\r\n                                \n\r\n                                Fat changes",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_42",
+              "label": "Nausea and Vomiting\r\n                                \n\r\n                                Headache\r\n                                \n\r\n                                Insomnia\r\n                                \n\r\n                                Weakness\r\n                                \n\r\n                                PV Bleeding / Discharge\r\n                                \n\r\n                                Fat changes",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_43",
+              "label": "Nausea and Vomiting\r\n                                \n\r\n                                Headache\r\n                                \n\r\n                                Insomnia\r\n                                \n\r\n                                Weakness\r\n                                \n\r\n                                PV Bleeding / Discharge\r\n                                \n\r\n                                Fat changes",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_44",
+              "label": "Nausea and Vomiting\r\n                                \n\r\n                                Headache\r\n                                \n\r\n                                Insomnia\r\n                                \n\r\n                                Weakness\r\n                                \n\r\n                                PV Bleeding / Discharge\r\n                                \n\r\n                                Fat changes",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_159935_45",
+              "label": "Nausea and Vomiting\r\n                                \n\r\n                                Headache\r\n                                \n\r\n                                Insomnia\r\n                                \n\r\n                                Weakness\r\n                                \n\r\n                                PV Bleeding / Discharge\r\n                                \n\r\n                                Fat changes",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 159935,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_165593_46",
+              "label": "Nausea and Vomiting\r\n                                \n\r\n                                Headache\r\n                                \n\r\n                                Insomnia\r\n                                \n\r\n                                Weakness\r\n                                \n\r\n                                PV Bleeding / Discharge\r\n                                \n\r\n                                Fat changes",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165593,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "DSD Model",
+          "questions": [
+            {
+              "id": "q_167126_47",
+              "label": "DSD Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167126,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Devolved",
+                    "concept": 167127
+                  },
+                  {
+                    "label": "Not Devolved",
+                    "concept": 167128
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166148_48",
+              "label": "Dispensing Modality",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166148,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Facility Dispensing",
+                    "concept": 166276
+                  },
+                  {
+                    "label": "Community Dispensing",
+                    "concept": 166363
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166276_49",
+              "label": "Facility Dispensing",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166276,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Fast Track",
+                    "concept": 166151
+                  },
+                  {
+                    "label": "Facility ART group HCW led",
+                    "concept": 167107
+                  },
+                  {
+                    "label": "Facility ART group Support group",
+                    "concept": 167108
+                  },
+                  {
+                    "label": "Decentralization (Hub and Spoke)",
+                    "concept": 167109
+                  },
+                  {
+                    "label": "After hours",
+                    "concept": 167110
+                  },
+                  {
+                    "label": "Weekend and Public holidays",
+                    "concept": 167111
+                  },
+                  {
+                    "label": "Child/Teen/Adolescents club (Peer Managed)",
+                    "concept": 167112
+                  },
+                  {
+                    "label": "Mother infant pair/Mentor mother led",
+                    "concept": 167112
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167129_50",
+              "label": "DSD Start Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167129,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_166363_51",
+              "label": "Community Dispensing",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166363,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Community Pharmacy",
+                    "concept": 166134
+                  },
+                  {
+                    "label": "Community ART Group (HCW-led)",
+                    "concept": 166135
+                  },
+                  {
+                    "label": "Community ART Refill Group (PLHIV-led)",
+                    "concept": 167113
+                  },
+                  {
+                    "label": "Adolescent Community ART/ peer-led groups",
+                    "concept": 167114
+                  },
+                  {
+                    "label": "One Stop Shop (OSS)",
+                    "concept": 167115
+                  },
+                  {
+                    "label": "Home/Courier Delivery",
+                    "concept": 166280
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167129_52",
+              "label": "DSD Start Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167129,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Medication Plan",
+          "questions": [
+            {
+              "id": "q_165771_53",
+              "label": "ARV Medication Plan",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165771,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Continue regimen",
+                    "concept": 1257
+                  },
+                  {
+                    "label": "Substitute regimen",
+                    "concept": 165769
+                  },
+                  {
+                    "label": "Switch regimen",
+                    "concept": 165768
+                  },
+                  {
+                    "label": "Stop regimen",
+                    "concept": 165770
+                  },
+                  {
+                    "label": "Restart medication",
+                    "concept": 162904
+                  },
+                  {
+                    "label": "Commence ART",
+                    "concept": 165357
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165056_54",
+              "label": "Regimen substitution reason",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165056,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Toxicity/side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Pregnancy",
+                    "concept": 165048
+                  },
+                  {
+                    "label": "Risk of pregnancy",
+                    "concept": 160559
+                  },
+                  {
+                    "label": "Due to new TB",
+                    "concept": 160567
+                  },
+                  {
+                    "label": "New drug available",
+                    "concept": 160561
+                  },
+                  {
+                    "label": "Drug out of stock",
+                    "concept": 159834
+                  },
+                  {
+                    "label": "Clinical treatment failure",
+                    "concept": 163523
+                  },
+                  {
+                    "label": "Immunologic failure",
+                    "concept": 160566
+                  },
+                  {
+                    "label": "Virologic failure",
+                    "concept": 160569
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165056_55",
+              "label": "Regimen switch reasons",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165056,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Toxicity/side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Pregnancy",
+                    "concept": 165048
+                  },
+                  {
+                    "label": "Risk of pregnancy",
+                    "concept": 160559
+                  },
+                  {
+                    "label": "Due to new TB",
+                    "concept": 160567
+                  },
+                  {
+                    "label": "New drug available",
+                    "concept": 160561
+                  },
+                  {
+                    "label": "Drug out of stock",
+                    "concept": 159834
+                  },
+                  {
+                    "label": "Clinical treatment failure",
+                    "concept": 163523
+                  },
+                  {
+                    "label": "Immunologic failure",
+                    "concept": 160566
+                  },
+                  {
+                    "label": "Virologic failure",
+                    "concept": 160569
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1252_56",
+              "label": "Regimen stop reasons",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1252,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Toxicity/side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Pregnancy",
+                    "concept": 1434
+                  },
+                  {
+                    "label": "Treatment failure",
+                    "concept": 843
+                  },
+                  {
+                    "label": "Poor adherence",
+                    "concept": 159598
+                  },
+                  {
+                    "label": "Illness or hospitalization",
+                    "concept": 5485
+                  },
+                  {
+                    "label": "Drugs out of stock",
+                    "concept": 1754
+                  },
+                  {
+                    "label": "Patient lacks finances",
+                    "concept": 819
+                  },
+                  {
+                    "label": "Other patient decision",
+                    "concept": 164435
+                  },
+                  {
+                    "label": "Planned Rx interruption",
+                    "concept": 160016
+                  },
+                  {
+                    "label": "Other",
+                    "concept": 5622
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166303_57",
+              "label": "Date Stopped Regimen",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166303,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Prescribed Medications",
+          "questions": [
+            {
+              "id": "q_165708_58",
+              "label": "Current Regimen Line",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165708,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Adult 1st-Line Regimen",
+                    "concept": 164506
+                  },
+                  {
+                    "label": "Adult 2nd-line regimen",
+                    "concept": 164513
+                  },
+                  {
+                    "label": "Adult 3rd-Line Regimen",
+                    "concept": 165702
+                  },
+                  {
+                    "label": "Paediatric 1st-Line Regimen",
+                    "concept": 164507
+                  },
+                  {
+                    "label": "Paediatric 2nd-Line Regimen",
+                    "concept": 164514
+                  },
+                  {
+                    "label": "Paediatric 3rd-Line Regimen",
+                    "concept": 165703
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_164506_59",
+              "label": "Adult 1st line ARV regimen",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 164506,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_164513_60",
+              "label": "Adult 2nd line ARV regimen",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 164513,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165702_61",
+              "label": "Adult 3rd Line ARV Regimens",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165702,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_164507_62",
+              "label": "Child 1st line ARV regimen",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 164507,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_164514_63",
+              "label": "Child 2nd line ARV regimen",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 164514,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165703_64",
+              "label": "Child 3rd Line ARV Regimens",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165703,
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "q_165290_65",
+              "label": "ARV Drugs Adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165290,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "G (Good) \u2265 95%",
+                    "concept": 165287
+                  },
+                  {
+                    "label": "F (Fair) 85-94%",
+                    "concept": 165288
+                  },
+                  {
+                    "label": "P (Poor) < 85%",
+                    "concept": 165289
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166130_66",
+              "label": "Poor ARV Adherence Reason",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166130,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Forgot",
+                    "concept": 160587
+                  },
+                  {
+                    "label": "Fell asleep/slept through dose",
+                    "concept": 165429
+                  },
+                  {
+                    "label": "Change in routine/away from home",
+                    "concept": 165430
+                  },
+                  {
+                    "label": "Busy/working/at school",
+                    "concept": 165431
+                  },
+                  {
+                    "label": "Got pregnant",
+                    "concept": 165432
+                  },
+                  {
+                    "label": "Patient moved",
+                    "concept": 165433
+                  },
+                  {
+                    "label": "Ran out of medications",
+                    "concept": 160584
+                  },
+                  {
+                    "label": "Drug stock-out",
+                    "concept": 1754
+                  },
+                  {
+                    "label": "Not able to pay",
+                    "concept": 819
+                  },
+                  {
+                    "label": "Felt well",
+                    "concept": 160586
+                  },
+                  {
+                    "label": "Felt sick/bad",
+                    "concept": 160585
+                  },
+                  {
+                    "label": "Felt overwhelmed/depressed",
+                    "concept": 119537
+                  },
+                  {
+                    "label": "Did not understand how to take medication",
+                    "concept": 165434
+                  },
+                  {
+                    "label": "Did not want others to know",
+                    "concept": 160589
+                  },
+                  {
+                    "label": "Too many pills",
+                    "concept": 160588
+                  },
+                  {
+                    "label": "Did not want to take meds",
+                    "concept": 165435
+                  },
+                  {
+                    "label": "Afraid of/affected by drug side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Others",
+                    "concept": 5622
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166130_67",
+              "label": "Poor ARV Adherence Reason",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166130,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Forgot",
+                    "concept": 160587
+                  },
+                  {
+                    "label": "Fell asleep/slept through dose",
+                    "concept": 165429
+                  },
+                  {
+                    "label": "Change in routine/away from home",
+                    "concept": 165430
+                  },
+                  {
+                    "label": "Busy/working/at school",
+                    "concept": 165431
+                  },
+                  {
+                    "label": "Got pregnant",
+                    "concept": 165432
+                  },
+                  {
+                    "label": "Patient moved",
+                    "concept": 165433
+                  },
+                  {
+                    "label": "Ran out of medications",
+                    "concept": 160584
+                  },
+                  {
+                    "label": "Drug stock-out",
+                    "concept": 1754
+                  },
+                  {
+                    "label": "Not able to pay",
+                    "concept": 819
+                  },
+                  {
+                    "label": "Felt well",
+                    "concept": 160586
+                  },
+                  {
+                    "label": "Felt sick/bad",
+                    "concept": 160585
+                  },
+                  {
+                    "label": "Felt overwhelmed/depressed",
+                    "concept": 119537
+                  },
+                  {
+                    "label": "Did not understand how to take medication",
+                    "concept": 165434
+                  },
+                  {
+                    "label": "Did not want others to know",
+                    "concept": 160589
+                  },
+                  {
+                    "label": "Too many pills",
+                    "concept": 160588
+                  },
+                  {
+                    "label": "Did not want to take meds",
+                    "concept": 165435
+                  },
+                  {
+                    "label": "Afraid of/affected by drug side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Others",
+                    "concept": 5622
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165069_68",
+              "label": "Cotrimoxazole Dose",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165069,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "CTX 960mg",
+                    "concept": 165062
+                  },
+                  {
+                    "label": "CTX 480mg",
+                    "concept": 165068
+                  },
+                  {
+                    "label": "CTX Suspension",
+                    "concept": 1515
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_161652_69",
+              "label": "Septra adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 161652,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "G (Good) \u2265 95%",
+                    "concept": 165287
+                  },
+                  {
+                    "label": "F (Fair) 85-94%",
+                    "concept": 165288
+                  },
+                  {
+                    "label": "P (Poor) < 85%",
+                    "concept": 165289
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166131_70",
+              "label": "Reason for fair or poor Cotrimoxazole Adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166131,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Forgot",
+                    "concept": 160587
+                  },
+                  {
+                    "label": "Fell asleep/slept through dose",
+                    "concept": 165429
+                  },
+                  {
+                    "label": "Change in routine/away from home",
+                    "concept": 165430
+                  },
+                  {
+                    "label": "Busy/working/at school",
+                    "concept": 165431
+                  },
+                  {
+                    "label": "Got pregnant",
+                    "concept": 165432
+                  },
+                  {
+                    "label": "Patient moved",
+                    "concept": 165433
+                  },
+                  {
+                    "label": "Ran out of medications",
+                    "concept": 160584
+                  },
+                  {
+                    "label": "Drug stock-out",
+                    "concept": 1754
+                  },
+                  {
+                    "label": "Not able to pay",
+                    "concept": 819
+                  },
+                  {
+                    "label": "Felt well",
+                    "concept": 160586
+                  },
+                  {
+                    "label": "Felt sick/bad",
+                    "concept": 160585
+                  },
+                  {
+                    "label": "Felt overwhelmed/depressed",
+                    "concept": 119537
+                  },
+                  {
+                    "label": "Did not understand how to take medication",
+                    "concept": 165434
+                  },
+                  {
+                    "label": "Did not want others to know",
+                    "concept": 160589
+                  },
+                  {
+                    "label": "Too many pills",
+                    "concept": 160588
+                  },
+                  {
+                    "label": "Did not want to take meds",
+                    "concept": 165435
+                  },
+                  {
+                    "label": "Afraid of/affected by drug side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Others",
+                    "concept": 5622
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166131_71",
+              "label": "Reason for fair or poor Cotrimoxazole Adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166131,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Forgot",
+                    "concept": 160587
+                  },
+                  {
+                    "label": "Fell asleep/slept through dose",
+                    "concept": 165429
+                  },
+                  {
+                    "label": "Change in routine/away from home",
+                    "concept": 165430
+                  },
+                  {
+                    "label": "Busy/working/at school",
+                    "concept": 165431
+                  },
+                  {
+                    "label": "Got pregnant",
+                    "concept": 165432
+                  },
+                  {
+                    "label": "Patient moved",
+                    "concept": 165433
+                  },
+                  {
+                    "label": "Ran out of medications",
+                    "concept": 160584
+                  },
+                  {
+                    "label": "Drug stock-out",
+                    "concept": 1754
+                  },
+                  {
+                    "label": "Not able to pay",
+                    "concept": 819
+                  },
+                  {
+                    "label": "Felt well",
+                    "concept": 160586
+                  },
+                  {
+                    "label": "Felt sick/bad",
+                    "concept": 160585
+                  },
+                  {
+                    "label": "Felt overwhelmed/depressed",
+                    "concept": 119537
+                  },
+                  {
+                    "label": "Did not understand how to take medication",
+                    "concept": 165434
+                  },
+                  {
+                    "label": "Did not want others to know",
+                    "concept": 160589
+                  },
+                  {
+                    "label": "Too many pills",
+                    "concept": 160588
+                  },
+                  {
+                    "label": "Did not want to take meds",
+                    "concept": 165435
+                  },
+                  {
+                    "label": "Afraid of/affected by drug side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Others",
+                    "concept": 5622
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_161653_72",
+              "label": "INH adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 161653,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "G (Good) \u2265 95%",
+                    "concept": 165287
+                  },
+                  {
+                    "label": "F (Fair) 85-94%",
+                    "concept": 165288
+                  },
+                  {
+                    "label": "P (Poor) < 85%",
+                    "concept": 165289
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_166132_73",
+              "label": "Reason for fair or poor INH Adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 166132,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Forgot",
+                    "concept": 160587
+                  },
+                  {
+                    "label": "Fell asleep/slept through dose",
+                    "concept": 165429
+                  },
+                  {
+                    "label": "Change in routine/away from home",
+                    "concept": 165430
+                  },
+                  {
+                    "label": "Busy/working/at school",
+                    "concept": 165431
+                  },
+                  {
+                    "label": "Got pregnant",
+                    "concept": 165432
+                  },
+                  {
+                    "label": "Patient moved",
+                    "concept": 165433
+                  },
+                  {
+                    "label": "Ran out of medications",
+                    "concept": 160584
+                  },
+                  {
+                    "label": "Drug stock-out",
+                    "concept": 1754
+                  },
+                  {
+                    "label": "Not able to pay",
+                    "concept": 819
+                  },
+                  {
+                    "label": "Felt well",
+                    "concept": 160586
+                  },
+                  {
+                    "label": "Felt sick/bad",
+                    "concept": 160585
+                  },
+                  {
+                    "label": "Felt overwhelmed/depressed",
+                    "concept": 119537
+                  },
+                  {
+                    "label": "Did not understand how to take medication",
+                    "concept": 165434
+                  },
+                  {
+                    "label": "Did not want others to know",
+                    "concept": 160589
+                  },
+                  {
+                    "label": "Too many pills",
+                    "concept": 160588
+                  },
+                  {
+                    "label": "Did not want to take meds",
+                    "concept": 165435
+                  },
+                  {
+                    "label": "Afraid of/affected by drug side effects",
+                    "concept": 102
+                  },
+                  {
+                    "label": "Others",
+                    "concept": 5622
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167176_74",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167176,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": 167208
+                  },
+                  {
+                    "label": "3HP Weekly",
+                    "concept": 167177
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": 167178
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": 167179
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167176_75",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167176,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": 167208
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": 167178
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": 167179
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167176_76",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167176,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": 167208
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": 167178
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": 167179
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167177_77",
+              "label": "3HP Weekly",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167177,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "900/900mg",
+                    "concept": 167180
+                  },
+                  {
+                    "label": "600/600mg",
+                    "concept": 167181
+                  },
+                  {
+                    "label": "300/300mg",
+                    "concept": 165621
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1754_78",
+              "label": "Medications out of stock",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1754,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "300/600mg",
+                    "concept": 167185
+                  },
+                  {
+                    "label": "150/600mg",
+                    "concept": 167182
+                  },
+                  {
+                    "label": "150/75mg",
+                    "concept": 167106
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_167179_79",
+              "label": "1HP Daily",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 167179,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "300/600mg",
+                    "concept": 167185
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_165080_80",
+              "label": "INH Dose",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165080,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "100mg",
+                    "concept": 165076
+                  },
+                  {
+                    "label": "150mg",
+                    "concept": 165075
+                  },
+                  {
+                    "label": "300mg",
+                    "concept": 165074
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_163101_81",
+              "label": "Other drugs prescribed",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 163101,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Lab Plan",
+          "questions": [
+            {
+              "id": "q_1271_82",
+              "label": "TESTS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_83",
+              "label": "TESTS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_84",
+              "label": "TESTS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_164980_85",
+              "label": "Indication For The Viral Load Test",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 164980,
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Targeted",
+                    "concept": 162082
+                  },
+                  {
+                    "label": "Routine",
+                    "concept": 161236
+                  }
+                ]
+              }
+            },
+            {
+              "id": "q_1271_86",
+              "label": "CD4\n\nViral Load\nEsophageal Thrush\r\n                    Indication for Viral Load Test",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_87",
+              "label": "CD4\n\nViral Load\nEsophageal Thrush\r\n                    Indication for Viral Load Test",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_88",
+              "label": "CD4\n\nViral Load\nEsophageal Thrush\r\n                    Indication for Viral Load Test",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_89",
+              "label": "CD4\n\nViral Load\nEsophageal Thrush\r\n                    Indication for Viral Load Test",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_90",
+              "label": "CD4\n\nViral Load\nEsophageal Thrush\r\n                    Indication for Viral Load Test",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_91",
+              "label": "HB/PCV\nWBC + Diff\nALT\nAST\nDifferential Lymphocytes count (DLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_92",
+              "label": "HB/PCV\nWBC + Diff\nALT\nAST\nDifferential Lymphocytes count (DLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_93",
+              "label": "HB/PCV\nWBC + Diff\nALT\nAST\nDifferential Lymphocytes count (DLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_94",
+              "label": "HB/PCV\nWBC + Diff\nALT\nAST\nDifferential Lymphocytes count (DLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_95",
+              "label": "HB/PCV\nWBC + Diff\nALT\nAST\nDifferential Lymphocytes count (DLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_96",
+              "label": "Creatinine\nLipid Profile\nHBsAg\nHCV\nTotal lymphocytes count (TLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_97",
+              "label": "Creatinine\nLipid Profile\nHBsAg\nHCV\nTotal lymphocytes count (TLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_98",
+              "label": "Creatinine\nLipid Profile\nHBsAg\nHCV\nTotal lymphocytes count (TLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1271_99",
+              "label": "Creatinine\nLipid Profile\nHBsAg\nHCV\nTotal lymphocytes count (TLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1271,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_165081_100",
+              "label": "Creatinine\nLipid Profile\nHBsAg\nHCV\nTotal lymphocytes count (TLC)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165081,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Referrals",
+          "questions": [
+            {
+              "id": "q_1272_101",
+              "label": "REFERRALS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_102",
+              "label": "REFERRALS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_103",
+              "label": "REFERRALS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_104",
+              "label": "REFERRALS ORDERED",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_105",
+              "label": "Adherence Counseling\nIntensive Adherence Counseling\nCommunity Pharmacy\nCommunity ART",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_106",
+              "label": "Adherence Counseling\nIntensive Adherence Counseling\nCommunity Pharmacy\nCommunity ART",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_107",
+              "label": "Adherence Counseling\nIntensive Adherence Counseling\nCommunity Pharmacy\nCommunity ART",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_1272_108",
+              "label": "Adherence Counseling\nIntensive Adherence Counseling\nCommunity Pharmacy\nCommunity ART",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 1272,
+                "rendering": "select"
+              }
+            },
+            {
+              "id": "q_165488_109",
+              "label": "PMTCT Services\nSTI Services\nTB Services\nOVC Program",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165488,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Additional Comments/Clinical Notes",
+          "questions": [
+            {
+              "id": "q_165045_110",
+              "label": "Additional Comments",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 165045,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Appointment and Signatures",
+          "questions": [
+            {
+              "id": "q_5096_111",
+              "label": "Next Appointment Date:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": 5096,
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
