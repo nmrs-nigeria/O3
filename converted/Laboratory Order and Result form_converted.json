@@ -1,6 +1,6 @@
 {
   "name": "Laboratory Order and Result form",
-  "uuid": "e79fab55-0c3f-420a-a43b-3deab22b38eb",
+  "uuid": "1a0237d8-0afd-4685-93fb-cd42f6ad5cd3",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
@@ -42,7 +42,7 @@
             {
               "id": "cd4CellCountOrder_3",
               "label": "CD4+ cell count Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "e5c936a7-66b0-4aa8-ba46-c3cf99f287e7",
                 "rendering": "radio",
@@ -50,13 +50,8 @@
                   {
                     "label": "CD4+ cell count Order",
                     "concept": "e5c936a7-66b0-4aa8-ba46-c3cf99f287e7"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -65,13 +60,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "5497AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "cd4Order_5",
               "label": "CD4% Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "7f8858b5-aa0e-4850-b4f8-b5ad8a9cf4c5",
                 "rendering": "radio",
@@ -79,13 +82,8 @@
                   {
                     "label": "CD4% Order",
                     "concept": "7f8858b5-aa0e-4850-b4f8-b5ad8a9cf4c5"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -94,13 +92,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "cd4LfaOrder_7",
               "label": "CD4 LFA Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "77c9312c-ff7b-4175-9a10-485fa27da29d",
                 "rendering": "radio",
@@ -108,13 +120,8 @@
                   {
                     "label": "CD4 LFA Order",
                     "concept": "77c9312c-ff7b-4175-9a10-485fa27da29d"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -139,7 +146,7 @@
             {
               "id": "wbcOrder_9",
               "label": "WBC Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "51c81b0d-5fce-4533-a97b-c7097bcc7958",
                 "rendering": "radio",
@@ -147,13 +154,8 @@
                   {
                     "label": "WBC Order",
                     "concept": "51c81b0d-5fce-4533-a97b-c7097bcc7958"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -162,8 +164,16 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "678AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "timeCd4LfaSampleCollected_11",
@@ -186,7 +196,7 @@
             {
               "id": "polymorphsOrder_13",
               "label": "Polymorphs Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "cb087d6a-ccdf-4284-a674-0307cd565bf0",
                 "rendering": "radio",
@@ -194,13 +204,8 @@
                   {
                     "label": "Polymorphs Order",
                     "concept": "cb087d6a-ccdf-4284-a674-0307cd565bf0"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -209,13 +214,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "polymorphsOrder_15",
               "label": "Polymorphs% Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "7435d14b-210b-47ae-b114-4e9119ddddaf",
                 "rendering": "radio",
@@ -223,13 +242,8 @@
                   {
                     "label": "Polymorphs% Order",
                     "concept": "7435d14b-210b-47ae-b114-4e9119ddddaf"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -238,13 +252,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "f9a9acd9-50ba-420d-8a2e-433cf8b167dc",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "lymphocytesOrder_17",
               "label": "Lymphocytes order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "28a2cbd4-34c6-460b-8985-d2deb3a85025",
                 "rendering": "radio",
@@ -252,13 +266,8 @@
                   {
                     "label": "Lymphocytes order",
                     "concept": "28a2cbd4-34c6-460b-8985-d2deb3a85025"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -267,13 +276,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1319AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "lymphocytesOrder_19",
               "label": "Lymphocytes% Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "dc2bf75c-b83e-40c5-b98c-51c5f41a1db3",
                 "rendering": "radio",
@@ -281,13 +298,8 @@
                   {
                     "label": "Lymphocytes% Order",
                     "concept": "dc2bf75c-b83e-40c5-b98c-51c5f41a1db3"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -296,13 +308,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1338AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "monocytesOrder_21",
               "label": "Monocytes Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "9411bfc9-ac57-42e6-ab02-13266820d98c",
                 "rendering": "radio",
@@ -310,13 +336,8 @@
                   {
                     "label": "Monocytes Order",
                     "concept": "9411bfc9-ac57-42e6-ab02-13266820d98c"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -325,13 +346,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1023AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "monocytesOrder_23",
               "label": "Monocytes% Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "3a885ea1-19a9-4bda-9418-0ecaa42398ed",
                 "rendering": "radio",
@@ -339,13 +374,8 @@
                   {
                     "label": "Monocytes% Order",
                     "concept": "3a885ea1-19a9-4bda-9418-0ecaa42398ed"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -354,13 +384,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1339AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "eosinophilsOrder_25",
               "label": "Eosinophils Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "8a41ecd1-88f4-4c24-b76c-b1842b232add",
                 "rendering": "radio",
@@ -368,13 +412,8 @@
                   {
                     "label": "Eosinophils Order",
                     "concept": "8a41ecd1-88f4-4c24-b76c-b1842b232add"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -383,13 +422,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1024AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "eosinophilsOrder_27",
               "label": "Eosinophils% Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "b795aa1e-3fac-4e63-ada5-9dc6e4cf47e1",
                 "rendering": "radio",
@@ -397,13 +450,8 @@
                   {
                     "label": "Eosinophils% Order",
                     "concept": "b795aa1e-3fac-4e63-ada5-9dc6e4cf47e1"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -412,13 +460,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1340AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "basophilsOrder_29",
               "label": "Basophils Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "2d232f97-8e50-4074-a673-f73568a8a717",
                 "rendering": "radio",
@@ -426,13 +488,8 @@
                   {
                     "label": "Basophils Order",
                     "concept": "2d232f97-8e50-4074-a673-f73568a8a717"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -441,13 +498,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1025AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "basophilsOrder_31",
               "label": "Basophils% Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "bf09e2c0-88e3-49c0-9d99-3e9c0fd2399c",
                 "rendering": "radio",
@@ -455,13 +526,8 @@
                   {
                     "label": "Basophils% Order",
                     "concept": "bf09e2c0-88e3-49c0-9d99-3e9c0fd2399c"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -470,13 +536,27 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1341AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "max": "100.0",
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "100.0",
+                  "message": "Value must be <= 100.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "pcvhbOrder_33",
               "label": "PCV/Hb Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "19cbe784-36d4-43fc-8b8c-a5b508901427",
                 "rendering": "radio",
@@ -484,13 +564,8 @@
                   {
                     "label": "PCV/Hb Order",
                     "concept": "19cbe784-36d4-43fc-8b8c-a5b508901427"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -499,13 +574,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "ff2e9dd2-e806-4da5-8897-11216e5f69fb",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "pcvhbGdlOrder_35",
               "label": "PCV/Hb (g/dl) order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "623b17b1-01f0-4b21-831b-5d562228a353",
                 "rendering": "radio",
@@ -513,13 +588,8 @@
                   {
                     "label": "PCV/Hb (g/dl) order",
                     "concept": "623b17b1-01f0-4b21-831b-5d562228a353"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -528,13 +598,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "52a243ab-54da-4550-84af-b9f0218a4495",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "plateletsOrder_37",
               "label": "Platelets Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "c3a67e24-6d34-465d-b554-01e24c2f0dff",
                 "rendering": "radio",
@@ -542,13 +612,8 @@
                   {
                     "label": "Platelets Order",
                     "concept": "c3a67e24-6d34-465d-b554-01e24c2f0dff"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -557,13 +622,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "hcvAntibodyOrder_39",
               "label": "HCV antibody Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "2cc098bf-9ac1-4bf3-97a6-8a88f2e5028f",
                 "rendering": "radio",
@@ -571,13 +644,8 @@
                   {
                     "label": "HCV antibody Order",
                     "concept": "2cc098bf-9ac1-4bf3-97a6-8a88f2e5028f"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -602,7 +670,7 @@
             {
               "id": "hbsagOrder_41",
               "label": "HBsAG Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "3bdf246a-2de5-48ff-b140-1d297e98bddf",
                 "rendering": "radio",
@@ -610,13 +678,8 @@
                   {
                     "label": "HBsAG Order",
                     "concept": "3bdf246a-2de5-48ff-b140-1d297e98bddf"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -641,10 +704,16 @@
             {
               "id": "vdrlOrder_43",
               "label": "VDRL Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "1865aa43-d316-4538-84bd-7254f65c9afb",
-                "rendering": "radio"
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "VDRL Order",
+                    "concept": "1865aa43-d316-4538-84bd-7254f65c9afb"
+                  }
+                ]
               }
             },
             {
@@ -669,10 +738,16 @@
             {
               "id": "creatinineOrder_45",
               "label": "Creatinine Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "c617b0df-bb79-4e2d-9e0a-5910e8de0595",
-                "rendering": "radio"
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Creatinine Order",
+                    "concept": "c617b0df-bb79-4e2d-9e0a-5910e8de0595"
+                  }
+                ]
               }
             },
             {
@@ -681,13 +756,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "164364AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "altsgptOrder_47",
               "label": "ALT/SGPT Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "b78db60b-e7b6-4c1d-99ea-c72d62500005",
                 "rendering": "radio",
@@ -695,13 +778,8 @@
                   {
                     "label": "ALT/SGPT Order",
                     "concept": "b78db60b-e7b6-4c1d-99ea-c72d62500005"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -710,13 +788,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "654AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "altsgptOrderMmoll_49",
               "label": "ALT/SGPT Order mmol/L",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "064969e6-1dd8-4878-b381-af857d32dfda",
                 "rendering": "radio",
@@ -724,13 +810,8 @@
                   {
                     "label": "ALT/SGPT Order mmol/L",
                     "concept": "064969e6-1dd8-4878-b381-af857d32dfda"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -739,13 +820,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "dd5bea86-e7f4-434d-bba1-5712e456d01f",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "astsgotOrder_51",
               "label": "AST/SGOT Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "0b917e57-4719-4cc1-a20f-fc4e825919f3",
                 "rendering": "radio",
@@ -753,13 +834,8 @@
                   {
                     "label": "AST/SGOT Order",
                     "concept": "0b917e57-4719-4cc1-a20f-fc4e825919f3"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -768,13 +844,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "653AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "alkPhosphataseOrder_53",
               "label": "Alk. Phosphatase Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "61a81c2d-a14a-449e-80a5-721aebd3d0a8",
                 "rendering": "radio",
@@ -782,13 +866,8 @@
                   {
                     "label": "Alk. Phosphatase Order",
                     "concept": "61a81c2d-a14a-449e-80a5-721aebd3d0a8"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -797,13 +876,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "785AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "totalBilirubinOrder_55",
               "label": "Total Bilirubin Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "dadce03a-4768-48bf-bac6-2386a88b7775",
                 "rendering": "radio",
@@ -811,13 +890,8 @@
                   {
                     "label": "Total Bilirubin Order",
                     "concept": "dadce03a-4768-48bf-bac6-2386a88b7775"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -826,13 +900,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "655AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "naOrder_57",
               "label": "Na+ Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "e14f054b-4a1f-40f5-b749-e9ddc2c8c301",
                 "rendering": "radio",
@@ -840,13 +922,8 @@
                   {
                     "label": "Na+ Order",
                     "concept": "e14f054b-4a1f-40f5-b749-e9ddc2c8c301"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -855,13 +932,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "kOrder_59",
               "label": "K+ Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "fddf8b85-2ce7-43c2-86f7-de6ceb53ae11",
                 "rendering": "radio",
@@ -869,13 +954,8 @@
                   {
                     "label": "K+ Order",
                     "concept": "fddf8b85-2ce7-43c2-86f7-de6ceb53ae11"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -884,13 +964,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "fastingGlucoseOrder_61",
               "label": "Fasting Glucose Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "a52c1104-6244-4a08-bfda-f0adbabd04b3",
                 "rendering": "radio",
@@ -898,13 +986,8 @@
                   {
                     "label": "Fasting Glucose Order",
                     "concept": "a52c1104-6244-4a08-bfda-f0adbabd04b3"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -913,13 +996,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "160053AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "totalCholesterolOrder_63",
               "label": "Total Cholesterol Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "a707db42-5492-4f9d-b5f1-db4f6d67ca0e",
                 "rendering": "radio",
@@ -927,13 +1018,8 @@
                   {
                     "label": "Total Cholesterol Order",
                     "concept": "a707db42-5492-4f9d-b5f1-db4f6d67ca0e"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -942,13 +1028,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "ldlOrder_65",
               "label": "LDL Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "f6324e1f-2a38-4803-a1f2-69025f6964c2",
                 "rendering": "radio",
@@ -956,13 +1050,8 @@
                   {
                     "label": "LDL Order",
                     "concept": "f6324e1f-2a38-4803-a1f2-69025f6964c2"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -971,13 +1060,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1008AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "hdlOrder_67",
               "label": "HDL Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "92102c3d-213d-41f5-b2c5-b4d2912a9089",
                 "rendering": "radio",
@@ -985,13 +1082,8 @@
                   {
                     "label": "HDL Order",
                     "concept": "92102c3d-213d-41f5-b2c5-b4d2912a9089"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1000,13 +1092,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1007AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "glucoseOrder_69",
               "label": "Glucose Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "e192c010-8831-4d29-a80e-2202a4024780",
                 "rendering": "radio",
@@ -1014,13 +1114,8 @@
                   {
                     "label": "Glucose Order",
                     "concept": "e192c010-8831-4d29-a80e-2202a4024780"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1029,13 +1124,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "160053AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "proteinOrder_71",
               "label": "Protein Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "36262306-93bf-4ef0-aab5-0fc4bb37dce5",
                 "rendering": "radio",
@@ -1043,13 +1146,8 @@
                   {
                     "label": "Protein Order",
                     "concept": "36262306-93bf-4ef0-aab5-0fc4bb37dce5"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1058,13 +1156,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "78efdba1-2598-4c0c-b94b-e69d45f6d0a7",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "cytologypapSmearOrder_73",
               "label": "Cytology/Pap Smear Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "633908e4-2670-4697-ba14-9bd7a4b84413",
                 "rendering": "radio",
@@ -1072,13 +1170,8 @@
                   {
                     "label": "Cytology/Pap Smear Order",
                     "concept": "633908e4-2670-4697-ba14-9bd7a4b84413"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1087,13 +1180,13 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "921d5e09-ef3f-4b0f-a061-7955d854b7fa",
-                "rendering": "text"
+                "rendering": "number"
               }
             },
             {
               "id": "triglycerideOrder_75",
               "label": "Triglyceride Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "cb039698-ad74-407a-b8fd-508dc4dceaea",
                 "rendering": "radio",
@@ -1101,13 +1194,8 @@
                   {
                     "label": "Triglyceride Order",
                     "concept": "cb039698-ad74-407a-b8fd-508dc4dceaea"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1116,13 +1204,21 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1009AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             },
             {
               "id": "pregnancyOrder_77",
               "label": "Pregnancy Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "f707b75a-6304-4b63-a25b-4dc63a15c5d9",
                 "rendering": "radio",
@@ -1130,13 +1226,8 @@
                   {
                     "label": "Pregnancy Order",
                     "concept": "f707b75a-6304-4b63-a25b-4dc63a15c5d9"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1161,7 +1252,7 @@
             {
               "id": "malariaSmearOrder_79",
               "label": "Malaria smear Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "2df3b3c5-e2f9-4dd7-852c-4c1a7b7cc7de",
                 "rendering": "radio",
@@ -1169,13 +1260,8 @@
                   {
                     "label": "Malaria smear Order",
                     "concept": "2df3b3c5-e2f9-4dd7-852c-4c1a7b7cc7de"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1200,7 +1286,7 @@
             {
               "id": "tbLfLamOrder_81",
               "label": "TB LF LAM Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "5329cb85-c544-4d98-90e0-a9a85a9ee938",
                 "rendering": "radio",
@@ -1208,13 +1294,8 @@
                   {
                     "label": "TB LF LAM Order",
                     "concept": "5329cb85-c544-4d98-90e0-a9a85a9ee938"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1239,7 +1320,7 @@
             {
               "id": "urinalysisLabOrder_83",
               "label": "Urinalysis Lab Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "0e795c4c-ff5d-4b4a-a7dd-7579e3b1d6e0",
                 "rendering": "radio",
@@ -1247,13 +1328,8 @@
                   {
                     "label": "Urinalysis Lab Order",
                     "concept": "0e795c4c-ff5d-4b4a-a7dd-7579e3b1d6e0"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1268,7 +1344,7 @@
             {
               "id": "serologyForCragOrder_85",
               "label": "Serology for CrAg Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "28811ed9-44a0-4fd7-903e-f704bcd52d32",
                 "rendering": "radio",
@@ -1276,13 +1352,8 @@
                   {
                     "label": "Serology for CrAg Order",
                     "concept": "28811ed9-44a0-4fd7-903e-f704bcd52d32"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1307,7 +1378,7 @@
             {
               "id": "csfForCragOrder_87",
               "label": "CSF for CrAg Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "d49637cf-bc25-40b7-aadf-b4c365c82ac4",
                 "rendering": "radio",
@@ -1315,13 +1386,8 @@
                   {
                     "label": "CSF for CrAg Order",
                     "concept": "d49637cf-bc25-40b7-aadf-b4c365c82ac4"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1383,7 +1449,7 @@
             {
               "id": "serologyForCragOrder_92",
               "label": "Serology for CrAg Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "28811ed9-44a0-4fd7-903e-f704bcd52d32",
                 "rendering": "radio",
@@ -1391,13 +1457,8 @@
                   {
                     "label": "Serology for CrAg Order",
                     "concept": "28811ed9-44a0-4fd7-903e-f704bcd52d32"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1422,7 +1483,7 @@
             {
               "id": "csfForCragOrder_94",
               "label": "CSF for CrAg Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "d49637cf-bc25-40b7-aadf-b4c365c82ac4",
                 "rendering": "radio",
@@ -1430,13 +1491,8 @@
                   {
                     "label": "CSF for CrAg Order",
                     "concept": "d49637cf-bc25-40b7-aadf-b4c365c82ac4"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1508,7 +1564,7 @@
             {
               "id": "viralLoadOrder_99",
               "label": "Viral Load Order",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "f5368416-5382-4deb-a0ae-a9c124a809a2",
                 "rendering": "radio",
@@ -1516,13 +1572,8 @@
                   {
                     "label": "Viral Load Order",
                     "concept": "f5368416-5382-4deb-a0ae-a9c124a809a2"
-                  },
-                  {
-                    "label": "None",
-                    "concept": ""
                   }
-                ],
-                "default": ""
+                ]
               }
             },
             {
@@ -1606,8 +1657,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "159951AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "sampleCollectionDate_104",
@@ -1615,8 +1673,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "9afa14a2-a17d-4f1d-a440-f6ff366bd6fc",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "dateSampleSentToPcrLab_105",
@@ -1624,8 +1689,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "467cb366-0c42-428d-a6ca-dc86900b3cf2",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "dateResultWasSentOut_106",
@@ -1633,8 +1705,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "dc776767-01dd-4742-b87a-b68d32a60f14",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "dateResultWasSentFromPcrLab_107",
@@ -1642,8 +1721,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "36e2d500-0e1b-479c-bb02-c2dec6f53965",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "dateResultWasReceivedAtTheFacility_108",
@@ -1651,8 +1737,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "43d4c591-9976-4fc2-a2f0-14b8159624f2",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "assayDate_109",
@@ -1660,17 +1753,31 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "c7d3fb2c-8f1c-4209-b8e2-cf862e3f862c",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
-              "id": "assayDate_110",
-              "label": "Assay Date",
+              "id": "assayDate2_110",
+              "label": "Assay Date (2)",
               "type": "obs",
               "questionOptions": {
                 "concept": "e4cf058e-8c7f-4913-bbae-1adece74f9fa",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "approvalDate_111",
@@ -1770,8 +1877,16 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
-              }
+                "min": "0.0",
+                "rendering": "number"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
             }
           ]
         }
@@ -1786,10 +1901,16 @@
             {
               "id": "sampleSelectedForHivdrStudy_114",
               "label": "Sample Selected for HIVDR Study",
-              "type": "obs",
+              "type": "radio",
               "questionOptions": {
                 "concept": "f9a18c26-4b03-4671-ba73-e9bb12d33a94",
-                "rendering": "radio"
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Sample Selected for HIVDR Study",
+                    "concept": "f9a18c26-4b03-4671-ba73-e9bb12d33a94"
+                  }
+                ]
               }
             },
             {
@@ -1807,8 +1928,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "42777e97-6fd6-494d-b44d-33cf907522fc",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "dateOfSampleSentToGenotypingLaboratory_117",
@@ -1816,8 +1944,15 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "c8d0c960-5c6a-4d71-85ad-05a22e0aa22e",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "dateOfSampleArrivalAtGenotypingLaboratory_118",
@@ -1825,920 +1960,927 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "e8a79abb-dda0-4113-aa0d-3b61e320895c",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
               "id": "resistanceMutationsDetected_119",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "label": "M41L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "M41L",
-                    "concept": ""
+                    "concept": "167009 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_120",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected2_120",
+              "label": "K65R",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K65R",
-                    "concept": ""
+                    "concept": "167010 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_121",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected3_121",
+              "label": "D67N",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "D67N",
-                    "concept": ""
+                    "concept": "167011 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_122",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected4_122",
+              "label": "D67G",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "D67G",
-                    "concept": ""
+                    "concept": "167012 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_123",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected5_123",
+              "label": "T69D",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T69D",
-                    "concept": ""
+                    "concept": "167013 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_124",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected6_124",
+              "label": "K70R",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K70R",
-                    "concept": ""
+                    "concept": "167014 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_125",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected7_125",
+              "label": "K70E",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K70E",
-                    "concept": ""
+                    "concept": "167015 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_126",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected8_126",
+              "label": "L74V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L74V",
-                    "concept": ""
+                    "concept": "167016 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_127",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected9_127",
+              "label": "L74I",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L74I",
-                    "concept": ""
+                    "concept": "167017 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_128",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected10_128",
+              "label": "V75M",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V75M",
-                    "concept": ""
+                    "concept": "167018 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_129",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected11_129",
+              "label": "F77L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "F77L",
-                    "concept": ""
+                    "concept": "167019 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_130",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected12_130",
+              "label": "Y115F",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Y115F",
-                    "concept": ""
+                    "concept": "167020 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_131",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected13_131",
+              "label": "F116Y",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "F116Y",
-                    "concept": ""
+                    "concept": "167021 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_132",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected14_132",
+              "label": "Q151M",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Q151M",
-                    "concept": ""
+                    "concept": "167022 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_133",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected15_133",
+              "label": "M184V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "M184V",
-                    "concept": ""
+                    "concept": "167023 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_134",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected16_134",
+              "label": "M184I",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "M184I",
-                    "concept": ""
+                    "concept": "167024 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_135",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected17_135",
+              "label": "L210W",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L210W",
-                    "concept": ""
+                    "concept": "167025 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_136",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected18_136",
+              "label": "T215Y",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T215Y",
-                    "concept": ""
+                    "concept": "167026 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_137",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected19_137",
+              "label": "T215F",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T215F",
-                    "concept": ""
+                    "concept": "167027 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_138",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected20_138",
+              "label": "T215I",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T215I",
-                    "concept": ""
+                    "concept": "167028 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_139",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected21_139",
+              "label": "T215S",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T215S",
-                    "concept": ""
+                    "concept": "167029 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_140",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected22_140",
+              "label": "T215C",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T215C",
-                    "concept": ""
+                    "concept": "167030 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_141",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected23_141",
+              "label": "T215E",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "T215E",
-                    "concept": ""
+                    "concept": "167031 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_142",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected24_142",
+              "label": "K219Q",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K219Q",
-                    "concept": ""
+                    "concept": "167032 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_143",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected25_143",
+              "label": "K219E",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K219E",
-                    "concept": ""
+                    "concept": "167033 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_144",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected26_144",
+              "label": "K219N",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K219N",
-                    "concept": ""
+                    "concept": "167034 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_145",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected27_145",
+              "label": "K219R",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K219R",
-                    "concept": ""
+                    "concept": "167035 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_146",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected28_146",
+              "label": "L100I",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L100I",
-                    "concept": ""
+                    "concept": "167036 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_147",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected29_147",
+              "label": "K101E",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K101E",
-                    "concept": ""
+                    "concept": "167037 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_148",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected30_148",
+              "label": "K101P",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K101P",
-                    "concept": ""
+                    "concept": "167038 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_149",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected31_149",
+              "label": "K103N",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K103N",
-                    "concept": ""
+                    "concept": "167039 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_150",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected32_150",
+              "label": "K103S",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "K103S",
-                    "concept": ""
+                    "concept": "167040 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_151",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected33_151",
+              "label": "V106M",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V106M",
-                    "concept": ""
+                    "concept": "167041 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_152",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected34_152",
+              "label": "V106A",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V106A",
-                    "concept": ""
+                    "concept": "167042 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_153",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected35_153",
+              "label": "Y181C",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Y181C",
-                    "concept": ""
+                    "concept": "167043 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_154",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected36_154",
+              "label": "Y181V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Y181V",
-                    "concept": ""
+                    "concept": "167044 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_155",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected37_155",
+              "label": "Y188L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Y188L",
-                    "concept": ""
+                    "concept": "167045 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_156",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected38_156",
+              "label": "Y188H",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Y188H",
-                    "concept": ""
+                    "concept": "167046 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_157",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected39_157",
+              "label": "Y188C",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "Y188C",
-                    "concept": ""
+                    "concept": "167047 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_158",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected40_158",
+              "label": "G190A",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "G190A",
-                    "concept": ""
+                    "concept": "167048 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_159",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected41_159",
+              "label": "G190S",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "G190S",
-                    "concept": ""
+                    "concept": "167049 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_160",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected42_160",
+              "label": "G190E",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "G190E",
-                    "concept": ""
+                    "concept": "167050 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_161",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected43_161",
+              "label": "P225H",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "P225H",
-                    "concept": ""
+                    "concept": "167051 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_162",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected44_162",
+              "label": "M230L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "M230L",
-                    "concept": ""
+                    "concept": "167052 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_163",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected45_163",
+              "label": "L24I",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L24I",
-                    "concept": ""
+                    "concept": "167053 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_164",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected46_164",
+              "label": "M46I",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "M46I",
-                    "concept": ""
+                    "concept": "167054 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_165",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected47_165",
+              "label": "M46L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "M46L",
-                    "concept": ""
+                    "concept": "167055 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_166",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected48_166",
+              "label": "I50V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "I50V",
-                    "concept": ""
+                    "concept": "167056 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_167",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected49_167",
+              "label": "I50L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "I50L",
-                    "concept": ""
+                    "concept": "167057 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_168",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected50_168",
+              "label": "F53L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "F53L",
-                    "concept": ""
+                    "concept": "167058 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_169",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected51_169",
+              "label": "I54V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "I54V",
-                    "concept": ""
+                    "concept": "167059 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_170",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected52_170",
+              "label": "I54L",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "I54L",
-                    "concept": ""
+                    "concept": "167060 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_171",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected53_171",
+              "label": "G73S",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "G73S",
-                    "concept": ""
+                    "concept": "167061 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_172",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected54_172",
+              "label": "L76V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L76V",
-                    "concept": ""
+                    "concept": "167062 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_173",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected55_173",
+              "label": "V82A",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V82A",
-                    "concept": ""
+                    "concept": "167063 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_174",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected56_174",
+              "label": "V82F",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V82F",
-                    "concept": ""
+                    "concept": "167064 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_175",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected57_175",
+              "label": "V82S",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V82S",
-                    "concept": ""
+                    "concept": "167065 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_176",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected58_176",
+              "label": "V82M",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "V82M",
-                    "concept": ""
+                    "concept": "167066 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_177",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected59_177",
+              "label": "N83D",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "N83D",
-                    "concept": ""
+                    "concept": "167067 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_178",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected60_178",
+              "label": "I84V",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "I84V",
-                    "concept": ""
+                    "concept": "167068 "
                   }
                 ]
               }
             },
             {
-              "id": "resistanceMutationsDetected_179",
-              "label": "Resistance Mutations Detected",
-              "type": "obs",
+              "id": "resistanceMutationsDetected61_179",
+              "label": "L90M",
+              "type": "radio",
               "questionOptions": {
                 "concept": "4a74b59c-d1d1-4d02-b19d-e97045e93ba7",
-                "rendering": "select",
+                "rendering": "radio",
                 "answers": [
                   {
                     "label": "L90M",
-                    "concept": ""
+                    "concept": "167069 "
                   }
                 ]
               }
@@ -2768,23 +2910,25 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "2552b7df-30b8-4789-8165-46461cd4b015",
-                "rendering": "text"
+                "allowFutureDates": false,
+                "rendering": "date"
               },
               "validators": [
                 {
-                  "type": "required",
-                  "message": "This field is required"
+                  "type": "date",
+                  "message": "Please enter a valid date"
                 }
               ]
             },
             {
-              "id": "reportedBy_182",
               "label": "Reported By",
-              "type": "obs",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "reportedBy_182",
               "questionOptions": {
-                "concept": "94b72d22-ac20-4781-ba24-aee35162c6b4",
-                "rendering": "text"
-              }
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
             },
             {
               "id": "dateReported_183",
@@ -2792,17 +2936,25 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
-                "rendering": "text"
-              }
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
             },
             {
-              "id": "checkedBy_184",
               "label": "Checked By",
-              "type": "obs",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "checkedBy_184",
               "questionOptions": {
-                "concept": "6e77fbe0-4a94-4d6e-a5d0-b8b715ebf86d",
-                "rendering": "text"
-              }
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
             },
             {
               "id": "dateChecked_185",
@@ -2810,7 +2962,35 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "74171955-59a0-499a-940e-9818dbbe9091",
-                "rendering": "text"
+                "allowFutureDates": false,
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "General",
+      "sections": [
+        {
+          "label": "General",
+          "questions": [
+            {
+              "id": "encounterDate_186",
+              "label": "Visit Date",
+              "type": "encounterDate",
+              "required": true,
+              "questionOptions": {
+                "rendering": "date",
+                "allowFutureDates": false,
+                "showTime": false
               }
             }
           ]
