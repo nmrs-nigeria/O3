@@ -1,0 +1,269 @@
+{
+  "name": "TB Interruption Tracking Form",
+  "description": "TB Interruption Tracking Form 3",
+  "version": "3",
+  "published": true,
+  "uuid": "b62911ab-c2d1-48c7-a69e-9cf042f73a5e",
+  "processor": "EncounterFormProcessor",
+  "encounter": "Consultation",
+  "retired": false,
+  "referencedForms": [],
+  "pages": [
+    {
+      "label": "TB Interruption Tracking Form",
+      "sections": [
+        {
+          "label": "Date of Tracking",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Date of Tracking",
+              "type": "obs",
+              "required": false,
+              "id": "dateOfTracking",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "f996800e-eba9-4f8d-9a54-1c878279d5d2"
+              },
+              "validators": []
+            },
+            {
+              "label": "Tracking Attempts",
+              "type": "obs",
+              "required": false,
+              "id": "trac_atmp",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3c3624a5-b121-4357-8a56-1478421eaf25",
+                "answers": [
+                  {
+                    "concept": "a8c45899-0d4d-4eca-8076-310adad9bd56",
+                    "label": "First Attempt"
+                  },
+                  {
+                    "concept": "1de26793-95aa-44e1-ae02-b62b69e0e899",
+                    "label": "Third Attempt"
+                  },
+                  {
+                    "concept": "7db42050-490a-4128-88be-a518615428cf",
+                    "label": "Second Attempt"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "Tracking Details",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Date of Last Drug Intake:",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "doldi",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "26e1ac88-0e4e-4229-856b-59c4c436882f",
+                "answers": []
+              }
+            },
+            {
+              "label": "Mode of Tracking",
+              "type": "obs",
+              "required": false,
+              "id": "mot",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "73ec6fdb-c517-47be-bf5c-cc7de67a51f3",
+                "answers": [
+                  {
+                    "concept": "169ec22e-1db6-4769-91b0-ab2bee894aeb",
+                    "label": "Home Visit"
+                  },
+                  {
+                    "concept": "1650AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mobile phone"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "Was Patient Contacted",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Was Patient Contacted",
+              "type": "obs",
+              "required": false,
+              "id": "wpc",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "d2bb4d15-9700-494a-b31a-26300dd70cb1",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Who did you contact ?",
+              "type": "obs",
+              "required": false,
+              "id": "wdyc",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "55adc707-7dd1-4fd4-b2a7-c1dbc6d01629",
+                "answers": [
+                  {
+                    "concept": "160639AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Guardian"
+                  },
+                  {
+                    "concept": "162571AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Patient"
+                  },
+                  {
+                    "concept": "161642AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Treatment Supporter"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Reason for Absence:",
+              "type": "obs",
+              "required": false,
+              "id": "rfa",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "c2010e51-528a-4e9d-8478-df8cdfdbc484",
+                "answers": [
+                  {
+                    "concept": "160586AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Felt better and stopped taking medication"
+                  },
+                  {
+                    "concept": "5841AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HERBAL TRADITIONAL MEDICATIONS"
+                  },
+                  {
+                    "concept": "1737AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LACK OF MONEY FOR TRANSPORT"
+                  },
+                  {
+                    "concept": "440f76db-a70f-4842-99cd-83b3cb5da382",
+                    "label": "Lost appointment card"
+                  },
+                  {
+                    "concept": "810d6ac3-67c9-4264-bcbc-89333c2b78c8",
+                    "label": "Not permitted to leave work"
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Other"
+                  },
+                  {
+                    "concept": "162192AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Patient forgot to attend appointment"
+                  },
+                  {
+                    "concept": "342796eb-230f-4d69-9b1a-fa734101455c",
+                    "label": "Sick"
+                  },
+                  {
+                    "concept": "760be591-fda8-4628-801c-baf861dad0ae",
+                    "label": "Still had drugs"
+                  },
+                  {
+                    "concept": "159492AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Transferred out"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "What is the solution for the Absence",
+              "type": "obs",
+              "required": false,
+              "id": "sol_abs",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "5adc1e7b-f3d9-47b9-bcf6-5014a937eb7f",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other reason for Absence",
+              "type": "obs",
+              "required": false,
+              "id": "oth_rfa",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "692f8b1d-ae72-47c4-add3-193bf71abf7b",
+                "answers": []
+              }
+            },
+            {
+              "label": "Outcomes of Tracking",
+              "type": "obs",
+              "required": false,
+              "id": "tra_out",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "ad4801d9-dd82-4cec-ac2f-f61a8c5b8503",
+                "answers": [
+                  {
+                    "concept": "164929AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Active status"
+                  },
+                  {
+                    "concept": "164928AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Inactive status"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "Signature",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Initials of the caller:",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "iotc",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "iotc"
+              }
+            },
+            {
+              "label": "Facility:",
+              "type": "encounterLocation",
+              "required": false,
+              "id": "fac",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "fac"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "encounterType": "150e3441-67f4-46c3-99e7-61578d9ca221"
+}

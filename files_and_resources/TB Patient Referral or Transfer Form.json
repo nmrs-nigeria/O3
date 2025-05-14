@@ -1,0 +1,378 @@
+{
+  "name": "TB Patient Referral or Transfer Form",
+  "version": "3",
+  "pages": [
+    {
+      "label": "Visit Details",
+      "sections": [
+        {
+          "label": "Visit Details",
+          "questions": [
+            {
+              "label": "Visit Date",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "visitDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date"
+              },
+              "validators": []
+            },
+            {
+              "label": "Choose appropriate category:",
+              "type": "obs",
+              "required": false,
+              "id": "chooseAppropriateCategory:",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "e5723032-a050-473f-a137-76013a4f9e64",
+                "answers": [
+                  {
+                    "concept": "7f56b700-410b-4099-9170-9c4603a19cd7",
+                    "label": "DR-TB"
+                  },
+                  {
+                    "concept": "4df9c805-cabe-4ae3-9d1f-1ba8c3995429",
+                    "label": "DS-TB"
+                  },
+                  {
+                    "concept": "1696AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "REFERRING PERSON"
+                  },
+                  {
+                    "concept": "1285AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TRANSFER CARE TO OTHER CENTER"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Facility Code",
+              "type": "obs",
+              "required": false,
+              "id": "facilityCode",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "5937AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "AMPATH",
+                    "value": "5937"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "LGA TB No (If applicable)",
+              "type": "obs",
+              "required": false,
+              "id": "lgaTbNo",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "3345b29a-97ac-4ced-bdb5-6845922ef8c7"
+              },
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "Referring From",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Facility Name",
+              "type": "encounterLocation",
+              "required": false,
+              "id": "facilityName",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "161550AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "397670001"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "161550"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "State",
+              "type": "obs",
+              "required": false,
+              "id": "state",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "2c2b57bf-1eff-4b54-b9d5-554aa90cd83b"
+              }
+            },
+            {
+              "label": "LGA",
+              "type": "obs",
+              "required": false,
+              "id": "lga",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "591a4c16-4ae5-42e3-8378-486af631cf28"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Referring To",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Facility Name",
+              "type": "obs",
+              "required": false,
+              "id": "facilityNameTo",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "1372f7f5-f0f1-477d-9e38-eecd59f9024d"
+              },
+              "validators": []
+            },
+            {
+              "label": "State",
+              "type": "obs",
+              "required": false,
+              "id": "state2",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "583124ca-9c4d-43f2-9877-7fa49e95ecf3"
+              },
+              "validators": []
+            },
+            {
+              "label": "LGA",
+              "type": "obs",
+              "required": false,
+              "id": "lga2",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "bda8e7f4-cded-4cec-a5e6-c0ccbc0be427"
+              },
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "Client Details",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Type of Patient (initial classification):",
+              "type": "obs",
+              "required": false,
+              "id": "typeOfPatient",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "d0b7c50f-bc23-47a0-a487-38783e05259f",
+                "answers": [
+                  {
+                    "concept": "20402168-1b1d-4b87-af0c-b5244377931f",
+                    "label": "New"
+                  },
+                  {
+                    "concept": "78584582-eac0-4e3a-bef5-c397aac82d0b",
+                    "label": "Other previously treated"
+                  },
+                  {
+                    "concept": "cf0644bb-2dde-4bbd-a163-5af5ad198ad2",
+                    "label": "Patients with unknown previous TB treatment history"
+                  },
+                  {
+                    "concept": "160033AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Relapse"
+                  },
+                  {
+                    "concept": "5006decd-9746-4ca1-8ab1-1216ac9ef7e3",
+                    "label": "TB Treatment after failure"
+                  },
+                  {
+                    "concept": "160563AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Transfer in"
+                  },
+                  {
+                    "concept": "f0bfd687-8706-47be-98e1-26dd7449987c",
+                    "label": "Treatment after Loss to followup"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Reason for Referral",
+              "type": "obs",
+              "required": false,
+              "id": "reasonForReferral",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "e5723032-a050-473f-a137-76013a4f9e64",
+                "answers": [
+                  {
+                    "concept": "7f56b700-410b-4099-9170-9c4603a19cd7",
+                    "label": "DR-TB"
+                  },
+                  {
+                    "concept": "4df9c805-cabe-4ae3-9d1f-1ba8c3995429",
+                    "label": "DS-TB"
+                  },
+                  {
+                    "concept": "1696AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "REFERRING PERSON"
+                  },
+                  {
+                    "concept": "1285AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TRANSFER CARE TO OTHER CENTER"
+                  }
+                ]
+              },
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "Laboratory Results",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Specimen ID NO:",
+              "type": "obs",
+              "required": false,
+              "id": "specimenIdNo",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "159968AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "159968"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "org.openmrs.module.mdrtb",
+                    "value": "TUBERCULOSIS SPECIMEN ID"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Xpert MTB/R if assay",
+              "type": "obs",
+              "required": false,
+              "id": "xpertMtb/RIfAssay",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "f8e8631f-8ddb-44d1-8202-fc38668a9dd7"
+              },
+              "validators": []
+            },
+            {
+              "label": "Smear",
+              "type": "obs",
+              "required": false,
+              "id": "smear",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "8b08f52b-2913-4210-a8b5-b0ee115b8be3",
+                "answers": []
+              }
+            },
+            {
+              "label": "Culture",
+              "type": "obs",
+              "required": false,
+              "id": "culture",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "162203AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "365691004"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "415345001"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "162203"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Others",
+              "type": "obs",
+              "required": false,
+              "id": "others",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "f33c2268-5f43-4d98-ac59-bbc84fd0e4ba"
+              },
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "Signature",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Enrolled by:",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "enrolledBy",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            },
+            {
+              "label": "Enrollement Date:",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "enrollementDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date"
+              },
+              "validators": []
+            },
+            {
+              "label": "Facility:",
+              "type": "encounterLocation",
+              "required": false,
+              "id": "facility",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "TB Patient Referral or Transfer Form 3",
+  "encounterType": "80146a7f-027b-4779-8d30-5c73b7aeaabb",
+  "uuid": "1115ad75-d92c-44de-9db3-abe64ab3de0e"
+}

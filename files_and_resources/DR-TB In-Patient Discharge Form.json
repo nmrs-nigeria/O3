@@ -1,0 +1,3170 @@
+{
+  "name": "DR-TB In-Patient Discharge Form",
+  "version": "3",
+  "pages": [
+    {
+      "label": "Admission Details",
+      "sections": [
+        {
+          "label": "DR-TB Admission Details",
+          "questions": [
+            {
+              "label": "DR-TB Treatment Centre",
+              "type": "obs",
+              "required": false,
+              "id": "q_166818_1",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "cd6cc4c6-389e-4c64-9e38-9f1622cafd3f",
+                "answers": []
+              }
+            },
+            {
+              "label": "Date DR-TB of Admission",
+              "type": "obs",
+              "required": false,
+              "id": "q_166820_3",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "601c9bd9-b281-4b64-8dfa-b97f66ace162",
+                "answers": []
+              }
+            },
+            {
+              "label": "DR-TB Registration No",
+              "type": "obs",
+              "required": false,
+              "id": "q_166822_5",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "774a6f6f-43a5-4226-bf77-17a433d96d76",
+                "answers": []
+              }
+            },
+            {
+              "label": "Date of Treatment Initiation",
+              "type": "obs",
+              "required": false,
+              "id": "q_166824_7",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "d20548de-c6ff-48c2-9e71-2b2b086a82e9",
+                "answers": []
+              }
+            },
+            {
+              "label": "Date of DR-TB Discharge",
+              "type": "obs",
+              "required": false,
+              "id": "dateOfDr-TbDischarge",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "26d43a2e-b29e-4896-87b1-e5e02fe92282"
+              },
+              "validators": []
+            },
+            {
+              "label": "DR-TB State",
+              "type": "obs",
+              "required": false,
+              "id": "dr-TbState",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "c62d3e83-1022-456b-ac7b-356577702719"
+              },
+              "validators": []
+            },
+            {
+              "label": "Date of DR-TB Registration",
+              "type": "obs",
+              "required": false,
+              "id": "drTbRegistration",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "0330f9d0-a96f-4629-a031-c3b80634f33b"
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Discharge details",
+      "sections": [
+        {
+          "label": "DR-TB Discharge details",
+          "questions": [
+            {
+              "label": "Facility Patient is Discharged to",
+              "type": "obs",
+              "required": false,
+              "id": "q_165508_8",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "de06184b-cc63-47bf-917c-b985a3a878ef",
+                "answers": []
+              }
+            },
+            {
+              "label": "LGA of State",
+              "type": "obs",
+              "required": false,
+              "id": "q_166015_9",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "3345b29a-97ac-4ced-bdb5-6845922ef8c7",
+                "answers": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Co-morbidity",
+      "sections": [
+        {
+          "label": "DR-TB Treatment Regimen and Duration",
+          "questions": [
+            {
+              "label": "Any co-morbidity?",
+              "type": "obs",
+              "required": false,
+              "id": "q_166662_10",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "e2a96deb-c6ee-4018-99a1-f1828fd897d2",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Specify Co-morbidities:",
+              "type": "obs",
+              "required": false,
+              "id": "q_166663_11",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "162747AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "398192003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "162747"
+                  }
+                ],
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166662_10) || q_166662_10 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Specify Drug used",
+              "type": "obs",
+              "required": false,
+              "id": "q_166663_11Duplicate",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "a4b24b81-b334-4436-8208-b963b585c9a0",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "398192003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "162747"
+                  }
+                ],
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166662_10) || q_166662_10 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Intensive Phase",
+      "sections": [
+        {
+          "label": "Intensive Phase",
+          "questions": [
+            {
+              "label": "Short Regimen",
+              "type": "obs",
+              "required": false,
+              "id": "q_166979_13",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "395ab375-db08-4503-8c63-31a754bd2c51",
+                "answers": [
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Composition",
+              "type": "obs",
+              "required": false,
+              "id": "q_166980_14",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f66daf19-3dff-4393-843f-73503a44e6b0",
+                "answers": [
+                  {
+                    "concept": "7ab98f00-d865-4f49-8a09-a813aeeba7bd",
+                    "label": "4-6 Bdq (4)-hLfx-Lzd-Cfz"
+                  },
+                  {
+                    "concept": "6f9f021e-5595-4604-b27c-28f8b8a7f195",
+                    "label": "4-6 Bdq -Mfx- Cfz-Hh-Pto-E-Z"
+                  },
+                  {
+                    "concept": "c660459a-34e6-4c3a-8064-4819cf45f56b",
+                    "label": "6 Bdq-Pmn-Lzd"
+                  },
+                  {
+                    "concept": "4ed88e6f-a00e-4c8b-a913-ae333cb1aa42",
+                    "label": "6 Lzd-Cfz-Dlm*–Cs"
+                  },
+                  {
+                    "concept": "3d7198f7-c1d0-490d-b8be-bbee67b7db4f",
+                    "label": "6 Mfx-Lzd-Cfz-Dlm"
+                  },
+                  {
+                    "concept": "67ec2276-67fd-4c57-b332-7d93afac48d1",
+                    "label": "6Bdq-Mfx*-Cfz -Lzd"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "drugs",
+              "questionOptions": {
+                "rendering": "drug",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "drugDuration",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "drugsDuplicate",
+              "questionOptions": {
+                "rendering": "drug",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "drugDurationDuplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "drugsDuplicate1",
+              "questionOptions": {
+                "rendering": "drug",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "drugDurationDuplicate2",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "drugsDuplicate3",
+              "questionOptions": {
+                "rendering": "drug",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "drugDurationDuplicate1",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "drugsDuplicateDuplicate3",
+              "questionOptions": {
+                "rendering": "drug",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "drugDurationDuplicate3",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Continuity Phase",
+      "sections": [
+        {
+          "label": "Continuity Phase",
+          "questions": [
+            {
+              "label": "DR-TB Regimen",
+              "type": "obs",
+              "required": false,
+              "id": "q_166979_25",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "395ab375-db08-4503-8c63-31a754bd2c51",
+                "answers": [
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Composition",
+              "type": "obs",
+              "required": false,
+              "id": "q_166980_26",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f66daf19-3dff-4393-843f-73503a44e6b0",
+                "answers": [
+                  {
+                    "concept": "6f9f021e-5595-4604-b27c-28f8b8a7f195",
+                    "label": "4-6 Bdq -Mfx- Cfz-Hh-Pto-E-Z"
+                  },
+                  {
+                    "concept": "7ab98f00-d865-4f49-8a09-a813aeeba7bd",
+                    "label": "4-6 Bdq (4)-hLfx-Lzd-Cfz"
+                  },
+                  {
+                    "concept": "c660459a-34e6-4c3a-8064-4819cf45f56b",
+                    "label": "6 Bdq-Pmn-Lzd"
+                  },
+                  {
+                    "concept": "4ed88e6f-a00e-4c8b-a913-ae333cb1aa42",
+                    "label": "6 Lzd-Cfz-Dlm*–Cs"
+                  },
+                  {
+                    "concept": "3d7198f7-c1d0-490d-b8be-bbee67b7db4f",
+                    "label": "6 Mfx-Lzd-Cfz-Dlm"
+                  },
+                  {
+                    "concept": "67ec2276-67fd-4c57-b332-7d93afac48d1",
+                    "label": "6Bdq-Mfx*-Cfz -Lzd"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_166981_27",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166982_28",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_166981_27Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166982_28Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_166981_27Duplicate1",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166982_28Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_166981_27Duplicate2",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166982_28DuplicateDuplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_166981_27Duplicate3",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "224dd06b-7912-4448-a09e-1825be0abf63",
+                "answers": [
+                  {
+                    "concept": "71060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMIKACIN"
+                  },
+                  {
+                    "concept": "450AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AMOXICILLIN AND CLAVULANIC ACID"
+                  },
+                  {
+                    "concept": "72794AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CAPREOMYCIN"
+                  },
+                  {
+                    "concept": "73449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CIPROFLOXACIN"
+                  },
+                  {
+                    "concept": "73498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLARITHROMYCIN"
+                  },
+                  {
+                    "concept": "73581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CLOFAZIMINE"
+                  },
+                  {
+                    "concept": "74123AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CYCLOSERINE"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "75976AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHIONAMIDE"
+                  },
+                  {
+                    "concept": "21b96355-308b-4149-af96-44c9a2a16abd",
+                    "label": "Fluoroquinolone resistant"
+                  },
+                  {
+                    "concept": "b4abbf11-86df-4525-bb34-e3ac8d2627ce",
+                    "label": "Fluoroquinolone susceptible"
+                  },
+                  {
+                    "concept": "76835AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "GATIFLOXACIN"
+                  },
+                  {
+                    "concept": "d67b72a9-0640-4789-bad5-4f35e20ac8a2",
+                    "label": "HIGH DOSE ISONIAZID"
+                  },
+                  {
+                    "concept": "78385AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "KANAMYCIN"
+                  },
+                  {
+                    "concept": "78788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "LEVOFLOXACIN"
+                  },
+                  {
+                    "concept": "60fba90b-7ba9-4b3b-ad7c-5753c32b5a64",
+                    "label": "Long oral MDR/RR-TB"
+                  },
+                  {
+                    "concept": "80133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MOXIFLOXACIN"
+                  },
+                  {
+                    "concept": "81022AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "OFLOXACIN"
+                  },
+                  {
+                    "concept": "81457AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "P-AMINOSALICYLIC ACID"
+                  },
+                  {
+                    "concept": "6f7f8d1a-0ac2-4f5b-8040-e343b860f4a7",
+                    "label": "PreXDR-TB (resistant to FQ)"
+                  },
+                  {
+                    "concept": "82772AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PROTHIONAMIDE"
+                  },
+                  {
+                    "concept": "82900AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRAZINAMIDE"
+                  },
+                  {
+                    "concept": "82912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PYRIDOXINE"
+                  },
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN"
+                  },
+                  {
+                    "concept": "09e77c22-f1fb-4139-8230-2ca64cd77b88",
+                    "label": "Short Oral MDR-TB"
+                  },
+                  {
+                    "concept": "5f5a32bf-5181-4ebc-b8ea-f7fed822b061",
+                    "label": "Short Oral PreXDR-TB (FQ resistant BPaL)"
+                  },
+                  {
+                    "concept": "84360AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "STREPTOMYCIN"
+                  },
+                  {
+                    "concept": "84836AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TERIZIDONE"
+                  },
+                  {
+                    "concept": "160019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "THIOACETAZONE"
+                  },
+                  {
+                    "concept": "160020AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Viomycin"
+                  },
+                  {
+                    "concept": "3f2855f1-045a-4f78-96d8-783e7884db43",
+                    "label": "WHO Short Oral MDR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "DR-TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166982_28Duplicate2",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "7f2399d4-59dd-4064-92ac-b342325a11ba",
+                "answers": [
+                  {
+                    "concept": "818d0e82-db23-404d-a580-6b85017f3895",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "47d39b97-92f1-4551-9b2c-efd3ca567ef3",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "16b0cd9e-9d70-49d9-bdb8-0a202bd195f4",
+                    "label": "10 months"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Adverse reaction",
+      "sections": [
+        {
+          "label": "Adverse reaction",
+          "questions": [
+            {
+              "label": "Any Adverse reaction while patients was on Treatment:",
+              "type": "obs",
+              "required": false,
+              "id": "q_166673_37",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3732ec0f-0642-456e-8ad5-1d6df552b9fb",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Adverse reaction",
+      "sections": [
+        {
+          "label": "Adverse reaction",
+          "questions": [
+            {
+              "label": "Type",
+              "type": "obs",
+              "required": false,
+              "id": "q_166674_38",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4e1e474f-d4bc-401d-83d2-cf60f3f6ce14",
+                "answers": [
+                  {
+                    "concept": "151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Abdominal pain"
+                  },
+                  {
+                    "concept": "121849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Acute Renal Failure"
+                  },
+                  {
+                    "concept": "868AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ANOREXIA"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "29AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HEPATITIS"
+                  },
+                  {
+                    "concept": "215AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "JAUNDICE"
+                  },
+                  {
+                    "concept": "80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Joint pain"
+                  },
+                  {
+                    "concept": "5978AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Nausea"
+                  },
+                  {
+                    "concept": "266eaf21-e645-40ca-9e8a-a4073c6820da",
+                    "label": "Orange or red urine"
+                  },
+                  {
+                    "concept": "113478AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Purpura"
+                  },
+                  {
+                    "concept": "112989AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Shock"
+                  },
+                  {
+                    "concept": "04525ad2-01ad-40bb-9443-c855d9038cbb",
+                    "label": "Skin rash with or without Itching"
+                  },
+                  {
+                    "concept": "159298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "visual impairment"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Date",
+              "type": "obs",
+              "required": false,
+              "id": "q_166664_39",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "2e5e186f-0c3f-4576-b795-7f28d9f7270e",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Management",
+              "type": "obs",
+              "required": false,
+              "id": "q_166677_40",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6447ecfc-069f-4984-8053-cbaad3cd5745",
+                "answers": [
+                  {
+                    "concept": "7db536e6-ff42-4c62-a13e-26a414ba7a1c",
+                    "label": "Advise patient to swallow pills slowly with small sips of water If symptoms persist or worsen refer to hospital"
+                  },
+                  {
+                    "concept": "3de4a05b-3df9-4611-9163-cf94fb2ec3c5",
+                    "label": "Advise patients to swallow pills slowly with small sips of water"
+                  },
+                  {
+                    "concept": "90dce16c-771b-41dd-b1d1-3682046bb0ca",
+                    "label": "Change intermittent to daily rifampicin administration"
+                  },
+                  {
+                    "concept": "f5b1dde4-ae85-4a01-a73f-6b2562be370e",
+                    "label": "Counsel patients before starting treatment"
+                  },
+                  {
+                    "concept": "f8f4091f-79a5-417a-8e9b-fc8c368e5b10",
+                    "label": "Give drugs before bedtime"
+                  },
+                  {
+                    "concept": "64470837-3163-4827-8478-682fc4460e87",
+                    "label": "Give drugs with small meals or just before bedtime"
+                  },
+                  {
+                    "concept": "0495dd91-0e1c-4350-baf1-a859fbf5dd18",
+                    "label": "Pyridoxine 50 -100mg daily"
+                  },
+                  {
+                    "concept": "5a70390e-3b3a-47f5-b99c-9bb36af45d35",
+                    "label": "Reassurance"
+                  },
+                  {
+                    "concept": "f7304b30-ee50-4765-9eb5-de8a50057376",
+                    "label": "Reassure and counsel patients before starting treatment and encourage increase fluid intake"
+                  },
+                  {
+                    "concept": "38b5db47-d307-470e-abc0-54dfb013d65b",
+                    "label": "Stop anti-TB drugs"
+                  },
+                  {
+                    "concept": "f715091c-7eb4-4a10-bfcd-493254d2c698",
+                    "label": "Stop anti-TB drugs and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "f6516d13-e159-4098-9e70-0a2c9b58e52a",
+                    "label": "Stop ethambutol"
+                  },
+                  {
+                    "concept": "a378dde1-16e2-4aac-a73e-6e6d0122a8d4",
+                    "label": "Stop ethambutol and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "08dee284-7425-46d8-86ac-d2c418471253",
+                    "label": "Stop rifampicin"
+                  },
+                  {
+                    "concept": "374b1db4-81c9-4cd1-9907-599bc57fc9aa",
+                    "label": "Stop rifampicin and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "123291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Vascular Sheathing of Retina"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Other Comments",
+              "type": "obs",
+              "required": false,
+              "id": "q_167002_41",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "95641913-7956-4a3e-afe3-f97a62f84bbb",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Type",
+              "type": "obs",
+              "required": false,
+              "id": "q_166674_38Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4e1e474f-d4bc-401d-83d2-cf60f3f6ce14",
+                "answers": [
+                  {
+                    "concept": "151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Abdominal pain"
+                  },
+                  {
+                    "concept": "121849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Acute Renal Failure"
+                  },
+                  {
+                    "concept": "868AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ANOREXIA"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "29AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HEPATITIS"
+                  },
+                  {
+                    "concept": "215AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "JAUNDICE"
+                  },
+                  {
+                    "concept": "80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Joint pain"
+                  },
+                  {
+                    "concept": "5978AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Nausea"
+                  },
+                  {
+                    "concept": "266eaf21-e645-40ca-9e8a-a4073c6820da",
+                    "label": "Orange or red urine"
+                  },
+                  {
+                    "concept": "113478AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Purpura"
+                  },
+                  {
+                    "concept": "112989AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Shock"
+                  },
+                  {
+                    "concept": "04525ad2-01ad-40bb-9443-c855d9038cbb",
+                    "label": "Skin rash with or without Itching"
+                  },
+                  {
+                    "concept": "159298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "visual impairment"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Date",
+              "type": "obs",
+              "required": false,
+              "id": "q_166664_39Duplicate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "2e5e186f-0c3f-4576-b795-7f28d9f7270e",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Management",
+              "type": "obs",
+              "required": false,
+              "id": "q_166677_40Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6447ecfc-069f-4984-8053-cbaad3cd5745",
+                "answers": [
+                  {
+                    "concept": "7db536e6-ff42-4c62-a13e-26a414ba7a1c",
+                    "label": "Advise patient to swallow pills slowly with small sips of water If symptoms persist or worsen refer to hospital"
+                  },
+                  {
+                    "concept": "3de4a05b-3df9-4611-9163-cf94fb2ec3c5",
+                    "label": "Advise patients to swallow pills slowly with small sips of water"
+                  },
+                  {
+                    "concept": "90dce16c-771b-41dd-b1d1-3682046bb0ca",
+                    "label": "Change intermittent to daily rifampicin administration"
+                  },
+                  {
+                    "concept": "f5b1dde4-ae85-4a01-a73f-6b2562be370e",
+                    "label": "Counsel patients before starting treatment"
+                  },
+                  {
+                    "concept": "f8f4091f-79a5-417a-8e9b-fc8c368e5b10",
+                    "label": "Give drugs before bedtime"
+                  },
+                  {
+                    "concept": "64470837-3163-4827-8478-682fc4460e87",
+                    "label": "Give drugs with small meals or just before bedtime"
+                  },
+                  {
+                    "concept": "0495dd91-0e1c-4350-baf1-a859fbf5dd18",
+                    "label": "Pyridoxine 50 -100mg daily"
+                  },
+                  {
+                    "concept": "5a70390e-3b3a-47f5-b99c-9bb36af45d35",
+                    "label": "Reassurance"
+                  },
+                  {
+                    "concept": "f7304b30-ee50-4765-9eb5-de8a50057376",
+                    "label": "Reassure and counsel patients before starting treatment and encourage increase fluid intake"
+                  },
+                  {
+                    "concept": "38b5db47-d307-470e-abc0-54dfb013d65b",
+                    "label": "Stop anti-TB drugs"
+                  },
+                  {
+                    "concept": "f715091c-7eb4-4a10-bfcd-493254d2c698",
+                    "label": "Stop anti-TB drugs and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "f6516d13-e159-4098-9e70-0a2c9b58e52a",
+                    "label": "Stop ethambutol"
+                  },
+                  {
+                    "concept": "a378dde1-16e2-4aac-a73e-6e6d0122a8d4",
+                    "label": "Stop ethambutol and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "08dee284-7425-46d8-86ac-d2c418471253",
+                    "label": "Stop rifampicin"
+                  },
+                  {
+                    "concept": "374b1db4-81c9-4cd1-9907-599bc57fc9aa",
+                    "label": "Stop rifampicin and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "123291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Vascular Sheathing of Retina"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Other Comments",
+              "type": "obs",
+              "required": false,
+              "id": "q_167002_41Duplicate",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "95641913-7956-4a3e-afe3-f97a62f84bbb",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Type",
+              "type": "obs",
+              "required": false,
+              "id": "q_166674_38Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4e1e474f-d4bc-401d-83d2-cf60f3f6ce14",
+                "answers": [
+                  {
+                    "concept": "151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Abdominal pain"
+                  },
+                  {
+                    "concept": "121849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Acute Renal Failure"
+                  },
+                  {
+                    "concept": "868AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ANOREXIA"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "29AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HEPATITIS"
+                  },
+                  {
+                    "concept": "215AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "JAUNDICE"
+                  },
+                  {
+                    "concept": "80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Joint pain"
+                  },
+                  {
+                    "concept": "5978AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Nausea"
+                  },
+                  {
+                    "concept": "266eaf21-e645-40ca-9e8a-a4073c6820da",
+                    "label": "Orange or red urine"
+                  },
+                  {
+                    "concept": "113478AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Purpura"
+                  },
+                  {
+                    "concept": "112989AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Shock"
+                  },
+                  {
+                    "concept": "04525ad2-01ad-40bb-9443-c855d9038cbb",
+                    "label": "Skin rash with or without Itching"
+                  },
+                  {
+                    "concept": "159298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "visual impairment"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Date",
+              "type": "obs",
+              "required": false,
+              "id": "q_166664_39Duplicate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "2e5e186f-0c3f-4576-b795-7f28d9f7270e",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Management",
+              "type": "obs",
+              "required": false,
+              "id": "q_166677_40Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6447ecfc-069f-4984-8053-cbaad3cd5745",
+                "answers": [
+                  {
+                    "concept": "7db536e6-ff42-4c62-a13e-26a414ba7a1c",
+                    "label": "Advise patient to swallow pills slowly with small sips of water If symptoms persist or worsen refer to hospital"
+                  },
+                  {
+                    "concept": "3de4a05b-3df9-4611-9163-cf94fb2ec3c5",
+                    "label": "Advise patients to swallow pills slowly with small sips of water"
+                  },
+                  {
+                    "concept": "90dce16c-771b-41dd-b1d1-3682046bb0ca",
+                    "label": "Change intermittent to daily rifampicin administration"
+                  },
+                  {
+                    "concept": "f5b1dde4-ae85-4a01-a73f-6b2562be370e",
+                    "label": "Counsel patients before starting treatment"
+                  },
+                  {
+                    "concept": "f8f4091f-79a5-417a-8e9b-fc8c368e5b10",
+                    "label": "Give drugs before bedtime"
+                  },
+                  {
+                    "concept": "64470837-3163-4827-8478-682fc4460e87",
+                    "label": "Give drugs with small meals or just before bedtime"
+                  },
+                  {
+                    "concept": "0495dd91-0e1c-4350-baf1-a859fbf5dd18",
+                    "label": "Pyridoxine 50 -100mg daily"
+                  },
+                  {
+                    "concept": "5a70390e-3b3a-47f5-b99c-9bb36af45d35",
+                    "label": "Reassurance"
+                  },
+                  {
+                    "concept": "f7304b30-ee50-4765-9eb5-de8a50057376",
+                    "label": "Reassure and counsel patients before starting treatment and encourage increase fluid intake"
+                  },
+                  {
+                    "concept": "38b5db47-d307-470e-abc0-54dfb013d65b",
+                    "label": "Stop anti-TB drugs"
+                  },
+                  {
+                    "concept": "f715091c-7eb4-4a10-bfcd-493254d2c698",
+                    "label": "Stop anti-TB drugs and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "f6516d13-e159-4098-9e70-0a2c9b58e52a",
+                    "label": "Stop ethambutol"
+                  },
+                  {
+                    "concept": "a378dde1-16e2-4aac-a73e-6e6d0122a8d4",
+                    "label": "Stop ethambutol and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "08dee284-7425-46d8-86ac-d2c418471253",
+                    "label": "Stop rifampicin"
+                  },
+                  {
+                    "concept": "374b1db4-81c9-4cd1-9907-599bc57fc9aa",
+                    "label": "Stop rifampicin and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "123291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Vascular Sheathing of Retina"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Other Comments",
+              "type": "obs",
+              "required": false,
+              "id": "q_167002_41Duplicate",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "95641913-7956-4a3e-afe3-f97a62f84bbb",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Type",
+              "type": "obs",
+              "required": false,
+              "id": "q_166674_38Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4e1e474f-d4bc-401d-83d2-cf60f3f6ce14",
+                "answers": [
+                  {
+                    "concept": "151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Abdominal pain"
+                  },
+                  {
+                    "concept": "121849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Acute Renal Failure"
+                  },
+                  {
+                    "concept": "868AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ANOREXIA"
+                  },
+                  {
+                    "concept": "75948AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ETHAMBUTOL"
+                  },
+                  {
+                    "concept": "29AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "HEPATITIS"
+                  },
+                  {
+                    "concept": "215AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "JAUNDICE"
+                  },
+                  {
+                    "concept": "80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Joint pain"
+                  },
+                  {
+                    "concept": "5978AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Nausea"
+                  },
+                  {
+                    "concept": "266eaf21-e645-40ca-9e8a-a4073c6820da",
+                    "label": "Orange or red urine"
+                  },
+                  {
+                    "concept": "113478AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Purpura"
+                  },
+                  {
+                    "concept": "112989AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Shock"
+                  },
+                  {
+                    "concept": "04525ad2-01ad-40bb-9443-c855d9038cbb",
+                    "label": "Skin rash with or without Itching"
+                  },
+                  {
+                    "concept": "159298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "visual impairment"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Date",
+              "type": "obs",
+              "required": false,
+              "id": "q_166664_39Duplicate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "2e5e186f-0c3f-4576-b795-7f28d9f7270e",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Management",
+              "type": "obs",
+              "required": false,
+              "id": "q_166677_40Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6447ecfc-069f-4984-8053-cbaad3cd5745",
+                "answers": [
+                  {
+                    "concept": "7db536e6-ff42-4c62-a13e-26a414ba7a1c",
+                    "label": "Advise patient to swallow pills slowly with small sips of water If symptoms persist or worsen refer to hospital"
+                  },
+                  {
+                    "concept": "3de4a05b-3df9-4611-9163-cf94fb2ec3c5",
+                    "label": "Advise patients to swallow pills slowly with small sips of water"
+                  },
+                  {
+                    "concept": "90dce16c-771b-41dd-b1d1-3682046bb0ca",
+                    "label": "Change intermittent to daily rifampicin administration"
+                  },
+                  {
+                    "concept": "f5b1dde4-ae85-4a01-a73f-6b2562be370e",
+                    "label": "Counsel patients before starting treatment"
+                  },
+                  {
+                    "concept": "f8f4091f-79a5-417a-8e9b-fc8c368e5b10",
+                    "label": "Give drugs before bedtime"
+                  },
+                  {
+                    "concept": "64470837-3163-4827-8478-682fc4460e87",
+                    "label": "Give drugs with small meals or just before bedtime"
+                  },
+                  {
+                    "concept": "0495dd91-0e1c-4350-baf1-a859fbf5dd18",
+                    "label": "Pyridoxine 50 -100mg daily"
+                  },
+                  {
+                    "concept": "5a70390e-3b3a-47f5-b99c-9bb36af45d35",
+                    "label": "Reassurance"
+                  },
+                  {
+                    "concept": "f7304b30-ee50-4765-9eb5-de8a50057376",
+                    "label": "Reassure and counsel patients before starting treatment and encourage increase fluid intake"
+                  },
+                  {
+                    "concept": "38b5db47-d307-470e-abc0-54dfb013d65b",
+                    "label": "Stop anti-TB drugs"
+                  },
+                  {
+                    "concept": "f715091c-7eb4-4a10-bfcd-493254d2c698",
+                    "label": "Stop anti-TB drugs and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "f6516d13-e159-4098-9e70-0a2c9b58e52a",
+                    "label": "Stop ethambutol"
+                  },
+                  {
+                    "concept": "a378dde1-16e2-4aac-a73e-6e6d0122a8d4",
+                    "label": "Stop ethambutol and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "08dee284-7425-46d8-86ac-d2c418471253",
+                    "label": "Stop rifampicin"
+                  },
+                  {
+                    "concept": "374b1db4-81c9-4cd1-9907-599bc57fc9aa",
+                    "label": "Stop rifampicin and refer to the Medical Officer"
+                  },
+                  {
+                    "concept": "123291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Vascular Sheathing of Retina"
+                  }
+                ]
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Other Comments",
+              "type": "obs",
+              "required": false,
+              "id": "q_167002_41Duplicate",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "95641913-7956-4a3e-afe3-f97a62f84bbb",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(q_166673_37) || q_166673_37 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Regimen to be continued at DoT Facility",
+      "sections": [
+        {
+          "label": "Tb Regimen to be continued at DoT Facility",
+          "questions": [
+            {
+              "label": "Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_165304_58",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3e6d3fbc-a059-4b9d-8427-202e612fb15e",
+                "answers": [
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "1675AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN/ISONIAZID/PYRAZINAMIDE/ETHAMBUTOL PROPHYLAXIS"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Strength",
+              "type": "obs",
+              "required": false,
+              "id": "q_165725_59",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "21ea74ee-f6fa-4c55-be36-6337a8f4086c",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165725"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223573000"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "a5bb8a09-4f0c-4186-98d8-4c066e220806",
+                    "label": "10mg/ml"
+                  },
+                  {
+                    "concept": "3620ba59-4313-45b4-897f-764f0609512c",
+                    "label": "25mg"
+                  },
+                  {
+                    "concept": "455ecca9-0cb9-401a-b953-b1aaff306d5a",
+                    "label": "30/60/50mg"
+                  },
+                  {
+                    "concept": "d831cc52-0b6c-439c-a3bb-3bc0e38de1e4",
+                    "label": "40/10mg"
+                  },
+                  {
+                    "concept": "c543792b-6225-4a70-8e1f-04ea5be06212",
+                    "label": "50mg"
+                  },
+                  {
+                    "concept": "d491a77a-098f-4e10-9126-59b9da40f2cc",
+                    "label": "50mg/5ml"
+                  },
+                  {
+                    "concept": "e97eba7b-a430-4efe-a604-0d813f43bd28",
+                    "label": "60/30mg"
+                  },
+                  {
+                    "concept": "9bc9cdce-14c5-4574-b280-3f4d4c5f5ef6",
+                    "label": "60mg"
+                  },
+                  {
+                    "concept": "27de4bbd-9839-4c36-b58a-d88e1db86db4",
+                    "label": "80/20mg/ml"
+                  },
+                  {
+                    "concept": "5a35ae10-1a00-4df2-83fd-3dba0465df0a",
+                    "label": "80mg"
+                  },
+                  {
+                    "concept": "e4ed52d2-a9c9-410a-9d83-510ce6c7a4a0",
+                    "label": "100/25mg"
+                  },
+                  {
+                    "concept": "27f5a185-9791-45b2-89e8-89df69fdac71",
+                    "label": "100mg"
+                  },
+                  {
+                    "concept": "1b6cd424-0941-42c5-910c-19a260c73b3b",
+                    "label": "120mg"
+                  },
+                  {
+                    "concept": "d1359cec-4457-4699-b050-7b65a25c1ca3",
+                    "label": "150/300/200mg"
+                  },
+                  {
+                    "concept": "409fccb1-a7de-412f-9ee6-1e96d4b0b65a",
+                    "label": "150mg"
+                  },
+                  {
+                    "concept": "9339100a-1fe3-4978-9af1-a6ee868840ac",
+                    "label": "200/50mg"
+                  },
+                  {
+                    "concept": "da318ab9-efce-47a9-a975-468a718d4ef6",
+                    "label": "200mg"
+                  },
+                  {
+                    "concept": "ddd236eb-b5af-465f-9c37-862741ca75a6",
+                    "label": "300/100mg"
+                  },
+                  {
+                    "concept": "6717b4c6-4cf3-4ef1-9734-f2da5300003f",
+                    "label": "300/150mg"
+                  },
+                  {
+                    "concept": "0cd9c98e-7f52-48b9-a987-404ec90cc5fe",
+                    "label": "300/300/50mg"
+                  },
+                  {
+                    "concept": "b77b132b-2fff-452e-a198-53792ebe9122",
+                    "label": "300/300/400mg"
+                  },
+                  {
+                    "concept": "4db3bbfd-2e59-48af-ba55-1b6deed9ec32",
+                    "label": "300/300/600mg"
+                  },
+                  {
+                    "concept": "fcd74eb9-c917-42b1-969a-696b15a5627c",
+                    "label": "300/300mg"
+                  },
+                  {
+                    "concept": "abbb66b8-61c9-4b58-bad6-edf1efa546e1",
+                    "label": "300mg"
+                  },
+                  {
+                    "concept": "7c844c65-b960-4ac7-8642-69b618db3602",
+                    "label": "400/50mg"
+                  },
+                  {
+                    "concept": "106d9ce8-92d4-4549-9735-9ddaad20136a",
+                    "label": "480mg"
+                  },
+                  {
+                    "concept": "ade6f2de-de75-4586-a67c-68145cf11185",
+                    "label": "600/300mg"
+                  },
+                  {
+                    "concept": "d6a11b94-efe5-415e-8071-29d75356bac0",
+                    "label": "600mg"
+                  },
+                  {
+                    "concept": "c03561ed-1402-4bfe-b95d-9547fe6b9bf7",
+                    "label": "960mg"
+                  },
+                  {
+                    "concept": "81246203-b486-4ec7-babf-05ad0669c51b",
+                    "label": "1920mg"
+                  },
+                  {
+                    "concept": "162401AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kit"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_60",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166838_61",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "166838",
+                "answers": [
+                  {
+                    "concept": "166667",
+                    "label": "2 months"
+                  },
+                  {
+                    "concept": "166668",
+                    "label": "4 months"
+                  },
+                  {
+                    "concept": "166670",
+                    "label": "10 months"
+                  },
+                  {
+                    "concept": "166671",
+                    "label": "12 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Quantity of medication prescribed per dose",
+              "type": "obs",
+              "required": false,
+              "id": "q_160856_62",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "160856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "33633005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160856"
+                  }
+                ],
+                "answers": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "STBLCO and Focal Person Contact",
+      "sections": [
+        {
+          "label": "STBLCO and Focal Person Contact",
+          "questions": [
+            {
+              "label": "Name of STBLCO Patient is Discharged to",
+              "type": "obs",
+              "required": false,
+              "id": "q_166810_68",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "77801ce4-75d7-4579-ab36-f09bd919692a",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of State DR-TB Focal Person",
+              "type": "obs",
+              "required": false,
+              "id": "q_166812_70",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "7244e262-d383-4263-8bec-535969691ced",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of Treatment Centre Doctor",
+              "type": "obs",
+              "required": false,
+              "id": "q_166814_72",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "b65a657e-7fcc-44fe-ad6a-2e4592f4534d",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of Treatment Centre Matron",
+              "type": "obs",
+              "required": false,
+              "id": "q_166816_74",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "de0bfbbd-d931-422d-9c18-8f7094389a8d",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of STBLCO Patient is Discharged to:",
+              "type": "obs",
+              "required": false,
+              "id": "q_166811_69",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "77801ce4-75d7-4579-ab36-f09bd919692a",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of State DR-TB Focal Person:",
+              "type": "obs",
+              "required": false,
+              "id": "q_166813_71",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "7244e262-d383-4263-8bec-535969691ced",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of Treatment Centre Doctor:",
+              "type": "obs",
+              "required": false,
+              "id": "q_166815_73",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "b65a657e-7fcc-44fe-ad6a-2e4592f4534d",
+                "answers": []
+              }
+            },
+            {
+              "label": "Name of Treatment Centre Matron:",
+              "type": "obs",
+              "required": false,
+              "id": "q_166817_75",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "de0bfbbd-d931-422d-9c18-8f7094389a8d",
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "Signature",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Visit Date:",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "visitDate",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date"
+              },
+              "validators": []
+            },
+            {
+              "label": "Provider's Name:",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "provider'SName",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            },
+            {
+              "label": "Facility:",
+              "type": "encounterLocation",
+              "required": false,
+              "id": "facility",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "DR-TB In-Patient Discharge Form 3",
+  "encounterType": "be400d24-f75f-453a-baf2-c5c3e555ec0f",
+  "uuid": "e760727d-1d4f-47a5-9c7a-0e4712ca8a75"
+}

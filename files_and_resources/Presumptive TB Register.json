@@ -1,0 +1,538 @@
+{
+  "name": "Presumptive TB Register",
+  "description": "Presumptive TB Register Form By Chukwuma Abanobi 3",
+  "version": "3",
+  "published": true,
+  "uuid": "b10a5da6-de73-4ddf-8e95-cdad4d762538",
+  "processor": "EncounterFormProcessor",
+  "encounter": "Consultation",
+  "retired": false,
+  "referencedForms": [],
+  "pages": [
+    {
+      "label": "Presumptive TB Register",
+      "sections": [
+        {
+          "label": "Presumptive TB Register",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Specimen Identification Number",
+              "type": "testOrder",
+              "required": false,
+              "id": "ptb_spe_id",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "166735"
+              }
+            },
+            {
+              "label": "Type of Presumptive TB",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_type",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6c6811f4-a656-412d-ab16-2047c953fd8e",
+                "answers": [
+                  {
+                    "concept": "4df9c805-cabe-4ae3-9d1f-1ba8c3995429",
+                    "label": "DS-TB"
+                  },
+                  {
+                    "concept": "7f56b700-410b-4099-9170-9c4603a19cd7",
+                    "label": "DR-TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Is client a health worker?",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_h_worker",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "5fb4a017-5194-402c-9945-0df493c86adc",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Who referred this client",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_ref",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "1696AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "1696"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "440377005"
+                  }
+                ],
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "Specimen Processing Period",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Site of Disease",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_sd",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "0ece789e-451b-49fb-8b25-49073fb0c6db",
+                "answers": [
+                  {
+                    "concept": "1486AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "PULMONARY SYSTEM"
+                  },
+                  {
+                    "concept": "5042AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mycobacterium Tuberculosis, extrapulmonary"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Date of Specimen Collection",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_dosc",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "4854c6ad-f3f1-4616-911d-b2cd2d4bcb58",
+                "answers": []
+              }
+            },
+            {
+              "label": "Date specimen was sent to Laboratory",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_dsl",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "bb1c8909-95df-4dbd-837a-f3833a6eb659",
+                "answers": []
+              }
+            },
+            {
+              "label": "Date Result released",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_drl",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "c0e8e972-7237-4a9d-9a39-7a2d7aaf883e",
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "Result of Bacteriological Tests",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Xpert/MTB/RIF Result",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_Xp_r",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "162202AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "9718006"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "162202"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Indeterminate"
+                  },
+                  {
+                    "concept": "163611AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Invalid"
+                  },
+                  {
+                    "concept": "164104AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mycobacterium tuberculosis detected with indeterminate rifampin resistance"
+                  },
+                  {
+                    "concept": "162203AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mycobacterium tuberculosis detected with rifampin resistance"
+                  },
+                  {
+                    "concept": "162204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Mycobacterium tuberculosis detected without rifampin resistance"
+                  },
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "AFB Result",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_afb_r",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "3d13c8ed-709e-496f-88f1-119ee4180243",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other test1 type",
+              "type": "obs",
+              "required": false,
+              "id": "ot1_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "5b1a104a-d7df-4ba9-affa-ad9ef1a05816",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other test2 type",
+              "type": "obs",
+              "required": false,
+              "id": "ot2_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "5b1a104a-d7df-4ba9-affa-ad9ef1a05816",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other test3 type",
+              "type": "obs",
+              "required": false,
+              "id": "ot3_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "5b1a104a-d7df-4ba9-affa-ad9ef1a05816",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other test4 type",
+              "type": "obs",
+              "required": false,
+              "id": "ot4_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "5b1a104a-d7df-4ba9-affa-ad9ef1a05816",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other result1 type",
+              "type": "obs",
+              "required": false,
+              "id": "or1_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "f33c2268-5f43-4d98-ac59-bbc84fd0e4ba",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other result2 type",
+              "type": "obs",
+              "required": false,
+              "id": "or2_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "f33c2268-5f43-4d98-ac59-bbc84fd0e4ba",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other result3 type",
+              "type": "obs",
+              "required": false,
+              "id": "or3_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "f33c2268-5f43-4d98-ac59-bbc84fd0e4ba",
+                "answers": []
+              }
+            },
+            {
+              "label": "Other result4 type",
+              "type": "obs",
+              "required": false,
+              "id": "or4_t",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "f33c2268-5f43-4d98-ac59-bbc84fd0e4ba",
+                "answers": []
+              }
+            },
+            {
+              "label": "X-Ray Result ",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_xray_r",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "dd0fd798-913f-4203-b811-59b062f0096b",
+                "answers": []
+              }
+            },
+            {
+              "label": "Clinically Diagnosed",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_c_d",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "a4a78396-a8d8-4211-83be-efb0759b6a6f",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "AFB Result",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_afb_rDuplicate",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "3d13c8ed-709e-496f-88f1-119ee4180243",
+                "answers": []
+              }
+            },
+            {
+              "label": "AFB Result",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_afb_rDuplicate",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "3d13c8ed-709e-496f-88f1-119ee4180243",
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "HIV Activities",
+          "isExpanded": false,
+          "questions": [
+            {
+              "label": "Previously Known HIV Status",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_pk_hiv",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "92ad32ea-ba70-49b4-8ba6-5253c5707310",
+                "answers": [
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative"
+                  },
+                  {
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Positive"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Tested for HIV",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_thiv",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "61f2d6a2-0d70-4bf3-b5d2-6cd14df3bf51",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "HIV Test Result",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_hiv_result",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "159427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "PIH",
+                    "value": "2169"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "org.openmrs.module.mdrtb",
+                    "value": "RESULT OF HIV TEST"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED MVP",
+                    "value": "1594271000105002"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "159427"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "31676001"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Indeterminate"
+                  },
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative"
+                  },
+                  {
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Positive"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Outcome  of TB Investigation ",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_o_tb_i",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "c4df8bfa-2cd4-4aa5-bf7d-02ac0129c0ed",
+                "answers": [
+                  {
+                    "concept": "7f56b700-410b-4099-9170-9c4603a19cd7",
+                    "label": "DR-TB"
+                  },
+                  {
+                    "concept": "4df9c805-cabe-4ae3-9d1f-1ba8c3995429",
+                    "label": "DS-TB"
+                  },
+                  {
+                    "concept": "2162653b-90e7-471e-bbc4-799d02c8e7fb",
+                    "label": "No TB"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "TB  Treatment Started",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_tb_s",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "162309AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "394906002"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "162309"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Remarks",
+              "type": "obs",
+              "required": false,
+              "id": "ptb_remark",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "538835a0-202d-4e60-8fad-b11d93abbf5e",
+                "answers": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "nan",
+      "sections": []
+    }
+  ],
+  "encounterType": "7055d09f-d5db-4ba7-91a1-8fd002d916ef"
+}

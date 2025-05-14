@@ -1,0 +1,1340 @@
+{
+  "name": "TB Treatment Monitoring Form",
+  "version": "3",
+  "pages": [
+    {
+      "label": "Last Clinical Parameters",
+      "sections": [
+        {
+          "label": "Type of Regimen",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Type of Regimen",
+              "type": "obs",
+              "required": false,
+              "id": "Type of Regimen",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "5c09531e-e306-429e-b8ad-e0c37436e1c3",
+                "answers": [
+                  {
+                    "concept": "a674b21f-96d7-4a3c-b2f4-e80dce5e926f",
+                    "label": "6 months"
+                  },
+                  {
+                    "concept": "4ebba86a-89cd-4e2e-ae5c-8ff852deefbe",
+                    "label": "12 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Treatment Age category",
+              "type": "obs",
+              "required": false,
+              "id": "Treatment Age category",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "718864d2-dd9b-4210-80fe-21e6f8dcbb14",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223619000"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165720"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "a291af62-d00e-4ace-a672-f6f965b325fe",
+                    "label": "Adult"
+                  },
+                  {
+                    "concept": "1528AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Child"
+                  }
+                ]
+              },
+              "validators": []
+            },
+            {
+              "label": "Pregnancy Status",
+              "type": "obs",
+              "required": false,
+              "id": "Pregnancy Status",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "86c6437e-a03c-4d31-a0b0-d6dda17c419b",
+                "answers": [
+                  {
+                    "concept": "f036a5d3-435f-4f10-bb47-1deab6556255",
+                    "label": "Breastfeeding"
+                  },
+                  {
+                    "concept": "3bb7b175-ba9b-4c75-b01c-f315856ee044",
+                    "label": "Not Pregnant"
+                  },
+                  {
+                    "concept": "61a85f36-1426-4bc5-97df-46c8ca9ea9aa",
+                    "label": "Pregnant"
+                  }
+                ]
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Intensive Phase",
+      "sections": [
+        {
+          "label": "Intensive Phase",
+          "questions": [
+            {
+              "label": "Anti-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_165304_4",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3e6d3fbc-a059-4b9d-8427-202e612fb15e",
+                "answers": [
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "1675AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN/ISONIAZID/PYRAZINAMIDE/ETHAMBUTOL PROPHYLAXIS"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "ARV Drug Strength",
+              "type": "obs",
+              "required": false,
+              "id": "q_165725_5",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "21ea74ee-f6fa-4c55-be36-6337a8f4086c",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165725"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223573000"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "a5bb8a09-4f0c-4186-98d8-4c066e220806",
+                    "label": "10mg/ml"
+                  },
+                  {
+                    "concept": "3620ba59-4313-45b4-897f-764f0609512c",
+                    "label": "25mg"
+                  },
+                  {
+                    "concept": "455ecca9-0cb9-401a-b953-b1aaff306d5a",
+                    "label": "30/60/50mg"
+                  },
+                  {
+                    "concept": "d831cc52-0b6c-439c-a3bb-3bc0e38de1e4",
+                    "label": "40/10mg"
+                  },
+                  {
+                    "concept": "c543792b-6225-4a70-8e1f-04ea5be06212",
+                    "label": "50mg"
+                  },
+                  {
+                    "concept": "d491a77a-098f-4e10-9126-59b9da40f2cc",
+                    "label": "50mg/5ml"
+                  },
+                  {
+                    "concept": "e97eba7b-a430-4efe-a604-0d813f43bd28",
+                    "label": "60/30mg"
+                  },
+                  {
+                    "concept": "9bc9cdce-14c5-4574-b280-3f4d4c5f5ef6",
+                    "label": "60mg"
+                  },
+                  {
+                    "concept": "27de4bbd-9839-4c36-b58a-d88e1db86db4",
+                    "label": "80/20mg/ml"
+                  },
+                  {
+                    "concept": "5a35ae10-1a00-4df2-83fd-3dba0465df0a",
+                    "label": "80mg"
+                  },
+                  {
+                    "concept": "e4ed52d2-a9c9-410a-9d83-510ce6c7a4a0",
+                    "label": "100/25mg"
+                  },
+                  {
+                    "concept": "27f5a185-9791-45b2-89e8-89df69fdac71",
+                    "label": "100mg"
+                  },
+                  {
+                    "concept": "1b6cd424-0941-42c5-910c-19a260c73b3b",
+                    "label": "120mg"
+                  },
+                  {
+                    "concept": "d1359cec-4457-4699-b050-7b65a25c1ca3",
+                    "label": "150/300/200mg"
+                  },
+                  {
+                    "concept": "409fccb1-a7de-412f-9ee6-1e96d4b0b65a",
+                    "label": "150mg"
+                  },
+                  {
+                    "concept": "9339100a-1fe3-4978-9af1-a6ee868840ac",
+                    "label": "200/50mg"
+                  },
+                  {
+                    "concept": "da318ab9-efce-47a9-a975-468a718d4ef6",
+                    "label": "200mg"
+                  },
+                  {
+                    "concept": "ddd236eb-b5af-465f-9c37-862741ca75a6",
+                    "label": "300/100mg"
+                  },
+                  {
+                    "concept": "6717b4c6-4cf3-4ef1-9734-f2da5300003f",
+                    "label": "300/150mg"
+                  },
+                  {
+                    "concept": "0cd9c98e-7f52-48b9-a987-404ec90cc5fe",
+                    "label": "300/300/50mg"
+                  },
+                  {
+                    "concept": "b77b132b-2fff-452e-a198-53792ebe9122",
+                    "label": "300/300/400mg"
+                  },
+                  {
+                    "concept": "4db3bbfd-2e59-48af-ba55-1b6deed9ec32",
+                    "label": "300/300/600mg"
+                  },
+                  {
+                    "concept": "fcd74eb9-c917-42b1-969a-696b15a5627c",
+                    "label": "300/300mg"
+                  },
+                  {
+                    "concept": "abbb66b8-61c9-4b58-bad6-edf1efa546e1",
+                    "label": "300mg"
+                  },
+                  {
+                    "concept": "7c844c65-b960-4ac7-8642-69b618db3602",
+                    "label": "400/50mg"
+                  },
+                  {
+                    "concept": "106d9ce8-92d4-4549-9735-9ddaad20136a",
+                    "label": "480mg"
+                  },
+                  {
+                    "concept": "ade6f2de-de75-4586-a67c-68145cf11185",
+                    "label": "600/300mg"
+                  },
+                  {
+                    "concept": "d6a11b94-efe5-415e-8071-29d75356bac0",
+                    "label": "600mg"
+                  },
+                  {
+                    "concept": "c03561ed-1402-4bfe-b95d-9547fe6b9bf7",
+                    "label": "960mg"
+                  },
+                  {
+                    "concept": "81246203-b486-4ec7-babf-05ad0669c51b",
+                    "label": "1920mg"
+                  },
+                  {
+                    "concept": "162401AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kit"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_6",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166838_7",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3ffb9c2e-33f9-4d5b-985b-7a62c478efb2",
+                "answers": []
+              }
+            },
+            {
+              "label": "Quantity of medication prescribed per dose",
+              "type": "obs",
+              "required": false,
+              "id": "q_160856_8",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "160856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "33633005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160856"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Anti-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_165304_9",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f3772dae-fc93-4428-baa7-268f83462e3f",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223577004"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165728"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "ARV Drug Strength",
+              "type": "obs",
+              "required": false,
+              "id": "q_165725_10",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "21ea74ee-f6fa-4c55-be36-6337a8f4086c",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165725"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223573000"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "162401AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kit"
+                  },
+                  {
+                    "concept": "81246203-b486-4ec7-babf-05ad0669c51b",
+                    "label": "1920mg"
+                  },
+                  {
+                    "concept": "c03561ed-1402-4bfe-b95d-9547fe6b9bf7",
+                    "label": "960mg"
+                  },
+                  {
+                    "concept": "d6a11b94-efe5-415e-8071-29d75356bac0",
+                    "label": "600mg"
+                  },
+                  {
+                    "concept": "ade6f2de-de75-4586-a67c-68145cf11185",
+                    "label": "600/300mg"
+                  },
+                  {
+                    "concept": "106d9ce8-92d4-4549-9735-9ddaad20136a",
+                    "label": "480mg"
+                  },
+                  {
+                    "concept": "7c844c65-b960-4ac7-8642-69b618db3602",
+                    "label": "400/50mg"
+                  },
+                  {
+                    "concept": "abbb66b8-61c9-4b58-bad6-edf1efa546e1",
+                    "label": "300mg"
+                  },
+                  {
+                    "concept": "fcd74eb9-c917-42b1-969a-696b15a5627c",
+                    "label": "300/300mg"
+                  },
+                  {
+                    "concept": "4db3bbfd-2e59-48af-ba55-1b6deed9ec32",
+                    "label": "300/300/600mg"
+                  },
+                  {
+                    "concept": "b77b132b-2fff-452e-a198-53792ebe9122",
+                    "label": "300/300/400mg"
+                  },
+                  {
+                    "concept": "0cd9c98e-7f52-48b9-a987-404ec90cc5fe",
+                    "label": "300/300/50mg"
+                  },
+                  {
+                    "concept": "6717b4c6-4cf3-4ef1-9734-f2da5300003f",
+                    "label": "300/150mg"
+                  },
+                  {
+                    "concept": "ddd236eb-b5af-465f-9c37-862741ca75a6",
+                    "label": "300/100mg"
+                  },
+                  {
+                    "concept": "da318ab9-efce-47a9-a975-468a718d4ef6",
+                    "label": "200mg"
+                  },
+                  {
+                    "concept": "9339100a-1fe3-4978-9af1-a6ee868840ac",
+                    "label": "200/50mg"
+                  },
+                  {
+                    "concept": "409fccb1-a7de-412f-9ee6-1e96d4b0b65a",
+                    "label": "150mg"
+                  },
+                  {
+                    "concept": "d1359cec-4457-4699-b050-7b65a25c1ca3",
+                    "label": "150/300/200mg"
+                  },
+                  {
+                    "concept": "1b6cd424-0941-42c5-910c-19a260c73b3b",
+                    "label": "120mg"
+                  },
+                  {
+                    "concept": "27f5a185-9791-45b2-89e8-89df69fdac71",
+                    "label": "100mg"
+                  },
+                  {
+                    "concept": "e4ed52d2-a9c9-410a-9d83-510ce6c7a4a0",
+                    "label": "100/25mg"
+                  },
+                  {
+                    "concept": "5a35ae10-1a00-4df2-83fd-3dba0465df0a",
+                    "label": "80mg"
+                  },
+                  {
+                    "concept": "27de4bbd-9839-4c36-b58a-d88e1db86db4",
+                    "label": "80/20mg/ml"
+                  },
+                  {
+                    "concept": "9bc9cdce-14c5-4574-b280-3f4d4c5f5ef6",
+                    "label": "60mg"
+                  },
+                  {
+                    "concept": "e97eba7b-a430-4efe-a604-0d813f43bd28",
+                    "label": "60/30mg"
+                  },
+                  {
+                    "concept": "d491a77a-098f-4e10-9126-59b9da40f2cc",
+                    "label": "50mg/5ml"
+                  },
+                  {
+                    "concept": "c543792b-6225-4a70-8e1f-04ea5be06212",
+                    "label": "50mg"
+                  },
+                  {
+                    "concept": "d831cc52-0b6c-439c-a3bb-3bc0e38de1e4",
+                    "label": "40/10mg"
+                  },
+                  {
+                    "concept": "455ecca9-0cb9-401a-b953-b1aaff306d5a",
+                    "label": "30/60/50mg"
+                  },
+                  {
+                    "concept": "3620ba59-4313-45b4-897f-764f0609512c",
+                    "label": "25mg"
+                  },
+                  {
+                    "concept": "a5bb8a09-4f0c-4186-98d8-4c066e220806",
+                    "label": "10mg/ml"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_11",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166838_12",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3ffb9c2e-33f9-4d5b-985b-7a62c478efb2",
+                "answers": []
+              }
+            },
+            {
+              "label": "Quantity of medication prescribed per dose",
+              "type": "obs",
+              "required": false,
+              "id": "q_160856_13",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "160856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "33633005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160856"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Drug Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_6Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Continuity Phase",
+      "sections": [
+        {
+          "label": "Continuity Phase",
+          "questions": [
+            {
+              "label": "Anti-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_165304_14",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3e6d3fbc-a059-4b9d-8427-202e612fb15e",
+                "answers": [
+                  {
+                    "concept": "83352AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFABUTIN"
+                  },
+                  {
+                    "concept": "1675AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "RIFAMPICIN/ISONIAZID/PYRAZINAMIDE/ETHAMBUTOL PROPHYLAXIS"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "ARV Drug Strength",
+              "type": "obs",
+              "required": false,
+              "id": "q_165725_15",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "21ea74ee-f6fa-4c55-be36-6337a8f4086c",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165725"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223573000"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "a5bb8a09-4f0c-4186-98d8-4c066e220806",
+                    "label": "10mg/ml"
+                  },
+                  {
+                    "concept": "3620ba59-4313-45b4-897f-764f0609512c",
+                    "label": "25mg"
+                  },
+                  {
+                    "concept": "455ecca9-0cb9-401a-b953-b1aaff306d5a",
+                    "label": "30/60/50mg"
+                  },
+                  {
+                    "concept": "d831cc52-0b6c-439c-a3bb-3bc0e38de1e4",
+                    "label": "40/10mg"
+                  },
+                  {
+                    "concept": "d491a77a-098f-4e10-9126-59b9da40f2cc",
+                    "label": "50mg/5ml"
+                  },
+                  {
+                    "concept": "c543792b-6225-4a70-8e1f-04ea5be06212",
+                    "label": "50mg"
+                  },
+                  {
+                    "concept": "e97eba7b-a430-4efe-a604-0d813f43bd28",
+                    "label": "60/30mg"
+                  },
+                  {
+                    "concept": "9bc9cdce-14c5-4574-b280-3f4d4c5f5ef6",
+                    "label": "60mg"
+                  },
+                  {
+                    "concept": "27de4bbd-9839-4c36-b58a-d88e1db86db4",
+                    "label": "80/20mg/ml"
+                  },
+                  {
+                    "concept": "5a35ae10-1a00-4df2-83fd-3dba0465df0a",
+                    "label": "80mg"
+                  },
+                  {
+                    "concept": "e4ed52d2-a9c9-410a-9d83-510ce6c7a4a0",
+                    "label": "100/25mg"
+                  },
+                  {
+                    "concept": "27f5a185-9791-45b2-89e8-89df69fdac71",
+                    "label": "100mg"
+                  },
+                  {
+                    "concept": "1b6cd424-0941-42c5-910c-19a260c73b3b",
+                    "label": "120mg"
+                  },
+                  {
+                    "concept": "d1359cec-4457-4699-b050-7b65a25c1ca3",
+                    "label": "150/300/200mg"
+                  },
+                  {
+                    "concept": "409fccb1-a7de-412f-9ee6-1e96d4b0b65a",
+                    "label": "150mg"
+                  },
+                  {
+                    "concept": "9339100a-1fe3-4978-9af1-a6ee868840ac",
+                    "label": "200/50mg"
+                  },
+                  {
+                    "concept": "da318ab9-efce-47a9-a975-468a718d4ef6",
+                    "label": "200mg"
+                  },
+                  {
+                    "concept": "ddd236eb-b5af-465f-9c37-862741ca75a6",
+                    "label": "300/100mg"
+                  },
+                  {
+                    "concept": "6717b4c6-4cf3-4ef1-9734-f2da5300003f",
+                    "label": "300/150mg"
+                  },
+                  {
+                    "concept": "0cd9c98e-7f52-48b9-a987-404ec90cc5fe",
+                    "label": "300/300/50mg"
+                  },
+                  {
+                    "concept": "b77b132b-2fff-452e-a198-53792ebe9122",
+                    "label": "300/300/400mg"
+                  },
+                  {
+                    "concept": "4db3bbfd-2e59-48af-ba55-1b6deed9ec32",
+                    "label": "300/300/600mg"
+                  },
+                  {
+                    "concept": "fcd74eb9-c917-42b1-969a-696b15a5627c",
+                    "label": "300/300mg"
+                  },
+                  {
+                    "concept": "abbb66b8-61c9-4b58-bad6-edf1efa546e1",
+                    "label": "300mg"
+                  },
+                  {
+                    "concept": "7c844c65-b960-4ac7-8642-69b618db3602",
+                    "label": "400/50mg"
+                  },
+                  {
+                    "concept": "106d9ce8-92d4-4549-9735-9ddaad20136a",
+                    "label": "480mg"
+                  },
+                  {
+                    "concept": "ade6f2de-de75-4586-a67c-68145cf11185",
+                    "label": "600/300mg"
+                  },
+                  {
+                    "concept": "d6a11b94-efe5-415e-8071-29d75356bac0",
+                    "label": "600mg"
+                  },
+                  {
+                    "concept": "c03561ed-1402-4bfe-b95d-9547fe6b9bf7",
+                    "label": "960mg"
+                  },
+                  {
+                    "concept": "81246203-b486-4ec7-babf-05ad0669c51b",
+                    "label": "1920mg"
+                  },
+                  {
+                    "concept": "162401AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kit"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_16",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166838_17",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3ffb9c2e-33f9-4d5b-985b-7a62c478efb2",
+                "answers": []
+              }
+            },
+            {
+              "label": "Quantity of medication prescribed per dose",
+              "type": "obs",
+              "required": false,
+              "id": "q_160856_18",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "160856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "33633005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160856"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Anti-TB Drugs",
+              "type": "obs",
+              "required": false,
+              "id": "q_165304_19",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f3772dae-fc93-4428-baa7-268f83462e3f",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223577004"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165728"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "ARV Drug Strength",
+              "type": "obs",
+              "required": false,
+              "id": "q_165725_20",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "21ea74ee-f6fa-4c55-be36-6337a8f4086c",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165725"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223573000"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "a5bb8a09-4f0c-4186-98d8-4c066e220806",
+                    "label": "10mg/ml"
+                  },
+                  {
+                    "concept": "3620ba59-4313-45b4-897f-764f0609512c",
+                    "label": "25mg"
+                  },
+                  {
+                    "concept": "455ecca9-0cb9-401a-b953-b1aaff306d5a",
+                    "label": "30/60/50mg"
+                  },
+                  {
+                    "concept": "d831cc52-0b6c-439c-a3bb-3bc0e38de1e4",
+                    "label": "40/10mg"
+                  },
+                  {
+                    "concept": "c543792b-6225-4a70-8e1f-04ea5be06212",
+                    "label": "50mg"
+                  },
+                  {
+                    "concept": "d491a77a-098f-4e10-9126-59b9da40f2cc",
+                    "label": "50mg/5ml"
+                  },
+                  {
+                    "concept": "e97eba7b-a430-4efe-a604-0d813f43bd28",
+                    "label": "60/30mg"
+                  },
+                  {
+                    "concept": "9bc9cdce-14c5-4574-b280-3f4d4c5f5ef6",
+                    "label": "60mg"
+                  },
+                  {
+                    "concept": "27de4bbd-9839-4c36-b58a-d88e1db86db4",
+                    "label": "80/20mg/ml"
+                  },
+                  {
+                    "concept": "5a35ae10-1a00-4df2-83fd-3dba0465df0a",
+                    "label": "80mg"
+                  },
+                  {
+                    "concept": "e4ed52d2-a9c9-410a-9d83-510ce6c7a4a0",
+                    "label": "100/25mg"
+                  },
+                  {
+                    "concept": "27f5a185-9791-45b2-89e8-89df69fdac71",
+                    "label": "100mg"
+                  },
+                  {
+                    "concept": "1b6cd424-0941-42c5-910c-19a260c73b3b",
+                    "label": "120mg"
+                  },
+                  {
+                    "concept": "d1359cec-4457-4699-b050-7b65a25c1ca3",
+                    "label": "150/300/200mg"
+                  },
+                  {
+                    "concept": "409fccb1-a7de-412f-9ee6-1e96d4b0b65a",
+                    "label": "150mg"
+                  },
+                  {
+                    "concept": "9339100a-1fe3-4978-9af1-a6ee868840ac",
+                    "label": "200/50mg"
+                  },
+                  {
+                    "concept": "da318ab9-efce-47a9-a975-468a718d4ef6",
+                    "label": "200mg"
+                  },
+                  {
+                    "concept": "ddd236eb-b5af-465f-9c37-862741ca75a6",
+                    "label": "300/100mg"
+                  },
+                  {
+                    "concept": "6717b4c6-4cf3-4ef1-9734-f2da5300003f",
+                    "label": "300/150mg"
+                  },
+                  {
+                    "concept": "0cd9c98e-7f52-48b9-a987-404ec90cc5fe",
+                    "label": "300/300/50mg"
+                  },
+                  {
+                    "concept": "b77b132b-2fff-452e-a198-53792ebe9122",
+                    "label": "300/300/400mg"
+                  },
+                  {
+                    "concept": "4db3bbfd-2e59-48af-ba55-1b6deed9ec32",
+                    "label": "300/300/600mg"
+                  },
+                  {
+                    "concept": "fcd74eb9-c917-42b1-969a-696b15a5627c",
+                    "label": "300/300mg"
+                  },
+                  {
+                    "concept": "abbb66b8-61c9-4b58-bad6-edf1efa546e1",
+                    "label": "300mg"
+                  },
+                  {
+                    "concept": "7c844c65-b960-4ac7-8642-69b618db3602",
+                    "label": "400/50mg"
+                  },
+                  {
+                    "concept": "106d9ce8-92d4-4549-9735-9ddaad20136a",
+                    "label": "480mg"
+                  },
+                  {
+                    "concept": "ade6f2de-de75-4586-a67c-68145cf11185",
+                    "label": "600/300mg"
+                  },
+                  {
+                    "concept": "d6a11b94-efe5-415e-8071-29d75356bac0",
+                    "label": "600mg"
+                  },
+                  {
+                    "concept": "c03561ed-1402-4bfe-b95d-9547fe6b9bf7",
+                    "label": "960mg"
+                  },
+                  {
+                    "concept": "81246203-b486-4ec7-babf-05ad0669c51b",
+                    "label": "1920mg"
+                  },
+                  {
+                    "concept": "162401AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Kit"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drug Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_21",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "TB Drug Duration",
+              "type": "obs",
+              "required": false,
+              "id": "q_166838_22",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3ffb9c2e-33f9-4d5b-985b-7a62c478efb2",
+                "answers": []
+              }
+            },
+            {
+              "label": "Quantity of medication prescribed per dose",
+              "type": "obs",
+              "required": false,
+              "id": "q_160856_23",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "160856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "33633005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "160856"
+                  }
+                ],
+                "answers": []
+              }
+            },
+            {
+              "label": "Drug Frequency",
+              "type": "obs",
+              "required": false,
+              "id": "q_165723_16Duplicate",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4919b76b-81e6-41c7-a5b5-cb383ff4b2fa",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223617003"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165723"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "6f973a60-16a5-49bc-9278-300a9e998646",
+                    "label": "2 BD"
+                  },
+                  {
+                    "concept": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Once daily"
+                  },
+                  {
+                    "concept": "160870AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Four times daily"
+                  },
+                  {
+                    "concept": "a0c98b53-f014-4cb0-a41e-8503c608ef57",
+                    "label": "3ce/week"
+                  },
+                  {
+                    "concept": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Twice daily"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Outcome",
+      "sections": [
+        {
+          "label": "OUTCOME",
+          "questions": [
+            {
+              "label": "Select Outcome",
+              "type": "obs",
+              "required": false,
+              "id": "q_166672_24",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "159786AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "159786"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "AMPATH",
+                    "value": "6206"
+                  },
+                  {
+                    "relationship": "NARROWER-THAN",
+                    "type": "SNOMED NP",
+                    "value": "385676005"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED MVP",
+                    "value": "1597861000105004"
+                  }
+                ],
+                "answers": [
+                  {
+                    "concept": "1663AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Completed treatment for disease"
+                  },
+                  {
+                    "concept": "159791AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Cure, outcome"
+                  },
+                  {
+                    "concept": "160034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Died"
+                  },
+                  {
+                    "concept": "5240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Lost to followup"
+                  },
+                  {
+                    "concept": "160737AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not assessed"
+                  },
+                  {
+                    "concept": "164424AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Patient moved to multi drug resistant tuberculosis (MDR-TB) register"
+                  },
+                  {
+                    "concept": "159874AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Tuberculosis treatment failure"
+                  },
+                  {
+                    "concept": "159790AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "tuberculosis treatment failure, smear positive at 3 months"
+                  },
+                  {
+                    "concept": "159789AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "tuberculosis treatment failure, smear positive at 5 months"
+                  },
+                  {
+                    "concept": "159788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "tuberculosis treatment failure, smear positive at 8 months"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Date",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "q_166675_25",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "166675"
+              }
+            },
+            {
+              "label": "Select DOT Provider",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "q_163556_26",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "238eb8e6-da41-46dd-83bf-0edad6df2489",
+                "answers": []
+              }
+            },
+            {
+              "label": "DOT Provider Name",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "q_163556_26Duplicate",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "238eb8e6-da41-46dd-83bf-0edad6df2489",
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "Signature",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Visit Date",
+              "type": "encounterDatetime",
+              "required": true,
+              "id": "visit_dt",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date"
+              },
+              "validators": []
+            },
+            {
+              "label": "Health Worker",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "health_wk",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "validators": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "TB Treatment Monitoring Form 3",
+  "encounterType": "665f3e9e-3a8d-48e4-b74a-d7ed9bae2c1d",
+  "uuid": "7d9ba719-dbf6-42e3-96ae-f4d9e172963c"
+}

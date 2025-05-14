@@ -1,0 +1,572 @@
+{
+  "name": "OTZ Form",
+  "description": "version 3",
+  "version": "3",
+  "published": true,
+  "uuid": "89a0344b-9dcb-4301-a421-47bcf91ef02b",
+  "processor": "EncounterFormProcessor",
+  "encounter": "Consultation",
+  "retired": false,
+  "referencedForms": [],
+  "pages": [
+    {
+      "label": "Operation Triple Zero (OTZ) Service (v1.0)",
+      "sections": [
+        {
+          "label": "Encounter Details",
+          "isExpanded": true,
+          "questions": [
+            {
+              "label": "Visit Date",
+              "type": "obs",
+              "required": false,
+              "id": "Visit_Date",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "6bcaf85b-8504-4c7f-b510-a50436236b80",
+                "conceptMappings": [
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "CIEL",
+                    "value": "165785"
+                  },
+                  {
+                    "relationship": "SAME-AS",
+                    "type": "SNOMED CT",
+                    "value": "223563002"
+                  }
+                ],
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "OTZ Program Enrollment",
+          "isExpanded": true,
+          "questions": [
+            {
+              "label": "Date Enrolled into OTZ",
+              "type": "encounterDatetime",
+              "required": false,
+              "id": "Date_Enrolled_into_OTZ",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "Date_Enrolled_into_OTZ"
+              }
+            },
+            {
+              "label": "OTZ Plus?",
+              "type": "obs",
+              "required": false,
+              "id": "OTZ_Plus",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "bb1564b5-28d2-4007-b1db-a09ab9095dd7",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Date Enrolled into OTZ Plus:",
+              "type": "obs",
+              "required": false,
+              "id": "Date_Enrolled_into_OTZ_Plus:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "e2adf943-ec33-42c0-9096-582ef1ee2973",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(OTZ_Plus) || OTZ_Plus !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Full Disclosure?",
+              "type": "obs",
+              "required": false,
+              "id": "Full_Disclosure",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "4cf00b98-1cf1-47d8-83a8-d3fbcae99c66",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Date of Full Disclosure",
+              "type": "obs",
+              "required": false,
+              "id": "Date_of_Full_Disclosure",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "61af5258-ee5a-445c-84f5-f350d00e9477",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Full_Disclosure) || Full_Disclosure !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Enrolled By",
+              "type": "obs",
+              "required": false,
+              "id": "Enrolled_By",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "20c3dfd3-7780-4aee-bead-ff450d9ed78c",
+                "answers": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "Modules Activity/Date of Completion (Select Yes/No against module and indicate date)",
+          "isExpanded": true,
+          "questions": [
+            {
+              "label": "Positive Living",
+              "type": "obs",
+              "required": false,
+              "id": "Positive_Living",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "03a6a5f7-2317-4a22-a80a-ab52d05c64b0",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Positive Living Completion Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Positive_Living_Completion_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "725edd05-8ec6-4810-be45-643ec6459911",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Positive_Living) || Positive_Living !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Treatment Literacy",
+              "type": "obs",
+              "required": false,
+              "id": "Treatment_Literacy",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "99d23362-dfcf-45f3-b077-7662b48b67eb",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Treatment Literacy Completion Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Treatment_Literacy_Completion_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "c9662760-4845-40cc-9b1e-7538c89153b7",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Treatment_Literacy) || Treatment_Literacy !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Adolescents Participation",
+              "type": "obs",
+              "required": false,
+              "id": "Adolescents_Participation",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "0828fe70-d142-42ff-b9c8-f4274c079751",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Adolescents Participation Completion Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Adolescents_Participation_Completion_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "b587742d-8e42-4d56-bfa2-89032d2e0d04",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Adolescents_Participation) || Adolescents_Participation !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Leadership Training",
+              "type": "obs",
+              "required": false,
+              "id": "Leadership_Training",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "1971e457-4200-4882-a624-7991b555b7d2",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Leadership Training Completed Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Leadership_Training_Completed_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "d0d5286e-6c5a-4e3b-9ab4-70b45932ccf0",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Leadership_Training) || Leadership_Training !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Peer-to-Peer Mentorship",
+              "type": "obs",
+              "required": false,
+              "id": "Peer_to_Peer_Mentorship",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f55e7563-e54b-4ce2-abdc-4d10deaaee99",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Peer-to-Peer Mentorship Completed Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Peer-to-Peer_Mentorship_Completed_Date",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "75fbc65d-ced9-4129-b32c-395251f37590",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Peer_to_Peer_Mentorship) || Peer_to_Peer_Mentorship !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Role of OTZ in 95-95-95",
+              "type": "obs",
+              "required": false,
+              "id": "Role_of_OTZ_in_95_95_95",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "3e50cded-322f-4074-81be-ad5ed5f3ce72",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Role of OTZ in 95-95-95 Completed Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Role_of_OTZ_in_95-95-95_Completed_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "7c1de8c6-0fc6-41ff-a2b3-8076b79c084b",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Role_of_OTZ_in_95_95_95) || Role_of_OTZ_in_95_95_95 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "OTZ Champion Orientation",
+              "type": "obs",
+              "required": false,
+              "id": "OTZ_Champion_Orientation",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "a9db6a59-9be9-4a92-a59e-91ad012d67ca",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "OTZ Champion Orientation Completed Date:",
+              "type": "obs",
+              "required": false,
+              "id": "OTZ_Champion_Orientation_Completed_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "959a01f2-412c-4c16-a489-a2463feb0bcf",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(OTZ_Champion_Orientation) || OTZ_Champion_Orientation !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Transitioned to Adult Clinic?",
+              "type": "obs",
+              "required": false,
+              "id": "Transitioned_to_Adult_Clinic",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "f73fa256-abc6-4d7e-a839-2442ee406eaa",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Date Transitioned to Adult Clinic:",
+              "type": "obs",
+              "required": false,
+              "id": "Date_Transitioned_to_Adult_Clinic:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "16705ada-101c-4aaa-961b-4f05c749ea5e",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Transitioned_to_Adult_Clinic) || Transitioned_to_Adult_Clinic !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Outcome",
+          "isExpanded": true,
+          "questions": [
+            {
+              "label": "Outcome:",
+              "type": "obs",
+              "required": false,
+              "id": "Outcome",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "6a5102d1-e3f5-4888-9c85-bf2853e3b015",
+                "answers": [
+                  {
+                    "concept": "5c91bfb9-c0ec-4f1a-8048-1a591a963a8a",
+                    "label": "Opted out"
+                  },
+                  {
+                    "concept": "4da4eb4b-0777-45fb-b225-9b632d313c99",
+                    "label": "Exited"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Outcome Date:",
+              "type": "obs",
+              "required": false,
+              "id": "Outcome_Date:",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "9ceef246-098a-49b8-abfa-28e022d44b89",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Outcome)"
+              }
+            },
+            {
+              "label": "By",
+              "type": "obs",
+              "required": false,
+              "id": "By",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "89f08585-5e8d-4ef1-8c4e-5d34b30a69d3",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Outcome)"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Reactivation",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "label": "Returning Patient",
+              "type": "obs",
+              "required": false,
+              "id": "Returning_Patient",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "0ea50ab0-33ba-46fc-bb13-6d8a08b15397",
+                "answers": [
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No"
+                  },
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Date Returned",
+              "type": "obs",
+              "required": false,
+              "id": "Date_Returned",
+              "datePickerFormat": "calendar",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "64972fdd-4b65-4b58-9ebb-cf66f8c4ae36",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Returning_Patient) || Returning_Patient !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
+              "label": "Reactivated By",
+              "type": "obs",
+              "required": false,
+              "id": "Reactivated_By",
+              "questionOptions": {
+                "rendering": "text",
+                "concept": "3401887b-8467-4ff6-bfc2-29ca37c88544",
+                "answers": []
+              },
+              "hide": {
+                "hideWhenExpression": "isEmpty(Returning_Patient) || Returning_Patient !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            }
+          ],
+          "hide": {
+            "hideWhenExpression": "isEmpty(Outcome) || Outcome !== '5c91bfb9-c0ec-4f1a-8048-1a591a963a8a'"
+          }
+        },
+        {
+          "label": "Signature",
+          "isExpanded": true,
+          "questions": [
+            {
+              "label": "Signature:",
+              "type": "encounterProvider",
+              "required": false,
+              "id": "Signature:",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "Signature:"
+              }
+            },
+            {
+              "label": "Facility:",
+              "type": "encounterLocation",
+              "required": false,
+              "id": "Facility:",
+              "questionOptions": {
+                "rendering": "select",
+                "concept": "Facility:"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "encounterType": "08bb08f1-5b14-487d-bdf3-74095f11c43e"
+}

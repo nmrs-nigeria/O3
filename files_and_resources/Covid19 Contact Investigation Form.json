@@ -1,0 +1,2460 @@
+{
+  "name": "Covid19 Contact Investigation Form",
+  "uuid": "914b3400-e56b-43ad-b543-0ca5fc3b9a45",
+  "processor": "EncounterFormProcessor",
+  "version": "3.0",
+  "description": "Tested and trusted",
+  "pages": [
+    {
+      "label": "Contact ID Number",
+      "sections": [
+        {
+          "label": "Contact ID Number",
+          "questions": [
+            {
+              "id": "contactIdNumber_1",
+              "label": "Contact ID Number:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "2af1cee3-71bf-4af2-84c7-d7a20ba086ff",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "nameOfConfirmedCase_2",
+              "label": "Name of confirmed case:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "97e46a99-fcd2-4842-ae0d-cd5969d6beb1",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Data collector information",
+      "sections": [
+        {
+          "label": "Data collector information",
+          "questions": [
+            {
+              "id": "nameOfDataCollector_3",
+              "label": "Name of data collector",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "a76b8d7d-d560-4654-a0c7-d0fb430ab570",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "phoneNumber_4",
+              "label": "Phone number",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "0fdf0dba-c8b6-41d0-a451-4e15d597776e",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Interview respondent information",
+      "sections": [
+        {
+          "label": "Interview respondent information",
+          "questions": [
+            {
+              "id": "postnatalPersonsProvidingTheInformationIsNotThePatient_5",
+              "label": "Postnatal Persons providing the information is not the patient",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "7bd0b774-ce25-4f03-8bac-3288ca8bfe08",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Postnatal Persons providing the information is not the patient",
+                    "concept": "7bd0b774-ce25-4f03-8bac-3288ca8bfe08"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "firstName_6",
+              "label": "First name",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f1359754-6922-436b-9da6-cab73f9e5cb6",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Unemployed",
+                    "concept": "123801AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Employed",
+                    "concept": "1540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Student",
+                    "concept": "159465AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Retired",
+                    "concept": "159461AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not Applicable",
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "surnameFamilyName_7",
+              "label": "Surname / Family name",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f1359754-6922-436b-9da6-cab73f9e5cb6",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "sex_8",
+              "label": "Sex",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Male",
+                    "concept": "1534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Female",
+                    "concept": "1535AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "dateOfBirthDdmmyyyy_9",
+              "label": "Date of Birth (dd/mm/yyyy)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "164129AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "ageYearsMonths_10",
+              "label": "Age (years, months)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5910AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number"
+              }
+            },
+            {
+              "id": "relationshipToPatient_11",
+              "label": "Relationship to patient",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160640AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Father",
+                    "concept": "971AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Mother",
+                    "concept": "970AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Daughter",
+                    "concept": "160728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Sister",
+                    "concept": "160730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Brother",
+                    "concept": "160729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Son",
+                    "concept": "160727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Uncle",
+                    "concept": "974AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Aunt",
+                    "concept": "975AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Wife",
+                    "concept": "0a1b360b-e3b3-4c8d-9994-4686cbf496dd"
+                  },
+                  {
+                    "label": "Husband",
+                    "concept": "41c14fe4-4196-4985-8ddd-b9bad84b6c45"
+                  },
+                  {
+                    "label": "Friend",
+                    "concept": "5618AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Parent",
+                    "concept": "1527AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "respondentAddress_12",
+              "label": "Respondent address",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "telephoneMobileNumber_13",
+              "label": "Telephone (mobile) number",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160642AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Contact details (Details of contact)",
+      "sections": [
+        {
+          "label": "Contact details (Details of contact)",
+          "questions": [
+            {
+              "id": "firstName_14",
+              "label": "First name",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f1359754-6922-436b-9da6-cab73f9e5cb6",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Unemployed",
+                    "concept": "123801AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Employed",
+                    "concept": "1540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Student",
+                    "concept": "159465AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Retired",
+                    "concept": "159461AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not Applicable",
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "surname_15",
+              "label": "Surname",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f1359754-6922-436b-9da6-cab73f9e5cb6",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "sex_16",
+              "label": "Sex",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Male",
+                    "concept": "1534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Female",
+                    "concept": "1535AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "dateOfBirthDdmmyyyy_17",
+              "label": "Date of Birth (dd/mm/yyyy)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "164129AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "relationshipWithCase_18",
+              "label": "Relationship with case",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160640AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Father",
+                    "concept": "971AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Mother",
+                    "concept": "970AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Daughter",
+                    "concept": "160728AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Sister",
+                    "concept": "160730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Brother",
+                    "concept": "160729AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Son",
+                    "concept": "160727AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Uncle",
+                    "concept": "974AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Aunt",
+                    "concept": "975AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Wife",
+                    "concept": "0a1b360b-e3b3-4c8d-9994-4686cbf496dd"
+                  },
+                  {
+                    "label": "Husband",
+                    "concept": "41c14fe4-4196-4985-8ddd-b9bad84b6c45"
+                  },
+                  {
+                    "label": "Friend",
+                    "concept": "5618AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Parent",
+                    "concept": "1527AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "addressVillagetownLgaStateCountry_19",
+              "label": "Address (Village/town, LGA, State, Country)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "telephoneNumber_20",
+              "label": "Telephone Number",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5910AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number"
+              }
+            },
+            {
+              "id": "emailAddress_21",
+              "label": "Email address",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7714205f-ead6-43ae-b02d-21370435813f",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "preferredModeOfContact_22",
+              "label": "Preferred mode of contact",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Preferred mode of contact",
+                    "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "preferredModeOfContact2_23",
+              "label": "Preferred mode of contact (2)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Preferred mode of contact (2)",
+                    "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "preferredModeOfContact3_24",
+              "label": "Preferred mode of contact (3)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Preferred mode of contact (3)",
+                    "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "preferredModeOfContact4_25",
+              "label": "Preferred mode of contact (4)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Preferred mode of contact (4)",
+                    "concept": "11bf2766-7fc2-4927-b417-b15c175c61ee"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nationality_26",
+              "label": "Nationality",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f1359754-6922-436b-9da6-cab73f9e5cb6",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "162609",
+                    "concept": "162609AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "countryOfResidence_27",
+              "label": "Country of residence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "8bd4885a-0990-47d9-8a68-454d75092ba5",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "162609",
+                    "concept": "162609AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "haveYouTravelledWithinTheLast14DaysDomestically_28",
+              "label": "Have you travelled within the last 14 days domestically?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7bb2fd43-f4e2-4cff-ab0b-41848eed995d",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDateOfTravelTo_29",
+              "label": "If yes, Date of travel to",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "ac3eccd1-9dec-4824-8c02-b5abca2f2d70",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "haveYouTravelledWithinTheLast14DaysInternationally_30",
+              "label": "Have you travelled within the last 14 days internationally?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7bb2fd43-f4e2-4cff-ab0b-41848eed995d",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDatesOfTravelTo_31",
+              "label": "If yes, Dates of travel to",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "ac3eccd1-9dec-4824-8c02-b5abca2f2d70",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "countriessVisited_32",
+              "label": "Countries(s) visited",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "50c4b20a-5a91-4950-b454-d6613c3592be",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "citiesTownVisited_33",
+              "label": "Cities/ town visited",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1ef5f403-12b9-4301-ba8b-073c7ab4c775",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "inThePast14DaysHaveYouHadContactWithAnyoneWithSuspectedOrConfirmedCovid19Coronacoronavirus_34",
+              "label": "In the past 14 days, have you had contact with anyone with suspected or confirmed COVID-19 (corona/coronavirus)?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7bb2fd43-f4e2-4cff-ab0b-41848eed995d",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDatesOfLastContact_35",
+              "label": "If yes, Dates of last contact",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "fae2af3f-b0ee-429b-bf0f-48c44e0305ba",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "occupationSpecifyLocationfacility_36",
+              "label": "Occupation (specify location/facility)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1542AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Health care worker",
+                    "concept": "5619AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Working with animals",
+                    "concept": "710781bd-3036-4fc7-a50c-f69925521f27"
+                  },
+                  {
+                    "label": "Health Laboratory worker",
+                    "concept": "ef8c3d6f-3509-4eb7-b03d-c744b3c02767"
+                  },
+                  {
+                    "label": "Student",
+                    "concept": "159465AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify_37",
+              "label": "If Other, specify",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "d5b7cbbb-e048-4813-9053-5e8bf136cf27",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "forEachOccupationPleaseSpecifyLocationOrFacility_38",
+              "label": "For each occupation, please specify location or facility",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "162724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Exposure information",
+      "sections": [
+        {
+          "label": "Exposure information",
+          "questions": [
+            {
+              "id": "isTheCloseContactIsAHealthCareWorker_39",
+              "label": "Is the close contact is a Health Care Worker",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "b1781ad6-271f-4bad-a9e5-fae8efb8cb60",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "jobTitle_40",
+              "label": "Job title",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "0ee33688-f312-4ae6-ae2c-fd84c097aec1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Clinician",
+                    "concept": "89a4845c-a044-456e-9af0-e76c423f93f9"
+                  },
+                  {
+                    "label": "Nurse",
+                    "concept": "1577AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Laboratory Personnel",
+                    "concept": "e1761622-ea69-4fe5-a836-6c504a1fbe1f"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify_41",
+              "label": "If Other, specify",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f7c7b317-11a4-437d-8693-7d0149203fcf",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "placeOfWork_42",
+              "label": "Place of work",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "164406AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "HEALTH FACILITY",
+                    "concept": "1537AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Non health facility",
+                    "concept": "164405AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "directPhysicalContactWithAConfirmedCaseEgHandsonPhysicalContact_43",
+              "label": "Direct physical contact with a confirmed case (e.g hands-on physical contact)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "162632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "hasTheHcwHadAProlongedFacetofaceContact15MinutesWithASymptomaticConfirmedCaseInTheHealthFacility_44",
+              "label": "Has the HCW had a prolonged face-to-face contact (≥15 minutes) with a symptomatic confirmed case in the health facility",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "b1781ad6-271f-4bad-a9e5-fae8efb8cb60",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesWhatTypeOfProtectiveEquipmentWasUsedByTheHealthCareWorker_45",
+              "label": "If yes, what type of protective equipment was used by the Health Care Worker?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "a405bf2c-5aac-49be-bb48-e6652c9da271",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Gown",
+                    "concept": "e608c433-971a-4fda-a5b7-70fa082b9827"
+                  },
+                  {
+                    "label": "Surgical/medical mask",
+                    "concept": "164243AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Gloves",
+                    "concept": "1927AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "NIOSH Certified N95 or An EU standard FFP2",
+                    "concept": "ba507a34-65f4-4e74-9f04-6258a6dd2653"
+                  },
+                  {
+                    "label": "FFP3",
+                    "concept": "0ef4a05e-e040-4c55-8d6f-4e4b053ebed4"
+                  },
+                  {
+                    "label": "Eye protection",
+                    "concept": "3b6faf0f-c14a-4d8a-9263-25582bc22666"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wasTheContactPresentWhileAnyAerosolGeneratingProceduresTookPlace_46",
+              "label": "Was the contact present while any aerosol generating procedures took place",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "e2163701-0231-463e-8186-47c63733405d",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDate_47",
+              "label": "If Yes, Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160715AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "procedure_48",
+              "label": "Procedure:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7f03b6dd-ff5e-4c7d-8e7a-11baed507bad",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "wasTheContactWearingAnyTypeOfMaskAtThistheseProcedures_49",
+              "label": "Was the contact wearing any type of mask at this/these procedures",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "72ecc281-af00-44c8-a2c1-99794a47fda3",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Surgical/medical",
+                    "concept": "164243AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "NIOSH Certified N95 or An EU standard FFP2",
+                    "concept": "ba507a34-65f4-4e74-9f04-6258a6dd2653"
+                  },
+                  {
+                    "label": "FFP3",
+                    "concept": "0ef4a05e-e040-4c55-8d6f-4e4b053ebed4"
+                  },
+                  {
+                    "label": "None",
+                    "concept": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "typeOfContact_50",
+              "label": "Type of contact",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "9f88c012-1791-4f9b-8c1b-fe803c501deb",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Household",
+                    "concept": "bdcf574a-a533-4e7f-81d9-5aa1eeaf8a84"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify2_51",
+              "label": "If Other, specify (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f7c7b317-11a4-437d-8693-7d0149203fcf",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "date_52",
+              "label": "Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "durationmins_53",
+              "label": "Duration(Mins)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "162603AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            },
+            {
+              "id": "setting_54",
+              "label": "Setting",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "3850453a-58b6-4cba-9b04-34de4bc36778",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Home/household",
+                    "concept": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Hospital/health care",
+                    "concept": "1589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Workplace",
+                    "concept": "164406AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Tour group",
+                    "concept": "eb2fe57c-572b-4526-82b2-43dfa558d23a"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify3_55",
+              "label": "If Other, specify (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f7c7b317-11a4-437d-8693-7d0149203fcf",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "date2_56",
+              "label": "Date (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "durationmins2_57",
+              "label": "Duration(Mins) (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "162603AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            },
+            {
+              "id": "setting2_58",
+              "label": "Setting (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "3850453a-58b6-4cba-9b04-34de4bc36778",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Home/household",
+                    "concept": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Hospital/health care",
+                    "concept": "1589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Workplace",
+                    "concept": "164406AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Tour group",
+                    "concept": "eb2fe57c-572b-4526-82b2-43dfa558d23a"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify4_59",
+              "label": "If Other, specify (4)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f7c7b317-11a4-437d-8693-7d0149203fcf",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "date3_60",
+              "label": "Date (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "durationmins3_61",
+              "label": "Duration(Mins) (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "162603AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            },
+            {
+              "id": "setting3_62",
+              "label": "Setting (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "3850453a-58b6-4cba-9b04-34de4bc36778",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Home/household",
+                    "concept": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Hospital/health care",
+                    "concept": "1589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Workplace",
+                    "concept": "164406AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Tour group",
+                    "concept": "eb2fe57c-572b-4526-82b2-43dfa558d23a"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify5_63",
+              "label": "If Other, specify (5)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f7c7b317-11a4-437d-8693-7d0149203fcf",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "date4_64",
+              "label": "Date (4)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "durationmins4_65",
+              "label": "Duration(Mins) (4)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "162603AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            },
+            {
+              "id": "setting4_66",
+              "label": "Setting (4)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "3850453a-58b6-4cba-9b04-34de4bc36778",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Home/household",
+                    "concept": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Hospital/health care",
+                    "concept": "1589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Workplace",
+                    "concept": "164406AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Tour group",
+                    "concept": "eb2fe57c-572b-4526-82b2-43dfa558d23a"
+                  },
+                  {
+                    "label": "Other",
+                    "concept": "5256AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifOtherSpecify6_67",
+              "label": "If Other, specify (6)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f7c7b317-11a4-437d-8693-7d0149203fcf",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Symptoms in contact",
+      "sections": [
+        {
+          "label": "Symptoms in contact",
+          "questions": [
+            {
+              "id": "hasTheContactExperiencedAnyRespiratorySymptomsSoreThroatCoughRunningNoseShortnessOfBreathInThePeriodFrom10DaysBeforeTheOnsetInTheConfirmedCaseUntilThePresent_68",
+              "label": "Has the contact experienced any respiratory symptoms (Sore throat, cough, running nose, shortness of breath) in the period from 10 days before the onset in the confirmed case until the present?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "50927d57-4735-4256-a2b1-d624130606b2",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "hasTheContactExperiencedAnyRespiratorySymptomsSoreThroatCoughRunningNoseShortnessOfBreathInThePeriodUpTo10DaysAfterLastContactOrUntilThePresentDateWhicheverIsTheEarliest_69",
+              "label": "Has the contact experienced any respiratory symptoms (Sore throat, cough, running nose, shortness of breath) in the period up to 10 days after last contact or until the present date, whichever is the earliest",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "31305806-795e-4dc0-9a01-b36b0a94c43b",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "currentlyIll_70",
+              "label": "Currently ill",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "91551d31-7751-43d0-8f91-28c75e681009",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "dateAndTimeOfFirstSymptomOnset_71",
+              "label": "Date and time of first symptom onset",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "maximumTemperaturedegree_72",
+              "label": "Maximum temperature(Degree)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "43.0",
+                "min": "25.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "43.0",
+                  "message": "Value must be <= 43.0"
+                },
+                {
+                  "type": "min",
+                  "value": "25.0",
+                  "message": "Value must be >= 25.0"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Primary symptoms",
+      "sections": [
+        {
+          "label": "Primary symptoms",
+          "questions": [
+            {
+              "id": "soreThroat_73",
+              "label": "Sore throat",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "158843AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDate_74",
+              "label": "If yes, Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "cough_75",
+              "label": "Cough",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDates_76",
+              "label": "If yes, Dates",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "runningNose_77",
+              "label": "Running nose",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "113224AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lossOfSenseOfSmell_78",
+              "label": "Loss of sense of smell",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "135589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lossOfSenseOfTaste_79",
+              "label": "Loss of sense of taste",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "118998AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "shortnessOfBreath_80",
+              "label": "Shortness of breath",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "141600AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDate2_81",
+              "label": "If yes, Date (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "4dc1e17b-ce5e-48a4-bf1d-46bab9f3b4a4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Other symptoms",
+      "sections": [
+        {
+          "label": "Other symptoms",
+          "questions": [
+            {
+              "id": "chills_82",
+              "label": "Chills",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "871AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "vomiting_83",
+              "label": "Vomiting",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "122983AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nausea_84",
+              "label": "Nausea",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5978AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "diarrhea_85",
+              "label": "Diarrhea",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "142412AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "headache_86",
+              "label": "Headache",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "139084AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "rash_87",
+              "label": "Rash",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "conjunctivitis_88",
+              "label": "Conjunctivitis",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "117AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "muscleAches_89",
+              "label": "Muscle aches",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "133637AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "jointAche_90",
+              "label": "Joint ache",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lossOfAppetite_91",
+              "label": "Loss of appetite",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "135595AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "noseBleed_92",
+              "label": "Nose bleed",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "136949AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fatigue_93",
+              "label": "Fatigue",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5949AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "seizures_94",
+              "label": "Seizures",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "6007AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "alteredConsciousness_95",
+              "label": "Altered consciousness",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "118876AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "otherNeurologicalSigns_96",
+              "label": "Other Neurological signs",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "115283AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesSpecify_97",
+              "label": "If yes, specify",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "6d5b9ce3-6df6-409b-b2a6-e655c7c81dc5",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "otherSymptoms_98",
+              "label": "Other symptoms",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "245ed05a-4ad2-451a-9365-b4809e4d541e",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesSpecify2_99",
+              "label": "If yes, specify (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "48a56177-8d82-4d5d-91da-263ec14d7931",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Outcome/status of contact (only complete if contact has been ill or currently ill)",
+      "sections": [
+        {
+          "label": "Outcome/status of contact (only complete if contact has been ill or currently ill)",
+          "questions": [
+            {
+              "id": "contactHasBeenIllOrCurrentlyIll_100",
+              "label": "Contact has been ill or currently ill",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "a84377dd-e6b4-49b3-942f-57cd44ad2030",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Contact has been ill or currently ill",
+                    "concept": "a84377dd-e6b4-49b3-942f-57cd44ad2030"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "status_101",
+              "label": "Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "c15df424-46fd-4e66-9577-86c49af7a09a",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Recovered",
+                    "concept": "e651df21-96dc-42f6-911e-3ad8070a5db0"
+                  },
+                  {
+                    "label": "Still ill",
+                    "concept": "91551d31-7751-43d0-8f91-28c75e681009"
+                  },
+                  {
+                    "label": "Dead",
+                    "concept": "160432AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown/loss to follow up",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifRecoveredSpecifyTheDateSymptomResolved_102",
+              "label": "if recovered specify the date symptom resolved",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "9ff024b4-b543-4018-9579-9d446d858bbe",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "ifYesSpecifyDateOfDeaths_103",
+              "label": "if yes specify date of deaths",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "hospitalizationEverRequired_104",
+              "label": "Hospitalization ever required",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "8bf68f5a-d80b-4853-8307-1c03ae2ed585",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesDateOfHospitalization_105",
+              "label": "If yes, date of hospitalization",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f2c57346-5d35-4ae7-b755-3bcb86c9ce5b",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "ifYesDateOfDischarged_106",
+              "label": "If yes, date of discharged",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "ifDeadContributionOf2019ncovToDeath_107",
+              "label": "If dead, contribution of 2019-nCoV to death",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7d7a715b-80eb-46a3-b8df-30c3ae9a4885",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Underlying/primary",
+                    "concept": "159943AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contributing/secondary",
+                    "concept": "159944AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No contribution to deaths",
+                    "concept": "ee0957b8-b1d6-43cd-9eeb-ee69be6c70a4"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifDeadWasPostmortemPerformed_108",
+              "label": "If dead, was post-mortem performed?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "bbb49c8f-3634-48a7-984d-4e79329d2ba3",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesResultsOfPostmortemsReportWhereAvailable_109",
+              "label": "If yes, results of post-mortem's report where available",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "079f2466-2972-4d95-80c4-89ea536a845c",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifDeadCauseOfDeathOnTheDeathCertificateSpecify_110",
+              "label": "If dead, cause of death on the Death certificate (specify)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1814AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Contact pre-existing condition (s)",
+      "sections": [
+        {
+          "label": "Contact pre-existing condition (s)",
+          "questions": [
+            {
+              "id": "pregnancy_111",
+              "label": "Pregnancy",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5272AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesSpecify_112",
+              "label": "If yes, specify",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160665AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "First",
+                    "concept": "1721AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Second",
+                    "concept": "1722AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Third",
+                    "concept": "1723AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "obesity_113",
+              "label": "Obesity",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "115115AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "heartDisease_114",
+              "label": "Heart disease",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "139071AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "asthmaRequiringMedication_115",
+              "label": "Asthma requiring medication",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "121375AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chronicLungDiseaseNoAsthma_116",
+              "label": "Chronic lung disease (No asthma)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "155569AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chronicLiverDisease_117",
+              "label": "Chronic liver disease",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "120605AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chronicHematologicalDisorder_118",
+              "label": "Chronic hematological disorder",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "118279AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chronicKidneyDisease_119",
+              "label": "Chronic kidney disease",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "145438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chronicNeurologicalImpairmentdisease_120",
+              "label": "Chronic Neurological impairment/disease",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "a31dac0e-2cd4-4a6e-9f02-ac1bbd65e8bc",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "organOrBoneMarrowRecipient_121",
+              "label": "Organ or bone marrow recipient",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "147064AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "otherPreexistingConditionS_122",
+              "label": "Other pre-existing condition (s)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1134f9fe-0a39-4b13-831b-7aec1ed1bbfc",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifYesSpecify2_123",
+              "label": "If yes, specify (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "ad896fa6-e8b7-4c2f-8410-b9bbed76db30",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "commentsIfAppropriate_124",
+              "label": "Comments if appropriate",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "161011AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "encounterType": "c4b87cd6-8006-49c4-a69a-3a21a85f0937"
+}
