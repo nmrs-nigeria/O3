@@ -784,28 +784,28 @@ class NMRSFormConverter:
                 controlling_cid = obs.get("conceptid")
                 if controlling_cid in cid_to_qid:
                     controlling_qid = cid_to_qid[controlling_cid]
+                    # Get the UUID for the controlling concept
+                    controlling_uuid = self.concept_map.get(int(controlling_cid), {}).get("uuid")
                 
-                toggle_target = obs.get("toggle")  # e.g., "CD4LFA"
+                toggle_target = obs.get("toggle")  
                 print(f"Processing toggle: checkbox concept {controlling_cid} -> {toggle_target}")
                 
                 # Find the target container by ID
                 target_elem = soup.find(id=toggle_target)
-                if controlling_qid and target_elem:
+                if controlling_qid and controlling_uuid and target_elem:
                     # Find all obs inside the target container
                     for child_obs in target_elem.find_all("obs"):
                         child_cid = child_obs.get("conceptid")
-                        if child_cid:
-                            # Find corresponding question in the JSON and add hide expression
-                            if child_cid in cid_to_qid:
-                                child_qid = cid_to_qid[child_cid]
-                                for page in json_form["pages"]:
-                                    for section in page["sections"]:
-                                        for question in section["questions"]:
-                                            if question["id"] == child_qid:
-                                                print(f"Adding hide to question {child_qid} controlled by {controlling_qid}")
-                                                question["hide"] = {
-                                                    "hideWhenExpression": f"!{controlling_qid}"
-                                                }
+                        if child_cid and child_cid in cid_to_qid:
+                            child_qid = cid_to_qid[child_cid]
+                            for page in json_form["pages"]:
+                                for section in page["sections"]:
+                                    for question in section["questions"]:
+                                        if question["id"] == child_qid:
+                                            print(f"Adding hide to question {child_qid}")
+                                            question["hide"] = {
+                                                "hideWhenExpression": f"isEmpty({controlling_qid}) || {controlling_qid} !== '{controlling_uuid}'"
+                                            }
 
         # --- OptionSets Sheet ---
         ws2 = wb.create_sheet("OptionSets")

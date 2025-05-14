@@ -804,54 +804,54 @@
                 }
               ]
             },
-            {
-              "id": "testResult_39",
+                                                "hideWhenExpression": f"isEmpty({controlling_qid}) || {controlling_qid} !== '{controlling_uuid}'"
+                                            }
               "label": "Test Result",
-              "type": "obs",
-              "questionOptions": {
-                "concept": "2ed9340c-7507-4bf7-8c75-ffe55b7f06e6",
-                "rendering": "select",
-                "answers": [
-                  {
+        # --- OptionSets Sheet ---
+        ws2 = wb.create_sheet("OptionSets")
+        ws2.append(["OptionSet name", "Answers", "External ID"])",
+        for opt_name, values in option_sets.items():
+            for ans, extid in values:
+                ws2.append([opt_name, ans, extid])
                     "label": "Positive",
-                    "concept": "704AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "Negative",
-                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  }
-                ]
-              }
-            }
+        # --- Save ---oncept": "704AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        output_dir = os.path.join(os.getcwd(), "converted")
+        os.makedirs(output_dir, exist_ok=True)
+        excel_path = os.path.join(output_dir, f"{form_name}_converted.xlsx")
+        json_path = os.path.join(output_dir, f"{form_name}_converted.json")
+        wb.save(excel_path)
+        with open(json_path, "w", encoding="utf-8") as jf:
+            json.dump(json_form, jf, indent=2)
+        messagebox.showinfo("Done", f"Files generated in {output_dir}")
           ]
-        }
-      ]
-    },
-    {
-      "label": "HIV Status",
-      "sections": [
+    def download_html(self):
+        # Save the current HTML/XML in the display box to a file
+        html_content = self.xml_text.get("1.0", END).strip()
+        if not html_content:
+            messagebox.showwarning("No Content", "There is no HTML to download.")
+            return[
         {
-          "label": "HIV Status",
-          "questions": [
-            {
-              "id": "newlyTested_40",
-              "label": "Newly tested",
-              "type": "obs",
+        # Get the selected form name for the filename
+        if self.selected_form_index is not None:
+            form = self.forms[self.selected_form_index]
+            form_name = form['name'],
+        else: "label": "Newly tested",
+            form_name = "form"
               "questionOptions": {
-                "concept": "ffed40b2-0068-40d7-b503-27d86a8a74ee",
-                "rendering": "select",
-                "answers": [
-                  {
-                    "label": "Positive",
+        # Clean filename (remove invalid characters)27d86a8a74ee",
+        safe_form_name = "".join(c if c.isalnum() or c in " ._-" else "_" for c in form_name)
+        output_dir = os.path.join(os.getcwd(), "converted")
+        os.makedirs(output_dir, exist_ok=True)
+        file_path = os.path.join(output_dir, f"{safe_form_name}.html")
                     "concept": "704AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "Negative",
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        messagebox.showinfo("Saved", f"HTML saved to {file_path}")
                     "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  }
-                ]
-              }
-            },
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = NMRSFormConverter(root)
+    root.mainloop()
             {
               "id": "endOfTreatment_41",
               "label": "End of Treatment",

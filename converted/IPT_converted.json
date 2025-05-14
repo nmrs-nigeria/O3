@@ -1,0 +1,877 @@
+{
+  "name": "IPT",
+  "uuid": "0d3528ca-686d-43b6-a45d-f6f262c721f1",
+  "processor": "EncounterFormProcessor",
+  "version": "1.0",
+  "description": "",
+  "pages": [
+    {
+      "label": "Section 1: TB Screening",
+      "sections": [
+        {
+          "label": "Section 1: TB Screening",
+          "questions": [
+            {
+              "id": "areYouCoughingCurrently_1",
+              "label": "Are you coughing currently?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sputumAfbTb_2",
+              "label": "Sputum AFB TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "62bab0f6-4281-43e4-b4b3-d2323bb14dde",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Sputum AFB TB",
+                    "concept": "62bab0f6-4281-43e4-b4b3-d2323bb14dde"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sputumAfb_3",
+              "label": "Sputum AFB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5f8050ac-5a2f-4b6f-b93c-22251db71648",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Negative",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Positive",
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "doYouHaveFever_4",
+              "label": "Do you have fever?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "832AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "genexpertTb_5",
+              "label": "GeneXpert TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "e24da15c-de37-4579-bdd4-60b15f7e0ed0",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "GeneXpert TB",
+                    "concept": "e24da15c-de37-4579-bdd4-60b15f7e0ed0"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "genexpert_6",
+              "label": "GeneXpert",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "3807d459-4f9d-41a7-9f2c-a5fce7723300",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "PTB Negative",
+                    "concept": "164096AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "PTB positive MTB not detected",
+                    "concept": "c9b0347c-bf0d-4419-950d-9b0ab9d27348"
+                  },
+                  {
+                    "label": "PTB positive MTB detected",
+                    "concept": "2682d8cb-4e83-4315-a8b0-3031ed3c542b"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "areYouLosingWeight_7",
+              "label": "Are you losing weight?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chestXrayTb_8",
+              "label": "Chest X-ray TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "d2791597-cae2-4833-ad75-f68b5bfe7aa1",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Chest X-ray TB",
+                    "concept": "d2791597-cae2-4833-ad75-f68b5bfe7aa1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chestXray_9",
+              "label": "Chest X-ray",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "a4ee8baf-cf44-4440-aa2f-c9d2d283ddb3",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Not Suggestive",
+                    "concept": "f90fca07-b94e-48c5-b013-1a6a67647041"
+                  },
+                  {
+                    "label": "Suggestive",
+                    "concept": "da3aa66e-2896-47bd-86a6-76406f786a4a"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "areYouHavingNightSweats_10",
+              "label": "Are you having night sweats?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "133027AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "cultureTb_11",
+              "label": "Culture TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "9945c052-8c53-4f84-8d48-a0313c846739",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Culture TB",
+                    "concept": "9945c052-8c53-4f84-8d48-a0313c846739"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "culture_12",
+              "label": "Culture",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1e1c6724-8521-458b-b9e6-162f8fda3401",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Negative",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "(-)",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "-",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "NEG",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Positive",
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "(+)",
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "+",
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "POS",
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "historyOfContactsWithTbPatientsPeadGroup_13",
+              "label": "History of contacts with TB patients? (Pead. group)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "341c153c-064a-452a-9d12-101e760d89ee",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "True",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "False",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Section 2: TPT Screening",
+      "sections": [
+        {
+          "label": "Section 2: TPT Screening",
+          "questions": [
+            {
+              "id": "activeTb_14",
+              "label": "Active TB",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "164500AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "age1YrWithoutHistoryOfCloseContactWithTbPatient_15",
+              "label": "Age < 1 yr without history of close contact with TB patient",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "8f977783-cc87-4afd-b048-775ce60edd73",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "abnormalChestXray_16",
+              "label": "Abnormal Chest X-Ray",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "152526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "activeHepatitisClinicalOrLab_17",
+              "label": "Active hepatitis (clinical or lab)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "a0e159a1-82c4-48cf-9acf-312b137b245a",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "diagnosisOfTbInThePast3Years_18",
+              "label": "Diagnosis of TB in the past 3 years",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "398c4245-3de7-4e97-a734-f70f13d17923",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "highAlcoholConsumption_19",
+              "label": "High alcohol consumption",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1067ab1f-449c-48eb-ad24-ea093606ed6d",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "severeImmuneSuppressionCd4200Cells_20",
+              "label": "Severe immune suppression (CD4<200 cells)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "ea8603d4-900c-4bed-a7ca-c3d6e4ef144b",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "priorAllergyToInh_21",
+              "label": "Prior allergy to INH",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "c9a8e9d0-fbd3-4d75-8290-098a8ed419b3",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "historyOfPoorTreatmentAdherence_22",
+              "label": "History of poor treatment adherence",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "0f967963-46c1-49a0-ad6a-3769ef7148db",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Section 3: TPT monitoring",
+      "sections": [
+        {
+          "label": "Section 3: TPT monitoring",
+          "questions": [
+            {
+              "id": "isPatientEligibleForTpt_23",
+              "label": "Is Patient Eligible For TPT?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "46add76b-83a7-4cf1-93a8-225023d747f9",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "dateTptStart_24",
+              "label": "Date TPT start",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "2e6198fb-4f65-4803-83fa-d6931d5269f1",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "weightAtStartOfTpt_25",
+              "label": "Weight at start of TPT",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "419c6ce1-7df5-46d0-b323-f5ab148c8204",
+                "rendering": "number"
+              }
+            },
+            {
+              "id": "tptType_26",
+              "label": "TPT Type",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "de01626f-6e3e-4628-8cc5-2f2234350da0",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": "c15ea13a-6318-46d8-92c4-d9166e7c6826"
+                  },
+                  {
+                    "label": "3HP Weekly",
+                    "concept": "9f987a90-8ef1-451f-9764-4a3dcb6cf7b9"
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": "9f7a1870-6693-4687-9460-2c0e895fcb39"
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": "69036175-3a6e-48b8-93be-5aba47fbf61a"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tptType2_27",
+              "label": "TPT Type (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "de01626f-6e3e-4628-8cc5-2f2234350da0",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": "c15ea13a-6318-46d8-92c4-d9166e7c6826"
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": "9f7a1870-6693-4687-9460-2c0e895fcb39"
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": "69036175-3a6e-48b8-93be-5aba47fbf61a"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tptType3_28",
+              "label": "TPT Type (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "de01626f-6e3e-4628-8cc5-2f2234350da0",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "INH Once Daily",
+                    "concept": "c15ea13a-6318-46d8-92c4-d9166e7c6826"
+                  },
+                  {
+                    "label": "3HR Daily",
+                    "concept": "9f7a1870-6693-4687-9460-2c0e895fcb39"
+                  },
+                  {
+                    "label": "1HP Daily",
+                    "concept": "69036175-3a6e-48b8-93be-5aba47fbf61a"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3hpWeekly_29",
+              "label": "3HP Weekly",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "9f987a90-8ef1-451f-9764-4a3dcb6cf7b9",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "900/900mg",
+                    "concept": "f52f1a07-b1ef-4b8e-aa70-019cbfaf5e87"
+                  },
+                  {
+                    "label": "600/600mg",
+                    "concept": "6d78576c-c384-4a7d-bd8b-c1b62465e96c"
+                  },
+                  {
+                    "label": "300/300mg",
+                    "concept": "fcd74eb9-c917-42b1-969a-696b15a5627c"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "medicationsOutOfStock_30",
+              "label": "Medications out of stock",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1754AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "300/600mg",
+                    "concept": "5fa2aca0-515a-4f97-ac12-169e80a38f21"
+                  },
+                  {
+                    "label": "150/600mg",
+                    "concept": "8012d420-ba48-4def-b7ba-a5694fb6d7f4"
+                  },
+                  {
+                    "label": "150/75mg",
+                    "concept": "98c2f143-2432-4ecd-85e4-ac39c1660819"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "1hpDaily_31",
+              "label": "1HP Daily",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "69036175-3a6e-48b8-93be-5aba47fbf61a",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "300/600mg",
+                    "concept": "5fa2aca0-515a-4f97-ac12-169e80a38f21"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "inhDose_32",
+              "label": "INH Dose",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "be12c05b-747d-49d0-a079-a1def816b8b5",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "100mg",
+                    "concept": "27f5a185-9791-45b2-89e8-89df69fdac71"
+                  },
+                  {
+                    "label": "150mg",
+                    "concept": "409fccb1-a7de-412f-9ee6-1e96d4b0b65a"
+                  },
+                  {
+                    "label": "300mg",
+                    "concept": "abbb66b8-61c9-4b58-bad6-edf1efa546e1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbSymptomsCoughFeverNightSweatsWeightLossContacts_33",
+              "label": "TB Symptoms [cough, fever, night sweats, weight loss, contacts]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "023fb1ae-c41e-4fc3-b512-7a47e29f77b1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "True",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "False",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "hepatitisSymptomsabdominalPainNauseaVomitingAbnormalLftsChildrenPersistentIrritabilityYellowishUrineAndEyes_34",
+              "label": "Hepatitis Symptoms[Abdominal pain, nausea, vomiting, abnormal LFTs, Children:\r\n                        persistent irritability, yellowish urine and eyes]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "466d47aa-b2fe-4ac5-a85a-0797d447d29e",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "False",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "True",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "neurologicSymptomsNumbnessTinglingParesthesias_35",
+              "label": "Neurologic Symptoms [Numbness, tingling, paresthesias]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "cbb365ca-70ac-45b0-94bd-e699bf1a657a",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "False",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "True",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "rash_36",
+              "label": "Rash",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "adherence80DosesGood80DosesPoor_37",
+              "label": "Adherence[ > 80% doses = Good < 80% doses = Poor ]",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "7f961a90-b099-4f05-ae70-9e07f72aadf6",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Poor",
+                    "concept": "159407AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Bad",
+                    "concept": "159407AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Good",
+                    "concept": "159405AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "referredForFurtherServices_38",
+              "label": "Referred for further services",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "e27a5de7-ef27-419e-875b-15ac3dfa90e5",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sputumAfbTb_39",
+              "label": "Sputum AFB TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "62bab0f6-4281-43e4-b4b3-d2323bb14dde",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Sputum AFB TB",
+                    "concept": "62bab0f6-4281-43e4-b4b3-d2323bb14dde"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "genexpertTb_40",
+              "label": "GeneXpert TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "e24da15c-de37-4579-bdd4-60b15f7e0ed0",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "GeneXpert TB",
+                    "concept": "e24da15c-de37-4579-bdd4-60b15f7e0ed0"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chestXrayTb_41",
+              "label": "Chest X-ray TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "d2791597-cae2-4833-ad75-f68b5bfe7aa1",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Chest X-ray TB",
+                    "concept": "d2791597-cae2-4833-ad75-f68b5bfe7aa1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "cultureTb_42",
+              "label": "Culture TB",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "9945c052-8c53-4f84-8d48-a0313c846739",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Culture TB",
+                    "concept": "9945c052-8c53-4f84-8d48-a0313c846739"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "outcomeOfTpt_43",
+              "label": "Outcome of TPT",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "fc4d5e4f-ff30-4353-ba03-120dd63e2bd8",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Lost to follow up",
+                    "concept": "f506af27-23b7-4570-bd65-1f5e829c6983"
+                  },
+                  {
+                    "label": "Stopped IPT",
+                    "concept": "b9bf43f4-9085-4470-8886-e71447a49c1e"
+                  },
+                  {
+                    "label": "IPT Completed",
+                    "concept": "ae7d6a6b-f16a-42bf-8d47-5b0f8b113cf1"
+                  },
+                  {
+                    "label": "Developed active TB",
+                    "concept": "e544064b-5809-4c8d-befd-8fe4b84bc07f"
+                  },
+                  {
+                    "label": "Died",
+                    "concept": "160034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Transferred out",
+                    "concept": "159492AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "dateOfOutcome_44",
+              "label": "Date of Outcome",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "9ceef246-098a-49b8-abfa-28e022d44b89",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "reasonsForStoppingTpt_45",
+              "label": "Reasons for stopping TPT",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "8968c76e-f200-4523-9828-51a9172878a3",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Developed neurological symptoms",
+                    "concept": "a5633241-c9ca-4b54-883e-061b1d465d35"
+                  },
+                  {
+                    "label": "Developed symptoms of hepatitis",
+                    "concept": "4221fdc9-9000-42ab-95d1-f42a21a1cdfa"
+                  },
+                  {
+                    "label": "Poor adherence",
+                    "concept": "a1f3ba70-2af9-4727-9c9e-52698a27fea0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Appointment and Signatures",
+      "sections": [
+        {
+          "label": "Appointment and Signatures",
+          "questions": [
+            {
+              "id": "nextAppointmentDate_46",
+              "label": "Next Appointment Date:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5096AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

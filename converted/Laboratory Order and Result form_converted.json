@@ -1,6 +1,6 @@
 {
   "name": "Laboratory Order and Result form",
-  "uuid": "2481d52d-51b0-486d-8e45-2f54f529d2e0",
+  "uuid": "bc3436e8-4647-4049-8244-1a36a146e072",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
@@ -184,7 +184,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!cd4LfaOrder_7"
+                "hideWhenExpression": "isEmpty(cd4LfaOrder_7) || cd4LfaOrder_7 !== '77c9312c-ff7b-4175-9a10-485fa27da29d'"
               }
             },
             {
@@ -196,7 +196,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!cd4LfaOrder_7"
+                "hideWhenExpression": "isEmpty(cd4LfaOrder_7) || cd4LfaOrder_7 !== '77c9312c-ff7b-4175-9a10-485fa27da29d'"
               }
             },
             {
@@ -1529,7 +1529,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!serologyForCragOrder_92"
+                "hideWhenExpression": "isEmpty(serologyForCragOrder_92) || serologyForCragOrder_92 !== '28811ed9-44a0-4fd7-903e-f704bcd52d32'"
               }
             },
             {
@@ -1541,7 +1541,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!serologyForCragOrder_92"
+                "hideWhenExpression": "isEmpty(serologyForCragOrder_92) || serologyForCragOrder_92 !== '28811ed9-44a0-4fd7-903e-f704bcd52d32'"
               }
             }
           ]
@@ -1597,7 +1597,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1627,7 +1627,7 @@
                 ]
               },
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1669,7 +1669,7 @@
                 ]
               },
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1687,7 +1687,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1705,7 +1705,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1723,7 +1723,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1741,7 +1741,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1759,7 +1759,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1777,7 +1777,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1795,7 +1795,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1813,7 +1813,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1899,7 +1899,7 @@
                 ]
               },
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1911,7 +1911,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             },
             {
@@ -1931,7 +1931,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!viralLoadOrder_99"
+                "hideWhenExpression": "isEmpty(viralLoadOrder_99) || viralLoadOrder_99 !== 'f5368416-5382-4deb-a0ae-a9c124a809a2'"
               }
             }
           ]
@@ -1968,7 +1968,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "!sampleSelectedForHivdrStudy_114"
+                "hideWhenExpression": "isEmpty(sampleSelectedForHivdrStudy_114) || sampleSelectedForHivdrStudy_114 !== 'f9a18c26-4b03-4671-ba73-e9bb12d33a94'"
               }
             },
             {
@@ -1987,7 +1987,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!sampleSelectedForHivdrStudy_114"
+                "hideWhenExpression": "isEmpty(sampleSelectedForHivdrStudy_114) || sampleSelectedForHivdrStudy_114 !== 'f9a18c26-4b03-4671-ba73-e9bb12d33a94'"
               }
             },
             {
@@ -2005,7 +2005,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!sampleSelectedForHivdrStudy_114"
+                "hideWhenExpression": "isEmpty(sampleSelectedForHivdrStudy_114) || sampleSelectedForHivdrStudy_114 !== 'f9a18c26-4b03-4671-ba73-e9bb12d33a94'"
               }
             },
             {
@@ -2023,7 +2023,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "!sampleSelectedForHivdrStudy_114"
+                "hideWhenExpression": "isEmpty(sampleSelectedForHivdrStudy_114) || sampleSelectedForHivdrStudy_114 !== 'f9a18c26-4b03-4671-ba73-e9bb12d33a94'"
               }
             },
             {
@@ -2941,7 +2941,7 @@
                 ]
               },
               "hide": {
-                "hideWhenExpression": "!sampleSelectedForHivdrStudy_114"
+                "hideWhenExpression": "isEmpty(sampleSelectedForHivdrStudy_114) || sampleSelectedForHivdrStudy_114 !== 'f9a18c26-4b03-4671-ba73-e9bb12d33a94'"
               }
             },
             {
@@ -2975,7 +2975,7 @@
                 ]
               },
               "hide": {
-                "hideWhenExpression": "!sampleSelectedForHivdrStudy_114"
+                "hideWhenExpression": "isEmpty(sampleSelectedForHivdrStudy_114) || sampleSelectedForHivdrStudy_114 !== 'f9a18c26-4b03-4671-ba73-e9bb12d33a94'"
               }
             }
           ]
