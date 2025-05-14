@@ -773,6 +773,40 @@ class NMRSFormConverter:
                                                 "hideWhenExpression": f"!{controlling_qid}"
                                             }
 
+        # --- Handle toggle attributes ---
+        for obs in soup.find_all("obs"):
+            if obs.get("style", "").lower() == "checkbox" and obs.get("toggle"):
+                # Get the controlling question's id (the checkbox)
+                controlling_id = obs.get("id")
+                controlling_qid = None
+                
+                # Get the generated question id for this checkbox
+                controlling_cid = obs.get("conceptid")
+                if controlling_cid in cid_to_qid:
+                    controlling_qid = cid_to_qid[controlling_cid]
+                
+                toggle_target = obs.get("toggle")  # e.g., "CD4LFA"
+                print(f"Processing toggle: checkbox concept {controlling_cid} -> {toggle_target}")
+                
+                # Find the target container by ID
+                target_elem = soup.find(id=toggle_target)
+                if controlling_qid and target_elem:
+                    # Find all obs inside the target container
+                    for child_obs in target_elem.find_all("obs"):
+                        child_cid = child_obs.get("conceptid")
+                        if child_cid:
+                            # Find corresponding question in the JSON and add hide expression
+                            if child_cid in cid_to_qid:
+                                child_qid = cid_to_qid[child_cid]
+                                for page in json_form["pages"]:
+                                    for section in page["sections"]:
+                                        for question in section["questions"]:
+                                            if question["id"] == child_qid:
+                                                print(f"Adding hide to question {child_qid} controlled by {controlling_qid}")
+                                                question["hide"] = {
+                                                    "hideWhenExpression": f"!{controlling_qid}"
+                                                }
+
         # --- OptionSets Sheet ---
         ws2 = wb.create_sheet("OptionSets")
         ws2.append(["OptionSet name", "Answers", "External ID"])
