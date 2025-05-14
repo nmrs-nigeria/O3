@@ -56,12 +56,41 @@ class NMRSFormConverter:
         self.xml_frame.grid(row=1, column=1, rowspan=2, padx=10, pady=10, sticky="nsew")
         self.xml_frame.rowconfigure(0, weight=1)
         self.xml_frame.columnconfigure(0, weight=1)
+
+        # Add Download HTML button above the HTML form display box
+        self.download_html_btn = ttk.Button(self.xml_frame, text="Download HTML", command=self.download_html)
+        self.download_html_btn.grid(row=0, column=0, sticky="ew", padx=5, pady=(5, 2))
+        # Move the text widget and scrollbar down by one row
         self.xml_text = Text(self.xml_frame, wrap="none")
-        self.xml_text.grid(row=0, column=0, sticky="nsew")
+        self.xml_text.grid(row=1, column=0, sticky="nsew")
         self.xml_scrollbar = ttk.Scrollbar(self.xml_frame, orient=VERTICAL, command=self.xml_text.yview)
-        self.xml_scrollbar.grid(row=0, column=1, sticky="ns")
+        self.xml_scrollbar.grid(row=1, column=1, sticky="ns")
         self.xml_text.config(yscrollcommand=self.xml_scrollbar.set)
-        self.xml_text.config(state="disabled")
+
+        # Optional: Add right-click context menu for copy/paste
+        def show_context_menu(event):
+            context_menu.tk_popup(event.x_root, event.y_root)
+
+        context_menu = tk.Menu(self.xml_text, tearoff=0)
+        context_menu.add_command(label="Copy", command=lambda: self.xml_text.event_generate("<<Copy>>"))
+        context_menu.add_command(label="Paste", command=lambda: self.xml_text.event_generate("<<Paste>>"))
+        context_menu.add_command(label="Cut", command=lambda: self.xml_text.event_generate("<<Cut>>"))
+
+        self.xml_text.bind("<Button-3>", show_context_menu)  # Right-click menu
+
+        # --- FIX: Always allow editing and copying ---
+        # Make sure the Text widget is always in normal state for selection/copy
+        self.xml_text.config(state="normal")
+
+        # Add Ctrl+A support for select all
+        def select_all(event):
+            self.xml_text.tag_add("sel", "1.0", "end-1c")
+            return "break"
+        self.xml_text.bind("<Control-a>", select_all)
+        self.xml_text.bind("<Control-A>", select_all)
+
+        # Add single left click to focus the widget (so Ctrl+A works after click)
+        self.xml_text.bind("<Button-1>", lambda e: self.xml_text.focus_set())
 
         self.connection = None
         self.concept_map = {}      # {concept_id: {"uuid": ..., "name": ...}}
@@ -70,13 +99,14 @@ class NMRSFormConverter:
         self.forms = []
         self.selected_form_index = None
         self.option_sets = {}
+        self.concept_answers = {}  # {concept_id: [{"label": ..., "uuid": ...}, ...]}
 
         self.connect_to_db(auto=True)
 
     def _add_db_widgets(self):
-        labels = ["Host", "User", "Password", "Database"]
+        labels = ["Host", "Port", "User", "Password", "Database"]
         self.db_entries = {}
-        defaults = {"host": "localhost", "user": "root", "password": "root", "database": "openmrs"}
+        defaults = {"host": "localhost", "port": "3306", "user": "root", "password": "root", "database": "openmrs"}
         for i, label in enumerate(labels):
             ttk.Label(self.db_frame, text=label).grid(row=i, column=0, sticky="w")
             entry = ttk.Entry(self.db_frame, show="*" if label == "Password" else "")
@@ -101,6 +131,7 @@ class NMRSFormConverter:
         try:
             self.connection = mysql.connector.connect(
                 host=self.db_entries["host"].get(),
+                port=int(self.db_entries["port"].get()),
                 user=self.db_entries["user"].get(),
                 password=self.db_entries["password"].get(),
                 database=self.db_entries["database"].get()
@@ -131,15 +162,14 @@ class NMRSFormConverter:
             self.selected_form_index = None
             self.xml_text.config(state="normal")
             self.xml_text.delete(1.0, END)
-            self.xml_text.config(state="disabled")
             return
         self.selected_form_index = selection[0]
         form = self.forms[self.selected_form_index]
         xml_data = self.fetch_form_html(form['form_id'])
-        self.xml_text.config(state="normal")
+        self.xml_text.config(state="normal")      # Enable editing/selecting
         self.xml_text.delete(1.0, END)
         self.xml_text.insert(END, xml_data if xml_data else "(No xml_data found)")
-        self.xml_text.config(state="disabled")
+        # Do NOT set state="disabled" here!
 
     def convert_selected_form(self):
         if self.selected_form_index is None:
@@ -183,6 +213,7 @@ class NMRSFormConverter:
             self.concept_map = {}
             self.concept_datatypes = {}
             self.concept_numeric = {}
+            self.concept_answers = {}
             return
         cursor = self.connection.cursor(dictionary=True)
         placeholders = ",".join(["%s"] * len(concept_ids))
@@ -204,6 +235,16 @@ class NMRSFormConverter:
             list(concept_ids)
         )
         self.concept_numeric = {row["concept_id"]: {"hi_absolute": row["hi_absolute"], "low_absolute": row["low_absolute"]} for row in cursor.fetchall()}
+        # Fetch concept answers
+        cursor.execute(
+            f"SELECT ca.concept_id, ca.answer_concept, n.name as answer_label, c.uuid as answer_uuid FROM concept_answer ca JOIN concept c ON ca.answer_concept = c.concept_id JOIN concept_name n ON c.concept_id = n.concept_id AND n.locale = 'en' WHERE ca.concept_id IN ({placeholders})",
+            list(concept_ids)
+        )
+        self.concept_answers = {}
+        for row in cursor.fetchall():
+            if row["concept_id"] not in self.concept_answers:
+                self.concept_answers[row["concept_id"]] = []
+            self.concept_answers[row["concept_id"]].append({"label": row["answer_label"], "uuid": row["answer_uuid"]})
         cursor.close()
 
     def on_concept_search(self, event=None):
@@ -280,6 +321,10 @@ class NMRSFormConverter:
 
         id_counter = 1  # <-- Use this for incremental numbering
 
+        htmlid_to_qid = {}     # {html_id: generated_qid}
+        cid_to_qid = {}        # {conceptId: generated_qid}
+        qid_to_question = {}   # {qid: question_dict}
+
         for fieldset in fieldsets:
             legend = fieldset.find("legend")
             section_label = legend.text.strip() if legend else None
@@ -339,6 +384,22 @@ class NMRSFormConverter:
                     continue
                 seen_questions.add(qid)
                 id_counter += 1
+
+                html_id = obs.get("id")
+                if html_id:
+                    htmlid_to_qid[html_id] = qid
+                concept_id = obs.get("conceptid")
+                if concept_id:
+                    cid_to_qid[concept_id] = qid
+                question = {
+                    "id": qid,
+                    "label": label,
+                    "type": "obs",
+                    "questionOptions": {
+                        "concept": uuid_val
+                    }
+                }
+                qid_to_question[qid] = question  # After you build the question dict
 
                 # --- Handle encounterProvider/person and encounterLocation ---
                 # If obs has style="person" or is <encounterProvider>
@@ -410,21 +471,30 @@ class NMRSFormConverter:
                     ])
                     continue
 
-                # --- PRIORITY: Handle answerConceptIds as select ---
+                # --- PRIORITY: Handle answerConceptIds as select, even if answerLabel(s) is present ---
                 answer_concept_ids = obs.get("answerconceptids")
-                answer_labels = obs.get("answerlabels")
+                answer_labels = obs.get("answerlabels") or obs.get("answerlabel")
                 if answer_concept_ids:
-                    # Split ids and labels, strip whitespace
                     ids = [x.strip() for x in answer_concept_ids.split(",")]
-                    labels = [x.strip() for x in answer_labels.split(",")] if answer_labels else ids
-                    answers = []
-                    for i, cid_val in enumerate(ids):
-                        # Use the uuid for each answer concept if available, else fallback to the id itself
+                    # If only one concept id and no answerLabel(s), use concept_name for label
+                    if len(ids) == 1 and not answer_labels:
+                        cid_val = ids[0]
+                        # Use the uuid and name for the answer option
                         uuid_val_ans = self.concept_map.get(int(cid_val), {}).get("uuid", cid_val) if cid_val.isdigit() else cid_val
-                        answers.append({
-                            "label": labels[i] if i < len(labels) else cid_val,
+                        label_val_ans = self.concept_map.get(int(cid_val), {}).get("name", cid_val) if cid_val.isdigit() else cid_val
+                        answers = [{
+                            "label": label_val_ans,
                             "concept": uuid_val_ans
-                        })
+                        }]
+                    else:
+                        labels = [x.strip() for x in answer_labels.split(",")] if answer_labels else ids
+                        answers = []
+                        for i, cid_val in enumerate(ids):
+                            uuid_val_ans = self.concept_map.get(int(cid_val), {}).get("uuid", cid_val) if cid_val.isdigit() else cid_val
+                            answers.append({
+                                "label": labels[i] if i < len(labels) else cid_val,
+                                "concept": uuid_val_ans
+                            })
                     question = {
                         "id": qid,
                         "label": label,
@@ -441,6 +511,101 @@ class NMRSFormConverter:
                         "", "select", "", "", ""
                     ])
                     continue
+
+                # --- Handle <obs conceptId="..."/> with no answerConceptIds/answerLabels: prioritize date, then numeric/coded ---
+                if (
+                    obs.name.lower() == "obs"
+                    and obs.get("conceptid")
+                    and not obs.get("answerconceptids")
+                    and not obs.get("answerlabels")
+                    and not obs.get("answerlabel")
+                ):
+                    cid = obs.get("conceptid")
+                    if cid and cid.isdigit():
+                        cid = int(cid)
+                        uuid_val = self.concept_map.get(cid, {}).get("uuid", "")
+                        datatype = self.concept_datatypes.get(cid, "").lower()
+                        # 1. Prioritize rendering as date if label contains 'date'
+                        if "date" in label.lower():
+                            question = {
+                                "id": qid,
+                                "label": label,
+                                "type": "obs",
+                                "questionOptions": {
+                                    "concept": uuid_val,
+                                    "rendering": "date"
+                                },
+                                "validators": [{
+                                    "type": "date",
+                                    "message": "Please enter a valid date"
+                                }]
+                            }
+                            section["questions"].append(question)
+                            ws.append([
+                                page_label, section_label_final, label, "Date", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
+                                "", "date", "", "", ""
+                            ])
+                            continue
+                        # 2. If numeric, render as number
+                        elif datatype == "numeric":
+                            numeric_info = self.concept_numeric.get(cid, {})
+                            question_options = {
+                                "concept": uuid_val,
+                                "rendering": "number"
+                            }
+                            validators = []
+                            if numeric_info.get("hi_absolute") is not None:
+                                question_options["max"] = str(numeric_info["hi_absolute"])
+                                validators.append({
+                                    "type": "max",
+                                    "value": str(numeric_info["hi_absolute"]),
+                                    "message": f"Value must be <= {numeric_info['hi_absolute']}"
+                                })
+                            if numeric_info.get("low_absolute") is not None:
+                                question_options["min"] = str(numeric_info["low_absolute"])
+                                validators.append({
+                                    "type": "min",
+                                    "value": str(numeric_info["low_absolute"]),
+                                    "message": f"Value must be >= {numeric_info['low_absolute']}"
+                                })
+                            question = {
+                                "id": qid,
+                                "label": label,
+                                "type": "obs",
+                                "questionOptions": question_options
+                            }
+                            if validators:
+                                question["validators"] = validators
+                            section["questions"].append(question)
+                            ws.append([
+                                page_label, section_label_final, label, "Numeric", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
+                                "", "number", "", question_options.get("max", ""), question_options.get("min", "")
+                            ])
+                            continue
+                        # 3. If coded, render as select using concept answers
+                        elif datatype == "coded":
+                            answers = []
+                            for ans in self.concept_answers.get(cid, []):
+                                answers.append({
+                                    "label": ans["label"],
+                                    "concept": ans["uuid"]
+                                })
+                            question = {
+                                "id": qid,
+                                "label": label,
+                                "type": "obs",
+                                "questionOptions": {
+                                    "concept": uuid_val,
+                                    "rendering": "select",
+                                    "answers": answers
+                                }
+                            }
+                            section["questions"].append(question)
+                            ws.append([
+                                page_label, section_label_final, label, "Coded", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
+                                "", "select", "", "", ""
+                            ])
+                            continue
 
                 # --- Datatype-based rendering ---
                 datatype = self.concept_datatypes.get(cid, "").lower()
@@ -532,249 +697,84 @@ class NMRSFormConverter:
                     "sections": [section]
                 })
 
-        # --- Handle components not within any fieldset ---
-        # Find all obs, encounterProvider, encounterLocation, encounterDate not inside a fieldset
-        all_tags = soup.find_all(["obs", "encounterprovider", "encounterlocation", "encounterdate"])
-        fieldset_obs = set()
-        for fs in fieldsets:
-            for tag in fs.find_all(["obs", "encounterprovider", "encounterlocation", "encounterdate"]):
-                fieldset_obs.add(tag)
+        # --- After all questions are generated: ---
+        # Build a mapping from concept uuid to all qids for fallback (handles duplicates)
+        conceptuuid_to_qids = {}
+        for qid, q in qid_to_question.items():
+            concept_uuid = q["questionOptions"]["concept"]
+            if concept_uuid not in conceptuuid_to_qids:
+                conceptuuid_to_qids[concept_uuid] = []
+            conceptuuid_to_qids[concept_uuid].append(qid)
 
-        # Only process tags not already handled in fieldsets
-        outside_tags = [tag for tag in all_tags if tag not in fieldset_obs]
-        if outside_tags:
-            section = {
-                "label": "General",
-                "questions": []
-            }
-            page_label = "General"
-            section_label_final = "General"
-            seen_questions = set()
-            used_labels = {}
+        for obs in soup.find_all("obs"):
+            # --- Handle <controls><when ...></when></controls> ---
+            controls = obs.find("controls")
+            if controls:
+                for when in controls.find_all("when"):
+                    if when.get("value") and when.get("thendisplay"):
+                        trigger_html_id = obs.get("id")
+                        trigger_qid = htmlid_to_qid.get(trigger_html_id)
+                        trigger_value = when.get("value")
+                        # Get UUID for this answer concept
+                        if trigger_value.isdigit():
+                            trigger_uuid = self.concept_map.get(int(trigger_value), {}).get("uuid", trigger_value)
+                        else:
+                            trigger_uuid = trigger_value
+                        # Find all targets (by id or class)
+                        target_ref = when.get("thendisplay").lstrip("#.")
+                        if when.get("thendisplay").startswith("#"):
+                            target_elems = [soup.find(id=target_ref)]
+                        elif when.get("thendisplay").startswith("."):
+                            target_elems = soup.find_all(class_=target_ref)
+                        else:
+                            target_elems = [soup.find(id=target_ref)]
+                        for target_elem in target_elems:
+                            if trigger_qid and target_elem:
+                                # Find all descendant obs tags (not just direct children)
+                                for child_obs in target_elem.find_all("obs"):
+                                    child_html_id = child_obs.get("id")
+                                    child_cid = child_obs.get("conceptid")
+                                    child_qids = []
+                                    # Prefer HTML id mapping
+                                    if child_html_id and child_html_id in htmlid_to_qid:
+                                        child_qids = [htmlid_to_qid[child_html_id]]
+                                    # Fallback: all qids for this concept uuid
+                                    elif child_cid and child_cid.isdigit():
+                                        child_uuid = self.concept_map.get(int(child_cid), {}).get("uuid")
+                                        child_qids = conceptuuid_to_qids.get(child_uuid, [])
+                                    for child_qid in child_qids:
+                                        if child_qid in qid_to_question:
+                                            qid_to_question[child_qid]["hide"] = {
+                                                "hideWhenExpression": f"isEmpty({trigger_qid}) || {trigger_qid} !== '{trigger_uuid}'"
+                                            }
 
-            for obs in outside_tags:
-                # --- Handle encounterProvider/person and encounterLocation ---
-                is_person = obs.get("style", "").lower() == "person" or obs.name.lower() == "encounterprovider"
-                is_location = obs.name.lower() == "encounterlocation"
-                is_date = obs.name.lower() == "encounterdate"
-
-                # Generate a label and id
-                if is_date:
-                    label = "Visit Date"
-                    base_id = "encounterDate"
+            # --- Handle toggle on checkbox ---
+            if obs.get("style", "").lower() == "checkbox" and obs.get("toggle"):
+                trigger_html_id = obs.get("id")
+                trigger_qid = htmlid_to_qid.get(trigger_html_id)
+                toggle_target = obs.get("toggle")
+                if toggle_target.startswith("#"):
+                    target_elems = [soup.find(id=toggle_target.lstrip("#"))]
+                elif toggle_target.startswith("."):
+                    target_elems = soup.find_all(class_=toggle_target.lstrip("."))
                 else:
-                    cid = obs.get("conceptid")
-                    if cid and cid.isdigit():
-                        cid = int(cid)
-                        label = obs.get("label", "") or self.concept_map.get(cid, {"name": f"Concept {cid}"})["name"]
-                        base_id = to_camel_case_id(label)
-                    else:
-                        label = obs.get("label", "") or obs.name
-                        base_id = to_camel_case_id(label)
-                qid = f"{base_id}_{id_counter}"
-
-                if qid in seen_questions:
-                    continue
-                seen_questions.add(qid)
-                id_counter += 1
-
-                if is_person:
-                    question = {
-                        "label": label,
-                        "type": "encounterProvider",
-                        "required": obs.get("required", "false").lower() == "true",
-                        "id": qid,
-                        "questionOptions": {
-                            "rendering": "ui-select-extended"
-                        },
-                        "validators": []
-                    }
-                    section["questions"].append(question)
-                    ws.append([
-                        page_label, section_label_final, label, "Provider", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
-                        "", "ui-select-extended", "", "", ""
-                    ])
-                    continue
-
-                if is_location:
-                    question = {
-                        "label": label,
-                        "type": "encounterLocation",
-                        "required": obs.get("required", "false").lower() == "true",
-                        "id": qid,
-                        "questionOptions": {
-                            "rendering": "ui-select-extended"
-                        },
-                        "validators": []
-                    }
-                    section["questions"].append(question)
-                    ws.append([
-                        page_label, section_label_final, label, "Location", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
-                        "", "ui-select-extended", "", "", ""
-                    ])
-                    continue
-
-                if is_date:
-                    question = {
-                        "id": qid,
-                        "label": label,
-                        "type": "encounterDate",
-                        "required": obs.get("required", "false").lower() == "true",
-                        "questionOptions": {
-                            "rendering": "date",
-                            "allowFutureDates": obs.get("allowfuturedates", "false").lower() == "true",
-                            "showTime": obs.get("showtime", "false").lower() == "true"
-                        }
-                    }
-                    section["questions"].append(question)
-                    ws.append([
-                        page_label, section_label_final, label, "Date", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
-                        "", "date", "", "", ""
-                    ])
-                    continue
-
-                # --- PRIORITY: Handle style="checkbox" as radio with default ---
-                if obs.get("style", "").lower() == "checkbox":
-                    checked_val = obs.get("value", "").lower()
-                    default_val = True if checked_val in ["true", "1", "yes", "checked"] else False
-                    question = {
-                        "id": qid,
-                        "label": label,
-                        "type": "radio",
-                        "questionOptions": {
-                            "concept": self.concept_map.get(cid, {}).get("uuid", ""),
-                            "rendering": "radio",
-                            "answers": [
-                                {
-                                    "label": label,
-                                    "concept": self.concept_map.get(cid, {}).get("uuid", "")
-                                }
-                            ]
-                        }
-                    }
-                    if default_val:
-                        question["default"] = self.concept_map.get(cid, {}).get("uuid", "")  # Set default to the single answer option's uuid
-                    section["questions"].append(question)
-                    ws.append([
-                        page_label, section_label_final, label, "Radio", "No", qid,
-                        "", "radio", "", "", ""
-                    ])
-                    continue
-
-                # --- PRIORITY: Handle answerConceptIds as select ---
-                answer_concept_ids = obs.get("answerconceptids")
-                answer_labels = obs.get("answerlabels")
-                if answer_concept_ids:
-                    # Split ids and labels, strip whitespace
-                    ids = [x.strip() for x in answer_concept_ids.split(",")]
-                    labels = [x.strip() for x in answer_labels.split(",")] if answer_labels else ids
-                    answers = []
-                    for i, cid_val in enumerate(ids):
-                        # Use the uuid for each answer concept if available, else fallback to the id itself
-                        uuid_val_ans = self.concept_map.get(int(cid_val), {}).get("uuid", cid_val) if cid_val.isdigit() else cid_val
-                        answers.append({
-                            "label": labels[i] if i < len(labels) else cid_val,
-                            "concept": uuid_val_ans
-                        })
-                    question = {
-                        "id": qid,
-                        "label": label,
-                        "type": "obs",
-                        "questionOptions": {
-                            "concept": self.concept_map.get(cid, {}).get("uuid", ""),
-                            "rendering": "select",
-                            "answers": answers
-                        }
-                    }
-                    section["questions"].append(question)
-                    ws.append([
-                        page_label, section_label_final, label, "Coded", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
-                        "", "select", "", "", ""
-                    ])
-                    continue
-
-                # --- Datatype-based rendering for obs ---
-                cid = obs.get("conceptid")
-                if not cid or not cid.isdigit():
-                    continue
-                cid = int(cid)
-                datatype = self.concept_datatypes.get(cid, "").lower()
-                rendering = "text"
-                question_options = {
-                    "concept": self.concept_map.get(cid, {}).get("uuid", "")
-                }
-                validators = []
-
-                if datatype == "date":
-                    rendering = "date"
-                    question_options["allowFutureDates"] = False
-                    validators.append({
-                        "type": "date",
-                        "message": "Please enter a valid date"
-                    })
-                elif datatype == "numeric":
-                    rendering = "number"
-                    numeric_info = self.concept_numeric.get(cid, {})
-                    if numeric_info.get("hi_absolute") is not None:
-                        question_options["max"] = str(numeric_info["hi_absolute"])
-                        validators.append({
-                            "type": "max",
-                            "value": str(numeric_info["hi_absolute"]),
-                            "message": f"Value must be <= {numeric_info['hi_absolute']}"
-                        })
-                    if numeric_info.get("low_absolute") is not None:
-                        question_options["min"] = str(numeric_info["low_absolute"])
-                        validators.append({
-                            "type": "min",
-                            "value": str(numeric_info["low_absolute"]),
-                            "message": f"Value must be >= {numeric_info['low_absolute']}"
-                        })
-                elif obs.get("answerlabel"):
-                    answer_label = obs.get("answerlabel")
-                    answer_concept_id = obs.get("answerconceptid")
-                    question = {
-                        "id": qid,
-                        "label": answer_label,
-                        "type": "radio",
-                        "questionOptions": {
-                            "concept": self.concept_map.get(cid, {}).get("uuid", ""),
-                            "rendering": "radio",
-                            "answers": [
-                                {
-                                    "label": answer_label,
-                                    "concept": answer_concept_id or ""
-                                }
-                            ]
-                        }
-                    }
-                    section["questions"].append(question)
-                    ws.append([
-                        page_label, section_label_final, answer_label, "Radio", "No", qid,
-                        "", "radio", "", "", ""
-                    ])
-                    continue
-
-                question_options["rendering"] = rendering
-                question = {
-                    "id": qid,
-                    "label": label,
-                    "type": "obs",
-                    "questionOptions": question_options
-                }
-                if validators:
-                    question["validators"] = validators
-
-                section["questions"].append(question)
-                ws.append([
-                    page_label, section_label_final, label, datatype.capitalize() if datatype else "Text", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
-                    "", rendering, "", question_options.get("max", ""), question_options.get("min", "")
-                ])
-
-            if section["questions"]:
-                json_form["pages"].append({
-                    "label": page_label,
-                    "sections": [section]
-                })
+                    target_elems = [soup.find(id=toggle_target)]
+                for target_elem in target_elems:
+                    if trigger_qid and target_elem:
+                        for child_obs in target_elem.find_all("obs"):
+                            child_html_id = child_obs.get("id")
+                            child_cid = child_obs.get("conceptid")
+                            child_qids = []
+                            if child_html_id and child_html_id in htmlid_to_qid:
+                                child_qids = [htmlid_to_qid[child_html_id]]
+                            elif child_cid and child_cid.isdigit():
+                                child_uuid = self.concept_map.get(int(child_cid), {}).get("uuid")
+                                child_qids = conceptuuid_to_qids.get(child_uuid, [])
+                            for child_qid in child_qids:
+                                if child_qid in qid_to_question:
+                                    qid_to_question[child_qid]["hide"] = {
+                                        "hideWhenExpression": f"!{trigger_qid}"
+                                    }
 
         # --- OptionSets Sheet ---
         ws2 = wb.create_sheet("OptionSets")
@@ -792,6 +792,30 @@ class NMRSFormConverter:
         with open(json_path, "w", encoding="utf-8") as jf:
             json.dump(json_form, jf, indent=2)
         messagebox.showinfo("Done", f"Files generated in {output_dir}")
+
+    def download_html(self):
+        # Save the current HTML/XML in the display box to a file
+        html_content = self.xml_text.get("1.0", END).strip()
+        if not html_content:
+            messagebox.showwarning("No Content", "There is no HTML to download.")
+            return
+
+        # Get the selected form name for the filename
+        if self.selected_form_index is not None:
+            form = self.forms[self.selected_form_index]
+            form_name = form['name']
+        else:
+            form_name = "form"
+
+        # Clean filename (remove invalid characters)
+        safe_form_name = "".join(c if c.isalnum() or c in " ._-" else "_" for c in form_name)
+        output_dir = os.path.join(os.getcwd(), "converted")
+        os.makedirs(output_dir, exist_ok=True)
+        file_path = os.path.join(output_dir, f"{safe_form_name}.html")
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        messagebox.showinfo("Saved", f"HTML saved to {file_path}")
 
 if __name__ == "__main__":
     root = tk.Tk()
