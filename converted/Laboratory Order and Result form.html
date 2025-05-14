@@ -1,0 +1,919 @@
+<htmlform formUuid="889ce948-f1ee-4656-91af-147a9e760309" formName="Laboratory Order and Result form" formEncounterType="7ccf3847-7bc3-42e5-8b7e-4125712660ea" formVersion="2018">
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: #2f1c55;
+        color: white;
+        /* display: block; */
+        padding: 2px;
+        font-weight: bold;
+        }
+        table tr:nth-child(even) {
+        background: #ffffff;
+        }
+        .alnleft_s{
+        text-align: left;
+        color:#000000;
+        width: 13%;
+        }
+        .alnright_s{
+        text-align: right;
+        color:#000000;
+        width: 13%;
+        }
+        .alnright{
+        text-align: right;
+        color:#000000;
+        width: 25%;
+        }
+        .alnright_i{
+        text-align: right;
+        color:#000000;
+        width: 40%;
+        }
+        .alnleft{
+        text-align: left;
+        color:#000000;
+        width: 25%;
+        }
+        .error{
+      color:red;
+        }
+        td {
+        border: none;
+        }
+        table th, table td {
+        padding: 5px 10px;
+        border: None;
+        }
+        .legend_style {
+        max-width: 35%;
+        background: #FAFAFA;
+        <!--padding: 5px;-->
+        margin: 0px left;
+        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+        border-radius: 2px;
+        border: 1px solid #305a72;
+        border-bottom-left-radius: 2px;
+        text-transform:initial;
+
+        }
+        form fieldset, .form fieldset {
+        min-width: 98%;
+        border: none;
+        border-top: 1px solid #305a72;
+
+        }
+        table th, table td {
+        padding: 5px 10px;
+        /* border: 1px solid #DDD; */
+        }
+        table tr {
+        border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form select, .form select {
+        max-width: 200px;
+        }
+        body {
+        font-family: "OpenSans", Arial, sans-serif;
+        color: #363463;
+        font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+
+	var $ = jQuery;
+	$(document).ready(function ()
+	{
+	   $('.hasDatepicker').attr('readonly', true)
+	});
+</script>
+   
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr><th colspan='5' style="text-align: center">Laboratory Order &amp; Result Form</th></tr>
+        </thead>
+    </table>
+
+    <table class="table" width="100%">
+        <tbody>
+        <tr>
+            <td class="alnright">Visit Date</td>
+            <div style="pointer-events: none">
+                <td class="alnleft"><encounterDate default="now" showTime="false" allowFutureDates="false" required="true" /></td>
+            </div>
+            <td class="alnright"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <fieldset>
+        <table>
+         	<tr>             
+                <td class="alnleft">
+                    Lab Registration Number
+                </td>
+                <td>
+                    <obs conceptId="165394" />
+                </td>
+                
+                <td class="alnleft">Indication for AHD</td>
+                <td>
+                    <obs conceptId="167079" answerConceptIds="162080,162081" answerLabels="Baseline,Repeat" />
+                </td>
+            </tr>
+            <tr>
+                <th class="alnleft"><label>Order</label></th>
+                <th><label>Results</label></th>
+                <th class="alnleft"><label>Order</label></th>
+                <th><label>Results</label></th>
+            </tr>
+            <tr>
+
+                <td class="alnleft">
+                    <div class="enable_clin_control" style="pointer-events: none">
+                        <obs conceptId="165731" style="checkbox" value="false" />CD4+ cell count (cells/mm3)
+                    </div>
+                </td>
+                <td>
+                    <div class="enable_lab_control" style="pointer-events: none">
+                        <obs conceptId="5497"/>
+                    </div>
+                </td>
+                <td class="alnleft">
+                    <div class="enable_clin_control" style="pointer-events: none">
+                        <obs conceptId="165748" style="checkbox" value="false" />CD4 (%)
+                    </div>
+                </td>
+                <td>
+                    <div class="enable_lab_control" style="pointer-events: none">
+                        <obs conceptId="730"/>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+				<td>
+                    <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="167085" style="checkbox" value="false" labelText="CD4 LFA" toggle="CD4LFA" /></div>
+                </td>
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167088" answerConceptIds="167086,167087" answerLabels="&lt;200,&gt;=200" /></div></td>
+                <td class="alnleft">
+                    <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165732" style="checkbox" value="false" />WBC (x10<sup>9</sup> c/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="678"/></div></td>                
+            </tr>
+            <tr id="CD4LFA"> 
+                <td>Time CD4 LFA sample collected</td>
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167091" /></div></td>
+                <td>Time CD4 LFA result received</td>
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167092" /></div></td>
+            </tr> 
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165749" style="checkbox" value="false" />Polymorphs (/mm<sup>3</sup>) </div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1022"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165918" style="checkbox" value="false" />Polymorphs (%)</div></td>
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165919"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165733" style="checkbox" value="false" />Lymphocytes (/mm<sup>3</sup>)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1319"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165750" style="checkbox" value="false" />Lymphocytes (%)</div></td>
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1338"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165734" style="checkbox" value="false" />Monocytes (/mm<sup>3</sup>)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1023" /></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165751" style="checkbox" value="false" />Monocytes (%)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1339" /></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165735" style="checkbox" value="false" />Eosinophils (/mm<sup>3</sup>)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1024" /></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165752" style="checkbox" value="false" />Eosinophil (%)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1340" /></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165736" style="checkbox" value="false" />Basophils (/mm<sup>3</sup>)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1025" /></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165753" style="checkbox" value="false" />Basophils (%)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1341" /></div></td>
+
+            </tr>
+
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165737" style="checkbox" value="false" />PCV/Hb (%)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165395" /></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165921" style="checkbox" value="false" />PCV/Hb (g/dl)</div></td>
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165920" /></div></td>
+
+            </tr>
+
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165754" style="checkbox" value="false" />Platelets (x 10<sup>9</sup> c/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="729" /></div></td>
+
+                <td colspan="2"> </td>
+            </tr>
+
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165738" style="checkbox" value="false" />HCV antibody</div> </td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1325" answerConceptIds="703,664" answerLabels="Positive,Negative"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165755" style="checkbox" value="false" />HBsAG </div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="159430" answerConceptIds="703,664" answerLabels="Positive,Negative"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div id="clin19" style="pointer-events: none"><obs conceptId="165739" style="checkbox" value="false" />VDRL </div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="299" answerConceptIds="1228,1229" answerLabels="Reactive,Non-Reactive"/></div></td>
+
+
+                <td class="alnleft"><div id="clin20" style="pointer-events: none"><obs conceptId="165756" style="checkbox" value="false" />Creatinine (mmol/l)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="164364"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165740" style="checkbox" value="false" />ALT/SGPT (U/I)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="654"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165922" style="checkbox" value="false" />ALT/SGPT (mmol/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165923"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165757" style="checkbox" value="false" />AST/SGOT (U/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="653"/></div></td>
+
+                <td colspan="2"> </td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165741" style="checkbox" value="false" />Alk. Phosphate (U/l)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="785"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165758" style="checkbox" value="false" />Total Bilirubin (mmol/l)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="655"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165742" style="checkbox" value="false" />Na+ (mmol/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1132"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165759" style="checkbox" value="false" />K+ (mmol/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1133"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165743" style="checkbox" value="false" />Fasting Glucose (mmol/l)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="160053"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165760" style="checkbox" value="false" />Total Cholesterol (mmol/l)</div></td>
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1006"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165744" style="checkbox" value="false" />LDL (mmol/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1008"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165761" style="checkbox" value="false" />HDL (mmol/L)</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1007"/></div></td>
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165745" style="checkbox" value="false" />Glucose</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="160053"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165762" style="checkbox" value="false" />Protein</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165926"/></div></td>
+
+
+            </tr>
+            <tr>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165746" style="checkbox" value="false" />Cytology/Pap Smear: </div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165927"/></div></td>
+
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165763" style="checkbox" value="false" />Triglyceride</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="1009"/></div></td>
+
+            </tr>
+
+            <tr>
+                <excludeIf velocityTest="$patient.gender == 'M' ">
+
+                    <td  class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165747" style="checkbox" value="false" />Pregnancy</div></td>
+
+
+                    <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="45" answerConceptIds="703,664" answerLabels="Positive,Negative"/></div></td>
+                </excludeIf>
+
+                <td class="alnleft"><div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165764" style="checkbox" value="false" />Malaria smear</div></td>
+
+
+                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="32" answerConceptIds="664,703"
+                                                                                      answerLabels="Positive,Negative" /></div></td>
+            </tr>
+            <tr>
+                <td class="alnleft">
+                    <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="167080" style="checkbox" value="false" />TB LF LAM </div></td>
+                <td>
+                    <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="166697" answerConceptIds="703,664" answerLabels="Positive,Negative" /></div>
+                </td>
+                <td class="alnleft">
+                    <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="167095" style="checkbox" value="false" />Urinalysis</div></td>
+                <td>
+                    <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="160987" /></div>
+                </td>
+            </tr>          
+            
+        </table>
+        
+         <fieldset id="additional" style="border: 1px solid #305a72; min-width: 98%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+            <table>
+                <tr>
+                    <td>
+                        <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="167089" style="checkbox" value="false" labelText="Serology for CrAg" toggle="SerologyforCrAg" /></div>
+                    </td>
+                    <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167090" answerConceptIds="703,664" answerLabels="Positive,Negative" /></div></td>
+                    <td class="alnleft">
+                        <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="167081" style="checkbox" value="false" />CSF for CrAg</div></td>
+                    <td>
+                        <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167082" answerConceptIds="703,664" answerLabels="Positive,Negative" /></div>
+                    </td>
+                </tr>
+                <tr id="SerologyforCrAg"> 
+                        <td>Time Serology for CrAg sample collected</td>
+                        <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167093" /></div></td>
+                        <td>Time Serology for CrAg result received</td>
+                        <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="167094" /></div></td>
+                </tr>  
+               <!-- - <tr>
+                    <td class="alnleft">
+                        <obs conceptId="167083" style="checkbox" value="false" />CSF for M/C/S</td>
+                    <td>
+                        <obs conceptId="167084" />
+                    </td>                   
+                </tr> -->
+            </table>           
+        </fieldset>      
+        <fieldset id="additional" style="border: 1px solid #305a72; min-width: 90%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+            <table>
+                <tr>
+                    <b>Additional tests</b> (only be performed by laboratory if exact clinical indication is specified and signed by clinician)              
+                </tr>
+            </table>
+            <fieldset id="in"  style="min-width: 100%; padding: 0px; "></fieldset>
+            <table>
+                <tr>
+                    <td class="alnleft"><b>Specify exact clinical indication for requested tests:</b></td>
+                    <td><obs conceptId="165717" /></td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        
+        
+        
+        
+        
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Viral Load</legend>
+        <table>
+            <tr>
+
+                <td class="alnright">
+                    <div class="enable_clin_control" style="pointer-events: none"><obs conceptId="165765" style="checkbox" value="false" labelText="Viral Load Test" toggle="viralLoad"/> </div>
+                </td>
+            </tr>
+        </table>
+        <table id="viralLoad">
+        	<tr>	
+        	<includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician')">
+	       		
+	                <td><font color='red'>Last Sample collection date:</font></td>
+					<td><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('159951').obsDatetime" /></font></td>
+	                
+					<td><font color='red'>Last Sample Type:</font></td>
+					<td><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('162476').valueCoded.name"/></font></td>
+					
+					<td><font color='red'>Last Indication for Viral Load:</font></td>
+					<td><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('164980').valueCoded.name"/></font></td>
+	         </includeIf>
+	        </tr>           
+            <tr>                                
+                <includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician')">
+                    <td class="alnleft_s" colspan="2">Sample ID.
+                	<div><obs conceptId="165715"/></div></td>
+                    <td class="alnleft_s" colspan="2">Sample Type
+                    <div><obs conceptId="162476" answerConceptIds="1000,1002,165568,166615" answerLabels="Whole Blood,Plasma,DBS,Plasma separation card(PSC)" /></div></td>                          
+                    <td class="alnleft_s" colspan="2">Indication for Viral Load
+                    <div><obs id="viral_load" conceptId="164980" answerConceptIds="162080,161236,162082,162081,163523,160566, 165978" answerLabels="Baseline (6 months after ART initiation), Routine (every 12 months), Confirmation (3-6 months after intense adherence counselling), Repeat test, Clinical failure, Immunological failure, PMTCT 32-36 weeks gestation">
+                        <controls>
+                            <when value="162081" thenDisplay="#repeat_id"/>
+                        </controls>
+                    </obs>
+                    </div></td>                    
+                </includeIf>
+            </tr>
+
+            <includeIf velocityTest="$user.hasRole('Lab')">
+             	<tr>                
+                    <td class="alnleft_s" colspan="2">Sample collection date
+                    <div class="enable_lab_control"  style="pointer-events: none"><obs conceptId="159951"/></div></td>
+                    <td class="alnleft_s" colspan="2">Date sample sent to PCR Lab
+                    <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165988" /></div></td>
+                    <td class="alnleft_s" colspan="2">Date sample received at PCR Lab
+                    <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165716"/></div></td>
+               </tr>
+               <tr>
+												  
+
+												  <td class="alnleft_s" colspan="2">Date result was sent from PCR Lab
+												  <p>
+													<obs conceptId="165989" allowFutureDates="false" />
+												  </p>
+												  </td>
+
+												  <td class="alnleft_s" colspan="2">Date result was received at the facility
+												  <p>
+													<obs conceptId="165987" allowFutureDates="false" />
+												  </p>
+												</td>
+
+												 <td class="alnleft_s" colspan="2">Result Date
+												  <p>
+													<obs conceptId="166423" allowFutureDates="false" />
+												  </p>
+												  </td>
+											   
+												</tr>
+												<tr>
+
+													   <td class="alnleft_s" colspan="2">Assay Date
+												  <p>
+													<obs conceptId="166424" allowFutureDates="false" />
+												  </p>
+												  </td>
+
+												   <td class="alnleft_s" colspan="2">Approval Date
+												  <p>
+													<obs conceptId="166425" allowFutureDates="false" />
+												  </p>
+												  </td>
+													 <!-- Id "viralLoadResultTest" Added by Ebuka" -->
+
+												  <td class="alnleft_s" colspan="2">Alphanumeric Viral Load Result
+												  <p><obs id="AlphanumericViralLoadResult" conceptId="166422" answerConceptIds="166407, 166408, 167121, 166409, 166410,166411,166412,166413,166414,166415,166416,166417,166418,166419,163611, 166420, 166421, 166426" answerLabels="&lt;20 , &lt;29 , &lt;30 , &lt;40 , &lt;400 , &lt;80 , &gt;10 000 000 ,  Aborted, Double entry, Duplicate , Failed , Failed twice , Incomplete number , Incorrect entry , Invalid , Target Not Detected , Wrong entry, Numeric Value  " /></p>
+
+												  </td>
+												  <!-- Added by Ebuka -->
+
+											  
+
+												</tr>
+												<tr id="NumericViralLoadResult">
+								                    <td class="alnleft_s" id="repeat_id" colspan="2">Reason for Repeat
+								                         <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165831"/></div>								                        
+								                    </td>
+												  	
+												  	<td class="alnleft_s" colspan="2">Viral Load test result
+													  <p>
+														<obs conceptId="856" labelText="" id="viralLoadResultTest" />copies/ml
+													  </p>
+													</td>
+												  </tr>
+
+            </includeIf>
+        </table>
+    </fieldset>
+    
+    <!-- Added by Sunday -->
+    <fieldset>
+        <legend class="legend_style">HIV Drug Resistance</legend>
+        <table>
+            <tr>
+                <td class="alnright">
+                    <obs conceptId="167004" style="checkbox" value="false" labelText="Sample Selected for HIVDR Study"  toggle="showHIVDR"  />
+                </td>
+            </tr>
+        </table>
+        <div id="showHIVDR">
+            <table>
+                <tr>
+                    <td class="alnleft_s">HIVDR Study ID.
+                        <obs conceptId="167005" />
+                    </td>
+                    <td class="alnleft_s">Date of sample Sent to genotyping laboratory
+                        <obs conceptId="167006" />
+                    </td>
+                    <td class="alnleft_s">Date of sample Arrival at genotyping laboratory
+                        <obs conceptId="167007" />
+                    </td>
+                    <td class="alnleft_s">Date of genotyping testing
+                        <obs conceptId="167008" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <hr style="width:100%; border-color:lightgray;"/>
+            <br />
+            <table>
+                <tr>
+                    <th colspan="10" class="alnleft_s">Resistance Mutations Detected</th>
+                </tr>
+                <tr>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167009 " answerLabel="M41L"/>
+                        <obs conceptId="167070"  answerConceptId="167010 " answerLabel="K65R"/>
+                        <obs conceptId="167070"  answerConceptId="167011 " answerLabel="D67N"/>
+                        <obs conceptId="167070"  answerConceptId="167012 " answerLabel="D67G"/>
+                        <obs conceptId="167070"  answerConceptId="167013 " answerLabel="T69D"/>
+                        <obs conceptId="167070"  answerConceptId="167014 " answerLabel="K70R"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167015 " answerLabel="K70E"/>
+                        <obs conceptId="167070"  answerConceptId="167016 " answerLabel="L74V"/>
+                        <obs conceptId="167070"  answerConceptId="167017 " answerLabel="L74I"/>
+                        <obs conceptId="167070"  answerConceptId="167018 " answerLabel="V75M"/>
+                        <obs conceptId="167070"  answerConceptId="167019 " answerLabel="F77L"/>
+                        <obs conceptId="167070"  answerConceptId="167020 " answerLabel="Y115F"/>
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167021 " answerLabel="F116Y"/>
+                        <obs conceptId="167070"  answerConceptId="167022 " answerLabel="Q151M"/>
+                        <obs conceptId="167070"  answerConceptId="167023 " answerLabel="M184V"/>
+                        <obs conceptId="167070"  answerConceptId="167024 " answerLabel="M184I"/>
+                        <obs conceptId="167070"  answerConceptId="167025 " answerLabel="L210W"/>
+                        <obs conceptId="167070"  answerConceptId="167026 " answerLabel="T215Y"/>
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167027 " answerLabel="T215F"/>
+                        <obs conceptId="167070"  answerConceptId="167028 " answerLabel="T215I"/>
+                        <obs conceptId="167070"  answerConceptId="167029 " answerLabel="T215S"/>
+                        <obs conceptId="167070"  answerConceptId="167030 " answerLabel="T215C"/>
+                        <obs conceptId="167070"  answerConceptId="167031 " answerLabel="T215E"/>
+                        <obs conceptId="167070"  answerConceptId="167032 " answerLabel="K219Q"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167033 " answerLabel="K219E"/>
+                        <obs conceptId="167070"  answerConceptId="167034 " answerLabel="K219N"/>
+                        <obs conceptId="167070"  answerConceptId="167035 " answerLabel="K219R"/>
+                        <obs conceptId="167070"  answerConceptId="167036 " answerLabel="L100I"/>
+                        <obs conceptId="167070"  answerConceptId="167037 " answerLabel="K101E"/>
+                        <obs conceptId="167070"  answerConceptId="167038 " answerLabel="K101P"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167039 " answerLabel="K103N"/>
+                        <obs conceptId="167070"  answerConceptId="167040 " answerLabel="K103S"/>
+                        <obs conceptId="167070"  answerConceptId="167041 " answerLabel="V106M"/>
+                        <obs conceptId="167070"  answerConceptId="167042 " answerLabel="V106A"/>
+                        <obs conceptId="167070"  answerConceptId="167043 " answerLabel="Y181C"/>
+                        <obs conceptId="167070"  answerConceptId="167044 " answerLabel="Y181V"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167045 " answerLabel="Y188L"/>
+                        <obs conceptId="167070"  answerConceptId="167046 " answerLabel="Y188H"/>
+                        <obs conceptId="167070"  answerConceptId="167047 " answerLabel="Y188C"/>
+                        <obs conceptId="167070"  answerConceptId="167048 " answerLabel="G190A"/>
+                        <obs conceptId="167070"  answerConceptId="167049 " answerLabel="G190S"/>
+                        <obs conceptId="167070"  answerConceptId="167050 " answerLabel="G190E"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167051 " answerLabel="P225H"/>
+                        <obs conceptId="167070"  answerConceptId="167052 " answerLabel="M230L"/>
+                        <obs conceptId="167070"  answerConceptId="167053 " answerLabel="L24I"/>
+                        <obs conceptId="167070"  answerConceptId="167054 " answerLabel="M46I"/>
+                        <obs conceptId="167070"  answerConceptId="167055 " answerLabel="M46L"/>
+                        <obs conceptId="167070"  answerConceptId="167056 " answerLabel="I50V"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167057 " answerLabel="I50L"/>
+                        <obs conceptId="167070"  answerConceptId="167058 " answerLabel="F53L"/>
+                        <obs conceptId="167070"  answerConceptId="167059 " answerLabel="I54V"/>
+                        <obs conceptId="167070"  answerConceptId="167060 " answerLabel="I54L"/>
+                        <obs conceptId="167070"  answerConceptId="167061 " answerLabel="G73S"/>
+                        <obs conceptId="167070"  answerConceptId="167062 " answerLabel="L76V"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167063 " answerLabel="V82A"/>
+                        <obs conceptId="167070"  answerConceptId="167064 " answerLabel="V82F"/>
+                        <obs conceptId="167070"  answerConceptId="167065 " answerLabel="V82S"/>
+                        <obs conceptId="167070"  answerConceptId="167066 " answerLabel="V82M"/>
+                        <obs conceptId="167070"  answerConceptId="167067 " answerLabel="N83D"/>
+                        <obs conceptId="167070"  answerConceptId="167068 " answerLabel="I84V"/>
+                        <obs conceptId="167070"  answerConceptId="167069 " answerLabel="L90M"/>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="alnleft_s">Class(es) of ARVs Affected
+                        <obs conceptId="167076" />
+                    </td>
+                    <td class="alnleft_s"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Added by Ebuka -->
+    </fieldset>
+
+    
+    
+    <fieldset>
+        <legend class="legend_style">Signatures</legend>
+        <table>
+            <tr>
+                <td class="alnleft_s">Name of Clinician</td>
+                <td><encounterProvider role="Clinician" default="currentUser" required="false" /></td>
+                <td class="alnleft_s">Date Ordered</td>
+                <td><obs conceptId="164989" required="true" allowFutureDates="false"/></td>
+
+                <td class="alnleft_s"></td>
+                <td class="alnleft_s"></td>
+            </tr>
+            <includeIf velocityTest="$user.hasRole('Lab')">
+                <tr>
+                    <td class="alnleft_s">Reported By</td>
+                    <td><obs conceptId="164982" style="person" /></td>
+                    <td class="alnleft_s">Date Reported</td>
+                    <td><obs conceptId="165414" allowFutureDates="false"/></td>
+
+
+                    <td class="alnleft_s"></td>
+                    <td class="alnleft_s"></td>
+                </tr>
+            </includeIf>
+            <tr>
+                <td class="alnleft_s">Checked By</td>
+                <td><obs conceptId="164983" labelText="" style="person" /></td>
+                <td class="alnleft_s">Date checked</td>
+                <td><obs conceptId="164984" allowFutureDates="false"/></td>
+
+                <td class="alnleft_s"></td>
+                <td class="alnleft_s"></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Facility</td>
+                <td><encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
+
+    <includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Nurse')">
+        <script>
+            var items = document.getElementsByClassName("enable_clin_control");
+            for(var i=0; i &lt; items.length; i++){
+               items[i].style.pointerEvents = "unset";
+            }
+        </script>
+    </includeIf>
+    <includeIf velocityTest="$user.hasRole('Lab')">
+        <script>
+            var itemss = document.getElementsByClassName("enable_lab_control");
+            for(var j=0; j &lt; itemss.length; j++){
+               itemss[j].style.pointerEvents = "unset";
+            }
+        </script>
+    </includeIf>
+    
+    <script type="text/javascript">
+var $ = jQuery;
+$(function () {
+        $("#w182").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHIVDR").show();
+            } else {
+                $("#showHIVDR").hide();
+            }
+        });
+    });
+</script>
+    <script type="text/javascript">
+var $ = jQuery;
+$(function () {
+        $("#w152").click(function () {
+            if ($(this).is(":checked")) {
+                $("#viralLoad").show();
+            } else {
+                $("#viralLoad").hide();
+            }
+        });
+    });
+</script>    
+    
+    
+      <script type="text/javascript">
+
+jQuery(function() {
+getField('viralLoadResultTest.value').change(function() {
+var viralLoadInput = getValue('viralLoadResultTest.value');
+if (viralLoadInput == "TND" || viralLoadInput == "tnd" || viralLoadInput == "Tnd") {
+setValue('viralLoadResultTest.value', 0);
+
+}else if(viralLoadInput == "&lt;"+ "20" || viralLoadInput == "&lt;"+ " 20"){
+setValue('viralLoadResultTest.value', 20);
+
+}else if(viralLoadInput  ==  "&lt;"+ "40" || viralLoadInput  ==  "&lt;"+ " 40"){
+setValue('viralLoadResultTest.value', 40);
+
+}
+
+});
+});
+</script>
+<script type="text/javascript">
+
+var $ = jQuery;
+$(document).ready(function(){
+getField('viralLoadResultTest.value')[0].disabled = 'disabled';
+});
+jQuery(function() {
+getField('AlphanumericViralLoadResult.value').change(function() {
+var viralLoadInput = getValue('AlphanumericViralLoadResult.value');
+getField('viralLoadResultTest.value')[0].disabled = 'disabled';
+
+if(viralLoadInput == 166426){
+getField('viralLoadResultTest.value')[0].disabled = '';
+getField('viralLoadResultTest.value')[0].placeholder = 'Please enter interger value only';
+
+//check if value entered i greater than 10 000 000, else return false with prompt
+
+}else{
+getField('viralLoadResultTest.value')[0].disabled = 'disabled';
+//getField('viralLoadResultTest.value')[0].required = '';
+}
+if (viralLoadInput == 166407) {
+setValue('viralLoadResultTest.value', 19);
+var conceptID = viralLoadInput
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+
+}else if(viralLoadInput == 166408){
+setValue('viralLoadResultTest.value', 28);
+var conceptID = viralLoadInput
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+
+}else if(viralLoadInput == 167121){
+setValue('viralLoadResultTest.value', 29);
+var conceptID = viralLoadInput
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+
+}else if(viralLoadInput == 166409){
+var conceptID = viralLoadInput
+setValue('viralLoadResultTest.value', 39);
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+}else if(viralLoadInput == 166410){
+var conceptID = viralLoadInput
+setValue('viralLoadResultTest.value', 399);
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+}else if(viralLoadInput == 166411){
+var conceptID = viralLoadInput
+setValue('viralLoadResultTest.value', 79);
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+}else if(viralLoadInput == 166420){
+var conceptID = viralLoadInput
+setValue('viralLoadResultTest.value', 0);
+viralLoadInput = getValue('viralLoadResultTest.value');
+}
+
+else{
+var conceptID = viralLoadInput
+setValue('viralLoadResultTest.value', "");
+viralLoadInput = getValue('viralLoadResultTest.value');
+
+}
+
+});
+});
+
+</script>
+    
+
+</htmlform>

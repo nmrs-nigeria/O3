@@ -321,9 +321,9 @@ class NMRSFormConverter:
 
         id_counter = 1  # <-- Use this for incremental numbering
 
-        htmlid_to_qid = {}     # Maps HTML ids to generated question ids
-        cid_to_qid = {}        # Maps concept IDs to generated question ids
-        qid_to_question = {}   # Maps generated question ids to question objects
+        htmlid_to_qid = {}     # {html_id: generated_qid}
+        cid_to_qid = {}        # {conceptId: generated_qid}
+        qid_to_question = {}   # {qid: question_dict}
 
         for fieldset in fieldsets:
             legend = fieldset.find("legend")
@@ -706,72 +706,75 @@ class NMRSFormConverter:
                 conceptuuid_to_qids[concept_uuid] = []
             conceptuuid_to_qids[concept_uuid].append(qid)
 
-        # Add this debug print to verify mappings
-        print("HTML ID to QID mapping:", htmlid_to_qid)
-        print("Concept ID to QID mapping:", cid_to_qid)
-
-        # --- Process conditional rendering ---
         for obs in soup.find_all("obs"):
-            # 1. Handle controls/when
+            # --- Handle <controls><when ...></when></controls> ---
             controls = obs.find("controls")
             if controls:
-                print(f"Found controls in obs with id: {obs.get('id')}")
                 for when in controls.find_all("when"):
                     if when.get("value") and when.get("thendisplay"):
-                        controlling_id = obs.get("id")
-                        controlling_qid = htmlid_to_qid.get(controlling_id)
+                        trigger_html_id = obs.get("id")
+                        trigger_qid = htmlid_to_qid.get(trigger_html_id)
                         trigger_value = when.get("value")
-                        
-                        # Get UUID for trigger value
+                        # Get UUID for this answer concept
                         if trigger_value.isdigit():
-                            trigger_uuid = f"{trigger_value}AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                        
-                        target_id = when.get("thendisplay").lstrip("#")
-                        target_elem = soup.find(id=target_id)
-                        
-                        print(f"Processing control: {controlling_id} -> {target_id}")
-                        
-                        if controlling_qid and target_elem:
-                            # Find all obs inside target container
-                            for child_obs in target_elem.find_all("obs"):
-                                child_cid = child_obs.get("conceptid")
-                                if child_cid in cid_to_qid:
-                                    child_qid = cid_to_qid[child_cid]
-                                    print(f"Adding hide to {child_qid}")
-                                    
-                                    # Add hide expression to the question
-                                    for page in json_form["pages"]:
-                                        for section in page["sections"]:
-                                            for question in section["questions"]:
-                                                if question["id"] == child_qid:
-                                                    question["hide"] = {
-                                                        "hideWhenExpression": f"isEmpty({controlling_qid}) || {controlling_qid} !== '{trigger_uuid}'"
-                                                    }
-
-            # 2. Handle toggle
-            if obs.get("style", "").lower() == "checkbox" and obs.get("toggle"):
-                controlling_id = obs.get("id")
-                controlling_qid = htmlid_to_qid.get(controlling_id)
-                toggle_target = obs.get("toggle")
-                
-                print(f"Processing toggle: {controlling_id} -> {toggle_target}")
-                
-                target_elem = soup.find(id=toggle_target)
-                if controlling_qid and target_elem:
-                    for child_obs in target_elem.find_all("obs"):
-                        child_cid = child_obs.get("conceptid")
-                        if child_cid in cid_to_qid:
-                            child_qid = cid_to_qid[child_cid]
-                            print(f"Adding hide to {child_qid}")
-                            
-                            # Add hide expression to the question
-                            for page in json_form["pages"]:
-                                for section in page["sections"]:
-                                    for question in section["questions"]:
-                                        if question["id"] == child_qid:
-                                            question["hide"] = {
-                                                "hideWhenExpression": f"!{controlling_qid}"
+                            trigger_uuid = self.concept_map.get(int(trigger_value), {}).get("uuid", trigger_value)
+                        else:
+                            trigger_uuid = trigger_value
+                        # Find all targets (by id or class)
+                        target_ref = when.get("thendisplay").lstrip("#.")
+                        if when.get("thendisplay").startswith("#"):
+                            target_elems = [soup.find(id=target_ref)]
+                        elif when.get("thendisplay").startswith("."):
+                            target_elems = soup.find_all(class_=target_ref)
+                        else:
+                            target_elems = [soup.find(id=target_ref)]
+                        for target_elem in target_elems:
+                            if trigger_qid and target_elem:
+                                # Find all descendant obs tags (not just direct children)
+                                for child_obs in target_elem.find_all("obs"):
+                                    child_html_id = child_obs.get("id")
+                                    child_cid = child_obs.get("conceptid")
+                                    child_qids = []
+                                    # Prefer HTML id mapping
+                                    if child_html_id and child_html_id in htmlid_to_qid:
+                                        child_qids = [htmlid_to_qid[child_html_id]]
+                                    # Fallback: all qids for this concept uuid
+                                    elif child_cid and child_cid.isdigit():
+                                        child_uuid = self.concept_map.get(int(child_cid), {}).get("uuid")
+                                        child_qids = conceptuuid_to_qids.get(child_uuid, [])
+                                    for child_qid in child_qids:
+                                        if child_qid in qid_to_question:
+                                            qid_to_question[child_qid]["hide"] = {
+                                                "hideWhenExpression": f"isEmpty({trigger_qid}) || {trigger_qid} !== '{trigger_uuid}'"
                                             }
+
+            # --- Handle toggle on checkbox ---
+            if obs.get("style", "").lower() == "checkbox" and obs.get("toggle"):
+                trigger_html_id = obs.get("id")
+                trigger_qid = htmlid_to_qid.get(trigger_html_id)
+                toggle_target = obs.get("toggle")
+                if toggle_target.startswith("#"):
+                    target_elems = [soup.find(id=toggle_target.lstrip("#"))]
+                elif toggle_target.startswith("."):
+                    target_elems = soup.find_all(class_=toggle_target.lstrip("."))
+                else:
+                    target_elems = [soup.find(id=toggle_target)]
+                for target_elem in target_elems:
+                    if trigger_qid and target_elem:
+                        for child_obs in target_elem.find_all("obs"):
+                            child_html_id = child_obs.get("id")
+                            child_cid = child_obs.get("conceptid")
+                            child_qids = []
+                            if child_html_id and child_html_id in htmlid_to_qid:
+                                child_qids = [htmlid_to_qid[child_html_id]]
+                            elif child_cid and child_cid.isdigit():
+                                child_uuid = self.concept_map.get(int(child_cid), {}).get("uuid")
+                                child_qids = conceptuuid_to_qids.get(child_uuid, [])
+                            for child_qid in child_qids:
+                                if child_qid in qid_to_question:
+                                    qid_to_question[child_qid]["hide"] = {
+                                        "hideWhenExpression": f"!{trigger_qid}"
+                                    }
 
         # --- OptionSets Sheet ---
         ws2 = wb.create_sheet("OptionSets")

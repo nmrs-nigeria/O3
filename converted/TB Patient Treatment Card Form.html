@@ -1,0 +1,573 @@
+<htmlform formUuid="9cce9f72-d21f-447f-b90f-2f603a2986e4" formName="TB Patient Treatment Card Form" formEncounterType="b6ba145d-be1b-46a6-ab1f-cd95ef0fba2d" formVersion="1.0">
+    <style>
+        form input[type="checkbox"], form input[type="radio"], .form input[type="checkbox"], .form input[type="radio"] {
+            float: none;
+            display: inline-block;
+        }
+
+        form label, .form label {
+            display: inline-block;
+        }
+    </style>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        .side{
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        .alnright{
+            text-align: right;
+            color:#000000;
+            width: 25%;
+        }
+
+
+        .alnright_s{
+            text-align: right;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_s{
+            text-align: left;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_j{
+            text-align: left;
+            color:#000000;
+            width: 20%;
+        }
+        .alnleft_y{
+            text-align: left;
+            color:#000000;
+            width: 25%;
+        }
+        .alnleft{
+            text-align: left;
+            color:#000000;
+            width: 25%;
+        }
+        .error{
+            color:red;
+        }
+        td {
+            border: none;
+        }
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!--padding: 5px;-->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
+
+        }
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+
+        }
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        table tr {
+            border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form
+        ul.select {
+            padding: 2px 10px;
+        }
+        form select, .form select {
+            max-width: 150px;
+            min-width: 100px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+        .alnVertical{
+            vertical-align: top;
+        }
+        .new {
+            font-size: 15px;
+            font-weight: 100;
+            background-color: #003366;
+            color:#ffffff;
+            border: 0px solid;
+
+        }
+
+    </style>
+    <script type="text/javascript">
+        beforeSubmit.push(function()
+        {
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
+
+            let phonecheck = getValue('phoneval.value');
+
+
+            if (validatePhoneNumber(phonecheck == null)){
+                return true;
+            }
+            if (validatePhoneNumber(phonecheck) === false){
+                getField('phoneval.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                return false;
+            } else {
+                return true;
+
+            }
+
+        });
+
+    </script>
+    <script type="text/javascript">
+
+        var $ = jQuery;
+        $(document).ready(function ()
+        {
+            // validating phone number
+
+            document.querySelector('#phoneval').children[0].addEventListener('keyup', function(e){
+                e.preventDefault();
+                let phone = document.querySelector('#phoneval').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phoneval.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
+
+                else
+                    getField('phoneval.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+
+            });
+
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        <!--jQuery(function() {-->
+            <!--&lt;!&ndash;Hide the following questions when the form loads&ndash;&gt;-->
+            <!--htmlForm.simpleUi.hideField('familyr'); htmlForm.simpleUi.hideField('familyro');-->
+        <!--});-->
+    </script>
+
+    <table style="margin-bottom: 20px">
+        <thead>
+        <tr><th style="text-align: center">TB Patient Treatment Card Form</th></tr>
+        </thead>
+    </table>
+    <fieldset>
+        <legend class="legend_style new">Demographics</legend>
+        <table>
+            <!--coded with dropdown-->
+            <tr>
+                <td class="alnleft_s">Marital Status</td>
+                <td class="alnleft_s">
+                    <obs  conceptId="1054" answerConceptIds="1056,1057,1058,1059,1060,5555" answerLabels="Seperated,Never married,Divorced,Widowed,Living with Partner,Married" />
+
+                </td><td>Patient Occupation</td> <!--concept text--> <td><obs conceptId="1542" /></td><td>Health Care Worker</td>                       <td><obs conceptId="5619" /></td></tr>
+
+            <!--   <tr><td>Health Care Worker</td>  <td><obs conceptId="5619" /></td></tr>
+               <tr><td></td><td></td></tr>  -->
+        </table>
+
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style new">Patient Details</legend>
+        <table>
+            <tr>
+                <td class="alnleft_s">Site of Disease</td>
+                <td class="alnleft_s">
+                    <obs id="reap" conceptId="166696" answerConceptIds="831,156204" answerLabels="Pulmonary,Extrapulmonary">
+                        <controls>
+                            <when value="156204" thenDisplay="#rap"/>
+                        </controls>
+                    </obs>
+
+                </td>
+
+                <td class="alnleft_s">
+                    Type of Patient
+                </td>
+                <td class="alnleft_s">
+                    <obs id="drops" conceptId="166687" answerConceptIds="165773,160033,166641,166708,166643,166644,160563" answerLabels="New,Relapse,Treatment after failure,Treatment after IIT,Other previously treated,Patients with unknown previous TB treatment history,Tranfer In"/>
+                </td>
+                <td></td>
+                <td></td>
+
+
+            </tr>
+            <tr id="rap">
+                <td class="alnleft_s"> Site of Extrapulmonary </td>
+                <td class="alnleft_s"> <obs conceptId="166649"/> </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style new">TB Contact</legend>
+
+        <table>
+            <tr>
+                <td class="alnleft_j">Name of Contact Person</td> <td class="alnleft"><obs conceptId="166724"  /></td>
+                <td class="alnleft_s">Phone Number</td> <td class="alnleft"><obs id="phoneval" conceptId="167123" />
+
+            </td>
+                <td class="alnleft_s">Address</td> <!-- concept is a placeholder --><td class="alnleft_s" rowspan="2" ><obs rows="4" conceptId="166797" /></td>
+            </tr>
+
+            <tr>
+                <td class="alnleft_s">History of anti-TB intake more than 1 month</td>
+                <!-- coded dropdown -->
+                <td class="alnleft_s">
+                    <obs id="anti" conceptId="166628" answerConceptIds="1065,1066" answerLabel="Yes,No" width="15">
+                        <controls>
+                            <when value="1065" thenDisplay="#yesa"/>
+                        </controls>
+                    </obs>
+                </td> <!-- coded -->
+
+                <td id="yesa" class="alnleft_s" colspan="2">If yes, duration in weeks  <obs conceptId="166629"/></td>
+
+
+            </tr>
+            <tr>
+                <td class="alnleft_s">No. of Household contacts:</td>
+                <!-- coded dropdown -->
+                <td class="alnleft">
+                    <obs id="house" conceptId="166630" answerConceptIds="164419,166631" answerLabel="under 5 years, 5 years and above">
+                        <controls>
+                            <when value="164419" thenDisplay="#less5"/>
+                            <when value="166631" thenDisplay="#5more"/>
+                        </controls>
+                    </obs>
+                </td>
+
+                <td id="less5" class="alnleft_j" style="vertical-align: inherit" colspan="2">under 5 years <obs conceptId="164419"/></td>
+                <!-- numeric-->
+
+                <td id="5more" class="alnleft_j" style="vertical-align: inherit" colspan="2">5 years and above <obs conceptId="166631"/></td>
+            </tr>
+            <!-- numeric-->
+
+
+
+            <tr>
+
+
+            </tr>
+            <tr>
+                <td class="alnleft_s">Source of referral</td>
+                <td class="alnleft"> <!--tb treatment supporter 161642 concept id needs change/verification-->
+                    <obs id="drop" conceptId="166632" answerConceptIds="165303,166633,161642,160546,166634,166707,166637,166635,166392,166134,166638,166639,166636,1575,166640" answerLabels="ART Facility,Community Volunteer,TB Treatment Supporter,OPD,Community TB Worker,TB Patients,Private for Profit,DOTS Facility,Patent Medine Vendor,Community Pharmacy,Standalone Labs,Communnity Informant,Faith Based Organisation,Traditional Birth Attendants,others">
+                        <controls>
+                            <when value="166640" thenDisplay="#othr"/>
+                        </controls>
+                    </obs>
+                </td>
+                <td id="othr" class="alnleft" colspan="2">Specify <obs conceptId="166640"/></td>
+            </tr>
+        </table>
+
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend class="legend_style new">Diagnostic tests</legend>
+
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Treatment Monitoring</legend>
+        <table class="table" width="100%">
+
+            <tr>
+                <th class="alnleft_s">Month 0</th><th class="alnleft_s">Month 2</th><th class="alnleft_s">Month 3</th><th class="alnleft_s">Month 5</th><th class="alnleft_s">Month 6</th>
+            </tr>
+            <tr>
+                <td>Smear Result: <obs conceptId="166826" answerConceptIds="1065,1066" /></td>
+                <td>Smear Result: <obs conceptId="166827" answerConceptIds="1065,1066" /></td>
+                <td>Smear Result: <obs conceptId="166828" answerConceptIds="1065,1066" /></td>
+                <td>Smear Result: <obs conceptId="166829" answerConceptIds="1065,1066" /></td>
+                <td>Smear Result: <obs conceptId="166830" answerConceptIds="1065,1066" /></td>
+            </tr>
+            <tr>
+                <td>weight: <obs conceptId="166831" /></td>
+                <td>Weight: <obs conceptId="166832" /></td>
+                <td>Weight: <obs conceptId="166833" /></td>
+                <td>Weight: <obs conceptId="166834" /></td>
+                <td>Weight: <obs conceptId="166835" /></td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+
+    <fieldset>
+        <legend class="legend_style">Xpert Test</legend>
+        <table>
+            <tr>
+                <td class="alnleft_j">Xpert Result Date</td>
+
+                <td><obs conceptId="166645"/></td>
+                <td class="alnleft_s">Result</td>
+                <td><obs conceptId="166646" answerConceptIds="165973,165974" answerLabels="MTB Detected,MTB Not Detected"/></td>
+
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+
+        <legend class="legend_style"> Xray Test</legend>
+        <table>
+            <tr>
+                <td class="alnleft_j">X-Ray Result Date:</td>
+                <td><obs conceptId="166650"/></td>
+                <td class="alnleft_s">Result:</td>
+                <!-- coded -->
+                <td><obs conceptId="165972" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style"> AFB Test</legend>
+        <table>
+            <tr>
+                <td class="alnleft_s"> AFB Lab serial No.</td>
+                <td class="alnleft_y"><obs conceptId="166647"/></td>
+                <td class="alnleft_s">AFB Result Date:</td>
+                <td><obs conceptId="166651"/></td>
+                <td class="alnleft_s">Smear Result</td>
+                <td><obs conceptId="308" answerConceptIds="165970,165971" answerLabels="Suggestive,Not Suggestive"/></td>
+            </tr>
+        </table>
+
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style">Tissue Biopsy Test</legend>
+        <table>
+            <tr>
+                <td class="alnleft_s"> Type of Specimen: </td>
+                <!-- text -->
+                <td><obs conceptId="166653"/></td>
+                <td class="alnleft_s"> Result Date </td>
+                <td><obs conceptId="166652" /></td>
+                <td class="alnleft_s"> Result </td>
+                <!-- coded -->
+                <td><obs conceptId="166654" answerConceptIds="165970,165971" answerLabels="Suggestive,Not Suggestive"/></td>
+            </tr>
+
+        </table>
+
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Other Test</legend>
+        <table>
+            <tr>
+                <td class="alnleft_s">Other tests (Specify)</td>
+                <td> <obs id="othertest" conceptId="166655"/></td>
+                <td class="alnleft_s"> Test Date</td>
+                <td><obs conceptId="166656"/></td>
+                <td class="alnleft_s"> Test Result </td><!-- note concept needs change -->
+                <td><obs conceptId="166657" answerConceptIds="704,664" answerLabels="Positive,Negative"/></td>
+            </tr>
+        </table>
+
+    </fieldset>
+
+
+    <!--
+     <table>
+         <tr><td></td><td>Symptoms*</td><td></td><td></td><td></td><td></td><td></td></tr>
+         <tr>
+             <td><b>Days </b></td>
+             <td ><font color='red'>No symptoms<br /> <small>(check if none<br /> experience)</small> </font></td>
+             <td width="105px"><b>Weight kg</b></td>
+             <td with="150px"><b>Smear Result</b></td>
+         </tr>
+
+         <tr>
+             <obsgroup groupingConceptId="166501">
+
+                 <td><obs conceptId="1072" labelText="" answerConceptIds="1101" answerLabels="0" id="day0Answer" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+
+             </obsgroup>
+         </tr>
+         <tr>
+             <obsgroup groupingConceptId="166501">
+
+                 <td><obs conceptId="1072" labelText="" answerConceptIds="1101" answerLabels="0" id="day0Answer" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+
+             </obsgroup>
+         </tr>
+         <tr>
+             <obsgroup groupingConceptId="166501">
+
+                 <td><obs conceptId="1072" labelText="" answerConceptIds="1101" answerLabels="0" id="day0Answer" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+
+             </obsgroup>
+         </tr>
+         <tr>
+             <obsgroup groupingConceptId="166501">
+
+                 <td><obs conceptId="1072" labelText="" answerConceptIds="1101" answerLabels="0" id="day0Answer" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+
+             </obsgroup>
+         </tr>
+         <tr>
+             <obsgroup groupingConceptId="166501">
+
+                 <td><obs conceptId="1072" labelText="" answerConceptIds="1101" answerLabels="0" id="day0Answer" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+                 <td><obs conceptId="165966" class="day0" id="day0Specify" /></td>
+
+             </obsgroup>
+         </tr>
+     </table>
+     -->
+    <fieldset>
+        <legend class="legend_style new">HIV Status</legend>
+        <table>
+            <tr>
+                <td>Previously Known HIV status</td>
+                <td><obs conceptId="166030
+" answerConceptIds="704,664" answerLabels="Positive,Negative"/></td>
+                <td>Newly tested</td>
+                <td><obs conceptId="166659" answerConceptIds="704,664" answerLabels="Positive,Negative"/></td>
+                <td>End of Treatment</td>
+                <td><obs conceptId="166658" answerConceptIds="704,664,1067" answerLabels="Positive,Negative,Unknown" /></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th class="alnleft_s">Type of Care</th>
+            </tr>
+            <tr>
+                <td>Referral</td>
+                <td class="alnleft">
+                    <obs id="sptm_chke" conceptId="165351" answerConceptIds="1065,1066" answerLabels="Yes,No">
+                        <controls>
+                            <when value="1065" thenDisplay="#datecpts"/>
+                        </controls>
+                    </obs>
+                </td>
+
+                <td class="alnleft_s" id="datecpts"> Date
+                    <!-- create diff concept from CPT-->
+                    <obs conceptId="167122" labelCode="Date" labelCssClass="my-class-name"/>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>On ART</td>
+                <td class="alnleft_s">
+                    <obs id="art_chk" conceptId="160119" answerConceptIds="1065,1066" answerLabels="Yes,No">
+                        <controls>
+                            <when value="1065" thenDisplay="#dateart"/>
+                        </controls>
+                    </obs>
+                </td>
+
+                <td class="alnleft_s" id="dateart">
+                    <font color='green' style="font-weight: bold"><lookup expression="fn.latestObs(159599).obsDatetime" /></font>
+                </td>
+
+                <!--
+                    <td class="alnleft_s" id="dateart">
+                        <obs conceptId="166753" labelCode="Date" labelCssClass="my-class-name"/>
+                    </td>
+                <td></td>
+                -->
+            </tr>
+            <tr>
+                <td >On CPT</td>
+                <td class="alnleft_s">
+                    <obs id="cpt_chk" conceptId="160434" answerConceptIds="1065,1066" answerLabels="Yes,No">
+                        <controls>
+                            <when value="1065" thenDisplay="#datecpt"/>
+                        </controls>
+
+                    </obs>
+                </td>
+
+                <td class="alnleft_s" id="datecpt"> Date
+                    <obs conceptId="166582" labelCode="Date" labelCssClass="my-class-name"/>
+                </td>
+                <td></td>
+            </tr>
+
+
+
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table >
+            <tr>
+                <td class="alnright_s">Visit Date:</td>
+                <td class="alnleft_s">
+                    <encounterDate id="encounter_Date " showTime="false" allowFutureDates="false"/>
+                </td>
+                <td class="alnleft_s">Provider's Name:</td>
+                <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
+                <td class="alnright_s">Facility:</td>
+                <td class="alnleft_s">
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
+                </td>
+
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
+
+</htmlform>
