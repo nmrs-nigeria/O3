@@ -1,6 +1,6 @@
 {
   "name": "TB Patient Treatment Card Form",
-  "uuid": "49f87273-fbb4-4671-92f9-21ab36c66594",
+  "uuid": "2376585c-3850-4556-899c-2edebb8bcd1c",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
@@ -75,23 +75,11 @@
                     "concept": "162591AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "Physician",
-                    "concept": "162591AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "Doctor",
-                    "concept": "162591AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "Laboratory technician ",
                     "concept": "164831AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "Housewife",
-                    "concept": "160295AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "Home manager",
                     "concept": "160295AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
@@ -134,15 +122,7 @@
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "True",
-                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "No",
-                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "False",
                     "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
@@ -229,7 +209,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(siteOfDisease_4) || siteOfDisease_4 !== '156204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(siteOfDisease_4) || siteOfDisease_4 !== '156204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             }
           ]
@@ -328,7 +308,7 @@
                 "rendering": "number"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_12) || noOfHouseholdContacts_12 !== '164419AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_12) || noOfHouseholdContacts_12 !== '164419AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             },
             {
@@ -340,7 +320,7 @@
                 "rendering": "number"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_12) || noOfHouseholdContacts_12 !== '166631AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_12) || noOfHouseholdContacts_12 !== '5ba8005d-78ba-4fe4-86c4-9948a61f7e2b'"
               }
             },
             {
@@ -423,7 +403,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(sourceOfReferral_15) || sourceOfReferral_15 !== '166640AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(sourceOfReferral_15) || sourceOfReferral_15 !== 'a7fe83d9-8cd2-4eae-80ea-614f4ae18f45'"
               }
             }
           ]
@@ -804,54 +784,54 @@
                 }
               ]
             },
-                                                "hideWhenExpression": f"isEmpty({controlling_qid}) || {controlling_qid} !== '{controlling_uuid}'"
-                                            }
+            {
+              "id": "testResult_39",
               "label": "Test Result",
-        # --- OptionSets Sheet ---
-        ws2 = wb.create_sheet("OptionSets")
-        ws2.append(["OptionSet name", "Answers", "External ID"])",
-        for opt_name, values in option_sets.items():
-            for ans, extid in values:
-                ws2.append([opt_name, ans, extid])
-                    "label": "Positive",
-        # --- Save ---oncept": "704AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        output_dir = os.path.join(os.getcwd(), "converted")
-        os.makedirs(output_dir, exist_ok=True)
-        excel_path = os.path.join(output_dir, f"{form_name}_converted.xlsx")
-        json_path = os.path.join(output_dir, f"{form_name}_converted.json")
-        wb.save(excel_path)
-        with open(json_path, "w", encoding="utf-8") as jf:
-            json.dump(json_form, jf, indent=2)
-        messagebox.showinfo("Done", f"Files generated in {output_dir}")
-          ]
-    def download_html(self):
-        # Save the current HTML/XML in the display box to a file
-        html_content = self.xml_text.get("1.0", END).strip()
-        if not html_content:
-            messagebox.showwarning("No Content", "There is no HTML to download.")
-            return[
-        {
-        # Get the selected form name for the filename
-        if self.selected_form_index is not None:
-            form = self.forms[self.selected_form_index]
-            form_name = form['name'],
-        else: "label": "Newly tested",
-            form_name = "form"
+              "type": "obs",
               "questionOptions": {
-        # Clean filename (remove invalid characters)27d86a8a74ee",
-        safe_form_name = "".join(c if c.isalnum() or c in " ._-" else "_" for c in form_name)
-        output_dir = os.path.join(os.getcwd(), "converted")
-        os.makedirs(output_dir, exist_ok=True)
-        file_path = os.path.join(output_dir, f"{safe_form_name}.html")
+                "concept": "2ed9340c-7507-4bf7-8c75-ffe55b7f06e6",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Positive",
                     "concept": "704AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(html_content)
-        messagebox.showinfo("Saved", f"HTML saved to {file_path}")
+                  },
+                  {
+                    "label": "Negative",
                     "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = NMRSFormConverter(root)
-    root.mainloop()
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "HIV Status",
+      "sections": [
+        {
+          "label": "HIV Status",
+          "questions": [
+            {
+              "id": "newlyTested_40",
+              "label": "Newly tested",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "ffed40b2-0068-40d7-b503-27d86a8a74ee",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Positive",
+                    "concept": "704AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Negative",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
             {
               "id": "endOfTreatment_41",
               "label": "End of Treatment",

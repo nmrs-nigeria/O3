@@ -1,6 +1,6 @@
 {
   "name": "IPT",
-  "uuid": "bcf09442-b7d1-4bd5-834f-764a9e285f3c",
+  "uuid": "6537ddfe-4afb-44cd-80b7-6f5b86e4cb58",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
@@ -74,11 +74,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -184,11 +184,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -221,31 +221,7 @@
                     "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "(-)",
-                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "-",
-                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "NEG",
-                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "Positive",
-                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "(+)",
-                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "+",
-                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "POS",
                     "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
@@ -261,11 +237,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -309,11 +285,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -328,11 +304,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -347,11 +323,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -366,11 +342,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -385,11 +361,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -404,11 +380,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -423,11 +399,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -442,11 +418,11 @@
                 "answers": [
                   {
                     "label": "Yes",
-                    "concept": "true"
+                    "concept": "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
                     "label": "No",
-                    "concept": "false"
+                    "concept": "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
               }
@@ -674,15 +650,7 @@
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "True",
-                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "No",
-                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "False",
                     "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
@@ -701,15 +669,7 @@
                     "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "False",
-                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "Yes",
-                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "True",
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
@@ -728,15 +688,7 @@
                     "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "False",
-                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "Yes",
-                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "True",
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
@@ -771,10 +723,6 @@
                 "answers": [
                   {
                     "label": "Poor",
-                    "concept": "159407AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "Bad",
                     "concept": "159407AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {

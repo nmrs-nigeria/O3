@@ -94,7 +94,7 @@ class NMRSFormConverter:
 
         self.connection = None
         self.concept_map = {}      # {concept_id: {"uuid": ..., "name": ...}}
-        self.concept_datatypes = {}  # {concept_id: {"name": ..., "id": ...}}
+        self.concept_datatypes = {}  # {concept_id: datatype}
         self.concept_numeric = {}   # {concept_id: {"hi_absolute": ..., "low_absolute": ...}}
         self.forms = []
         self.selected_form_index = None
@@ -225,19 +225,10 @@ class NMRSFormConverter:
         self.concept_map = {row["concept_id"]: {"uuid": row["uuid"], "name": row["name"]} for row in cursor.fetchall()}
         # Fetch concept datatype
         cursor.execute(
-            f"""SELECT c.concept_id, dt.concept_datatype_id, dt.name as datatype 
-            FROM concept c 
-            JOIN concept_datatype dt ON c.datatype_id = dt.concept_datatype_id 
-            WHERE c.concept_id IN ({placeholders})""",
+            f"SELECT c.concept_id, dt.name as datatype FROM concept c JOIN concept_datatype dt ON c.datatype_id = dt.concept_datatype_id WHERE c.concept_id IN ({placeholders})",
             list(concept_ids)
         )
-        # Store both datatype name and ID
-        self.concept_datatypes = {
-            row["concept_id"]: {
-                "name": row["datatype"].lower(),
-                "id": row["concept_datatype_id"]
-            } for row in cursor.fetchall()
-        }
+        self.concept_datatypes = {row["concept_id"]: row["datatype"].lower() for row in cursor.fetchall()}
         # Fetch concept numeric
         cursor.execute(
             f"SELECT concept_id, hi_absolute, low_absolute FROM concept_numeric WHERE concept_id IN ({placeholders})",
@@ -263,84 +254,61 @@ class NMRSFormConverter:
         if not search:
             self.concept_info_text.config(state="disabled")
             return
-        
         cursor = self.connection.cursor(dictionary=True)
         results = []
-        
+        # Numeric or UUID search
         if re.fullmatch(r'\d+', search):
             cursor.execute("""
-                SELECT 
-                    c.concept_id, 
-                    c.uuid, 
-                    n.name, 
-                    d.description,
-                    dt.name as datatype,
-                    dt.concept_datatype_id as datatype_id
+                SELECT c.concept_id, c.uuid, n.name, d.description
                 FROM concept c
                 LEFT JOIN concept_name n ON c.concept_id = n.concept_id AND n.locale='en'
                 LEFT JOIN concept_description d ON c.concept_id = d.concept_id AND d.locale='en'
-                LEFT JOIN concept_datatype dt ON c.datatype_id = dt.concept_datatype_id
                 WHERE c.concept_id = %s
                 LIMIT 1
             """, (int(search),))
             results = cursor.fetchall()
-            
-            # Also fetch concept answers if any
-            cursor.execute("""
-                SELECT ca.answer_concept, n.name as answer_name
-                FROM concept_answer ca
-                JOIN concept_name n ON ca.answer_concept = n.concept_id AND n.locale='en'
-                WHERE ca.concept_id = %s
-            """, (int(search),))
-            answers = cursor.fetchall()
-            
         elif re.fullmatch(r'[0-9a-fA-F-]{36}', search):
-            # Similar query for UUID search
             cursor.execute("""
-                SELECT 
-                    c.concept_id, 
-                    c.uuid, 
-                    n.name, 
-                    d.description,
-                    dt.name as datatype,
-                    dt.concept_datatype_id as datatype_id
+                SELECT c.concept_id, c.uuid, n.name, d.description
                 FROM concept c
                 LEFT JOIN concept_name n ON c.concept_id = n.concept_id AND n.locale='en'
                 LEFT JOIN concept_description d ON c.concept_id = d.concept_id AND d.locale='en'
-                LEFT JOIN concept_datatype dt ON c.datatype_id = dt.concept_datatype_id
                 WHERE c.uuid = %s
                 LIMIT 1
             """, (search,))
             results = cursor.fetchall()
-            
-            if results:
-                cursor.execute("""
-                    SELECT ca.answer_concept, n.name as answer_name
-                    FROM concept_answer ca
-                    JOIN concept_name n ON ca.answer_concept = n.concept_id AND n.locale='en'
-                    WHERE ca.concept_id = %s
-                """, (results[0]['concept_id'],))
-                answers = cursor.fetchall()
-        
+        else:
+            # Text search in name and description
+            cursor.execute("""
+                SELECT c.concept_id, c.uuid, n.name, d.description
+                FROM concept c
+                LEFT JOIN concept_name n ON c.concept_id = n.concept_id AND n.locale='en'
+                LEFT JOIN concept_description d ON c.concept_id = d.concept_id AND d.locale='en'
+                WHERE n.name LIKE %s OR d.description LIKE %s
+                LIMIT 20
+            """, (f"%{search}%", f"%{search}%"))
+            results = cursor.fetchall()
         if results:
             for row in results:
-                self.concept_info_text.insert(END, 
-                    f"Concept ID: {row['concept_id']}\n"
-                    f"UUID: {row['uuid']}\n"
-                    f"Name: {row.get('name','')}\n"
-                    f"Datatype: {row.get('datatype','')} (ID: {row.get('datatype_id')})\n"
-                    f"Description: {row.get('description','')}\n"
-                )
-                if 'answers' in locals() and answers:
-                    self.concept_info_text.insert(END, "\nAnswers:\n")
-                    for ans in answers:
-                        self.concept_info_text.insert(END, f"- {ans['answer_name']}\n")
-                self.concept_info_text.insert(END, f"{'-'*40}\n")
+                self.concept_info_text.insert(END, f"Concept ID: {row['concept_id']}\nUUID: {row['uuid']}\nName: {row.get('name','')}\nDescription: {row.get('description','')}\n{'-'*40}\n")
         else:
             self.concept_info_text.insert(END, "No concept found.")
-        
         cursor.close()
         self.concept_info_text.config(state="disabled")
+
+    # Add this helper function at the start of generate_outputs
+    def deduplicate_answers(self, answers):
+        """Remove duplicate answers with same concept, keeping the first occurrence."""
+        seen_concepts = {}
+        unique_answers = []
+        
+        for answer in answers:
+            concept = answer["concept"]
+            if concept not in seen_concepts:
+                seen_concepts[concept] = True
+                unique_answers.append(answer)
+        
+        return unique_answers
 
     def generate_outputs(self, soup, form_name):
         form_uuid = str(uuid.uuid4())
@@ -367,14 +335,12 @@ class NMRSFormConverter:
         cid_to_qid = {}        # Maps concept IDs to generated question ids
         qid_to_question = {}   # Maps generated question ids to question objects
 
-        # --- First handle elements outside fieldsets ---
-        general_section = {
-            "label": "General Information",
-            "questions": []
-        }
+        # Constants for Boolean concepts
+        YES_CONCEPT = "1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"  # UUID for concept_id 1
+        NO_CONCEPT = "2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"   # UUID for concept_id 2
 
-        # Process encounter elements first (outside fieldsets)
-        for element in soup.find_all(['encounterDate', 'encounterLocation']):
+        # Process all encounter elements first
+        for element in soup.find_all(['encounterDate', 'encounterProvider', 'encounterLocation']):
             qid = f"{element.name.lower()}_{id_counter}"
             id_counter += 1
             
@@ -394,13 +360,21 @@ class NMRSFormConverter:
                     "id": qid,
                     "questionOptions": {
                         "rendering": "date",
-                        "showTime": element.get("showTime", "false").lower() == "true",
-                        "allowFutureDates": element.get("allowFutureDates", "false").lower() == "true"
+                        "showTime": element.get("showTime", "false"),
+                        "allowFutureDates": element.get("allowFutureDates", "false")
                     }
                 }
-                general_section["questions"].append(question)
-                qid_to_question[qid] = question
-                
+            elif element.name == 'encounterProvider':
+                question = {
+                    "label": label or "Provider",
+                    "type": "encounterProvider",
+                    "required": element.get("required", "false").lower() == "true",
+                    "id": qid,
+                    "questionOptions": {
+                        "rendering": "ui-select-extended"
+                    },
+                    "default": "currentUser" if element.get("default") == "currentUser" else None
+                }
             elif element.name == 'encounterLocation':
                 question = {
                     "label": label or "Facility",
@@ -408,19 +382,20 @@ class NMRSFormConverter:
                     "id": qid,
                     "questionOptions": {
                         "rendering": "ui-select-extended"
-                    }
+                    },
+                    "default": "SessionAttribute:emrContext.sessionLocationId" if element.get("default") == "SessionAttribute:emrContext.sessionLocationId" else None
                 }
-                general_section["questions"].append(question)
-                qid_to_question[qid] = question
 
-        # Add general section to pages if it has questions
-        if general_section["questions"]:
-            if not json_form["pages"]:
-                json_form["pages"] = []
-            json_form["pages"].insert(0, {
-                "label": "General Information",
-                "sections": [general_section]
-            })
+            # Add to general section
+            if not json_form["pages"] or "General Information" not in [p["label"] for p in json_form["pages"]]:
+                json_form["pages"].insert(0, {
+                    "label": "General Information",
+                    "sections": [{
+                        "label": "General Information",
+                        "questions": []
+                    }]
+                })
+            json_form["pages"][0]["sections"][0]["questions"].append(question)
 
         # --- Then process fieldsets as before ---
         fieldsets = soup.find_all("fieldset")
@@ -616,67 +591,29 @@ class NMRSFormConverter:
 
                 # --- Handle style="no_yes_dropdown" ---
                 elif obs.get("style", "").lower() in ["no_yes_dropdown", "yes_no", "no_yes"]:
-                    cid = int(obs.get("conceptid"))
-                    datatype_info = self.concept_datatypes.get(cid, {})
-                    datatype_id = datatype_info.get("id")
-                    
-                    if datatype_id == 10:  # Boolean datatype
-                        # Handle as true/false
-                        question = {
-                            "id": qid,
-                            "label": label,
-                            "type": "obs",
-                            "questionOptions": {
-                                "concept": uuid_val,
-                                "rendering": "select",
-                                "answers": [
-                                    {
-                                        "label": "Yes",
-                                        "concept": "true"
-                                    },
-                                    {
-                                        "label": "No",
-                                        "concept": "false"
-                                    }
-                                ]
-                            }
+                    question = {
+                        "id": qid,
+                        "label": label,
+                        "type": "obs",
+                        "questionOptions": {
+                            "concept": uuid_val,
+                            "rendering": "select",
+                            "answers": [
+                                {
+                                    "label": "Yes",
+                                    "concept": YES_CONCEPT
+                                },
+                                {
+                                    "label": "No", 
+                                    "concept": NO_CONCEPT
+                                }
+                            ]
                         }
-                    elif datatype_id == 2:  # Coded datatype
-                        # Handle as Yes/No concept UUIDs
-                        question = {
-                            "id": qid,
-                            "label": label,
-                            "type": "obs",
-                            "questionOptions": {
-                                "concept": uuid_val,
-                                "rendering": "select",
-                                "answers": [
-                                    {
-                                        "label": "Yes",
-                                        "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                                    },
-                                    {
-                                        "label": "No",
-                                        "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                                    }
-                                ]
-                            }
-                        }
-                    else:
-                        # Default to text input if datatype is neither boolean nor coded
-                        question = {
-                            "id": qid,
-                            "label": label,
-                            "type": "obs",
-                            "questionOptions": {
-                                "concept": uuid_val,
-                                "rendering": "text"
-                            }
-                        }
+                    }
                     section["questions"].append(question)
                     ws.append([
-                        page_label, section_label_final, label, "Boolean" if datatype_id == 10 else "Coded" if datatype_id == 2 else "Text", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
-                        "", "select" if datatype_id in [10, 2] else "text", "", "", ""
+                        page_label, section_label_final, label, "Coded", "Yes" if obs.get("required", "false").lower() == "true" else "No", qid,
+                        "", "select", "", "", ""
                     ])
                     continue
 
@@ -692,7 +629,7 @@ class NMRSFormConverter:
                     if cid and cid.isdigit():
                         cid = int(cid)
                         uuid_val = self.concept_map.get(cid, {}).get("uuid", "")
-                        datatype = self.concept_datatypes.get(cid, {}).get("name", "").lower()
+                        datatype = self.concept_datatypes.get(cid, "").lower()
                         # 1. Prioritize rendering as date if label contains 'date'
                         if "date" in label.lower():
                             question = {
@@ -758,6 +695,11 @@ class NMRSFormConverter:
                                     "label": ans["label"],
                                     "concept": ans["uuid"]
                                 })
+                            
+                            # Deduplicate answers before adding to question
+                            answers = self.deduplicate_answers(answers)
+                            question["questionOptions"]["answers"] = answers
+
                             question = {
                                 "id": qid,
                                 "label": label,
@@ -776,16 +718,28 @@ class NMRSFormConverter:
                             continue
 
                 # --- Datatype-based rendering ---
-                datatype = self.concept_datatypes.get(cid, {}).get("name", "").lower()
+                datatype = self.concept_datatypes.get(cid, "").lower()
                 rendering = "text"  # default
                 question_options = {
                     "concept": uuid_val
                 }
                 validators = []
 
-                if datatype == "date":
+                # Add time handling before date check
+                if datatype == "time" or ("time" in label.lower() and not datatype == "coded"):
+                    rendering = "datetime"
+                    question_options.update({
+                        "showDate": "false",  # Quote boolean values
+                        "showTime": "true",   # Quote boolean values
+                        "allowFutureDates": "true"  # Quote boolean values
+                    })
+                    validators.append({
+                        "type": "datetime",
+                        "message": "Please enter a valid time"
+                    })
+                elif datatype == "date":
                     rendering = "date"
-                    question_options["allowFutureDates"] = False
+                    question_options["allowFutureDates"] = "false"  # Quote boolean value
                     validators.append({
                         "type": "date",
                         "message": "Please enter a valid date"
@@ -890,24 +844,24 @@ class NMRSFormConverter:
                         controlling_qid = htmlid_to_qid.get(controlling_id)
                         trigger_value = when.get("value")
                         
-                        # Get UUID for trigger value
+                        # Fix: Get UUID for trigger value
                         if trigger_value.isdigit():
-                            trigger_uuid = f"{trigger_value}AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                            # Get the proper UUID from concept_map
+                            trigger_uuid = self.concept_map.get(int(trigger_value), {}).get("uuid")
+                            if not trigger_uuid:
+                                # If not in concept_map, append standard suffix
+                                trigger_uuid = f"{trigger_value}AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                        else:
+                            trigger_uuid = trigger_value
                         
                         target_id = when.get("thendisplay").lstrip("#")
                         target_elem = soup.find(id=target_id)
                         
-                        print(f"Processing control: {controlling_id} -> {target_id}")
-                        
                         if controlling_qid and target_elem:
-                            # Find all obs inside target container
                             for child_obs in target_elem.find_all("obs"):
                                 child_cid = child_obs.get("conceptid")
                                 if child_cid in cid_to_qid:
                                     child_qid = cid_to_qid[child_cid]
-                                    print(f"Adding hide to {child_qid}")
-                                    
-                                    # Add hide expression to the question
                                     for page in json_form["pages"]:
                                         for section in page["sections"]:
                                             for question in section["questions"]:
