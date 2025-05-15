@@ -1,6 +1,6 @@
 {
   "name": "IPT",
-  "uuid": "0d3528ca-686d-43b6-a45d-f6f262c721f1",
+  "uuid": "bcf09442-b7d1-4bd5-834f-764a9e285f3c",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
@@ -70,7 +70,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "832AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -170,7 +180,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "133027AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -244,15 +264,7 @@
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   },
                   {
-                    "label": "True",
-                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
                     "label": "No",
-                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                  },
-                  {
-                    "label": "False",
                     "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                   }
                 ]
@@ -293,7 +305,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "8f977783-cc87-4afd-b048-775ce60edd73",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -302,7 +324,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "152526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -311,7 +343,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "a0e159a1-82c4-48cf-9acf-312b137b245a",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -320,7 +362,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "398c4245-3de7-4e97-a734-f70f13d17923",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -329,7 +381,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "1067ab1f-449c-48eb-ad24-ea093606ed6d",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -338,7 +400,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "ea8603d4-900c-4bed-a7ca-c3d6e4ef144b",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -347,7 +419,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "c9a8e9d0-fbd3-4d75-8290-098a8ed419b3",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             },
             {
@@ -356,7 +438,17 @@
               "type": "obs",
               "questionOptions": {
                 "concept": "0f967963-46c1-49a0-ad6a-3769ef7148db",
-                "rendering": "text"
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "true"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "false"
+                  }
+                ]
               }
             }
           ]

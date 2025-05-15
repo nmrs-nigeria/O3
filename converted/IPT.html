@@ -1,0 +1,628 @@
+<htmlform formUuid="b5dfebb1-63af-4ecb-8322-a10e0c631a3c" formName="IPT" formEncounterType="fed74d87-1e07-459e-a9ee-5d8d5d611a3c" formVersion="2018">
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: #2f1c55;
+        color: white;
+        /* display: block; */
+        padding: 2px;
+        font-weight: bold;
+        }
+        table tr:nth-child(even) {
+        background: #ffffff;
+        }
+        .alnright{
+        text-align: right;
+        color:#000000;
+        width: 25%;
+        }
+        .alnright_s{
+        text-align: right;
+        color:#000000;
+        width: 13%;
+        }
+        .alnleft_s{
+        text-align: left;
+        color:#000000;
+        width: 13%;
+        }
+        .alnleft_j{
+        text-align: left;
+        color:#000000;
+        width: 20%;
+        }
+        .alnleft{
+        text-align: left;
+        color:#000000;
+        width: 25%;
+        }
+        .error{
+         color:red;
+        }
+        td {
+        border: none;
+        }
+        table th, table td {
+        padding: 5px 10px;
+        border: None;
+        }
+        .legend_style {
+        max-width: 35%;
+        background: #FAFAFA;
+        <!--padding: 5px;-->
+        margin: 0px left;
+        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+        border-radius: 2px;
+        border: 1px solid #305a72;
+        border-bottom-left-radius: 2px;
+        text-transform:initial;
+    
+        }
+        form fieldset, .form fieldset {
+        min-width: 98%;
+        border: none;
+        border-top: 1px solid #305a72;
+    
+        }
+        table th, table td {
+        padding: 5px 10px;
+        /* border: 1px solid #DDD; */
+        }
+        table tr {
+        border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form
+        ul.select {
+        padding: 2px 10px;
+        }
+        form select, .form select {
+        max-width: 150px;
+        min-width: 100px;
+        }
+    
+        body {
+        font-family: "OpenSans", Arial, sans-serif;
+        color: #363463;
+        font-size: 14px;
+        }
+        .alnVertical{
+        vertical-align: top;
+        }
+    
+    </style>
+    <script type="text/javascript">
+           beforeSubmit.push(function() 
+        {
+	
+		  	var wasi = $('#id_ipt select').val();
+            if(wasi == '1065')
+            {
+				var val_weight_at_start = getValue('weight_at_start.value');
+				if(val_weight_at_start == undefined || val_weight_at_start == ''){
+					window.alert('Please enter Weight at start of TPT.');
+                    return false;  
+				}    
+            }
+           
+            var val = $('#tt select').val();
+				
+
+            if(val == '166004' || val=='160034' || val=='166003' || val=='166006' || val=='166005' || val=='159492')
+            {
+                
+                    $('#next_appointment .hasDatepicker').attr('disabled', true).val('');
+					console.log('Got here');
+                          return true;     
+            }
+            else
+            {
+                $('#next_appointment .hasDatepicker').attr('disabled', false);
+
+                var val_encounterDate = getValue('encounterDate.value');
+                var val_next_appointment = getValue('next_appointment.value');
+                if (val_encounterDate > val_next_appointment) 
+                {
+                    getField('next_appointment.error').html('Next appointment date has to be later than visit date').show();
+                    return false;
+                }
+    
+                return true;
+        
+            }
+            
+            
+           
+      });
+        </script>
+    <script type="text/javascript">
+    
+        var $ = jQuery;
+        $(document).ready(function ()
+        {
+           $('.hasDatepicker').attr('readonly', true)
+
+ $('input:text', '#inh').eq(0).on('keypress', function(ev)
+ {
+
+    var keyCode = window.event ? ev.keyCode : ev.which;
+    //codes for 0-9
+    if ( 48 > keyCode || keyCode > 57) {
+        //codes for backspace, delete, enter
+        if (keyCode != 0) 
+        {
+            if (keyCode != 8) {
+           if (keyCode != 13) {
+            if (!ev.ctrlKey) {
+            ev.preventDefault();
+        }
+        }
+        }
+        }
+    }
+});
+
+$('#tt select').on('change',function(){
+var val = $(this).children("option:selected").val();
+
+if(val != null)
+{
+   if(!isNaN(parseInt(val )))
+  {
+    $('#next_appointment .hasDatepicker').attr('disabled', true).val('');
+	console.log(val);
+  }
+else{
+     $('#next_appointment .hasDatepicker').attr('disabled', false);
+  }
+}
+else{
+$('#next_appointment .hasDatepicker').attr('disabled', false);
+}
+});
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        <!--jQuery(function() {-->
+        <!--&lt;!&ndash;Hide the following questions when the form loads&ndash;&gt;-->
+        <!--htmlForm.simpleUi.hideField('familyr'); htmlForm.simpleUi.hideField('familyro');-->
+        <!--});-->
+    </script>
+    <table style="margin-bottom: 20px;">
+        <thead>
+            <tr>
+                <th style="text-align: center">PLHIV Presumptive TB Screening and TB Preventive Therapy (TPT) Monitoring </th>
+            </tr>
+        </thead>
+    </table>
+    <table>
+        <tr>
+            <td class="alnright">Visit Date</td>
+            <td>
+                <encounterDate default="now" id="encounterDate" showTime="false" allowFutureDates="false" required="true"/>
+            </td>
+            <td>
+    
+            </td>
+        </tr>
+    </table>
+    
+    
+        <fieldset>
+            <legend class="legend_style">Section 1: TB Screening</legend>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <b>TB screening checklist</b>
+                    </td>
+                    <td>
+                        <b>Investigations for TB</b>
+                    </td>
+<td colspan="2">
+                        <b>Results</b>
+                    </td>
+<td></td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Are you coughing currently?</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="143264" answerConceptIds="1066,1065" answerLabels="No,Yes"/>
+                    </td>
+                    <td class="alnleft">
+                         <obs id="sptm_chk" conceptId="166141" toggle="sptm" style="checkbox"/>Sputum AFB
+                    </td>                       
+
+                    <td class="alnleft_s">
+                        <obs conceptId="165968" id="sptm"  answerConceptIds="664,703" answerLabels="Negative,Positive"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Do you have fever?</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="832" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_s">
+		        <obs conceptId="166142" toggle="genX" style="checkbox"/>                            
+		        GeneXpert
+		 </td>
+		 <td class="alnleft_s">
+			<obs conceptId="165975" id="genX" answerConceptIds="164096,165974,165973" answerLabels="PTB Negative,PTB positive MTB not detected,PTB positive MTB detected"/>
+		</td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Are you losing weight?</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="140238" answerConceptIds="1066,1065" answerLabels="No,Yes"/>
+                    </td>
+                    <td class="alnleft_s">
+	  <obs conceptId="166143" toggle="chstX" style="checkbox"/>                            
+	  Chest X-ray
+	</td>
+	<td class="alnleft_s">
+	   <obs conceptId="165972" id="chstX" answerConceptIds="165971,165970" answerLabels="Not Suggestive,Suggestive"/>
+	</td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Are you having night sweats?</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="133027" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_s">
+	   <obs conceptId="166144" toggle="culture" style="checkbox"/>      
+	   Culture
+	</td>
+	<td class="alnleft_s">
+	  <obs conceptId="165969" id="culture"/>
+	</td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">History of contacts with TB patients? (Pead. group)</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="165967" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_s"> </td>
+                    <td class="alnleft_s"> </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend class="legend_style">Section 2: TPT Screening</legend>
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <b>Contraindications for TPT</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_j">Active TB</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="164500" answerConceptIds="1066,1065" answerLabels="No,Yes"/>
+                    </td>
+                    <td class="alnleft_j">Age &lt; 1 yr without history of close contact with TB patient</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165982" style="no_yes_dropdown"/>
+                    </td>
+                </tr>
+                <tr >
+                    <td class="alnleft_j">Abnormal Chest X-Ray</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="152526" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_j">Active hepatitis (clinical or lab)</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165983" style="no_yes_dropdown"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_j">Diagnosis of TB in the past 3 years</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165981" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_j">High alcohol consumption</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165984" style="no_yes_dropdown"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_j">Severe immune suppression (CD4&lt;200 cells)</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165979" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_j">Prior allergy to INH</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165985" style="no_yes_dropdown"/>
+                    </td>
+                </tr>
+                <tr >
+                    <td class="alnleft_j">History of poor treatment adherence</td>
+                    <td class="alnleft_j">
+                        <obs conceptId="165980" style="no_yes_dropdown"/>
+                    </td>
+                    <td class="alnleft_j"> </td>
+                    <td class="alnleft_j"> </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend class="legend_style">Section 3: TPT monitoring</legend>
+            <table>
+                <tr>
+                    <td>Is Patient Eligible For TPT?</td>
+                    <td >
+                        <obs id="id_ipt" conceptId="165986" answerConceptIds="1066,1065" answerLabels="No,Yes">
+                            <control>
+                                <when value="1065" thenDisplay="#ipt_pat"/>
+                            </control>
+                        </obs>
+                    </td>
+                    <td colspan="5"></td>
+                </tr>
+            </table>
+            <table id="ipt_pat">
+                <tr >
+                    <td class="alnleft_s">Date TPT start</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="165994"/>
+                    </td>
+                    <td class="alnleft_s">Weight at start of TPT</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="165996" id="weight_at_start" required="false"/>
+                    </td>
+                    
+                    <td width="25%" class="td_overwrote">
+	                    <table id="TPT_Type_table">
+	                        <tr>
+	                            <!-- Non-pregnant TPT Type -->
+	                            <td id="TPT_Type_non_pregnant">
+	                                <label>TPT Type</label>
+	                                <!-- Observation for TPT Type -->
+	                                <obs id="" conceptId="167176" answerConceptIds="167208,167177,167178,167179" answerLabels="INH Once Daily, 3HP Weekly, 3HR Daily, 1HP Daily">
+	                                    <controls>
+	                                        <!-- Control for displaying when TPT Type is INH Once Daily -->
+	                                        <when value="167208" thenDisplay="#INH_Once_Daily" />
+	                                        <!-- Control for displaying when TPT Type is 3HP Weekly -->
+	                                        <when value="167177" thenDisplay="#3HP_Weekly" />
+	                                        <!-- Control for displaying when TPT Type is 3HR Daily -->
+	                                        <when value="167178" thenDisplay="#3HR_Daily" />
+	                                        <!-- Control for displaying when TPT Type is 1HP Daily -->
+	                                        <when value="167179" thenDisplay="#1HP_Daily" />
+	                                    </controls>
+	                                </obs>
+	                            </td>
+	                    
+	                            <excludeIf velocityTest="$patient.gender == 'M' ">
+	                                <!-- Pregnant TPT Type -->
+	                                <td id="TPT_Type_pregnant">
+	                                    <label>TPT Type</label>
+	                                    <!-- Observation for TPT Type -->
+	                                    <obs id="" conceptId="167176" answerConceptIds="167208,167178,167179" answerLabels="INH Once Daily, 3HR Daily, 1HP Daily">
+	                                        <controls>
+	                                            <!-- Control for displaying when TPT Type is INH Once Daily -->
+	                                            <when value="167208" thenDisplay="#INH_Once_Daily" />
+	                                            <!-- Control for displaying when TPT Type is 3HR Daily -->
+	                                            <when value="167178" thenDisplay="#3HR_Daily" />
+	                                            <!-- Control for displaying when TPT Type is 1HP Daily -->
+	                                            <when value="167179" thenDisplay="#1HP_Daily" />
+	                                        </controls>
+	                                    </obs>
+	                                </td>
+	                        
+	                                <!-- Breastfeeding TPT Type -->
+	                                <td id="TPT_Type_breastfeeding">
+	                                    <label>TPT Type</label>
+	                                    <!-- Observation for TPT Type -->
+	                                    <obs id="" conceptId="167176" answerConceptIds="167208,167178,167179" answerLabels="INH Once Daily, 3HR Daily, 1HP Daily">
+	                                        <controls>
+	                                            <!-- Control for displaying when TPT Type is INH Once Daily -->
+	                                            <when value="167208" thenDisplay="#INH_Once_Daily" />
+	                                            <!-- Control for displaying when TPT Type is 3HR Daily -->
+	                                            <when value="167178" thenDisplay="#3HR_Daily" />
+	                                            <!-- Control for displaying when TPT Type is 1HP Daily -->
+	                                            <when value="167179" thenDisplay="#1HP_Daily" />
+	                                        </controls>
+	                                    </obs>
+	                                </td>
+	                            </excludeIf>
+	                    
+	                            <td>
+	                                <!-- Table for 3HP Weekly -->
+	                                <table id="3HP_Weekly" width="100%">
+	                                    <tr>
+	                                        <td>
+	                                            <label>3HP Dose</label>
+	                                            <!-- Observation for 3HP Dose -->
+	                                            <obs conceptId="167177" answerConceptIds="167180,167181,165621" answerLabels="900/900mg, 600/600mg, 300/300mg" />
+	                                        </td>
+	                                    </tr>
+	                                </table>
+	                            </td>
+	                    
+	                            <td>
+	                                <!-- Table for 3HR Daily -->
+	                                <table id="3HR_Daily" width="100%">
+	                                    <tr>
+	                                        <td>
+	                                            <label>3HR Dose</label>
+	                                            <!-- Observation for 3HR Dose -->
+	                                            <obs conceptId="1754" answerConceptIds="167185,167182,167106" answerLabels="300/600mg, 150/600mg, 150/75mg" />
+	                                        </td>
+	                                    </tr>
+	                                </table>
+	                            </td>
+	                    
+	                            <td>
+	                                <!-- Table for 1HP Daily -->
+	                                <table id="1HP_Daily" width="100%">
+	                                    <tr>
+	                                        <td>
+	                                            <label>1HP Daily</label>
+	                                            <!-- Observation for 1HP Daily -->
+	                                            <obs conceptId="167179" answerConceptIds="167185" answerLabels="300/600mg" />
+	                                        </td>
+	                                    </tr>
+	                                </table>
+	                            </td>
+	                            
+	                             <td>
+	                                <!-- Table for INH Once Daily -->
+	                                <table id="INH_Once_Daily" width="100%">
+	                                    <tr>
+	                                        <td>
+	                                            <label>INH Dose</label>
+	                                            <!-- Observation for INH Dose -->
+	                                            <obs conceptId="165080" answerConceptIds="165076,165075,165074" answerLabels="100mg, 150mg, 300mg" />
+	                                        </td>
+	                                    </tr>
+	                                </table>
+	                            </td>
+	                        </tr>
+	                    </table>
+	                </td>             
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </tr>
+    
+                <tr>
+                    <td class="alnleft_s">TB Symptoms [cough, fever, night sweats, weight loss, contacts]
+                    </td>
+                    <td class="alnleft_s">
+                        <obs conceptId="165998"/>
+                    </td>
+                    <td class="alnleft_s">Hepatitis Symptoms[Abdominal pain, nausea, vomiting, abnormal LFTs, Children:
+                        persistent irritability, yellowish urine and eyes]
+                    </td>
+                    <td class="alnleft_s">
+                        <obs conceptId="165999"/>
+                    </td>
+                    <td class="alnleft_s">Neurologic Symptoms [Numbness, tingling, paresthesias]
+                    </td>
+                    <td class="alnleft_s">
+                        <obs conceptId="166000"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Rash
+                    </td>
+                    <td class="alnleft_s">
+                        <obs conceptId="512" answerConceptIds="1066,1065" answerLabels="No,Yes"/>
+                    </td>
+                    <td class="alnleft_s">Adherence[ > 80% doses = Good &lt; 80% doses = Poor ]
+    
+                    </td>
+                    <td class="alnleft_s">
+                        <obs conceptId="166001"/>
+                    </td>
+                    <td class="alnleft_s">Referred for further services
+                    </td>
+                    <td class="alnleft_s">
+                        <obs id="furth_sel" conceptId="166002" answerConceptIds="1066,1065" answerLabels="No,Yes">
+                            <control>
+                                <when value="1065" thenDisplay="#furth_srvs"/>
+                            </control>
+                        </obs>
+                    </td>
+                </tr>
+                <tr>
+                     <td colspan="6">
+                       <table id="furth_srvs">
+<tr>
+<td class="alnleft"></td><td class="alnleft"></td><td class="alnleft"></td><td class="alnleft">Investigations for TB</td><td class="alnleft"></td>
+</tr>
+	<tr >
+		<td class="alnleft"></td><td class="alnleft"></td><td class="alnleft"></td>
+<td class="alnleft">
+		  <obs conceptId="166141" toggle="sptm2" style="checkbox"/>                            
+		  Sputum AFB
+		</td> <td class="alnleft_s"> </td>
+	</tr>
+	<tr >
+<td class="alnleft"></td><td class="alnleft"></td><td class="alnleft"></td>
+	  <td class="alnleft_s">
+		   <obs conceptId="166142" toggle="genX2" style="checkbox"/>                            
+		   GeneXpert
+		</td><td class="alnleft_s"> </td>
+	</tr>
+	<tr >
+<td class="alnleft"></td><td class="alnleft"></td><td class="alnleft"></td>
+	<td class="alnleft_s">
+	  <obs conceptId="166143" toggle="chstX2" style="checkbox"/>                            
+	  Chest X-ray
+	</td>
+	</tr>
+	<tr >
+       <td class="alnleft"></td><td class="alnleft"></td><td class="alnleft"></td>
+	  <td class="alnleft_s">
+	   <obs conceptId="166144" toggle="culture2" style="checkbox"/>      
+	   Culture
+	</td>
+	<td class="alnleft_s"> </td>
+	</tr>
+</table>
+                  </td>
+
+              </tr>
+                <tr>
+                    <td  class="alnleft_s">Outcome of TPT</td>
+                    <td class="alnleft_s">
+                        <obs id ="tt" conceptId="166007">
+                            <control>
+                                <when value="166005" thenDisplay="#stp_1,#stp2"/>
+                            </control>
+                        </obs>
+                    </td>
+                    <td  class="alnleft_s">Date of Outcome</td>
+                    <td class="alnleft_s">
+                        <obs conceptId="166008"/>
+                    </td >
+                    <td id="stp_1"  class="alnleft_s">Reasons for stopping TPT</td>
+                    <td id="stp2" class="alnleft_s">
+                        <obs conceptId="166012"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+         <fieldset>
+        <legend class="legend_style">Appointment and Signatures</legend>
+        <table>
+            <tr>
+                <td>Next Appointment Date:</td>
+                <td>
+                    <obs conceptId="5096" id="next_appointment" allowFutureDates="true" />
+                </td>
+                <td>Signature:</td>
+                <td>
+                    <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"
+                                              required="true"/>
+                </td>
+                <td>Facility:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
+                </td>
+            </tr>
+    
+        </table>
+    </fieldset>
+    <submit/>
+    </htmlform>
