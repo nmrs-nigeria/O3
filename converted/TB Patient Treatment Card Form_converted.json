@@ -1,10 +1,48 @@
 {
   "name": "TB Patient Treatment Card Form",
-  "uuid": "2376585c-3850-4556-899c-2edebb8bcd1c",
+  "uuid": "22a5b083-8b8c-4fe8-969e-67e05a6c493f",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
   "pages": [
+    {
+      "label": "General Information",
+      "sections": [
+        {
+          "label": "General Information",
+          "questions": [
+            {
+              "id": "encounterdate_1",
+              "label": "Visit Date",
+              "type": "encounterDate",
+              "questionOptions": {
+                "rendering": "date",
+                "showTime": "false",
+                "allowFutureDates": "false"
+              }
+            },
+            {
+              "id": "encounterprovider_2",
+              "label": "Provider's Name",
+              "type": "encounterProvider",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "currentUser"
+            },
+            {
+              "id": "encounterlocation_3",
+              "label": "Facility",
+              "type": "encounterLocation",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "SessionAttribute:emrContext.sessionLocationId"
+            }
+          ]
+        }
+      ]
+    },
     {
       "label": "Demographics",
       "sections": [
@@ -12,7 +50,7 @@
           "label": "Demographics",
           "questions": [
             {
-              "id": "maritalStatus_1",
+              "id": "maritalStatus_4",
               "label": "Marital Status",
               "type": "obs",
               "questionOptions": {
@@ -47,7 +85,7 @@
               }
             },
             {
-              "id": "patientOccupation_2",
+              "id": "patientOccupation_5",
               "label": "Patient Occupation",
               "type": "obs",
               "questionOptions": {
@@ -110,7 +148,7 @@
               }
             },
             {
-              "id": "healthCareWorker_3",
+              "id": "healthCareWorker_6",
               "label": "Health Care Worker",
               "type": "obs",
               "questionOptions": {
@@ -143,7 +181,7 @@
           "label": "Patient Details",
           "questions": [
             {
-              "id": "siteOfDisease_4",
+              "id": "siteOfDisease_7",
               "label": "Site of Disease",
               "type": "obs",
               "questionOptions": {
@@ -162,7 +200,7 @@
               }
             },
             {
-              "id": "typeOfPatient_5",
+              "id": "typeOfPatient_8",
               "label": "Type of Patient",
               "type": "obs",
               "questionOptions": {
@@ -201,7 +239,7 @@
               }
             },
             {
-              "id": "siteOfExtrapulmonary_6",
+              "id": "siteOfExtrapulmonary_9",
               "label": "Site of Extrapulmonary",
               "type": "obs",
               "questionOptions": {
@@ -209,7 +247,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(siteOfDisease_4) || siteOfDisease_4 !== '156204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(siteOfDisease_7) || siteOfDisease_7 !== '156204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             }
           ]
@@ -223,7 +261,7 @@
           "label": "TB Contact",
           "questions": [
             {
-              "id": "nameOfContactPerson_7",
+              "id": "nameOfContactPerson_10",
               "label": "Name of Contact Person",
               "type": "obs",
               "questionOptions": {
@@ -232,7 +270,7 @@
               }
             },
             {
-              "id": "phoneNumber_8",
+              "id": "phoneNumber_11",
               "label": "Phone Number",
               "type": "obs",
               "questionOptions": {
@@ -241,7 +279,7 @@
               }
             },
             {
-              "id": "address_9",
+              "id": "address_12",
               "label": "Address",
               "type": "obs",
               "questionOptions": {
@@ -250,7 +288,7 @@
               }
             },
             {
-              "id": "historyOfAntitbIntakeMoreThan1Month_10",
+              "id": "historyOfAntitbIntakeMoreThan1Month_13",
               "label": "History of anti-TB intake more than 1 month",
               "type": "obs",
               "questionOptions": {
@@ -269,7 +307,7 @@
               }
             },
             {
-              "id": "durationInWeeks_11",
+              "id": "durationInWeeks_14",
               "label": "Duration in weeks",
               "type": "obs",
               "questionOptions": {
@@ -277,11 +315,11 @@
                 "rendering": "number"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(historyOfAntitbIntakeMoreThan1Month_10) || historyOfAntitbIntakeMoreThan1Month_10 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(historyOfAntitbIntakeMoreThan1Month_13) || historyOfAntitbIntakeMoreThan1Month_13 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             },
             {
-              "id": "noOfHouseholdContacts_12",
+              "id": "noOfHouseholdContacts_15",
               "label": "No. of Household contacts:",
               "type": "obs",
               "questionOptions": {
@@ -300,7 +338,7 @@
               }
             },
             {
-              "id": "totalUnder5YearOldHouseholdContacts_13",
+              "id": "totalUnder5YearOldHouseholdContacts_16",
               "label": "Total under 5 year old household contacts",
               "type": "obs",
               "questionOptions": {
@@ -308,11 +346,11 @@
                 "rendering": "number"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_12) || noOfHouseholdContacts_12 !== '164419AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_15) || noOfHouseholdContacts_15 !== '164419AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             },
             {
-              "id": "under5Years_14",
+              "id": "under5Years_17",
               "label": "under 5 years",
               "type": "obs",
               "questionOptions": {
@@ -320,11 +358,11 @@
                 "rendering": "number"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_12) || noOfHouseholdContacts_12 !== '5ba8005d-78ba-4fe4-86c4-9948a61f7e2b'"
+                "hideWhenExpression": "isEmpty(noOfHouseholdContacts_15) || noOfHouseholdContacts_15 !== '5ba8005d-78ba-4fe4-86c4-9948a61f7e2b'"
               }
             },
             {
-              "id": "sourceOfReferral_15",
+              "id": "sourceOfReferral_18",
               "label": "Source of referral",
               "type": "obs",
               "questionOptions": {
@@ -395,7 +433,7 @@
               }
             },
             {
-              "id": "otherTbSourceOfReferral_16",
+              "id": "otherTbSourceOfReferral_19",
               "label": "Other TB Source of referral",
               "type": "obs",
               "questionOptions": {
@@ -403,7 +441,7 @@
                 "rendering": "text"
               },
               "hide": {
-                "hideWhenExpression": "isEmpty(sourceOfReferral_15) || sourceOfReferral_15 !== 'a7fe83d9-8cd2-4eae-80ea-614f4ae18f45'"
+                "hideWhenExpression": "isEmpty(sourceOfReferral_18) || sourceOfReferral_18 !== 'a7fe83d9-8cd2-4eae-80ea-614f4ae18f45'"
               }
             }
           ]
@@ -417,7 +455,7 @@
           "label": "Treatment Monitoring",
           "questions": [
             {
-              "id": "smearMonth0_17",
+              "id": "smearMonth0_20",
               "label": "Smear - Month 0",
               "type": "obs",
               "questionOptions": {
@@ -436,7 +474,7 @@
               }
             },
             {
-              "id": "smearResult_18",
+              "id": "smearResult_21",
               "label": "Smear Result:",
               "type": "obs",
               "questionOptions": {
@@ -455,7 +493,7 @@
               }
             },
             {
-              "id": "smearResult2_19",
+              "id": "smearResult2_22",
               "label": "Smear Result: (2)",
               "type": "obs",
               "questionOptions": {
@@ -474,7 +512,7 @@
               }
             },
             {
-              "id": "smearResult3_20",
+              "id": "smearResult3_23",
               "label": "Smear Result: (3)",
               "type": "obs",
               "questionOptions": {
@@ -493,7 +531,7 @@
               }
             },
             {
-              "id": "smearResult4_21",
+              "id": "smearResult4_24",
               "label": "Smear Result: (4)",
               "type": "obs",
               "questionOptions": {
@@ -512,7 +550,7 @@
               }
             },
             {
-              "id": "weightMonth0_22",
+              "id": "weightMonth0_25",
               "label": "Weight - Month 0",
               "type": "obs",
               "questionOptions": {
@@ -521,7 +559,7 @@
               }
             },
             {
-              "id": "weight_23",
+              "id": "weight_26",
               "label": "weight:",
               "type": "obs",
               "questionOptions": {
@@ -530,7 +568,7 @@
               }
             },
             {
-              "id": "weight_24",
+              "id": "weight_27",
               "label": "Weight:",
               "type": "obs",
               "questionOptions": {
@@ -539,7 +577,7 @@
               }
             },
             {
-              "id": "weight2_25",
+              "id": "weight2_28",
               "label": "Weight: (2)",
               "type": "obs",
               "questionOptions": {
@@ -548,7 +586,7 @@
               }
             },
             {
-              "id": "weight3_26",
+              "id": "weight3_29",
               "label": "Weight: (3)",
               "type": "obs",
               "questionOptions": {
@@ -567,7 +605,7 @@
           "label": "Xpert Test",
           "questions": [
             {
-              "id": "xpertResultDate_27",
+              "id": "xpertResultDate_30",
               "label": "Xpert Result Date",
               "type": "obs",
               "questionOptions": {
@@ -582,7 +620,7 @@
               ]
             },
             {
-              "id": "result_28",
+              "id": "result_31",
               "label": "Result",
               "type": "obs",
               "questionOptions": {
@@ -611,7 +649,7 @@
           "label": "Xray Test",
           "questions": [
             {
-              "id": "xrayResultDate_29",
+              "id": "xrayResultDate_32",
               "label": "X-Ray Result Date:",
               "type": "obs",
               "questionOptions": {
@@ -626,7 +664,7 @@
               ]
             },
             {
-              "id": "result_30",
+              "id": "result_33",
               "label": "Result:",
               "type": "obs",
               "questionOptions": {
@@ -655,7 +693,7 @@
           "label": "AFB Test",
           "questions": [
             {
-              "id": "afbLabSerialNo_31",
+              "id": "afbLabSerialNo_34",
               "label": "AFB Lab serial No.",
               "type": "obs",
               "questionOptions": {
@@ -664,7 +702,7 @@
               }
             },
             {
-              "id": "afbResultDate_32",
+              "id": "afbResultDate_35",
               "label": "AFB Result Date:",
               "type": "obs",
               "questionOptions": {
@@ -679,7 +717,7 @@
               ]
             },
             {
-              "id": "smearResult_33",
+              "id": "smearResult_36",
               "label": "Smear Result",
               "type": "obs",
               "questionOptions": {
@@ -708,7 +746,7 @@
           "label": "Tissue Biopsy Test",
           "questions": [
             {
-              "id": "typeOfSpecimen_34",
+              "id": "typeOfSpecimen_37",
               "label": "Type of Specimen:",
               "type": "obs",
               "questionOptions": {
@@ -717,7 +755,7 @@
               }
             },
             {
-              "id": "resultDate_35",
+              "id": "resultDate_38",
               "label": "Result Date",
               "type": "obs",
               "questionOptions": {
@@ -732,7 +770,7 @@
               ]
             },
             {
-              "id": "result_36",
+              "id": "result_39",
               "label": "Result",
               "type": "obs",
               "questionOptions": {
@@ -761,7 +799,7 @@
           "label": "Other Test",
           "questions": [
             {
-              "id": "otherTestsSpecify_37",
+              "id": "otherTestsSpecify_40",
               "label": "Other tests (Specify)",
               "type": "obs",
               "questionOptions": {
@@ -770,7 +808,7 @@
               }
             },
             {
-              "id": "testDate_38",
+              "id": "testDate_41",
               "label": "Test Date",
               "type": "obs",
               "questionOptions": {
@@ -785,7 +823,7 @@
               ]
             },
             {
-              "id": "testResult_39",
+              "id": "testResult_42",
               "label": "Test Result",
               "type": "obs",
               "questionOptions": {
@@ -814,7 +852,7 @@
           "label": "HIV Status",
           "questions": [
             {
-              "id": "newlyTested_40",
+              "id": "newlyTested_43",
               "label": "Newly tested",
               "type": "obs",
               "questionOptions": {
@@ -833,7 +871,7 @@
               }
             },
             {
-              "id": "endOfTreatment_41",
+              "id": "endOfTreatment_44",
               "label": "End of Treatment",
               "type": "obs",
               "questionOptions": {
@@ -856,7 +894,7 @@
               }
             },
             {
-              "id": "referral_42",
+              "id": "referral_45",
               "label": "Referral",
               "type": "obs",
               "questionOptions": {
@@ -875,7 +913,7 @@
               }
             },
             {
-              "id": "typeOfCareReferralDate_43",
+              "id": "typeOfCareReferralDate_46",
               "label": "Type of Care Referral Date",
               "type": "obs",
               "questionOptions": {
@@ -889,11 +927,11 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "isEmpty(referral_42) || referral_42 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(referral_45) || referral_45 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             },
             {
-              "id": "onArt_44",
+              "id": "onArt_47",
               "label": "On ART",
               "type": "obs",
               "questionOptions": {
@@ -912,7 +950,7 @@
               }
             },
             {
-              "id": "onCpt_45",
+              "id": "onCpt_48",
               "label": "On CPT",
               "type": "obs",
               "questionOptions": {
@@ -931,7 +969,7 @@
               }
             },
             {
-              "id": "cotrimoxazolePreventiveTherapyDate_46",
+              "id": "cotrimoxazolePreventiveTherapyDate_49",
               "label": "Cotrimoxazole preventive therapy date",
               "type": "obs",
               "questionOptions": {
@@ -945,7 +983,7 @@
                 }
               ],
               "hide": {
-                "hideWhenExpression": "isEmpty(onCpt_45) || onCpt_45 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+                "hideWhenExpression": "isEmpty(onCpt_48) || onCpt_48 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
             }
           ]

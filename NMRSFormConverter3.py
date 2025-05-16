@@ -1186,17 +1186,6 @@ class NMRSFormConverter:
             for ans, extid in values:
                 ws2 .append([opt_name, ans, extid])
 
-        # Move "General Information" page to the end if it exists
-        general_info_index = None
-        for idx, page in enumerate(json_form["pages"]):
-            if page.get("label", "").strip().lower() == "general information":
-                general_info_index = idx
-                break
-
-        if general_info_index is not None:
-            general_info_page = json_form["pages"].pop(general_info_index)
-            json_form["pages"].append(general_info_page)
-
         # --- Save ---
         output_dir = os.path.join(os.getcwd(), "converted")
         os.makedirs(output_dir, exist_ok=True)
@@ -1206,85 +1195,6 @@ class NMRSFormConverter:
         with open(json_path, "w", encoding="utf-8") as jf:
             json.dump(json_form, jf, indent=2)
         messagebox.showinfo("Done", f"Files generated in {output_dir}")
-
-        # After initializing json_form and id_counter
-
-        # Find all obs and encounter elements in DOM order, anywhere in the document
-        question_tags = soup.find_all(
-            ["obs", "encounterDate", "encounterProvider", "encounterLocation", "encounterFacility"],
-            recursive=True
-        )
-
-        # Group by fieldset if present, otherwise group by "orphan" (not in fieldset)
-        fieldset_to_questions = {}
-        orphans = []
-
-        for elem in question_tags:
-            parent_fieldset = elem.find_parent("fieldset")
-            if parent_fieldset:
-                if parent_fieldset not in fieldset_to_questions:
-                    fieldset_to_questions[parent_fieldset] = []
-                fieldset_to_questions[parent_fieldset].append(elem)
-            else:
-                orphans.append(elem)
-
-        # --- Process fieldsets first ---
-        for fieldset, elems in fieldset_to_questions.items():
-            legend = fieldset.find("legend")
-            section_label = legend.text.strip() if legend else None
-            section = {
-                "label": section_label or "Section",
-                "questions": []
-            }
-            for elem in elems:
-                # --- Encounter elements ---
-                if elem.name.lower().startswith("encounter"):
-                    # (use your encounter question logic here, as in your process_encounter_elements)
-                    # ... build question dict as before ...
-                    pass
-                # --- Obs elements ---
-                elif elem.name == "obs":
-                    # (use your obs question logic here)
-                    # ... build question dict as before ...
-                    pass
-            if section["questions"]:
-                json_form["pages"].append({
-                    "label": section_label or "Page",
-                    "sections": [section]
-                })
-
-        # --- Now process orphan questions (not in any fieldset) ---
-        if orphans:
-            # Use the first question's label as section/page label
-            first_label = None
-            orphan_questions = []
-            for elem in orphans:
-                label = None
-                prev_td = elem.find_parent('td')
-                if prev_td:
-                    label_td = prev_td.find_previous_sibling('td')
-                    if label_td:
-                        label = label_td.text.strip().rstrip(':')
-                if not label:
-                    label = elem.get("label") or "Question"
-                if not first_label:
-                    first_label = label
-                # --- Encounter elements ---
-                if elem.name.lower().startswith("encounter"):
-                    # ... build encounter question dict as before ...
-                    pass
-                elif elem.name == "obs":
-                    # ... build obs question dict as before ...
-                    pass
-                # orphan_questions.append(question)
-            if orphan_questions:
-                json_form["pages"].append({
-                    "label": first_label or "Page",
-                    "sections": [{
-                        "label": first_label or "Section",
-                        "questions": orphan_questions
-                    }]
-                })
 
     def download_html(self):
         # Save the current HTML/XML in the display box to a file
