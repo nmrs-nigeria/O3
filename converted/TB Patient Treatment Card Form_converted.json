@@ -1,48 +1,10 @@
 {
   "name": "TB Patient Treatment Card Form",
-  "uuid": "22a5b083-8b8c-4fe8-969e-67e05a6c493f",
+  "uuid": "a5fbae30-824b-48c8-800b-83aaffe86554",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
   "pages": [
-    {
-      "label": "General Information",
-      "sections": [
-        {
-          "label": "General Information",
-          "questions": [
-            {
-              "id": "encounterdate_1",
-              "label": "Visit Date",
-              "type": "encounterDate",
-              "questionOptions": {
-                "rendering": "date",
-                "showTime": "false",
-                "allowFutureDates": "false"
-              }
-            },
-            {
-              "id": "encounterprovider_2",
-              "label": "Provider's Name",
-              "type": "encounterProvider",
-              "questionOptions": {
-                "rendering": "ui-select-extended"
-              },
-              "default": "currentUser"
-            },
-            {
-              "id": "encounterlocation_3",
-              "label": "Facility",
-              "type": "encounterLocation",
-              "questionOptions": {
-                "rendering": "ui-select-extended"
-              },
-              "default": "SessionAttribute:emrContext.sessionLocationId"
-            }
-          ]
-        }
-      ]
-    },
     {
       "label": "Demographics",
       "sections": [
@@ -985,6 +947,44 @@
               "hide": {
                 "hideWhenExpression": "isEmpty(onCpt_48) || onCpt_48 !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "General Information",
+      "sections": [
+        {
+          "label": "General Information",
+          "questions": [
+            {
+              "id": "encounterdate_1",
+              "label": "Visit Date",
+              "type": "encounterDate",
+              "questionOptions": {
+                "rendering": "date",
+                "showTime": "false",
+                "allowFutureDates": "false"
+              }
+            },
+            {
+              "id": "encounterprovider_2",
+              "label": "Provider's Name",
+              "type": "encounterProvider",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "currentUser"
+            },
+            {
+              "id": "encounterlocation_3",
+              "label": "Facility",
+              "type": "encounterLocation",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "SessionAttribute:emrContext.sessionLocationId"
             }
           ]
         }

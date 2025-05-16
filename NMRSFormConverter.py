@@ -1223,8 +1223,8 @@ class NMRSFormConverter:
             parent_fieldset = elem.find_parent("fieldset")
             if parent_fieldset:
                 if parent_fieldset not in fieldset_to_questions:
-                    fieldset_to_questions[parent_fieldset] = []
-                fieldset_to_questions[parent_fieldset].append(elem)
+                    fieldset_to_questions[fieldset] = []
+                fieldset_to_questions[fieldset].append(elem)
             else:
                 orphans.append(elem)
 

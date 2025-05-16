@@ -1,48 +1,10 @@
 {
   "name": "Laboratory Order and Result form",
-  "uuid": "9cc3ec37-90cf-4f3b-8456-77e9b00f5bac",
+  "uuid": "476b0a62-1cc3-4344-953b-c4840469a94b",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
   "pages": [
-    {
-      "label": "General Information",
-      "sections": [
-        {
-          "label": "General Information",
-          "questions": [
-            {
-              "id": "encounterdate_1",
-              "label": "Visit Date",
-              "type": "encounterDate",
-              "questionOptions": {
-                "rendering": "date",
-                "showTime": "false",
-                "allowFutureDates": "false"
-              }
-            },
-            {
-              "id": "encounterprovider_2",
-              "label": "Name of Clinician",
-              "type": "encounterProvider",
-              "questionOptions": {
-                "rendering": "ui-select-extended"
-              },
-              "default": "currentUser"
-            },
-            {
-              "id": "encounterlocation_3",
-              "label": "Facility",
-              "type": "encounterLocation",
-              "questionOptions": {
-                "rendering": "ui-select-extended"
-              },
-              "default": "SessionAttribute:emrContext.sessionLocationId"
-            }
-          ]
-        }
-      ]
-    },
     {
       "label": "Lab Registration Number",
       "sections": [
@@ -3144,6 +3106,44 @@
                   "message": "Please enter a valid date"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "General Information",
+      "sections": [
+        {
+          "label": "General Information",
+          "questions": [
+            {
+              "id": "encounterdate_1",
+              "label": "Visit Date",
+              "type": "encounterDate",
+              "questionOptions": {
+                "rendering": "date",
+                "showTime": "false",
+                "allowFutureDates": "false"
+              }
+            },
+            {
+              "id": "encounterprovider_2",
+              "label": "Name of Clinician",
+              "type": "encounterProvider",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "currentUser"
+            },
+            {
+              "id": "encounterlocation_3",
+              "label": "Facility",
+              "type": "encounterLocation",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "SessionAttribute:emrContext.sessionLocationId"
             }
           ]
         }
