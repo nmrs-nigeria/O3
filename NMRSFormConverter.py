@@ -40,8 +40,24 @@ class NMRSFormConverter:
         self.option_sets = {}
         self.concept_answers = {}  # {concept_id: [{"label": ..., "uuid": ...}, ...]}
 
+        # --- Main Tabbed Interface ---
+        self.notebook = ttk.Notebook(root)
+        self.notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        # --- Form Converter Tab ---
+        form_converter_tab = ttk.Frame(self.notebook)
+        self.notebook.add(form_converter_tab, text="Form Converter")
+        self._setup_form_converter_ui(form_converter_tab)
+
+        # --- OCL Management Tab ---
+        self.ocl_management_tab = OCLManagementTab(self.notebook, self)
+        self.notebook.add(self.ocl_management_tab, text="OCL Management")
+
+        self.connect_to_db(auto=True)
+
+    def _setup_form_converter_ui(self, parent_frame):
         # --- Main Layout with PanedWindows for resizability ---
-        main_paned_window = ttk.PanedWindow(root, orient=tk.VERTICAL)
+        main_paned_window = ttk.PanedWindow(parent_frame, orient=tk.VERTICAL)
         main_paned_window.pack(fill=tk.BOTH, expand=True)
 
         # --- Top Row Frame (DB, Forms, Concept Search) ---
@@ -162,8 +178,6 @@ class NMRSFormConverter:
         self.json_scrollbar = ttk.Scrollbar(self.json_frame, orient=VERTICAL, command=self.json_text.yview)
         self.json_scrollbar.grid(row=1, column=3, sticky="ns")
         self.json_text.config(yscrollcommand=self.json_scrollbar.set, undo=True)
-
-        self.connect_to_db(auto=True)
 
     def _on_key_release(self, event=None):
         """Callback for syntax highlighting on key release."""
@@ -1966,6 +1980,220 @@ class NMRSFormConverter:
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(json_content)
             messagebox.showinfo("Saved", f"JSON saved to {file_path}")
+
+class OCLManagementTab(ttk.Frame):
+    def __init__(self, parent, main_app):
+        super().__init__(parent)
+        self.main_app = main_app
+
+        # --- OCL Configuration ---
+        config_frame = ttk.LabelFrame(self, text="OCL Configuration")
+        config_frame.pack(fill="x", padx=10, pady=10)
+
+        self.api_token = tk.StringVar()
+        self.ocl_org = tk.StringVar(value="NMRS")
+        self.ocl_source = tk.StringVar(value="NMRS")
+
+        ttk.Label(config_frame, text="API Token:").grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        ttk.Entry(config_frame, textvariable=self.api_token, show="*", width=50).grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+
+        ttk.Label(config_frame, text="OCL Org:").grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        ttk.Entry(config_frame, textvariable=self.ocl_org).grid(row=1, column=1, padx=5, pady=5, sticky="ew")
+
+        ttk.Label(config_frame, text="OCL Source:").grid(row=2, column=0, padx=5, pady=5, sticky="w")
+        ttk.Entry(config_frame, textvariable=self.ocl_source).grid(row=2, column=1, padx=5, pady=5, sticky="ew")
+
+        ttk.Button(config_frame, text="Load Concepts from OCL", command=self.load_ocl_concepts).grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
+        config_frame.columnconfigure(1, weight=1)
+
+        # --- Actions Frame ---
+        actions_frame = ttk.LabelFrame(self, text="Actions")
+        actions_frame.pack(fill="x", padx=10, pady=5)
+
+        ttk.Button(actions_frame, text="Create Single Concept from OpenMRS", command=self.create_single_concept_window).pack(side="left", padx=5, pady=5)
+        ttk.Button(actions_frame, text="Upload Bulk Concepts from JSON", command=self.upload_bulk_concepts).pack(side="left", padx=5, pady=5)
+
+        # --- Concept List ---
+        list_frame = ttk.LabelFrame(self, text="OCL Concepts in Source")
+        list_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        self.tree = ttk.Treeview(list_frame, columns=("ID", "Name", "UUID", "Datatype", "Class"), show="headings")
+        self.tree.heading("ID", text="OCL ID")
+        self.tree.heading("Name", text="Display Name")
+        self.tree.heading("UUID", text="External ID (UUID)")
+        self.tree.heading("Datatype", text="Datatype")
+        self.tree.heading("Class", text="Concept Class")
+
+        self.tree.column("ID", width=100)
+        self.tree.column("Name", width=300)
+        self.tree.column("UUID", width=300)
+        self.tree.column("Datatype", width=100)
+        self.tree.column("Class", width=100)
+
+        vsb = ttk.Scrollbar(list_frame, orient="vertical", command=self.tree.yview)
+        hsb = ttk.Scrollbar(list_frame, orient="horizontal", command=self.tree.xview)
+        self.tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+
+        self.tree.grid(row=0, column=0, sticky="nsew")
+        vsb.grid(row=0, column=1, sticky="ns")
+        hsb.grid(row=1, column=0, sticky="ew")
+
+        list_frame.rowconfigure(0, weight=1)
+        list_frame.columnconfigure(0, weight=1)
+
+    def get_headers(self):
+        token = self.api_token.get()
+        if not token:
+            messagebox.showerror("Error", "Please provide an OCL API Token.")
+            return None
+        return {
+            "Authorization": f"Token {token}",
+            "Content-Type": "application/json"
+        }
+
+    def load_ocl_concepts(self):
+        for i in self.tree.get_children():
+            self.tree.delete(i)
+
+        headers = self.get_headers()
+        if not headers: return
+
+        org = self.ocl_org.get()
+        source = self.ocl_source.get()
+        url = f"https://api.openconceptlab.org/orgs/{org}/sources/{source}/concepts/?limit=200" # Increase limit
+
+        try:
+            response = requests.get(url, headers=headers)
+            response.raise_for_status()
+            concepts = response.json()
+            for concept in concepts:
+                self.tree.insert("", "end", values=(
+                    concept.get('id', ''),
+                    concept.get('display_name', ''),
+                    concept.get('external_id', ''),
+                    concept.get('datatype', ''),
+                    concept.get('concept_class', '')
+                ))
+        except requests.exceptions.RequestException as e:
+            messagebox.showerror("Error", f"Failed to load concepts from OCL:\n{e}")
+
+    def create_single_concept_window(self):
+        # Simple dialog to get a concept ID from OpenMRS
+        dialog = tk.Toplevel(self)
+        dialog.title("Upload Single Concept")
+        dialog.geometry("400x150")
+        dialog.transient(self.main_app.root)
+        dialog.grab_set()
+
+        ttk.Label(dialog, text="Enter OpenMRS Concept ID to upload:").pack(pady=10)
+        concept_id_entry = ttk.Entry(dialog, width=40)
+        concept_id_entry.pack(pady=5)
+
+        def do_upload():
+            concept_id = concept_id_entry.get()
+            if not concept_id.isdigit():
+                messagebox.showerror("Invalid ID", "Please enter a numeric Concept ID.", parent=dialog)
+                return
+            self.upload_single_concept(int(concept_id))
+            dialog.destroy()
+
+        ttk.Button(dialog, text="Upload to OCL", command=do_upload).pack(pady=10)
+
+    def upload_single_concept(self, concept_id):
+        headers = self.get_headers()
+        if not headers: return
+
+        # 1. Fetch concept details from OpenMRS DB
+        cursor = self.main_app.connection.cursor(dictionary=True, buffered=True)
+        cursor.execute("""
+            SELECT 
+                c.uuid, c.retired,
+                cn.name as display_name,
+                cd.name as datatype,
+                cc.name as concept_class,
+                cds.description
+            FROM concept c
+            LEFT JOIN concept_name cn ON c.concept_id = cn.concept_id AND cn.locale_preferred = 1 AND cn.locale = 'en'
+            LEFT JOIN concept_datatype cd ON c.datatype_id = cd.concept_datatype_id
+            LEFT JOIN concept_class cc ON c.class_id = cc.class_id
+            LEFT JOIN concept_description cds ON c.concept_id = cds.concept_id AND cds.locale = 'en'
+            WHERE c.concept_id = %s
+        """, (concept_id,))
+        concept_details = cursor.fetchone()
+        cursor.close()
+
+        if not concept_details:
+            messagebox.showerror("Error", f"Concept ID {concept_id} not found in OpenMRS database.")
+            return
+
+        # 2. Construct OCL payload
+        ocl_id = f"{self.ocl_source.get()}_{concept_id}"
+        payload = {
+            "id": ocl_id,
+            "external_id": concept_details['uuid'],
+            "concept_class": concept_details['concept_class'],
+            "datatype": concept_details['datatype'],
+            "names": [{
+                "name": concept_details['display_name'],
+                "locale": "en",
+                "locale_preferred": True,
+                "name_type": "Fully Specified"
+            }],
+            "retired": concept_details['retired']
+        }
+        if concept_details.get('description'):
+            payload['descriptions'] = [{"description": concept_details['description'], "locale": "en"}]
+
+        # 3. POST to OCL
+        org = self.ocl_org.get()
+        source = self.ocl_source.get()
+        url = f"https://api.openconceptlab.org/orgs/{org}/sources/{source}/concepts/"
+        
+        try:
+            response = requests.post(url, headers=headers, data=json.dumps(payload))
+            response.raise_for_status()
+            messagebox.showinfo("Success", f"Concept '{ocl_id}' uploaded successfully to OCL.")
+            self.load_ocl_concepts() # Refresh list
+        except requests.exceptions.RequestException as e:
+            messagebox.showerror("Upload Failed", f"Failed to upload concept:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}")
+
+    def upload_bulk_concepts(self):
+        headers = self.get_headers()
+        if not headers: return
+
+        file_path = filedialog.askopenfilename(
+            title="Select JSON file with concepts for bulk upload",
+            filetypes=[("JSON Files", "*.json")]
+        )
+        if not file_path: return
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                concepts_to_upload = json.load(f)
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to read or parse JSON file:\n{e}")
+            return
+
+        # Construct bulk import payload
+        bulk_payload = []
+        for concept in concepts_to_upload:
+            bulk_payload.append({
+                "action": "create",
+                "type": "Concept",
+                "data": concept # Assuming the JSON file is already in the correct OCL format
+            })
+
+        org = self.ocl_org.get()
+        source = self.ocl_source.get()
+        url = f"https://api.openconceptlab.org/orgs/{org}/sources/{source}/bulk-import/"
+
+        try:
+            response = requests.post(url, headers=headers, data=json.dumps(bulk_payload))
+            response.raise_for_status()
+            messagebox.showinfo("Success", "Bulk import request submitted successfully. It may take a few moments to process.")
+            self.load_ocl_concepts() # Refresh list after a short delay
+        except requests.exceptions.RequestException as e:
+            messagebox.showerror("Bulk Upload Failed", f"Failed to submit bulk import:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}")
 
 if __name__ == "__main__":
     root = tk.Tk()
