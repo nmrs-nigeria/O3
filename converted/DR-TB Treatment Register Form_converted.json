@@ -1,0 +1,1743 @@
+{
+  "name": "DR-TB Treatment Register Form",
+  "uuid": "69590e75-a303-4d08-9762-a57d7399d90b",
+  "processor": "EncounterFormProcessor",
+  "version": "1.0",
+  "description": "",
+  "pages": [
+    {
+      "label": "Patient Serial Number:",
+      "sections": [
+        {
+          "label": "Patient Serial Number:",
+          "questions": [
+            {
+              "id": "patientSerialNumber_5",
+              "label": "Patient Serial Number:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "237a1405-ab8e-4c4d-b612-f6d80dd49373",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Place of Initiation:",
+      "sections": [
+        {
+          "label": "Place of Initiation:",
+          "questions": [
+            {
+              "id": "placeOfInitiation_6",
+              "label": "Place of Initiation:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "17734555-d345-4847-9d29-281f09f043e5",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "lgaDrtbRegno_7",
+              "label": "LGA DR-TB RegNo :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "0392502b-6b6b-480c-91fd-0b4b24c7ce1e",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "referringHealthFacility_8",
+              "label": "Referring Health Facility :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "161550AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "referringFacilityState_9",
+              "label": "Referring Facility State :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "651cc079-0960-4366-97d0-6b0dfa94b6b4",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Referring Facility LGA:",
+      "sections": [
+        {
+          "label": "Referring Facility LGA:",
+          "questions": [
+            {
+              "id": "referringFacilityLga_10",
+              "label": "Referring Facility LGA:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "591a4c16-4ae5-42e3-8378-486af631cf28",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "previouslyOnTb2ndLineDrug_11",
+              "label": "Previously On TB 2nd line Drug ? :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "eb239d94-0442-477d-961f-03b2182b21cc",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2ndLineDrugStartDate_12",
+              "label": "2nd line drug start date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "bafcfe90-586a-4fc0-9cae-371c8df540c3",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "weightkg_13",
+              "label": "Weight(kg) :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "250.0",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "250.0",
+                  "message": "Value must be <= 250.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Height(cm):",
+      "sections": [
+        {
+          "label": "Height(cm):",
+          "questions": [
+            {
+              "id": "heightcm_14",
+              "label": "Height(cm):",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "272.0",
+                "min": "10.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "272.0",
+                  "message": "Value must be <= 272.0"
+                },
+                {
+                  "type": "min",
+                  "value": "10.0",
+                  "message": "Value must be >= 10.0"
+                }
+              ]
+            },
+            {
+              "id": "typeOfTreatmentRegimen_15",
+              "label": "Type of Treatment Regimen :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "59d1bccc-969f-468f-95b7-44e332354310",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Shorter Regimen(Injectable)",
+                    "concept": "d04ad465-1a18-452c-a607-9412dd5cddc6"
+                  },
+                  {
+                    "label": "Shorter Regimen(BDQ)",
+                    "concept": "3483407f-90de-4f3d-9dd2-36735aa2c61d"
+                  },
+                  {
+                    "label": "Individualized(PRE XDR)",
+                    "concept": "73ce0cf2-4f26-472c-85d0-fde79ba30667"
+                  },
+                  {
+                    "label": "Individualized(XDR)",
+                    "concept": "1efaf80b-88dc-4e2c-aa8b-a48f9bcc1628"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "enterBdqOrDimIfPatientRegimenContainsNewDrugs_16",
+              "label": "Enter BDQ or Dim (if patient regimen contains new drugs )",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "70f0c388-3a19-45cb-a5df-6160d5b30121",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "dateTreatmentStarted_17",
+              "label": "Date treatment started:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "9b232255-bcc5-47ac-82b1-00f8e7366e30",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Site of Disease:",
+      "sections": [
+        {
+          "label": "Site of Disease:",
+          "questions": [
+            {
+              "id": "siteOfDisease_18",
+              "label": "Site of Disease:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "0ece789e-451b-49fb-8b25-49073fb0c6db",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Pulmonary",
+                    "concept": "831AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Extra Pulmonary",
+                    "concept": "156204AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "registrationGroup_19",
+              "label": "Registration Group :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159990AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "New",
+                    "concept": "159977AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Relapse",
+                    "concept": "160033AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Treatment after failure",
+                    "concept": "5006decd-9746-4ca1-8ab1-1216ac9ef7e3"
+                  },
+                  {
+                    "label": "Treatment after lost to follow up",
+                    "concept": "f0bfd687-8706-47be-98e1-26dd7449987c"
+                  },
+                  {
+                    "label": "other previously treated",
+                    "concept": "78584582-eac0-4e3a-bef5-c397aac82d0b"
+                  },
+                  {
+                    "label": "TB patient",
+                    "concept": "aebbf914-25a8-4800-a64b-b6ba975eed1b"
+                  },
+                  {
+                    "label": "Unknown previous TB TX history",
+                    "concept": "cf0644bb-2dde-4bbd-a163-5af5ad198ad2"
+                  },
+                  {
+                    "label": "Transferred in",
+                    "concept": "29c3b9ac-1bca-42a5-8701-1227533ac79a"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Diagnosis and Baseline Investigations (Xpert/AFB/Culture/Second Line LPA and DST) and X-ray features Diagnosis)",
+      "sections": [
+        {
+          "label": "Diagnosis and Baseline Investigations (Xpert/AFB/Culture/Second Line LPA and DST) and X-ray features Diagnosis)",
+          "questions": [
+            {
+              "id": "genexpert_20",
+              "label": "GeneXpert:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f8e8631f-8ddb-44d1-8202-fc38668a9dd7",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "160247AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "86266ce2-d1d8-4c2e-baa3-e40698c3dec5"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "afb_21",
+              "label": "AFB:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f22c3bb4-a8b0-4b65-acc6-a27d353849d0",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Postive Smear",
+                    "concept": "164412AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Negative Smear",
+                    "concept": "164413AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "culture_22",
+              "label": "Culture",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159982AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Positive culture",
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Negative culture",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "160008AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfAminoglycoside_23",
+              "label": "Name of Aminoglycoside",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of Aminoglycoside",
+                    "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern_24",
+              "label": "Resistant pattern",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfAminoglycoside2_25",
+              "label": "Name of Aminoglycoside (2)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of Aminoglycoside (2)",
+                    "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern2_26",
+              "label": "Resistant pattern (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfAminoglycoside3_27",
+              "label": "Name of Aminoglycoside (3)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of Aminoglycoside (3)",
+                    "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern3_28",
+              "label": "Resistant pattern (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfAminoglycoside4_29",
+              "label": "Name of Aminoglycoside (4)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of Aminoglycoside (4)",
+                    "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern4_30",
+              "label": "Resistant pattern (4)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfQuinolone_31",
+              "label": "Name of  Quinolone",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "6d2fe222-02a5-4012-8598-43d56d5ff130",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of  Quinolone",
+                    "concept": "6d2fe222-02a5-4012-8598-43d56d5ff130"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern5_32",
+              "label": "Resistant pattern (5)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfQuinolone2_33",
+              "label": "Name of  Quinolone (2)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "6d2fe222-02a5-4012-8598-43d56d5ff130",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of  Quinolone (2)",
+                    "concept": "6d2fe222-02a5-4012-8598-43d56d5ff130"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern6_34",
+              "label": "Resistant pattern (6)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfQuinolone3_35",
+              "label": "Name of  Quinolone (3)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "6d2fe222-02a5-4012-8598-43d56d5ff130",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of  Quinolone (3)",
+                    "concept": "6d2fe222-02a5-4012-8598-43d56d5ff130"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern7_36",
+              "label": "Resistant pattern (7)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nameOfAminoglycoside5_37",
+              "label": "Name of Aminoglycoside (5)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "Name of Aminoglycoside (5)",
+                    "concept": "bf824ac1-6490-4922-965a-15e8bf1cd697"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "resistantPattern8_38",
+              "label": "Resistant pattern (8)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "df25f665-f87f-43ad-8bb5-cfcf071c4eb1",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "32342431-04ed-4728-abf7-b97f1aebcac2"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "44916af4-3b6c-45da-928d-00f415586af1"
+                  },
+                  {
+                    "label": "Indeterminate",
+                    "concept": "1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs_39",
+              "label": "TB drugs",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult_40",
+              "label": "TB DST Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs2_41",
+              "label": "TB drugs (2)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (2)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult2_42",
+              "label": "TB DST Result (2)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs3_43",
+              "label": "TB drugs (3)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (3)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult3_44",
+              "label": "TB DST Result (3)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs4_45",
+              "label": "TB drugs (4)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (4)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult4_46",
+              "label": "TB DST Result (4)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs5_47",
+              "label": "TB drugs (5)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (5)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult5_48",
+              "label": "TB DST Result (5)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs6_49",
+              "label": "TB drugs (6)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (6)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult6_50",
+              "label": "TB DST Result (6)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs7_51",
+              "label": "TB drugs (7)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (7)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult7_52",
+              "label": "TB DST Result (7)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs8_53",
+              "label": "TB drugs (8)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (8)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult8_54",
+              "label": "TB DST Result (8)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs9_55",
+              "label": "TB drugs (9)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (9)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult9_56",
+              "label": "TB DST Result (9)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs10_57",
+              "label": "TB drugs (10)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (10)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult10_58",
+              "label": "TB DST Result (10)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs11_59",
+              "label": "TB drugs (11)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (11)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult11_60",
+              "label": "TB DST Result (11)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs12_61",
+              "label": "TB drugs (12)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (12)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult12_62",
+              "label": "TB DST Result (12)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs13_63",
+              "label": "TB drugs (13)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (13)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult13_64",
+              "label": "TB DST Result (13)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs14_65",
+              "label": "TB drugs (14)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (14)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult14_66",
+              "label": "TB DST Result (14)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDrugs15_67",
+              "label": "TB drugs (15)",
+              "type": "radio",
+              "questionOptions": {
+                "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "radio",
+                "answers": [
+                  {
+                    "label": "TB drugs (15)",
+                    "concept": "160021AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tbDstResult15_68",
+              "label": "TB DST Result (15)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159984AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Resistant",
+                    "concept": "159956AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Susceptible",
+                    "concept": "159958AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Contaminated",
+                    "concept": "159972AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not done",
+                    "concept": "1118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "xrayDone_69",
+              "label": "X-Ray done ?",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "ecb9afc3-2a5f-4616-a33b-546c3bef4a7e",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ifxrayWasDone_70",
+              "label": "if(X-Ray was done)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "dd0fd798-913f-4203-b811-59b062f0096b",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Follow up investigation",
+      "sections": [
+        {
+          "label": "Follow up investigation",
+          "questions": [
+            {
+              "id": "months127_71",
+              "label": "Months (1-27)",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "21ee54dd-9e0b-4a27-aadb-3e2403960082",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "166547",
+                    "concept": "e8da4f81-6e01-4595-ad63-92eb54b76988"
+                  },
+                  {
+                    "label": "166548",
+                    "concept": "4e975076-c30a-4801-9647-3976080d304a"
+                  },
+                  {
+                    "label": "166549",
+                    "concept": "ad93e26f-92a5-4c88-93a8-2f784038c9f1"
+                  },
+                  {
+                    "label": "166550",
+                    "concept": "8f5b3c87-8cb6-4020-b8f0-cb0f2238d6b0"
+                  },
+                  {
+                    "label": "166551",
+                    "concept": "806c9392-dbd0-4f35-aba5-9b3dc547996d"
+                  },
+                  {
+                    "label": "166552",
+                    "concept": "925054c6-7301-487e-8c2d-97aaab6c528a"
+                  },
+                  {
+                    "label": "166553",
+                    "concept": "f758f6ad-9985-4fc7-88a5-bcfa5d3092ce"
+                  },
+                  {
+                    "label": "166554",
+                    "concept": "8698d167-e18b-4e0d-8ca0-c1683297614a"
+                  },
+                  {
+                    "label": "166555",
+                    "concept": "0e15d1f7-e125-4707-84b4-efbd672a61f9"
+                  },
+                  {
+                    "label": "166556",
+                    "concept": "9bc83093-e530-4e77-a280-b230ac310d04"
+                  },
+                  {
+                    "label": "166557",
+                    "concept": "7a07c2f2-3063-4824-8218-f1757e1a7105"
+                  },
+                  {
+                    "label": "166558",
+                    "concept": "086f022d-5880-4db0-b577-e6e5d9a792d0"
+                  },
+                  {
+                    "label": "166559",
+                    "concept": "34bc86be-7fb7-4e93-9d76-4efe755c4dae"
+                  },
+                  {
+                    "label": "166560",
+                    "concept": "4359c9a9-42d1-465a-8f8a-0d09447c935c"
+                  },
+                  {
+                    "label": "166561",
+                    "concept": "00759547-c07c-4095-8cb9-1ef2bd878ea3"
+                  },
+                  {
+                    "label": "166562",
+                    "concept": "d9f14c17-ea4c-47c8-b0e8-759c25435eea"
+                  },
+                  {
+                    "label": "166563",
+                    "concept": "ab93b52f-80a1-4d34-984d-bcb68f369691"
+                  },
+                  {
+                    "label": "166564",
+                    "concept": "d7979c5b-ff39-4867-b135-a6ae49b05b66"
+                  },
+                  {
+                    "label": "166565",
+                    "concept": "4886b4da-9629-4542-afb8-2369bead3925"
+                  },
+                  {
+                    "label": "166566",
+                    "concept": "f2275c81-2b99-4173-8200-d4442ac4aeb3"
+                  },
+                  {
+                    "label": "166567",
+                    "concept": "9e3e7a97-fea3-49cc-8a36-e9a31f3f6aca"
+                  },
+                  {
+                    "label": "166568",
+                    "concept": "848ca380-fc92-4816-9152-ea11fb013caf"
+                  },
+                  {
+                    "label": "166569",
+                    "concept": "24e50ab1-d087-419a-8d78-74e7320d3377"
+                  },
+                  {
+                    "label": "166570",
+                    "concept": "601e119e-3657-4a8f-8e70-698fbb56cff0"
+                  },
+                  {
+                    "label": "166571",
+                    "concept": "d3e661ba-c14c-4b7e-97eb-c4a51edeab83"
+                  },
+                  {
+                    "label": "166572",
+                    "concept": "d37996c6-5ffb-4d81-a07f-e7955cac1e21"
+                  },
+                  {
+                    "label": "166573",
+                    "concept": "c258e2d2-e5e3-4ebe-83da-077e118a358b"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "smearResult_72",
+              "label": "Smear Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "8b08f52b-2913-4210-a8b5-b0ee115b8be3",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "cultureResult_73",
+              "label": "Culture Result",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "d66918b5-bb67-45c9-84af-114b60a95af8",
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "smearAndCultureResultDate_74",
+              "label": "Smear and Culture result Date",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "f0221d74-bfc0-4241-8bec-250b8f62ae14",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "TB/HIV activities",
+      "sections": [
+        {
+          "label": "TB/HIV activities",
+          "questions": [
+            {
+              "id": "hivStatus_75",
+              "label": "HIV Status",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159576AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Positive",
+                    "concept": "138571AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Negative",
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Unknown",
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "art_76",
+              "label": "ART :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159811AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "artStartDate_77",
+              "label": "ART Start Date :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "cpt_78",
+              "label": "CPT :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "160434AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "Yes",
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "No",
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "cptStartDate_79",
+              "label": "CPT Start Date :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "56830aa1-9b35-493e-96a5-840be8d73da4",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Treatment Outcome",
+      "sections": [
+        {
+          "label": "Treatment Outcome",
+          "questions": [
+            {
+              "id": "outcome_80",
+              "label": "Outcome",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159786AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "label": "tuberculosis treatment failure, smear positive at 3 months",
+                    "concept": "159790AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "tuberculosis treatment failure, smear positive at 5 months",
+                    "concept": "159789AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Cure, outcome",
+                    "concept": "159791AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "tuberculosis treatment failure, smear positive at 8 months",
+                    "concept": "159788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Tuberculosis treatment failure",
+                    "concept": "159874AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Completed treatment for disease",
+                    "concept": "1663AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Died",
+                    "concept": "160034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Lost to followup",
+                    "concept": "5240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Not performed",
+                    "concept": "160737AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  },
+                  {
+                    "label": "Patient moved to multi drug resistant tuberculosis (MDR-TB) register",
+                    "concept": "164424AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "outcomeDate_81",
+              "label": "Outcome Date:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "159787AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date",
+                  "message": "Please enter a valid date"
+                }
+              ]
+            },
+            {
+              "id": "comment_82",
+              "label": "Comment :",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5528AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "General Information",
+      "sections": [
+        {
+          "label": "General Information",
+          "questions": [
+            {
+              "id": "encounterdate_1",
+              "label": "Date Registered",
+              "type": "encounterDate",
+              "questionOptions": {
+                "rendering": "date",
+                "showTime": "false",
+                "allowFutureDates": "false"
+              }
+            },
+            {
+              "id": "encounterproviderandrole_2",
+              "label": "Enrolled by",
+              "type": "encounterproviderandrole",
+              "questionOptions": {
+                "rendering": "text"
+              }
+            },
+            {
+              "id": "encounterdate_3",
+              "label": "Visit Date",
+              "type": "encounterDate",
+              "questionOptions": {
+                "rendering": "date",
+                "showTime": "false",
+                "allowFutureDates": "false"
+              }
+            },
+            {
+              "id": "encounterlocation_4",
+              "label": "Facility",
+              "type": "encounterLocation",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              },
+              "default": "SessionAttribute:emrContext.sessionLocationId"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "encounterType": "7400c3ce-8ac1-4f36-846d-7ddea6286645"
+}
