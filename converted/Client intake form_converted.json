@@ -1,6 +1,6 @@
 {
-  "name": "Edited HTML Form",
-  "uuid": "1c430b68-e0de-4e6f-a9d7-2c2e34ad0639",
+  "name": "Client intake form",
+  "uuid": "29db7f83-a89f-4293-94b1-7960b72fcf7f",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
@@ -2165,5 +2165,6 @@
         }
       ]
     }
-  ]
+  ],
+  "encounterType": "254574ff-2daf-4552-ba47-ca1636ddffa6"
 }

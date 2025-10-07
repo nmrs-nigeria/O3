@@ -1,5 +1,8 @@
 import tkinter as tk
-from tkinter import ttk, Listbox, Text, END, VERTICAL, messagebox
+from tkinter import ttk, Text, END, VERTICAL, messagebox, filedialog
+import webbrowser
+import requests
+from openpyxl.styles import Font, Alignment
 import mysql.connector
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
@@ -21,27 +24,81 @@ class NMRSFormConverter:
         self.root = root
         self.root.title("NMRS HTML Form Converter")
         self.root.geometry("1400x800")
-        self.root.columnconfigure(0, weight=1)
-        self.root.columnconfigure(1, weight=1)
-        self.root.columnconfigure(2, weight=1)
-        self.root.rowconfigure(1, weight=1)
+
+        # --- Initialize instance variables ---
+        self.connection = None
+        self.json1_data = None
+        self.json2_data = None
+        self.json1_path = tk.StringVar(value="No file loaded")
+        self.json2_path = tk.StringVar(value="No file loaded")
+        self.concept_map = {}      # {concept_id: {"uuid": ..., "name": ...}}
+        self.concept_datatypes = {}  # {concept_id: datatype}
+        self.concept_numeric = {}   # {concept_id: {"hi_absolute": ..., "low_absolute": ...}}
+        self.forms = []
+        self.form_checkboxes = [] # To store IntVars for checkboxes
+        self.selected_form_index = None
+        self.option_sets = {}
+        self.concept_answers = {}  # {concept_id: [{"label": ..., "uuid": ...}, ...]}
+
+        # --- Main Layout with PanedWindows for resizability ---
+        main_paned_window = ttk.PanedWindow(root, orient=tk.VERTICAL)
+        main_paned_window.pack(fill=tk.BOTH, expand=True)
+
+        # --- Top Row Frame (DB, Forms, Concept Search) ---
+        top_row_frame = ttk.Frame(main_paned_window)
+        top_row_frame.columnconfigure(0, weight=1)
+        top_row_frame.columnconfigure(1, weight=1)
+        top_row_frame.columnconfigure(2, weight=1)
+        main_paned_window.add(top_row_frame, weight=1)
 
         # DB Connection Frame
-        self.db_frame = ttk.LabelFrame(root, text="Database Connection")
-        self.db_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
+        self.db_frame = ttk.LabelFrame(top_row_frame, text="Database Connection")
+        self.db_frame.grid(row=0, column=0, padx=(10, 5), pady=10, sticky="nsew")
         self._add_db_widgets()
 
         # Forms List Frame (middle)
-        self.forms_frame = ttk.LabelFrame(root, text="Available Forms")
-        self.forms_frame.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
+        self.forms_frame = ttk.LabelFrame(top_row_frame, text="Available Forms")
+        self.forms_frame.grid(row=0, column=1, padx=5, pady=10, sticky="nsew")
         self.forms_frame.columnconfigure(0, weight=1)
         self.forms_frame.rowconfigure(1, weight=1) # Make listbox expand
 
         # Concept Search Frame (right)
-        self.concept_frame = ttk.LabelFrame(root, text="Concept Search/Info")
-        self.concept_frame.grid(row=0, column=2, padx=10, pady=10, sticky="nsew")
-        self.concept_frame.columnconfigure(0, weight=1)
+        self.concept_frame = ttk.LabelFrame(top_row_frame, text="Concept Search/Info")
+        self.concept_frame.grid(row=0, column=2, padx=(5, 10), pady=10, sticky="nsew")
+        self.concept_frame.columnconfigure(0, weight=1) # type: ignore
         self._add_concept_widgets()
+
+        # --- Middle Row Frame (JSON Tools) ---
+        # This frame is added directly to the main_paned_window
+        self.json_compare_frame = ttk.LabelFrame(main_paned_window, text="JSON Form Tools")
+        self.json_compare_frame.columnconfigure(0, weight=1)
+        self.json_compare_frame.columnconfigure(1, weight=1)
+        self.json_compare_frame.columnconfigure(2, weight=1)
+        self.json_compare_frame.columnconfigure(3, weight=1)
+        main_paned_window.add(self.json_compare_frame, weight=1)
+        self._add_json_compare_widgets()
+
+        # --- Bottom Row PanedWindow (HTML Editor and JSON Output) ---
+        bottom_paned_window = ttk.PanedWindow(main_paned_window, orient=tk.HORIZONTAL)
+        main_paned_window.add(bottom_paned_window, weight=4) # Give more initial space
+
+        # XML Data Display Frame (left pane of bottom)
+        self.xml_frame = ttk.LabelFrame(bottom_paned_window, text="Form HTML Editor")
+        bottom_paned_window.add(self.xml_frame, weight=2)
+        self.xml_frame.rowconfigure(1, weight=1)
+        self.xml_frame.columnconfigure(0, weight=1)
+        self.xml_frame.columnconfigure(1, weight=1)
+        self.xml_frame.columnconfigure(2, weight=1)
+
+        # JSON display section (right pane of bottom)
+        self.json_frame = ttk.LabelFrame(bottom_paned_window, text="Generated JSON (editable)")
+        bottom_paned_window.add(self.json_frame, weight=1)
+        self.json_frame.rowconfigure(1, weight=1)
+        self.json_frame.columnconfigure(0, weight=1)
+        self.json_frame.columnconfigure(1, weight=1)
+        self.json_frame.columnconfigure(2, weight=1)
+
+        # --- Widgets inside the frames ---
 
         self.convert_btn = ttk.Button(self.forms_frame, text="Convert Selected Form", command=self.convert_selected_form)
         self.convert_btn.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
@@ -50,21 +107,11 @@ class NMRSFormConverter:
         self.forms_canvas = tk.Canvas(self.forms_frame)
         self.forms_scrollbar = ttk.Scrollbar(self.forms_frame, orient="vertical", command=self.forms_canvas.yview)
         self.scrollable_forms_frame = ttk.Frame(self.forms_canvas)
-
         self.scrollable_forms_frame.bind("<Configure>", lambda e: self.forms_canvas.configure(scrollregion=self.forms_canvas.bbox("all")))
         self.forms_canvas.create_window((0, 0), window=self.scrollable_forms_frame, anchor="nw")
         self.forms_canvas.configure(yscrollcommand=self.forms_scrollbar.set)
-
         self.forms_canvas.grid(row=1, column=0, sticky="nsew")
         self.forms_scrollbar.grid(row=1, column=1, sticky="ns")
-
-        # XML Data Display Frame (right)
-        self.xml_frame = ttk.LabelFrame(root, text="Form HTML Editor")
-        self.xml_frame.grid(row=1, column=0, columnspan=2, padx=10, pady=10, sticky="nsew")
-        self.xml_frame.rowconfigure(1, weight=1)
-        self.xml_frame.columnconfigure(0, weight=1)
-        self.xml_frame.columnconfigure(1, weight=1)
-        self.xml_frame.columnconfigure(2, weight=1)
 
         # Add Download HTML button above the HTML form display box
         self.download_html_btn = ttk.Button(self.xml_frame, text="Download HTML", command=self.download_html)
@@ -97,40 +144,24 @@ class NMRSFormConverter:
 
         self.xml_text.bind("<KeyRelease>", self._on_key_release)
 
-        # JSON display section to the right of the HTML display
-        self.json_frame = ttk.LabelFrame(root, text="Generated JSON (editable)")
-        self.json_frame.grid(row=1, column=2, padx=10, pady=10, sticky="nsew")
-        self.json_frame.rowconfigure(1, weight=1)
-        self.json_frame.columnconfigure(0, weight=1)
-
         # Button sub-frame for better organization
         button_sub_frame = ttk.Frame(self.json_frame)
         button_sub_frame.grid(row=0, column=0, columnspan=3, sticky="ew")
 
-        self.generate_concepts_btn = ttk.Button(self.json_frame, text="Generate Concepts Excel", command=self.generate_concepts_excel)
+        self.generate_concepts_btn = ttk.Button(button_sub_frame, text="Generate Concepts Excel", command=self.generate_concepts_excel)
         self.generate_concepts_btn.grid(row=0, column=0, sticky="ew", padx=(5,2), pady=(5, 2))
 
-        self.generate_selected_concepts_btn = ttk.Button(self.json_frame, text="Generate Excel for Selected", command=self.generate_selected_concepts_excel)
+        self.generate_selected_concepts_btn = ttk.Button(button_sub_frame, text="Generate Excel for Selected", command=self.generate_selected_concepts_excel)
         self.generate_selected_concepts_btn.grid(row=0, column=1, sticky="ew", padx=(2,2), pady=(5, 2))
 
         self.download_json_btn = ttk.Button(self.json_frame, text="Download JSON", command=self.download_json)
-        self.download_json_btn.grid(row=0, column=2, sticky="ew", padx=(2,5), pady=(5, 2))
+        self.download_json_btn.grid(row=0, column=2, sticky="ew", padx=(2,5), pady=(5, 2)) # This was in json_frame, now in button_sub_frame
         
         self.json_text = Text(self.json_frame, wrap="none", bg="#2b2b2b", fg="#a9b7c6", insertbackground="white")
         self.json_text.grid(row=1, column=0, columnspan=3, sticky="nsew")
         self.json_scrollbar = ttk.Scrollbar(self.json_frame, orient=VERTICAL, command=self.json_text.yview)
         self.json_scrollbar.grid(row=1, column=3, sticky="ns")
         self.json_text.config(yscrollcommand=self.json_scrollbar.set, undo=True)
-
-        self.connection = None
-        self.concept_map = {}      # {concept_id: {"uuid": ..., "name": ...}}
-        self.concept_datatypes = {}  # {concept_id: datatype}
-        self.concept_numeric = {}   # {concept_id: {"hi_absolute": ..., "low_absolute": ...}}
-        self.forms = []
-        self.form_checkboxes = [] # To store IntVars for checkboxes
-        self.selected_form_index = None
-        self.option_sets = {}
-        self.concept_answers = {}  # {concept_id: [{"label": ..., "uuid": ...}, ...]}
 
         self.connect_to_db(auto=True)
 
@@ -187,15 +218,192 @@ class NMRSFormConverter:
         self.connect_btn = ttk.Button(self.db_frame, text="Connect", command=self.connect_to_db)
         self.connect_btn.grid(row=len(labels), column=0, columnspan=2, pady=5)
 
+    def _add_json_compare_widgets(self):
+        # Row 0: Buttons
+        ttk.Button(self.json_compare_frame, text="Upload Main JSON 1", command=lambda: self.upload_comparison_json(1)).grid(row=0, column=0, padx=5, pady=5, sticky="ew")
+        ttk.Button(self.json_compare_frame, text="Upload JSON 2", command=lambda: self.upload_comparison_json(2)).grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        ttk.Button(self.json_compare_frame, text="Compare JSON 1 and JSON 2", command=self.compare_jsons).grid(row=0, column=2, padx=5, pady=5, sticky="ew")
+        ttk.Button(self.json_compare_frame, text="Download Merged JSON File", command=self.merge_and_download_json).grid(row=0, column=3, padx=5, pady=5, sticky="ew")
+
+        # Row 1: Labels for file paths
+        json1_label_frame = ttk.Frame(self.json_compare_frame)
+        json1_label_frame.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky="ew")
+        ttk.Label(json1_label_frame, text="JSON 1:").pack(side="left")
+        ttk.Label(json1_label_frame, textvariable=self.json1_path, anchor="w").pack(side="left", fill="x", expand=True)
+
+        json2_label_frame = ttk.Frame(self.json_compare_frame)
+        json2_label_frame.grid(row=1, column=2, columnspan=2, padx=5, pady=2, sticky="ew")
+        ttk.Label(json2_label_frame, text="JSON 2:").pack(side="left")
+        ttk.Label(json2_label_frame, textvariable=self.json2_path, anchor="w").pack(side="left", fill="x", expand=True)
+
+
     def _add_concept_widgets(self):
         self.concept_search_var = tk.StringVar()
         self.concept_search_entry = ttk.Entry(self.concept_frame, textvariable=self.concept_search_var, width=40)
         self.concept_search_entry.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
         self.concept_search_btn = ttk.Button(self.concept_frame, text="Search", command=self.on_concept_search)
-        self.concept_search_btn.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
-        self.concept_info_text = Text(self.concept_frame, height=10, width=70, wrap="word")
-        self.concept_info_text.grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
+        self.concept_search_btn.grid(row=0, column=1, padx=5, pady=5)
+        self.concept_frame.rowconfigure(1, weight=1)
+        self.concept_info_text = Text(self.concept_frame, width=70, wrap="word")
+        self.concept_info_text.grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
         self.concept_info_text.config(state="disabled")
+        self.concept_info_text.tag_configure("ocl_link", foreground="blue", underline=True)
+
+    def upload_comparison_json(self, json_num):
+        """Handles uploading JSON files for comparison."""
+        file_path = filedialog.askopenfilename(
+            title=f"Select JSON File {json_num}",
+            filetypes=[("JSON Files", "*.json"), ("All Files", "*.*")]
+        )
+        if not file_path:
+            return
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            if json_num == 1:
+                self.json1_data = data
+                self.json1_path.set(os.path.basename(file_path))
+            else:
+                self.json2_data = data
+                self.json2_path.set(os.path.basename(file_path))
+            messagebox.showinfo("Success", f"JSON {json_num} loaded successfully.")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to load or parse JSON {json_num}:\n{e}")
+
+    def _get_questions_map(self, json_data):
+        """Helper to create a map of id -> question object from a form JSON."""
+        q_map = {}
+        if not json_data or "pages" not in json_data:
+            return q_map
+        for page in json_data.get("pages", []):
+            for section in page.get("sections", []):
+                for question in section.get("questions", []):
+                    if "id" in question:
+                        q_map[question["id"]] = question
+        return q_map
+
+    def _get_questions_map_by_label(self, json_data):
+        """Helper to create a map of label -> question object from a form JSON."""
+        q_map = {}
+        if not json_data or "pages" not in json_data:
+            return q_map
+        for page in json_data.get("pages", []):
+            for section in page.get("sections", []):
+                for question in section.get("questions", []):
+                    if "label" in question:
+                        q_map[question["label"]] = question
+        return q_map
+
+    def compare_jsons(self):
+        """Compares two loaded JSON files and generates an Excel report of differences."""
+        if not self.json1_data or not self.json2_data:
+            messagebox.showwarning("Missing Files", "Please upload both JSON 1 and JSON 2 before comparing.")
+            return
+
+        map1 = self._get_questions_map_by_label(self.json1_data)
+        map2 = self._get_questions_map_by_label(self.json2_data)
+
+        wb = Workbook()
+        wb.remove(wb.active) # Remove default sheet
+
+        # Sheet 1: Comparison
+        ws_compare = wb.create_sheet("Comparison")
+        compare_headers = ["Question1", "Question2", "json1concept", "json2concept", "Status"]
+        ws_compare.append(compare_headers)
+        for header_cell in ws_compare[1]:
+            header_cell.font = Font(bold=True)
+
+        # Sheet 2: Only in JSON1
+        ws_json1_only = wb.create_sheet("Only in JSON1")
+        unique_headers = ["Question", "Concept"]
+        ws_json1_only.append(unique_headers)
+        for header_cell in ws_json1_only[1]:
+            header_cell.font = Font(bold=True)
+
+        # Sheet 3: Only in JSON2
+        ws_json2_only = wb.create_sheet("Only in JSON2")
+        ws_json2_only.append(unique_headers)
+        for header_cell in ws_json2_only[1]:
+            header_cell.font = Font(bold=True)
+
+        all_labels = sorted(list(set(map1.keys()) | set(map2.keys())))
+
+        for label in all_labels:
+            q1 = map1.get(label)
+            q2 = map2.get(label)
+            
+            if q1 and q2: # Exists in both
+                concept1 = q1.get("questionOptions", {}).get("concept")
+                concept2 = q2.get("questionOptions", {}).get("concept")
+                if concept1 != concept2:
+                    ws_compare.append([label, label, concept1, concept2, "Concept Mismatch"])
+                else:
+                    ws_compare.append([label, label, concept1, concept2, "Same"])
+            elif q1 and not q2: # Only in JSON 1
+                ws_json1_only.append([label, q1.get("questionOptions", {}).get("concept")])
+            elif not q1 and q2: # Only in JSON 2
+                ws_json2_only.append([label, q2.get("questionOptions", {}).get("concept")])
+
+        # Auto-size columns
+        for ws in wb.worksheets:
+            for col in ws.columns:
+                max_length = 0
+                column = col[0].column_letter
+                for cell in col:
+                    try:
+                        if len(str(cell.value)) > max_length:
+                            max_length = len(cell.value)
+                    except:
+                        pass
+                adjusted_width = (max_length + 2)
+                ws.column_dimensions[column].width = adjusted_width
+
+        try:
+            output_dir = os.path.join(os.getcwd(), "converted")
+            os.makedirs(output_dir, exist_ok=True)
+            
+            base_filename = os.path.splitext(self.json1_path.get())[0]
+            excel_filename = f"{base_filename}-Compared.xlsx"
+            file_path = os.path.join(output_dir, excel_filename)
+            
+            wb.save(file_path)
+            messagebox.showinfo("Success", f"Comparison report saved to:\n{file_path}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to save Excel file:\n{e}")
+
+    def merge_and_download_json(self):
+        """Updates JSON1 with concepts from JSON2 and prompts for download."""
+        if not self.json1_data or not self.json2_data:
+            messagebox.showwarning("Missing Files", "Please upload both JSON 1 and JSON 2 before merging.")
+            return
+
+        map2 = self._get_questions_map_by_label(self.json2_data)
+        json1_updated = json.loads(json.dumps(self.json1_data)) # Deep copy
+
+        for page in json1_updated.get("pages", []):
+            for section in page.get("sections", []):
+                for question in section.get("questions", []):
+                    q_label = question.get("label")
+                    # Check if the same question label exists in JSON2 and has a concept
+                    if q_label in map2 and "concept" in map2[q_label].get("questionOptions", {}):
+                        # Update the concept in our copy of JSON1
+                        question["questionOptions"]["concept"] = map2[q_label]["questionOptions"]["concept"]
+        
+        try:
+            original_name = self.json1_path.get().replace('.json', '')
+            file_path = filedialog.asksaveasfilename(
+                defaultextension=".json", 
+                filetypes=[("JSON Files", "*.json")], 
+                title="Save Merged JSON File",
+                initialfile=f"{original_name}_Updated.json"
+            )
+            if file_path:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    json.dump(json1_updated, f, indent=2)
+                messagebox.showinfo("Success", f"Merged JSON file saved to:\n{file_path}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to save merged JSON file:\n{e}")
 
     def connect_to_db(self, auto=False):
         try:
@@ -216,9 +424,13 @@ class NMRSFormConverter:
     def fetch_forms(self):
         cursor = self.connection.cursor(dictionary=True, buffered=True)
         cursor.execute("""
-            SELECT h.form_id, f.name 
+            SELECT 
+                h.form_id, 
+                f.name,
+                et.uuid as encounter_type_uuid
             FROM htmlformentry_html_form h
             JOIN form f ON h.form_id = f.form_id
+            LEFT JOIN encounter_type et ON f.encounter_type = et.encounter_type_id
         """)
         self.forms = cursor.fetchall()
         
@@ -274,7 +486,7 @@ class NMRSFormConverter:
                     concept_ids.add(int(aid))
         # Now fetch all concepts at once
         self.fetch_concepts_from_db(concept_ids)
-        self.generate_outputs(soup, form['name'])
+        self.generate_outputs(soup, form['name'], form.get('encounter_type_uuid'))
 
     def generate_selected_concepts_excel(self):
         selected_forms = [cb['form'] for cb in self.form_checkboxes if cb['var'].get() == 1]
@@ -626,7 +838,33 @@ class NMRSFormConverter:
         else:
             self.concept_info_text.insert(END, "No concept found.")
         cursor.close()
+        self.fetch_ocl_concepts(search)
         self.concept_info_text.config(state="disabled")
+
+    def fetch_ocl_concepts(self, search_term):
+        """Fetches concepts from Open Concept Lab (OCL) and displays them."""
+        ocl_url = f"https://api.openconceptlab.org/orgs/NMRS/sources/NMRS/concepts/?q={search_term}&limit=10"
+        try:
+            response = requests.get(ocl_url)
+            response.raise_for_status()  # Raises HTTPError for bad responses (4xx or 5xx)
+            data = response.json()
+
+            self.concept_info_text.config(state="normal")
+            self.concept_info_text.insert(END, "\n\n--- OCL Results ---\n")
+
+            if data:
+                for result in data:
+                    name = result.get("display_name", "N/A")
+                    concept_url = result.get("url")
+                    tag_name = f"ocl_link_{concept_url}"
+                    self.concept_info_text.insert(END, f"{name}\n", (tag_name, "ocl_link"))
+                    self.concept_info_text.tag_bind(tag_name, "<Button-1>", lambda e, url=concept_url: self.open_ocl_concept_details(url))
+            else:
+                self.concept_info_text.insert(END, "No concepts found on OCL.\n")
+        except requests.exceptions.RequestException as e:
+            self.concept_info_text.insert(END, f"\nError fetching from OCL: {e}\n")
+        finally:
+            self.concept_info_text.config(state="disabled")
 
     def _apply_tag_to_regex(self, widget, content, regex, tag_name, flags=0):
         """Helper to find all matches of a regex and apply a tag."""
@@ -634,6 +872,15 @@ class NMRSFormConverter:
             start = match.start()
             end = match.end()
             widget.tag_add(tag_name, f"1.0+{start}c", f"1.0+{end}c")
+
+    def open_ocl_concept_details(self, concept_url):
+        """Opens a new window to display detailed information about an OCL concept."""
+        if not concept_url:
+            return
+        # The API URL is like /orgs/NMRS/sources/NMRS/concepts/NMRS_2195/
+        # The UI URL is https://app.openconceptlab.org/#/orgs/NMRS/sources/NMRS/concepts/NMRS_2195/
+        full_ui_url = f"https://app.openconceptlab.org/#{concept_url}"
+        webbrowser.open_new_tab(full_ui_url)
 
 
     def deduplicate_answers(self, answers):
@@ -923,16 +1170,19 @@ class NMRSFormConverter:
             if not any(q["id"] == qid for q in general_section["questions"]):
                 general_section["questions"].append(question)
 
-    def generate_outputs(self, soup, form_name):
+    def generate_outputs(self, soup, form_name, encounter_type_uuid=None):
         form_uuid = str(uuid.uuid4())
         json_form = {
             "name": form_name,
             "uuid": form_uuid,
-            "processor": "EncounterFormProcessor",
+            "processor": "EncounterFormProcessor" if encounter_type_uuid else "",
             "version": "1.0",
             "description": "",
             "pages": []
         }
+        if encounter_type_uuid:
+            json_form["encounterType"] = encounter_type_uuid
+
         wb = Workbook()
         ws = wb.active
         ws.title = "Form"
@@ -1544,7 +1794,7 @@ class NMRSFormConverter:
         json_path = os.path.join(output_dir, f"{form_name}_converted.json")
         wb.save(excel_path)
         with open(json_path, "w", encoding="utf-8") as jf:
-            json.dump(json_form, jf, indent=2)
+            json.dump(json_form, jf, indent=2, ensure_ascii=False) # type: ignore
         messagebox.showinfo("Done", f"Files generated in {output_dir}")
 
         # After initializing json_form and id_counter
@@ -1685,8 +1935,15 @@ class NMRSFormConverter:
         self.fetch_concepts_from_db(concept_ids)
         # Generate JSON and display in json_text
         # Use a temp name for the form
-        temp_name = "Edited HTML Form"
-        self.generate_outputs(soup, temp_name)
+        if self.selected_form_index is not None:
+            form = self.forms[self.selected_form_index]
+            form_name = form['name']
+            encounter_type_uuid = form.get('encounter_type_uuid')
+        else:
+            form_name = "Edited HTML Form"
+            encounter_type_uuid = None
+        self.generate_outputs(soup, form_name, encounter_type_uuid)
+        temp_name = form_name # Use the determined name for file lookup
         # After generate_outputs, load the generated JSON file and display it
         output_dir = os.path.join(os.getcwd(), "converted")
         json_path = os.path.join(output_dir, f"{temp_name}_converted.json")
