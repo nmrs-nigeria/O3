@@ -1,0 +1,105 @@
+{
+  "name": "Encounter Form",
+  "uuid": "2802ff6d-25b9-41d9-b8d5-0d1cf396438b",
+  "processor": "EncounterFormProcessor",
+  "version": "1.0",
+  "description": "",
+  "pages": [
+    {
+      "label": "Birth Details",
+      "sections": [
+        {
+          "label": "Birth Details",
+          "questions": [
+            {
+              "id": "weight_1",
+              "label": "Weight:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5916AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "20.0",
+                "min": "1.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "20.0",
+                  "message": "Value must be <= 20.0"
+                },
+                {
+                  "type": "min",
+                  "value": "1.0",
+                  "message": "Value must be >= 1.0"
+                }
+              ]
+            },
+            {
+              "id": "length_2",
+              "label": "Length:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1503AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "200.0",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "200.0",
+                  "message": "Value must be <= 200.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            },
+            {
+              "id": "headCircumference_3",
+              "label": "Head circumference:",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "5314AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "200.0",
+                "min": "0.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "200.0",
+                  "message": "Value must be <= 200.0"
+                },
+                {
+                  "type": "min",
+                  "value": "0.0",
+                  "message": "Value must be >= 0.0"
+                }
+              ]
+            },
+            {
+              "id": "midUpperArmCircumference_4",
+              "label": "Mid upper arm circumference",
+              "type": "obs",
+              "questionOptions": {
+                "concept": "1343AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "number",
+                "max": "200.0"
+              },
+              "validators": [
+                {
+                  "type": "max",
+                  "value": "200.0",
+                  "message": "Value must be <= 200.0"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

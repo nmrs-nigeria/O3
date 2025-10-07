@@ -22,86 +22,157 @@ class NMRSFormConverter:
         self.root.title("NMRS HTML Form Converter")
         self.root.geometry("1400x800")
         self.root.columnconfigure(0, weight=1)
-        self.root.columnconfigure(1, weight=2)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
         self.root.rowconfigure(1, weight=1)
 
         # DB Connection Frame
         self.db_frame = ttk.LabelFrame(root, text="Database Connection")
-        self.db_frame.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+        self.db_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
         self._add_db_widgets()
 
-        # Concept Search Frame
-        self.concept_frame = ttk.LabelFrame(root, text="Concept Search/Info")
-        self.concept_frame.grid(row=0, column=1, padx=10, pady=10, sticky="ew")
-        self._add_concept_widgets()
-
-        # Forms List Frame (left)
+        # Forms List Frame (middle)
         self.forms_frame = ttk.LabelFrame(root, text="Available Forms")
-        self.forms_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        self.forms_frame.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
         self.forms_frame.columnconfigure(0, weight=1)
-        self.forms_frame.rowconfigure(1, weight=1)
+        self.forms_frame.rowconfigure(1, weight=1) # Make listbox expand
+
+        # Concept Search Frame (right)
+        self.concept_frame = ttk.LabelFrame(root, text="Concept Search/Info")
+        self.concept_frame.grid(row=0, column=2, padx=10, pady=10, sticky="nsew")
+        self.concept_frame.columnconfigure(0, weight=1)
+        self._add_concept_widgets()
 
         self.convert_btn = ttk.Button(self.forms_frame, text="Convert Selected Form", command=self.convert_selected_form)
         self.convert_btn.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
 
-        self.forms_listbox = Listbox(self.forms_frame, width=60)
-        self.forms_listbox.grid(row=1, column=0, sticky="nsew")
-        self.forms_scrollbar = ttk.Scrollbar(self.forms_frame, orient=VERTICAL, command=self.forms_listbox.yview)
+        # --- Checkbox list for forms ---
+        self.forms_canvas = tk.Canvas(self.forms_frame)
+        self.forms_scrollbar = ttk.Scrollbar(self.forms_frame, orient="vertical", command=self.forms_canvas.yview)
+        self.scrollable_forms_frame = ttk.Frame(self.forms_canvas)
+
+        self.scrollable_forms_frame.bind("<Configure>", lambda e: self.forms_canvas.configure(scrollregion=self.forms_canvas.bbox("all")))
+        self.forms_canvas.create_window((0, 0), window=self.scrollable_forms_frame, anchor="nw")
+        self.forms_canvas.configure(yscrollcommand=self.forms_scrollbar.set)
+
+        self.forms_canvas.grid(row=1, column=0, sticky="nsew")
         self.forms_scrollbar.grid(row=1, column=1, sticky="ns")
-        self.forms_listbox.config(yscrollcommand=self.forms_scrollbar.set)
-        self.forms_listbox.bind('<<ListboxSelect>>', self.on_form_select)
 
         # XML Data Display Frame (right)
-        self.xml_frame = ttk.LabelFrame(root, text="Form XML (xml_data)")
-        self.xml_frame.grid(row=1, column=1, rowspan=2, padx=10, pady=10, sticky="nsew")
-        self.xml_frame.rowconfigure(0, weight=1)
+        self.xml_frame = ttk.LabelFrame(root, text="Form HTML Editor")
+        self.xml_frame.grid(row=1, column=0, columnspan=2, padx=10, pady=10, sticky="nsew")
+        self.xml_frame.rowconfigure(1, weight=1)
         self.xml_frame.columnconfigure(0, weight=1)
+        self.xml_frame.columnconfigure(1, weight=1)
+        self.xml_frame.columnconfigure(2, weight=1)
 
         # Add Download HTML button above the HTML form display box
         self.download_html_btn = ttk.Button(self.xml_frame, text="Download HTML", command=self.download_html)
-        self.download_html_btn.grid(row=0, column=0, sticky="ew", padx=5, pady=(5, 2))
+        self.download_html_btn.grid(row=0, column=0, sticky="ew", padx=(5,2), pady=(5, 2))
+
+        # Add Upload HTML and Convert Displayed HTML buttons above the HTML form display
+        self.upload_html_btn = ttk.Button(self.xml_frame, text="Upload HTML", command=self.upload_html)
+        self.upload_html_btn.grid(row=0, column=1, sticky="ew", padx=(2,2), pady=(5, 2))
+
+        self.convert_displayed_btn = ttk.Button(self.xml_frame, text="Convert Displayed HTML to JSON", command=self.convert_displayed_html)
+        self.convert_displayed_btn.grid(row=0, column=2, sticky="ew", padx=(2,5), pady=(5, 2))
+
         # Move the text widget and scrollbar down by one row
-        self.xml_text = Text(self.xml_frame, wrap="none")
-        self.xml_text.grid(row=1, column=0, sticky="nsew")
+        self.xml_text = Text(self.xml_frame, wrap="none", undo=True, bg="#2b2b2b", fg="#a9b7c6", insertbackground="white")
+        self.xml_text.grid(row=1, column=0, columnspan=3, sticky="nsew", padx=5, pady=5)
         self.xml_scrollbar = ttk.Scrollbar(self.xml_frame, orient=VERTICAL, command=self.xml_text.yview)
-        self.xml_scrollbar.grid(row=1, column=1, sticky="ns")
+        self.xml_scrollbar.grid(row=1, column=3, sticky="ns")
         self.xml_text.config(yscrollcommand=self.xml_scrollbar.set)
 
-        # Optional: Add right-click context menu for copy/paste
-        def show_context_menu(event):
-            context_menu.tk_popup(event.x_root, event.y_root)
+        # --- Add Syntax Highlighting ---
+        # Dark mode syntax highlighting (inspired by IDE themes)
+        self.xml_text.tag_configure("tag", foreground="#e8bf6a")       # Yellow for tags
+        self.xml_text.tag_configure("attribute", foreground="#9876aa") # Purple for attributes
+        self.xml_text.tag_configure("string", foreground="#6a8759")     # Green for strings
+        self.xml_text.tag_configure("comment", foreground="#808080")    # Grey for comments
+        self.xml_text.tag_configure("keyword", foreground="#cc7832")    # Orange for JSON keywords (true, false, null)
+        self.xml_text.tag_configure("number", foreground="#6897bb")     # Blue for numbers
 
-        context_menu = tk.Menu(self.xml_text, tearoff=0)
-        context_menu.add_command(label="Copy", command=lambda: self.xml_text.event_generate("<<Copy>>"))
-        context_menu.add_command(label="Paste", command=lambda: self.xml_text.event_generate("<<Paste>>"))
-        context_menu.add_command(label="Cut", command=lambda: self.xml_text.event_generate("<<Cut>>"))
+        self.xml_text.tag_raise("sel")
 
-        self.xml_text.bind("<Button-3>", show_context_menu)  # Right-click menu
+        self.xml_text.bind("<KeyRelease>", self._on_key_release)
 
-        # --- FIX: Always allow editing and copying ---
-        # Make sure the Text widget is always in normal state for selection/copy
-        self.xml_text.config(state="normal")
+        # JSON display section to the right of the HTML display
+        self.json_frame = ttk.LabelFrame(root, text="Generated JSON (editable)")
+        self.json_frame.grid(row=1, column=2, padx=10, pady=10, sticky="nsew")
+        self.json_frame.rowconfigure(1, weight=1)
+        self.json_frame.columnconfigure(0, weight=1)
 
-        # Add Ctrl+A support for select all
-        def select_all(event):
-            self.xml_text.tag_add("sel", "1.0", "end-1c")
-            return "break"
-        self.xml_text.bind("<Control-a>", select_all)
-        self.xml_text.bind("<Control-A>", select_all)
+        # Button sub-frame for better organization
+        button_sub_frame = ttk.Frame(self.json_frame)
+        button_sub_frame.grid(row=0, column=0, columnspan=3, sticky="ew")
 
-        # Add single left click to focus the widget (so Ctrl+A works after click)
-        self.xml_text.bind("<Button-1>", lambda e: self.xml_text.focus_set())
+        self.generate_concepts_btn = ttk.Button(self.json_frame, text="Generate Concepts Excel", command=self.generate_concepts_excel)
+        self.generate_concepts_btn.grid(row=0, column=0, sticky="ew", padx=(5,2), pady=(5, 2))
+
+        self.generate_selected_concepts_btn = ttk.Button(self.json_frame, text="Generate Concept Excel for Selected", command=self.generate_selected_concepts_excel)
+        self.generate_selected_concepts_btn.grid(row=0, column=1, sticky="ew", padx=(2,2), pady=(5, 2))
+
+        self.download_json_btn = ttk.Button(self.json_frame, text="Download JSON", command=self.download_json)
+        self.download_json_btn.grid(row=0, column=2, sticky="ew", padx=(2,5), pady=(5, 2))
+        
+        self.json_text = Text(self.json_frame, wrap="none", bg="#2b2b2b", fg="#a9b7c6", insertbackground="white")
+        self.json_text.grid(row=1, column=0, columnspan=3, sticky="nsew")
+        self.json_scrollbar = ttk.Scrollbar(self.json_frame, orient=VERTICAL, command=self.json_text.yview)
+        self.json_scrollbar.grid(row=1, column=3, sticky="ns")
+        self.json_text.config(yscrollcommand=self.json_scrollbar.set, undo=True)
 
         self.connection = None
         self.concept_map = {}      # {concept_id: {"uuid": ..., "name": ...}}
         self.concept_datatypes = {}  # {concept_id: datatype}
         self.concept_numeric = {}   # {concept_id: {"hi_absolute": ..., "low_absolute": ...}}
         self.forms = []
+        self.form_checkboxes = [] # To store IntVars for checkboxes
         self.selected_form_index = None
         self.option_sets = {}
         self.concept_answers = {}  # {concept_id: [{"label": ..., "uuid": ...}, ...]}
 
         self.connect_to_db(auto=True)
+
+    def _on_key_release(self, event=None):
+        """Callback for syntax highlighting on key release."""
+        # Determine which widget triggered the event
+        widget = event.widget
+        if widget == self.xml_text:
+            self.highlight_syntax(widget, 'html')
+        elif widget == self.json_text:
+            self.highlight_syntax(widget, 'json')
+
+    def highlight_syntax(self, widget, language):
+        """Applies syntax highlighting to a text widget."""
+        content = widget.get("1.0", "end-1c")
+        
+        # Remove all tags first
+        for tag in ["tag", "attribute", "string", "comment", "keyword", "number"]:
+            widget.tag_remove(tag, "1.0", END)
+
+        if language == 'html':
+            # Regex for HTML parts
+            tag_regex = r"<\/?\w+\b"
+            attr_regex = r"\b\w+(?=\s*=)"
+            string_regex = r"\".*?\""
+            comment_regex = r"<!--.*?-->"
+
+            self._apply_tag_to_regex(widget, content, tag_regex, "tag")
+            self._apply_tag_to_regex(widget, content, attr_regex, "attribute")
+            self._apply_tag_to_regex(widget, content, string_regex, "string")
+            self._apply_tag_to_regex(widget, content, comment_regex, "comment", re.DOTALL)
+
+        elif language == 'json':
+            # Regex for JSON parts
+            string_regex = r"\".*?\""
+            number_regex = r"\b-?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?\b"
+            keyword_regex = r"\b(true|false|null)\b"
+
+            self._apply_tag_to_regex(widget, content, string_regex, "string")
+            self._apply_tag_to_regex(widget, content, number_regex, "number")
+            self._apply_tag_to_regex(widget, content, keyword_regex, "keyword")
+
 
     def _add_db_widgets(self):
         labels = ["Host", "Port", "User", "Password", "Database"]
@@ -120,9 +191,8 @@ class NMRSFormConverter:
         self.concept_search_var = tk.StringVar()
         self.concept_search_entry = ttk.Entry(self.concept_frame, textvariable=self.concept_search_var, width=40)
         self.concept_search_entry.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
-        self.concept_search_entry.bind("<Return>", self.on_concept_search)
         self.concept_search_btn = ttk.Button(self.concept_frame, text="Search", command=self.on_concept_search)
-        self.concept_search_btn.grid(row=0, column=1, padx=5, pady=5)
+        self.concept_search_btn.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
         self.concept_info_text = Text(self.concept_frame, height=10, width=70, wrap="word")
         self.concept_info_text.grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
         self.concept_info_text.config(state="disabled")
@@ -134,7 +204,9 @@ class NMRSFormConverter:
                 port=int(self.db_entries["port"].get()),
                 user=self.db_entries["user"].get(),
                 password=self.db_entries["password"].get(),
-                database=self.db_entries["database"].get()
+                database=self.db_entries["database"].get(),
+                charset='utf8mb4',
+                collation='utf8mb4_general_ci'
             )
             if not auto:
                 messagebox.showinfo("Success", "Connected to database.")
@@ -144,32 +216,37 @@ class NMRSFormConverter:
                 messagebox.showerror("Error", f"Database connection failed:\n{err}")
 
     def fetch_forms(self):
-        cursor = self.connection.cursor(dictionary=True)
+        cursor = self.connection.cursor(dictionary=True, buffered=True)
         cursor.execute("""
             SELECT h.form_id, f.name 
             FROM htmlformentry_html_form h
             JOIN form f ON h.form_id = f.form_id
         """)
         self.forms = cursor.fetchall()
-        self.forms_listbox.delete(0, END)
-        for form in self.forms:
-            self.forms_listbox.insert(END, f"{form['form_id']}: {form['name']}")
+        
+        # Clear previous widgets
+        for widget in self.scrollable_forms_frame.winfo_children():
+            widget.destroy()
+        self.form_checkboxes.clear()
+
+        for i, form in enumerate(self.forms):
+            var = tk.IntVar()
+            cb = ttk.Checkbutton(self.scrollable_forms_frame, text=f"{form['form_id']}: {form['name']}", variable=var)
+            cb.grid(row=i, column=0, sticky='w', padx=5)
+            cb.bind("<Button-1>", lambda e, index=i: self.on_form_select(index))
+            self.form_checkboxes.append({'var': var, 'form': form})
+
         cursor.close()
 
-    def on_form_select(self, event):
-        selection = event.widget.curselection()
-        if not selection:
-            self.selected_form_index = None
-            self.xml_text.config(state="normal")
-            self.xml_text.delete(1.0, END)
-            return
-        self.selected_form_index = selection[0]
+    def on_form_select(self, index):
+        """Loads the HTML for a form when its checkbox label is clicked."""
+        self.selected_form_index = index
         form = self.forms[self.selected_form_index]
         xml_data = self.fetch_form_html(form['form_id'])
-        self.xml_text.config(state="normal")      # Enable editing/selecting
         self.xml_text.delete(1.0, END)
         self.xml_text.insert(END, xml_data if xml_data else "(No xml_data found)")
-        # Do NOT set state="disabled" here!
+        self.highlight_syntax(self.xml_text, 'html') # Highlight after loading
+
 
     def convert_selected_form(self):
         if self.selected_form_index is None:
@@ -201,8 +278,265 @@ class NMRSFormConverter:
         self.fetch_concepts_from_db(concept_ids)
         self.generate_outputs(soup, form['name'])
 
+    def generate_selected_concepts_excel(self):
+        selected_forms = [cb['form'] for cb in self.form_checkboxes if cb['var'].get() == 1]
+
+        if not selected_forms:
+            messagebox.showwarning("No Forms Selected", "Please check the boxes for the forms you want to process.")
+            return
+
+        # --- Progress Bar Setup ---
+        progress_win = tk.Toplevel(self.root)
+        progress_win.title("Generating...")
+        progress_win.geometry("400x120")
+        progress_win.transient(self.root)
+        progress_win.grab_set()
+        
+        status_var = tk.StringVar()
+        status_var.set("Initializing...")
+        
+        ttk.Label(progress_win, textvariable=status_var, wraplength=380).pack(pady=5)
+        progress_bar = ttk.Progressbar(progress_win, orient="horizontal", length=350, mode="determinate")
+        progress_bar.pack(pady=10)
+        progress_bar["maximum"] = len(selected_forms)
+
+        # 1. Pre-scan all forms to find all concept IDs and map concepts to forms
+        all_concept_ids = set()
+        concept_to_forms = {}  # {concept_id: {form_name1, form_name2}}
+        form_data = [] # Store (form_name, soup) tuples
+
+        for i, form_info in enumerate(selected_forms):
+            try:
+                form_name = form_info['name']
+                status_var.set(f"Processing ({i+1}/{len(selected_forms)}): {form_name}")
+                progress_bar["value"] = i + 1
+                progress_win.update_idletasks()
+                form_id = form_info['form_id']
+                html = self.fetch_form_html(form_id)
+                if not html:
+                    print(f"Skipping form '{form_name}' (ID: {form_id}) as it has no HTML content.")
+                    continue
+            except Exception as e:
+                print(f"An error occurred while fetching form '{form_name}' (ID: {form_id}): {e}")
+                messagebox.showwarning("Form Fetch Error", f"Could not fetch HTML for form: {form_name}.\n\nError: {e}\n\nSkipping to the next form.")
+                continue
+
+            soup = BeautifulSoup(html, 'html.parser')
+            form_data.append((form_name, soup))
+            obs_tags = soup.find_all("obs")
+
+            for obs in obs_tags:
+                # Question concept
+                q_cid_str = obs.get("conceptid")
+                if q_cid_str and q_cid_str.isdigit():
+                    q_cid = int(q_cid_str)
+                    all_concept_ids.add(q_cid)
+                    if q_cid not in concept_to_forms:
+                        concept_to_forms[q_cid] = set()
+                    concept_to_forms[q_cid].add(form_name)
+
+                # Answer concepts
+                answer_sources = ["answerconceptids", "answerconceptid", "answers"]
+                for source in answer_sources:
+                    answer_ids_str = obs.get(source)
+                    if answer_ids_str:
+                        for aid in answer_ids_str.split(','):
+                            if aid.strip().isdigit():
+                                all_concept_ids.add(int(aid.strip()))
+
+        # 2. Fetch all concept details in one go
+        self.fetch_concepts_from_db(all_concept_ids)
+
+        # 3. Create and populate the Excel workbook
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "All Concepts"
+        headers = [
+            "Form Name", "Concept", "2.x Question with Concepts", "2.x Question text", "HTML Question Text",
+            "3.x Question (Concept) UUID", "Answer", "2.x Answers with their Concepts", "2.x Answer text",
+            "2.x Answer Type", "Answer UUID", "Found in Other Forms"
+        ]
+        ws.append(headers)
+
+        # 4. Iterate through each form's stored soup and populate rows
+        for form_name, soup in form_data:
+            self._populate_concepts_sheet(ws, soup, form_name, concept_to_forms)
+
+        # 5. Save the file
+        output_dir = os.path.join(os.getcwd(), "converted")
+        os.makedirs(output_dir, exist_ok=True)
+        excel_path = os.path.join(output_dir, "All_Forms_Concepts.xlsx")
+
+        try:
+            wb.save(excel_path)
+            progress_win.destroy()
+            messagebox.showinfo("Success", f"Consolidated concepts Excel file generated at:\n{excel_path}")
+        except Exception as e:
+            progress_win.destroy()
+            messagebox.showerror("Error", f"Failed to save Excel file:\n{e}")
+
+
+
+    def generate_concepts_excel(self):
+        if self.selected_form_index is None:
+            messagebox.showwarning("No Selection", "Please select a form to generate concepts from.")
+            return
+
+        form = self.forms[self.selected_form_index]
+        form_name = form['name']
+        html = self.fetch_form_html(form['form_id'])
+        if not html:
+            messagebox.showerror("Error", f"No HTML found for form: {form_name}")
+            return
+
+        soup = BeautifulSoup(html, 'html.parser')
+
+        # 1. Collect all concept IDs from the form
+        all_concept_ids = set()
+        obs_tags = soup.find_all("obs")
+        for obs in obs_tags:
+            # Question concept
+            q_cid = obs.get("conceptid")
+            if q_cid and q_cid.isdigit():
+                all_concept_ids.add(int(q_cid))
+
+            # Answer concepts
+            answer_sources = ["answerconceptids", "answerconceptid", "answers"]
+            for source in answer_sources:
+                answer_ids_str = obs.get(source)
+                if answer_ids_str:
+                    for aid in answer_ids_str.split(','):
+                        if aid.strip().isdigit():
+                            all_concept_ids.add(int(aid.strip()))
+
+        # 2. Fetch all concept details in one go
+        self.fetch_concepts_from_db(all_concept_ids)
+
+        # 3. Create and populate the Excel workbook and headers
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "Concepts"
+        headers = [ # Added Form Name and Duplicate columns
+            "Form Name", "Concept", "2.x Question with Concepts", "2.x Question text", 
+            "HTML Question Text", "3.x Question (Concept) UUID", "Answer", 
+            "2.x Answers with their Concepts", "2.x Answer text", "2.x Answer Type", 
+            "Answer UUID", "Found in Other Forms"
+        ]
+        ws.append(headers)
+
+        # Pre-scan to find where concepts are used for the "Found in Other Forms" column
+        concept_to_forms = {}
+        for obs in obs_tags:
+            q_cid_str = obs.get("conceptid")
+            if q_cid_str and q_cid_str.isdigit():
+                q_cid = int(q_cid_str)
+                if q_cid not in concept_to_forms:
+                    concept_to_forms[q_cid] = {form_name} # Use a set for uniqueness
+                else:
+                    concept_to_forms[q_cid].add(form_name)
+
+        # 4. Populate the sheet using the helper method
+        self._populate_concepts_sheet(ws, soup, form_name, concept_to_forms)
+
+        # 5. Save the file
+        output_dir = os.path.join(os.getcwd(), "converted")
+        os.makedirs(output_dir, exist_ok=True)
+        safe_form_name = "".join(c for c in form_name if c.isalnum() or c in " ._-").rstrip()
+        excel_path = os.path.join(output_dir, f"{safe_form_name}_Concepts.xlsx")
+        
+        try:
+            wb.save(excel_path)
+            messagebox.showinfo("Success", f"Concepts Excel file generated at:\n{excel_path}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to save Excel file:\n{e}")
+
+    def _populate_concepts_sheet(self, ws, soup, form_name, concept_to_forms):
+        """Helper method to populate a worksheet with concepts from a given soup."""
+        obs_tags = soup.find_all("obs")
+        is_first_answer = True
+
+        for obs in obs_tags:
+            q_cid_str = obs.get("conceptid")
+            if not (q_cid_str and q_cid_str.isdigit()):
+                continue
+
+            if int(q_cid_str) not in self.concept_map:
+                print(f"Warning: Question concept ID '{q_cid_str}' from form '{form_name}' not seen in dictionary. Ignoring this <obs> tag.")
+                continue
+
+            q_cid = int(q_cid_str)
+            q_info = self.concept_map.get(q_cid, {})
+            q_name = q_info.get("name", f"Unknown Concept {q_cid}")
+            q_uuid = q_info.get("uuid", "N/A")
+
+            # --- Extract HTML Question Text ---
+            html_question_text = ""
+            parent_td = obs.find_parent('td')
+            if parent_td:
+                # Check for label in the preceding sibling td
+                prev_td = parent_td.find_previous_sibling('td')
+                if prev_td and prev_td.text.strip():
+                    html_question_text = prev_td.text.strip().rstrip(':')
+                else:
+                    # If not in prev_td, get text from the current td, excluding obs children
+                    text_nodes = parent_td.find_all(string=True, recursive=False)
+                    html_question_text = ' '.join(node.strip() for node in text_nodes).strip()
+            html_question_text = html_question_text or obs.get('labelText', '') or q_name
+
+            # --- Identify other forms using this concept ---
+            other_forms = concept_to_forms.get(q_cid, set()) - {form_name}
+            found_in_others_text = ", ".join(sorted(list(other_forms))) if other_forms else "No"
+
+            # Reset for each new question
+            is_first_answer = True
+
+            # Collect all unique answer concept IDs for this question
+            answer_concept_ids = set()
+            answer_sources = ["answerconceptids", "answerconceptid", "answers"]
+            for source in answer_sources:
+                answer_ids_str = obs.get(source)
+                if answer_ids_str:
+                    for aid in answer_ids_str.split(','):
+                        if aid.strip().isdigit():
+                            answer_concept_ids.add(int(aid.strip()))
+
+            # If the question's datatype is 'Coded', also get its answers from the database
+            if self.concept_datatypes.get(q_cid) == 'coded' and not answer_concept_ids:
+                db_answers = self.concept_answers.get(q_cid, [])
+                for ans in db_answers:
+                    ans_cid = "N/A" # Cannot easily reverse-lookup UUID to concept_id here
+                    q_data = [form_name, "Concept", q_cid, q_name, html_question_text, q_uuid] if is_first_answer else ["", "", "", "", "", ""]
+                    ans_data = ["Answer", ans_cid, ans.get("label"), "Coded", ans.get("uuid"), found_in_others_text if is_first_answer else ""]
+                    ws.append(q_data + ans_data)
+                    is_first_answer = False
+
+            # If there were no answers, add a single row for the question itself
+            if not answer_concept_ids and self.concept_datatypes.get(q_cid) != 'coded':
+                q_datatype = self.concept_datatypes.get(q_cid, "N/A")
+                if is_first_answer:
+                    ws.append([form_name, "Concept", q_cid, q_name, html_question_text, q_uuid, "", "", "", q_datatype.capitalize(), "", found_in_others_text])
+                    is_first_answer = False
+
+            # Process the collected answer IDs
+            else:
+                # Validate answer concepts before processing
+                valid_answer_ids = {aid for aid in answer_concept_ids if aid in self.concept_map}
+                invalid_answer_ids = answer_concept_ids - valid_answer_ids
+                if invalid_answer_ids:
+                    print(f"Warning: Answer concept IDs {invalid_answer_ids} for question '{q_name}' not seen in dictionary. They will be skipped.")
+
+                for a_cid in sorted(list(answer_concept_ids)): # Sort for consistent order
+                    a_info = self.concept_map.get(a_cid, {})
+                    a_name = a_info.get("name", f"Unknown Concept {a_cid}")
+                    a_uuid = a_info.get("uuid", "N/A")
+                    a_datatype = self.concept_datatypes.get(a_cid, "N/A")
+
+                    q_data = [form_name, "Concept", q_cid, q_name, html_question_text, q_uuid] if is_first_answer else ["", "", "", "", "", ""]
+                    ws.append(q_data + ["Answer", a_cid, a_name, a_datatype.capitalize(), a_uuid, found_in_others_text if is_first_answer else ""])
+                    is_first_answer = False
+
     def fetch_form_html(self, form_id):
-        cursor = self.connection.cursor(dictionary=True)
+        cursor = self.connection.cursor(dictionary=True, buffered=True)
         cursor.execute("SELECT xml_data FROM htmlformentry_html_form WHERE form_id = %s", (form_id,))
         row = cursor.fetchone()
         cursor.close()
@@ -215,7 +549,7 @@ class NMRSFormConverter:
             self.concept_numeric = {}
             self.concept_answers = {}
             return
-        cursor = self.connection.cursor(dictionary=True)
+        cursor = self.connection.cursor(dictionary=True, buffered=True)
         placeholders = ",".join(["%s"] * len(concept_ids))
         # Fetch concept uuid and name
         cursor.execute(
@@ -254,7 +588,7 @@ class NMRSFormConverter:
         if not search:
             self.concept_info_text.config(state="disabled")
             return
-        cursor = self.connection.cursor(dictionary=True)
+        cursor = self.connection.cursor(dictionary=True, buffered=True)
         results = []
         # Numeric or UUID search
         if re.fullmatch(r'\d+', search):
@@ -295,6 +629,14 @@ class NMRSFormConverter:
             self.concept_info_text.insert(END, "No concept found.")
         cursor.close()
         self.concept_info_text.config(state="disabled")
+
+    def _apply_tag_to_regex(self, widget, content, regex, tag_name, flags=0):
+        """Helper to find all matches of a regex and apply a tag."""
+        for match in re.finditer(regex, content, flags):
+            start = match.start()
+            end = match.end()
+            widget.tag_add(tag_name, f"1.0+{start}c", f"1.0+{end}c")
+
 
     def deduplicate_answers(self, answers):
         """Remove duplicate answers with same concept, keeping the first occurrence."""
@@ -1288,7 +1630,7 @@ class NMRSFormConverter:
 
     def download_html(self):
         # Save the current HTML/XML in the display box to a file
-        html_content = self.xml_text.get("1.0", END).strip()
+        html_content = self.xml_text.get("1.0", END)
         if not html_content:
             messagebox.showwarning("No Content", "There is no HTML to download.")
             return
@@ -1309,6 +1651,66 @@ class NMRSFormConverter:
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(html_content)
         messagebox.showinfo("Saved", f"HTML saved to {file_path}")
+
+    def upload_html(self):
+        import tkinter.filedialog as filedialog
+        file_path = filedialog.askopenfilename(filetypes=[("HTML Files", "*.html;*.htm"), ("All Files", "*.*")])
+        if file_path:
+            with open(file_path, "r", encoding="utf-8") as f:
+                html_content = f.read()
+            self.xml_text.delete(1.0, END)
+            self.xml_text.insert(END, html_content)
+            self.highlight_syntax(self.xml_text, 'html') # Highlight after loading
+
+    def convert_displayed_html(self):
+        html = self.xml_text.get("1.0", END)
+        if not html:
+            messagebox.showerror("Error", "No HTML to convert.")
+            return
+        soup = BeautifulSoup(html, 'html.parser')
+        concept_ids = set()
+        for obs in soup.find_all("obs"):
+            cid = obs.get("conceptid")
+            if cid and cid.isdigit():
+                concept_ids.add(int(cid))
+            # Also collect answerConceptIds
+            answer_ids = []
+            if obs.get("answers"):
+                answer_ids = [a.strip() for a in obs.get("answers").split(",")]
+            elif obs.get("answerconceptids"):
+                answer_ids = [a.strip() for a in obs.get("answerconceptids").split(",")]
+            elif obs.get("answerconceptid"):
+                answer_ids = [obs.get("answerconceptid").strip()]
+            for aid in answer_ids:
+                if aid.isdigit():
+                    concept_ids.add(int(aid))
+        self.fetch_concepts_from_db(concept_ids)
+        # Generate JSON and display in json_text
+        # Use a temp name for the form
+        temp_name = "Edited HTML Form"
+        self.generate_outputs(soup, temp_name)
+        # After generate_outputs, load the generated JSON file and display it
+        output_dir = os.path.join(os.getcwd(), "converted")
+        json_path = os.path.join(output_dir, f"{temp_name}_converted.json")
+        if os.path.exists(json_path):
+            with open(json_path, "r", encoding="utf-8") as jf:
+                json_content = jf.read()
+            self.json_text.config(state="normal")
+            self.json_text.delete(1.0, END)
+            self.json_text.insert(END, json_content)
+            self.highlight_syntax(self.json_text, 'json') # Highlight after loading
+
+    def download_json(self):
+        import tkinter.filedialog as filedialog
+        json_content = self.json_text.get("1.0", END).strip()
+        if not json_content:
+            messagebox.showwarning("No Content", "There is no JSON to download.")
+            return
+        file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")])
+        if file_path:
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(json_content)
+            messagebox.showinfo("Saved", f"JSON saved to {file_path}")
 
 if __name__ == "__main__":
     root = tk.Tk()

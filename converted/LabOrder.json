@@ -1,19 +1,19 @@
 {
-  "name": "Laboratory Order and Result form",
-  "uuid": "0d3dc00b-6e82-431b-94f1-bfec38914ac2",
+  "name": "Edited HTML Form",
+  "uuid": "8167ea84-cb02-467d-92d3-c82c59f16eb6",
   "processor": "EncounterFormProcessor",
   "version": "1.0",
   "description": "",
   "pages": [
     {
-      "label": "Lab Registration Number",
+      "label": "Registration",
       "sections": [
         {
-          "label": "Lab Registration Number",
+          "label": "Register",
           "questions": [
             {
-              "id": "labRegistrationNumber_4",
-              "label": "Lab Registration Number",
+              "id": "registration_4",
+              "label": "Registration",
               "type": "obs",
               "questionOptions": {
                 "concept": "f16ab53d-25f4-4e3b-b5e3-8adf650308cd",
