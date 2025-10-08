@@ -1,12 +1,14 @@
 import tkinter as tk
 from tkinter import ttk, Text, END, VERTICAL, messagebox, filedialog
 import webbrowser
+import pandas as pd
 import requests
 from openpyxl.styles import Font, Alignment
 import mysql.connector
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
 import json
+import math
 import os
 import re
 import uuid

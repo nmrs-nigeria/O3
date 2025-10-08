@@ -1,15 +1,18 @@
 import tkinter as tk
 from tkinter import ttk, Text, END, VERTICAL, messagebox, filedialog
 import webbrowser
+import pandas as pd
 import requests
 from openpyxl.styles import Font, Alignment
 import mysql.connector
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
 import json
+import math
 import os
 import re
 import uuid
+import time
 
 def to_camel_case_id(label):
     # Remove non-alphanumeric, split by space, lowercase first, capitalize rest, join with _
@@ -49,6 +52,10 @@ class NMRSFormConverter:
         self.notebook.add(form_converter_tab, text="Form Converter")
         self._setup_form_converter_ui(form_converter_tab)
 
+        # --- JSON Tools Tab ---
+        json_tools_tab = JSONToolsTab(self.notebook, self)
+        self.notebook.add(json_tools_tab, text="JSON Form Tools")
+
         # --- OCL Management Tab ---
         self.ocl_management_tab = OCLManagementTab(self.notebook, self)
         self.notebook.add(self.ocl_management_tab, text="OCL Management")
@@ -83,16 +90,6 @@ class NMRSFormConverter:
         self.concept_frame.grid(row=0, column=2, padx=(5, 10), pady=10, sticky="nsew")
         self.concept_frame.columnconfigure(0, weight=1) # type: ignore
         self._add_concept_widgets()
-
-        # --- Middle Row Frame (JSON Tools) ---
-        # This frame is added directly to the main_paned_window
-        self.json_compare_frame = ttk.LabelFrame(main_paned_window, text="JSON Form Tools")
-        self.json_compare_frame.columnconfigure(0, weight=1)
-        self.json_compare_frame.columnconfigure(1, weight=1)
-        self.json_compare_frame.columnconfigure(2, weight=1)
-        self.json_compare_frame.columnconfigure(3, weight=1)
-        main_paned_window.add(self.json_compare_frame, weight=1)
-        self._add_json_compare_widgets()
 
         # --- Bottom Row PanedWindow (HTML Editor and JSON Output) ---
         bottom_paned_window = ttk.PanedWindow(main_paned_window, orient=tk.HORIZONTAL)
@@ -231,25 +228,6 @@ class NMRSFormConverter:
             self.db_entries[label.lower()] = entry
         self.connect_btn = ttk.Button(self.db_frame, text="Connect", command=self.connect_to_db)
         self.connect_btn.grid(row=len(labels), column=0, columnspan=2, pady=5)
-
-    def _add_json_compare_widgets(self):
-        # Row 0: Buttons
-        ttk.Button(self.json_compare_frame, text="Upload Main JSON 1", command=lambda: self.upload_comparison_json(1)).grid(row=0, column=0, padx=5, pady=5, sticky="ew")
-        ttk.Button(self.json_compare_frame, text="Upload JSON 2", command=lambda: self.upload_comparison_json(2)).grid(row=0, column=1, padx=5, pady=5, sticky="ew")
-        ttk.Button(self.json_compare_frame, text="Compare JSON 1 and JSON 2", command=self.compare_jsons).grid(row=0, column=2, padx=5, pady=5, sticky="ew")
-        ttk.Button(self.json_compare_frame, text="Download Merged JSON File", command=self.merge_and_download_json).grid(row=0, column=3, padx=5, pady=5, sticky="ew")
-
-        # Row 1: Labels for file paths
-        json1_label_frame = ttk.Frame(self.json_compare_frame)
-        json1_label_frame.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky="ew")
-        ttk.Label(json1_label_frame, text="JSON 1:").pack(side="left")
-        ttk.Label(json1_label_frame, textvariable=self.json1_path, anchor="w").pack(side="left", fill="x", expand=True)
-
-        json2_label_frame = ttk.Frame(self.json_compare_frame)
-        json2_label_frame.grid(row=1, column=2, columnspan=2, padx=5, pady=2, sticky="ew")
-        ttk.Label(json2_label_frame, text="JSON 2:").pack(side="left")
-        ttk.Label(json2_label_frame, textvariable=self.json2_path, anchor="w").pack(side="left", fill="x", expand=True)
-
 
     def _add_concept_widgets(self):
         self.concept_search_var = tk.StringVar()
@@ -1996,6 +1974,100 @@ class NMRSFormConverter:
                 f.write(json_content)
             messagebox.showinfo("Saved", f"JSON saved to {file_path}")
 
+class JSONToolsTab(ttk.Frame):
+    def __init__(self, parent, main_app):
+        super().__init__(parent)
+        self.main_app = main_app
+
+        # --- Main Layout ---
+        main_frame = ttk.Frame(self)
+        main_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # --- JSON Tools Frame ---
+        json_compare_frame = ttk.LabelFrame(main_frame, text="JSON Form Tools")
+        json_compare_frame.pack(fill="x", pady=10)
+        json_compare_frame.columnconfigure(0, weight=1)
+        json_compare_frame.columnconfigure(1, weight=1)
+        json_compare_frame.columnconfigure(2, weight=1)
+        json_compare_frame.columnconfigure(3, weight=1)
+
+        # Row 0: Buttons
+        ttk.Button(json_compare_frame, text="Upload Main JSON 1", command=lambda: self.main_app.upload_comparison_json(1)).grid(row=0, column=0, padx=5, pady=5, sticky="ew")
+        ttk.Button(json_compare_frame, text="Upload JSON 2", command=lambda: self.main_app.upload_comparison_json(2)).grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        ttk.Button(json_compare_frame, text="Compare JSON 1 and JSON 2", command=self.main_app.compare_jsons).grid(row=0, column=2, padx=5, pady=5, sticky="ew")
+        ttk.Button(json_compare_frame, text="Download Merged JSON File", command=self.main_app.merge_and_download_json).grid(row=0, column=3, padx=5, pady=5, sticky="ew")
+
+        # Row 1: Labels for file paths
+        json1_label_frame = ttk.Frame(json_compare_frame)
+        json1_label_frame.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky="ew")
+        ttk.Label(json1_label_frame, text="JSON 1:").pack(side="left")
+        ttk.Label(json1_label_frame, textvariable=self.main_app.json1_path, anchor="w").pack(side="left", fill="x", expand=True)
+
+        json2_label_frame = ttk.Frame(json_compare_frame)
+        json2_label_frame.grid(row=1, column=2, columnspan=2, padx=5, pady=2, sticky="ew")
+        ttk.Label(json2_label_frame, text="JSON 2:").pack(side="left")
+        ttk.Label(json2_label_frame, textvariable=self.main_app.json2_path, anchor="w").pack(side="left", fill="x", expand=True)
+
+        # --- Comparison Result Display ---
+        result_frame = ttk.LabelFrame(main_frame, text="Comparison Results")
+        result_frame.pack(fill="both", expand=True, pady=10)
+        result_frame.rowconfigure(0, weight=1)
+        result_frame.columnconfigure(0, weight=1)
+
+        self.result_text = Text(result_frame, wrap="word", state="disabled", bg="#f0f0f0")
+        self.result_text.grid(row=0, column=0, sticky="nsew")
+        
+        result_scrollbar = ttk.Scrollbar(result_frame, orient="vertical", command=self.result_text.yview)
+        result_scrollbar.grid(row=0, column=1, sticky="ns")
+        self.result_text.config(yscrollcommand=result_scrollbar.set)
+
+    def display_comparison_results(self, comparison_data):
+        """Displays the results of the JSON comparison in the text widget."""
+        self.result_text.config(state="normal")
+        self.result_text.delete("1.0", END)
+
+        if not any(comparison_data.values()):
+            self.result_text.insert(END, "No differences found. All questions are identical.")
+            self.result_text.config(state="disabled")
+            return
+
+        # --- Mismatched Concepts ---
+        if comparison_data["mismatched"]:
+            self.result_text.insert(END, "--- Concept Mismatches ---\n\n")
+            for item in comparison_data["mismatched"]:
+                self.result_text.insert(END, f"Question: {item['label']}\n")
+                self.result_text.insert(END, f"  - JSON 1 Concept: {item['concept1']}\n")
+                self.result_text.insert(END, f"  - JSON 2 Concept: {item['concept2']}\n\n")
+            self.result_text.insert(END, "="*40 + "\n\n")
+
+        # --- Only in JSON 1 ---
+        if comparison_data["json1_only"]:
+            self.result_text.insert(END, "--- Questions Only in JSON 1 ---\n\n")
+            for item in comparison_data["json1_only"]:
+                self.result_text.insert(END, f"Question: {item['label']}\n")
+                self.result_text.insert(END, f"  - Concept: {item['concept']}\n\n")
+            self.result_text.insert(END, "="*40 + "\n\n")
+
+        # --- Only in JSON 2 ---
+        if comparison_data["json2_only"]:
+            self.result_text.insert(END, "--- Questions Only in JSON 2 ---\n\n")
+            for item in comparison_data["json2_only"]:
+                self.result_text.insert(END, f"Question: {item['label']}\n")
+                self.result_text.insert(END, f"  - Concept: {item['concept']}\n\n")
+
+        self.result_text.config(state="disabled")
+
+    def clear_results(self):
+        self.result_text.config(state="normal")
+        self.result_text.delete("1.0", END)
+        self.result_text.config(state="disabled")
+
+    def get_main_app(self):
+        """Provides access to the main application instance."""
+        return self.main_app
+
+
+
 class OCLManagementTab(ttk.Frame):
     def __init__(self, parent, main_app):
         super().__init__(parent)
@@ -2009,7 +2081,7 @@ class OCLManagementTab(ttk.Frame):
         config_frame.columnconfigure(1, weight=1)
         config_frame.columnconfigure(3, weight=1)
 
-        self.api_token = tk.StringVar()
+        self.api_token = tk.StringVar(value="bec8227b5ae4a96dc2372f37e23891462dd902fc")
         self.owner_type = tk.StringVar(value="Organization")
         self.ocl_org = tk.StringVar(value="NMRS")
         self.ocl_source = tk.StringVar(value="NMRS")
@@ -2121,39 +2193,41 @@ class OCLManagementTab(ttk.Frame):
         progress_bar.start()
         self.update_idletasks()
 
-        owner_id = self.ocl_org.get()
-        source = self.ocl_source.get()
-        path_segment = "orgs" if self.owner_type.get() == "Organization" else "users"
-        base_url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/concepts/"
-        
-        # Fetch all concepts with pagination
-        all_concepts = []
-        url = base_url
-        while url:
-            try:
-                response = requests.get(url, headers=headers)
-                response.raise_for_status()
-                data = response.json()
-                all_concepts.extend(data)
-                # Check for next page link in headers
-                if 'next' in response.links:
-                    url = response.links['next']['url']
-                else:
-                    url = None
-            except requests.exceptions.RequestException as e:
-                progress_win.destroy()
-                messagebox.showerror("Error", f"Failed to load concepts from OCL:\n{e}")
-                return
-            except json.JSONDecodeError:
-                progress_win.destroy()
-                messagebox.showerror("Error", "Failed to parse response from OCL. The source might be empty or invalid.")
-                return
+        try:
+            owner_id = self.ocl_org.get()
+            source = self.ocl_source.get()
+            path_segment = "orgs" if self.owner_type.get() == "Organization" else "users"
+            base_url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/concepts/"
+            
+            # Fetch all concepts with pagination
+            all_concepts = []
+            url = base_url
+            while url:
+                try:
+                    response = requests.get(url, headers=headers)
+                    response.raise_for_status()
+                    data = response.json()
+                    all_concepts.extend(data)
+                    # Check for next page link in headers
+                    if 'next' in response.links:
+                        url = response.links['next']['url']
+                    else:
+                        url = None
+                except requests.exceptions.RequestException as e:
+                    messagebox.showerror("Error", f"Failed to load concepts from OCL:\n{e}")
+                    return
+                except json.JSONDecodeError:
+                    messagebox.showerror("Error", "Failed to parse response from OCL. The source might be empty or invalid.")
+                    return
 
-        progress_win.destroy() # type: ignore
-        self.all_ocl_concepts = all_concepts
-        self.total_pages = (len(self.all_ocl_concepts) + 24) // 25
-        self.filter_ocl_concepts() # This will populate the first page
-        messagebox.showinfo("Success", f"Loaded {len(self.all_ocl_concepts)} concepts from OCL.")
+            if all_concepts:
+                self.all_ocl_concepts = all_concepts
+                self.filter_ocl_concepts() # This will populate the first page
+                messagebox.showinfo("Success", f"Loaded {len(self.all_ocl_concepts)} concepts from OCL.")
+            else:
+                messagebox.showinfo("No Concepts", "No concepts were found in the specified OCL source.")
+        finally:
+            progress_win.destroy()
 
     def populate_treeview(self, concepts_to_display):
         """Clears and populates the treeview with a list of concepts."""
@@ -2527,91 +2601,144 @@ class OCLManagementTab(ttk.Frame):
         except requests.exceptions.RequestException as e:
             messagebox.showerror("Deletion Failed", f"Failed to delete concept:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}")
 
+    def _upload_ocl_batch(self, batch, batch_num, total_batches, headers, progress_bar, status_var):
+        """Helper function to upload a single batch of concepts to OCL."""
+        status_var.set(f"Uploading batch {batch_num}/{total_batches} ({len(batch)} concepts)...")
+        progress_bar['value'] = batch_num
+        self.main_app.root.update_idletasks()
+
+        url = "https://api.openconceptlab.org/importers/bulk-import/"
+        payload = {
+            "data": batch,
+            "update_if_exists": "true"
+        }
+
+        try:
+            response = requests.post(url, headers=headers, data=json.dumps(payload))
+            if response.status_code not in (200, 201, 202):
+                response.raise_for_status()
+            print(f"✅ Batch {batch_num} submitted successfully. Response: {response.status_code}")
+            return True
+        except requests.exceptions.RequestException as e:
+            error_message = f"Failed to submit batch {batch_num}:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}"
+            if e.response and e.response.status_code == 409:
+                error_message += "\n\nThis '409 Conflict' error often means a previous import task is still running. Please wait a minute and try again."
+            messagebox.showerror("Batch Upload Failed", error_message)
+            return False
+        finally:
+            time.sleep(2) # Pause between batches to avoid overwhelming the API
+
     def upload_bulk_from_excel(self):
         """Reads an Excel file and performs a bulk upload to OCL."""
-        # Disable button to prevent multiple submissions
-        self.upload_button.config(state="disabled")
-
-        # Get only the auth header, requests will set the multipart content type
-        auth_header = self.get_headers(write_access=True)
-        if not auth_header: return
-        headers = {"Authorization": auth_header.get("Authorization", "")}
+        headers = self.get_headers(write_access=True)
+        if not headers:
+            return
 
         file_path = filedialog.askopenfilename(
             title="Select Excel file for OCL Bulk Upload",
             filetypes=[("Excel Files", "*.xlsx")]
         )
         if not file_path:
-            self.upload_button.config(state="normal") # Re-enable if cancelled
             return
 
+        self.upload_button.config(state="disabled")
+
         try:
-            from openpyxl import load_workbook
-            wb = load_workbook(filename=file_path)
-            ws = wb.active
-            
-            header_row = [cell.value for cell in ws[1]]
-            required_headers = ["id", "external_id", "concept_class", "datatype", "name"]
-            if not all(h in header_row for h in required_headers):
-                messagebox.showerror("Invalid Excel", f"Excel file must contain the headers: {', '.join(required_headers)}")
+            df = pd.read_excel(file_path)
+            df.columns = [col.strip().lower() for col in df.columns]
+
+            required_headers = ["id", "name"]
+            if not all(h in df.columns for h in required_headers):
+                messagebox.showerror("Invalid Excel", f"Excel file must contain at least the headers: {', '.join(required_headers)}")
                 self.upload_button.config(state="normal")
                 return
 
-            concepts_list = []
+            all_concepts = []
             owner_id = self.ocl_org.get()
             owner_type = self.owner_type.get()
             source = self.ocl_source.get()
 
-            for row in ws.iter_rows(min_row=2, values_only=True):
-                row_data = dict(zip(header_row, row))
-                
-                concept_definition = {
+            for _, row in df.iterrows():
+                name = str(row.get("name") or "").strip()
+                if not name:
+                    continue # Skip rows with no name
+
+                metadata = {}
+                form_name = str(row.get("form_name") or "").strip()
+                html_question_text = str(row.get("html_question_text") or "").strip()
+                if form_name:
+                    metadata["form_name"] = form_name
+                if html_question_text:
+                    metadata["html_question_text"] = html_question_text
+
+                concept = {
                     "type": "Concept",
                     "owner": owner_id,
                     "owner_type": owner_type,
                     "source": source,
-                    "id": row_data.get("id"),
-                    "external_id": row_data.get("external_id"),
-                    "concept_class": row_data.get("concept_class", "Misc"), # Default if blank
-                    "datatype": row_data.get("datatype", "N/A"),
+                    "id": str(row.get("id") or "").strip(),
+                    "external_id": str(row.get("external_id") or "").strip(),
+                    "concept_class": str(row.get("concept_class") or "Misc").strip(),
+                    "datatype": str(row.get("datatype") or "Text").strip(),
                     "retired": False,
                     "names": [{
-                        "name": row_data.get("name"),
+                        "name": name,
                         "locale": "en",
                         "locale_preferred": True,
                         "name_type": "Fully Specified"
-                    }]
+                    }],
+                    "extras": metadata
                 }
-                if row_data.get("description"):
-                    concept_definition["descriptions"] = [{"description": row_data.get("description"), "locale": "en"}]
+                description = str(row.get("description") or "").strip()
+                if description:
+                    concept["descriptions"] = [{"description": description, "locale": "en"}]
 
-                concepts_list.append(concept_definition)
+                # Clean up empty optional fields
+                concept = {k: v for k, v in concept.items() if v not in [None, "", [], {}]}
+                all_concepts.append(concept)
 
         except Exception as e:
             messagebox.showerror("Error", f"Failed to read or process Excel file:\n{e}")
             self.upload_button.config(state="normal")
             return
 
-        url = "https://api.openconceptlab.org/importers/bulk-import/"
-        form_data = {
-            "data": "\n".join(json.dumps(obj) for obj in concepts_list),
-            "update_if_exists": "true"
-        }
-
-        try:
-            response = requests.post(url, headers=headers, files=form_data)
-            response.raise_for_status()
-            result = response.json()
-            messagebox.showinfo("Success", f"Bulk import submitted successfully.\nTask ID: {result.get('task')}\nIt may take a few moments to process.")
-            self.load_ocl_concepts() # Refresh list after a short delay
-        except requests.exceptions.RequestException as e:
-            error_message = f"Failed to submit bulk import:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}"
-            if e.response and e.response.status_code == 409:
-                error_message += "\n\nThis '409 Conflict' error often means a previous import task is still running. Please wait a minute and try again."
-            messagebox.showerror("Bulk Upload Failed", error_message)
-        finally:
-            # Always re-enable the button
+        if not all_concepts:
+            messagebox.showwarning("No Data", "No valid concepts with a 'name' were found in the Excel file.")
             self.upload_button.config(state="normal")
+            return
+
+        # --- Batch Uploading ---
+        BATCH_SIZE = 100
+        num_batches = math.ceil(len(all_concepts) / BATCH_SIZE)
+
+        progress_win = tk.Toplevel(self.main_app.root)
+        progress_win.title("Uploading to OCL...")
+        progress_win.geometry("400x120")
+        progress_win.transient(self.main_app.root)
+        progress_win.grab_set()
+        
+        status_var = tk.StringVar(value=f"Starting upload of {len(all_concepts)} concepts in {num_batches} batches...")
+        ttk.Label(progress_win, textvariable=status_var, wraplength=380).pack(pady=5)
+        progress_bar = ttk.Progressbar(progress_win, orient="horizontal", length=350, mode="determinate", maximum=num_batches)
+        progress_bar.pack(pady=10)
+
+        all_successful = True
+        for i in range(num_batches):
+            start = i * BATCH_SIZE
+            end = min(start + BATCH_SIZE, len(all_concepts))
+            batch = all_concepts[start:end]
+            if not self._upload_ocl_batch(batch, i + 1, num_batches, headers, progress_bar, status_var):
+                all_successful = False
+                break # Stop on first failure
+
+        progress_win.destroy()
+        self.upload_button.config(state="normal") # Re-enable button
+
+        if all_successful:
+            messagebox.showinfo("Success", "All batches submitted successfully. It may take a few moments for OCL to process them.")
+            self.load_ocl_concepts() # Refresh list
+        else:
+            messagebox.showerror("Upload Incomplete", "One or more batches failed to upload. Please check the console for details.")
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -1,143 +1,126 @@
 import pandas as pd
 import requests
 import json
+import math
 import time
-from math import ceil
 
-import http.client as http_client
-import logging
-
-http_client.HTTPConnection.debuglevel = 1
-logging.basicConfig()
-logging.getLogger().setLevel(logging.DEBUG)
-requests_log = logging.getLogger("urllib3")
-requests_log.setLevel(logging.DEBUG)
-requests_log.propagate = True
-
-# ================================
-# CONFIGURATION
-# ================================
+# ========== CONFIGURATION ==========
 EXCEL_FILE = "OCL_All_Concepts_Bulk_Upload.xlsx"
 OCL_API_URL = "https://api.openconceptlab.org"  # or staging URL
-ORG_ID = "anwokoma@ihvnigeria.org"
+USERNAME = "anwokoma@ihvnigeria.org"
 SOURCE_ID = "IHVN"
 API_TOKEN = "bec8227b5ae4a96dc2372f37e23891462dd902fc"  # replace with your OCL API token
 BATCH_SIZE = 100
+# ===================================
 
-# ================================
-# FUNCTION DEFINITIONS
-# ================================
+# Step 1. Read Excel
+print("📘 Loading Excel file...")
+df = pd.read_excel(EXCEL_FILE)
+print(f"✅ Loaded {len(df)} rows")
 
-def build_concept(row):
-    """Convert one Excel row to OCL bulk import JSON object"""
+# Normalize column names (case-insensitive match)
+df.columns = [col.strip().lower() for col in df.columns]
+
+# Step 2. Convert rows to OCL concept JSON
+concepts = []
+for _, row in df.iterrows():
+    name = str(row.get("name") or "").strip()
+    description = str(row.get("description") or "").strip()
+
+    # Skip if completely empty name
+    if not name:
+        continue
+
+    # Default description if missing
+    if not description:
+        description = "No description provided."
+
+    form_name = str(row.get("form_name") or "").strip()
+    html_question_text = str(row.get("html_question_text") or "").strip()
+
+    metadata = {}
+    if form_name:
+        metadata["form_name"] = form_name
+    if html_question_text:
+        metadata["html_question_text"] = html_question_text
+
     concept = {
-        "action": "create",
-        "type": "Concept",
-        "owner": ORG_ID,
-        "owner_type": "User",
-        "source": SOURCE_ID,
-        "id": str(row["id"]).strip(),
-        "external_id": str(row["external_id"]).strip() if not pd.isna(row["external_id"]) else None,
-        "concept_class": str(row["concept_class"]).strip() if not pd.isna(row["concept_class"]) else "Misc",
-        "datatype": str(row["datatype"]).strip() if not pd.isna(row["datatype"]) else "Text",
+        "id": str(row.get("id") or "").strip(),
+        "external_id": str(row.get("external_id") or "").strip(),
+        "concept_class": str(row.get("concept_class") or "Misc").strip(),
+        "datatype": str(row.get("datatype") or "Text").strip(),
         "names": [
             {
-                "name": str(row["name"]).strip(),
+                "name": name,
                 "locale": "en",
                 "locale_preferred": True,
                 "name_type": "Fully Specified"
             }
         ],
-        "descriptions": [],
-        "extras": {}
+        "descriptions": [
+            {
+                "description": description,
+                "locale": "en"
+            }
+        ],
+        "owner": USERNAME,
+        "owner_type": "User",
+        "source": SOURCE_ID,
+        "type": "Concept",
+        "extras": metadata  # <-- custom metadata here
     }
 
-    # Optional: description
-    if not pd.isna(row.get("description")) and str(row["description"]).strip():
-        concept["descriptions"].append({
-            "description": str(row["description"]).strip(),
-            "locale": "en"
-        })
+    # Remove empty keys
+    concept = {k: v for k, v in concept.items() if v not in [None, "", []]}
+    concepts.append(concept)
 
-    # Optional extras
-    extras = {}
-    for col in ["form_name", "html_question_text"]:
-        if col in row and not pd.isna(row[col]):
-            extras[col] = str(row[col]).strip()
-    concept["extras"] = extras
+print(f"🧩 Prepared {len(concepts)} valid concepts for upload")
 
-    return concept
+if len(concepts) == 0:
+    print("⚠️ No valid concepts found with non-empty names. Please check your Excel file.")
+    print("👉 Ensure your column name is exactly 'name' (case-insensitive).")
+    exit(0)
 
+# Step 3. Upload in batches via OCL Bulk Import API
+num_batches = math.ceil(len(concepts) / BATCH_SIZE)
+print(f"\n🚀 Starting bulk upload in {num_batches} batches of up to {BATCH_SIZE} concepts...")
+
+headers = {
+    "Authorization": f"Token {API_TOKEN}",
+    "Content-Type": "application/json"
+}
 
 def upload_batch(batch, batch_num):
-    """Upload one batch to OCL bulk import endpoint (with verbose error reporting)"""
     url = f"{OCL_API_URL}/importers/bulk-import/"
-    headers = {
-        "Authorization": f"Token {API_TOKEN}",
-        "Content-Type": "application/json"
-    }
+    payload = {"data": batch}
 
-    data = json.dumps(batch, indent=2)
+    print(f"\n📦 Uploading batch {batch_num}/{num_batches} ({len(batch)} concepts)...")
+    print("🧠 Example payload:")
+    print(json.dumps(batch[0], indent=2))
+
     try:
-        response = requests.post(url, headers=headers, data=data)
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        print(f"🔁 Status: {response.status_code}")
 
-        # Try to get more detailed information from OCL's response
-        try:
-            resp_json = response.json()
-        except Exception:
-            resp_json = {"raw_text": response.text}
-
-        if response.status_code in [200, 201, 202]:
+        if response.status_code in (200, 201, 202):
             print(f"✅ Batch {batch_num} uploaded successfully.")
-            return True
-
-        elif response.status_code == 409:
-            print(f"⚠️ Batch {batch_num}: Conflict (409). Some concepts may already exist.")
-            return True
-
         else:
-            print(f"\n❌ Batch {batch_num} failed:")
-            print(f"Status: {response.status_code}")
-            print("Response:")
-            print(json.dumps(resp_json, indent=2))
-            log_error(batch_num, resp_json)
-            return False
-
+            print(f"❌ Batch {batch_num} failed.")
+            print("Response text:")
+            print(response.text)
+            print("Partial payload sample:")
+            print(json.dumps(batch[:2], indent=2))
     except Exception as e:
-        print(f"\n❌ Batch {batch_num} upload error: {str(e)}")
-        log_error(batch_num, str(e))
-        return False
+        print(f"🚨 Exception during batch {batch_num}: {e}")
 
+# Step 4. Upload all batches
+for i in range(num_batches):
+    start = i * BATCH_SIZE
+    end = min(start + BATCH_SIZE, len(concepts))
+    batch = concepts[start:end]
+    if not batch:
+        continue
+    upload_batch(batch, i + 1)
+    time.sleep(2)
 
-def log_error(batch_num, error):
-    """Save failed batch info"""
-    with open("ocl_upload_errors.log", "a", encoding="utf-8") as f:
-        f.write(f"\n\nBatch {batch_num} failed at {time.ctime()}\n{str(error)}\n")
-
-
-# ================================
-# MAIN SCRIPT
-# ================================
-if __name__ == "__main__":
-    print("📦 Reading Excel file...")
-    df = pd.read_excel(EXCEL_FILE)
-    print(f"Total concepts found: {len(df)}")
-
-    # Convert all rows to concept objects
-    concepts = [build_concept(row) for _, row in df.iterrows()]
-
-    # Split into batches
-    total_batches = ceil(len(concepts) / BATCH_SIZE)
-    print(f"🚀 Starting upload in {total_batches} batches of {BATCH_SIZE}...")
-
-    success_count = 0
-    for i in range(total_batches):
-        batch = concepts[i * BATCH_SIZE:(i + 1) * BATCH_SIZE]
-        print(f"\nUploading batch {i+1}/{total_batches} ({len(batch)} concepts)...")
-        success = upload_batch(batch, i + 1)
-        if success:
-            success_count += len(batch)
-        time.sleep(2)  # polite delay to avoid API throttling
-
-    print(f"\n✅ Upload completed! Successfully uploaded {success_count} concepts.")
-    print("Check 'ocl_upload_errors.log' for any skipped or failed batches.")
+print("\n🎉 Upload process complete.")
