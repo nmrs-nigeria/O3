@@ -10,6 +10,7 @@ import json
 import os
 import re
 import uuid
+import time
 
 def to_camel_case_id(label):
     # Remove non-alphanumeric, split by space, lowercase first, capitalize rest, join with _
@@ -49,6 +50,10 @@ class NMRSFormConverter:
         self.notebook.add(form_converter_tab, text="Form Converter")
         self._setup_form_converter_ui(form_converter_tab)
 
+        # --- JSON Tools Tab ---
+        json_tools_tab = JSONToolsTab(self.notebook, self)
+        self.notebook.add(json_tools_tab, text="JSON Form Tools")
+
         # --- OCL Management Tab ---
         self.ocl_management_tab = OCLManagementTab(self.notebook, self)
         self.notebook.add(self.ocl_management_tab, text="OCL Management")
@@ -83,16 +88,6 @@ class NMRSFormConverter:
         self.concept_frame.grid(row=0, column=2, padx=(5, 10), pady=10, sticky="nsew")
         self.concept_frame.columnconfigure(0, weight=1) # type: ignore
         self._add_concept_widgets()
-
-        # --- Middle Row Frame (JSON Tools) ---
-        # This frame is added directly to the main_paned_window
-        self.json_compare_frame = ttk.LabelFrame(main_paned_window, text="JSON Form Tools")
-        self.json_compare_frame.columnconfigure(0, weight=1)
-        self.json_compare_frame.columnconfigure(1, weight=1)
-        self.json_compare_frame.columnconfigure(2, weight=1)
-        self.json_compare_frame.columnconfigure(3, weight=1)
-        main_paned_window.add(self.json_compare_frame, weight=1)
-        self._add_json_compare_widgets()
 
         # --- Bottom Row PanedWindow (HTML Editor and JSON Output) ---
         bottom_paned_window = ttk.PanedWindow(main_paned_window, orient=tk.HORIZONTAL)
@@ -231,25 +226,6 @@ class NMRSFormConverter:
             self.db_entries[label.lower()] = entry
         self.connect_btn = ttk.Button(self.db_frame, text="Connect", command=self.connect_to_db)
         self.connect_btn.grid(row=len(labels), column=0, columnspan=2, pady=5)
-
-    def _add_json_compare_widgets(self):
-        # Row 0: Buttons
-        ttk.Button(self.json_compare_frame, text="Upload Main JSON 1", command=lambda: self.upload_comparison_json(1)).grid(row=0, column=0, padx=5, pady=5, sticky="ew")
-        ttk.Button(self.json_compare_frame, text="Upload JSON 2", command=lambda: self.upload_comparison_json(2)).grid(row=0, column=1, padx=5, pady=5, sticky="ew")
-        ttk.Button(self.json_compare_frame, text="Compare JSON 1 and JSON 2", command=self.compare_jsons).grid(row=0, column=2, padx=5, pady=5, sticky="ew")
-        ttk.Button(self.json_compare_frame, text="Download Merged JSON File", command=self.merge_and_download_json).grid(row=0, column=3, padx=5, pady=5, sticky="ew")
-
-        # Row 1: Labels for file paths
-        json1_label_frame = ttk.Frame(self.json_compare_frame)
-        json1_label_frame.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky="ew")
-        ttk.Label(json1_label_frame, text="JSON 1:").pack(side="left")
-        ttk.Label(json1_label_frame, textvariable=self.json1_path, anchor="w").pack(side="left", fill="x", expand=True)
-
-        json2_label_frame = ttk.Frame(self.json_compare_frame)
-        json2_label_frame.grid(row=1, column=2, columnspan=2, padx=5, pady=2, sticky="ew")
-        ttk.Label(json2_label_frame, text="JSON 2:").pack(side="left")
-        ttk.Label(json2_label_frame, textvariable=self.json2_path, anchor="w").pack(side="left", fill="x", expand=True)
-
 
     def _add_concept_widgets(self):
         self.concept_search_var = tk.StringVar()
@@ -1996,11 +1972,106 @@ class NMRSFormConverter:
                 f.write(json_content)
             messagebox.showinfo("Saved", f"JSON saved to {file_path}")
 
+class JSONToolsTab(ttk.Frame):
+    def __init__(self, parent, main_app):
+        super().__init__(parent)
+        self.main_app = main_app
+
+        # --- Main Layout ---
+        main_frame = ttk.Frame(self)
+        main_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # --- JSON Tools Frame ---
+        json_compare_frame = ttk.LabelFrame(main_frame, text="JSON Form Tools")
+        json_compare_frame.pack(fill="x", pady=10)
+        json_compare_frame.columnconfigure(0, weight=1)
+        json_compare_frame.columnconfigure(1, weight=1)
+        json_compare_frame.columnconfigure(2, weight=1)
+        json_compare_frame.columnconfigure(3, weight=1)
+
+        # Row 0: Buttons
+        ttk.Button(json_compare_frame, text="Upload Main JSON 1", command=lambda: self.main_app.upload_comparison_json(1)).grid(row=0, column=0, padx=5, pady=5, sticky="ew")
+        ttk.Button(json_compare_frame, text="Upload JSON 2", command=lambda: self.main_app.upload_comparison_json(2)).grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        ttk.Button(json_compare_frame, text="Compare JSON 1 and JSON 2", command=self.main_app.compare_jsons).grid(row=0, column=2, padx=5, pady=5, sticky="ew")
+        ttk.Button(json_compare_frame, text="Download Merged JSON File", command=self.main_app.merge_and_download_json).grid(row=0, column=3, padx=5, pady=5, sticky="ew")
+
+        # Row 1: Labels for file paths
+        json1_label_frame = ttk.Frame(json_compare_frame)
+        json1_label_frame.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky="ew")
+        ttk.Label(json1_label_frame, text="JSON 1:").pack(side="left")
+        ttk.Label(json1_label_frame, textvariable=self.main_app.json1_path, anchor="w").pack(side="left", fill="x", expand=True)
+
+        json2_label_frame = ttk.Frame(json_compare_frame)
+        json2_label_frame.grid(row=1, column=2, columnspan=2, padx=5, pady=2, sticky="ew")
+        ttk.Label(json2_label_frame, text="JSON 2:").pack(side="left")
+        ttk.Label(json2_label_frame, textvariable=self.main_app.json2_path, anchor="w").pack(side="left", fill="x", expand=True)
+
+        # --- Comparison Result Display ---
+        result_frame = ttk.LabelFrame(main_frame, text="Comparison Results")
+        result_frame.pack(fill="both", expand=True, pady=10)
+        result_frame.rowconfigure(0, weight=1)
+        result_frame.columnconfigure(0, weight=1)
+
+        self.result_text = Text(result_frame, wrap="word", state="disabled", bg="#f0f0f0")
+        self.result_text.grid(row=0, column=0, sticky="nsew")
+        
+        result_scrollbar = ttk.Scrollbar(result_frame, orient="vertical", command=self.result_text.yview)
+        result_scrollbar.grid(row=0, column=1, sticky="ns")
+        self.result_text.config(yscrollcommand=result_scrollbar.set)
+
+    def display_comparison_results(self, comparison_data):
+        """Displays the results of the JSON comparison in the text widget."""
+        self.result_text.config(state="normal")
+        self.result_text.delete("1.0", END)
+
+        if not any(comparison_data.values()):
+            self.result_text.insert(END, "No differences found. All questions are identical.")
+            self.result_text.config(state="disabled")
+            return
+
+        # --- Mismatched Concepts ---
+        if comparison_data["mismatched"]:
+            self.result_text.insert(END, "--- Concept Mismatches ---\n\n")
+            for item in comparison_data["mismatched"]:
+                self.result_text.insert(END, f"Question: {item['label']}\n")
+                self.result_text.insert(END, f"  - JSON 1 Concept: {item['concept1']}\n")
+                self.result_text.insert(END, f"  - JSON 2 Concept: {item['concept2']}\n\n")
+            self.result_text.insert(END, "="*40 + "\n\n")
+
+        # --- Only in JSON 1 ---
+        if comparison_data["json1_only"]:
+            self.result_text.insert(END, "--- Questions Only in JSON 1 ---\n\n")
+            for item in comparison_data["json1_only"]:
+                self.result_text.insert(END, f"Question: {item['label']}\n")
+                self.result_text.insert(END, f"  - Concept: {item['concept']}\n\n")
+            self.result_text.insert(END, "="*40 + "\n\n")
+
+        # --- Only in JSON 2 ---
+        if comparison_data["json2_only"]:
+            self.result_text.insert(END, "--- Questions Only in JSON 2 ---\n\n")
+            for item in comparison_data["json2_only"]:
+                self.result_text.insert(END, f"Question: {item['label']}\n")
+                self.result_text.insert(END, f"  - Concept: {item['concept']}\n\n")
+
+        self.result_text.config(state="disabled")
+
+    def clear_results(self):
+        self.result_text.config(state="normal")
+        self.result_text.delete("1.0", END)
+        self.result_text.config(state="disabled")
+
+    def get_main_app(self):
+        """Provides access to the main application instance."""
+        return self.main_app
+
+
+
 class OCLManagementTab(ttk.Frame):
     def __init__(self, parent, main_app):
         super().__init__(parent)
         self.main_app = main_app
-        self.all_ocl_concepts = [] # To store the full list for local search
+        self.all_ocl_concepts = []  # To store the full list for local search
+        self.current_page = 1
 
         # --- OCL Configuration ---
         config_frame = ttk.LabelFrame(self, text="OCL Configuration")
@@ -2036,7 +2107,8 @@ class OCLManagementTab(ttk.Frame):
 
         ttk.Button(actions_frame, text="Create Single Concept from OpenMRS", command=self.create_single_concept_window).pack(side="left", padx=5, pady=5)
         ttk.Button(actions_frame, text="Generate OCL Excel from All Forms", command=self.generate_all_concepts_for_ocl).pack(side="left", padx=5, pady=5) # type: ignore
-        ttk.Button(actions_frame, text="Upload OCL Excel", command=self.upload_bulk_from_excel).pack(side="left", padx=5, pady=5) # type: ignore
+        self.upload_button = ttk.Button(actions_frame, text="Upload OCL Excel", command=self.upload_bulk_from_excel)
+        self.upload_button.pack(side="left", padx=5, pady=5)
         ttk.Button(actions_frame, text="Edit Selected Concept", command=self.edit_selected_concept).pack(side="left", padx=5, pady=5)
         ttk.Button(actions_frame, text="Delete Selected Concept", command=self.delete_selected_concept).pack(side="left", padx=5, pady=5)
 
@@ -2077,6 +2149,17 @@ class OCLManagementTab(ttk.Frame):
         list_frame.rowconfigure(1, weight=1)
         list_frame.columnconfigure(0, weight=1)
 
+        # --- Pagination Controls ---
+        pagination_frame = ttk.Frame(list_frame)
+        pagination_frame.grid(row=3, column=0, sticky="ew", padx=5, pady=5)
+        pagination_frame.columnconfigure(1, weight=1)
+
+        self.prev_button = ttk.Button(pagination_frame, text="<< Previous", command=self.prev_page, state="disabled")
+        self.prev_button.grid(row=0, column=0, padx=5)
+        self.page_label = ttk.Label(pagination_frame, text="Page 1 / 1")
+        self.page_label.grid(row=0, column=1, padx=5)
+        self.next_button = ttk.Button(pagination_frame, text="Next >>", command=self.next_page, state="disabled")
+        self.next_button.grid(row=0, column=2, padx=5)
     def get_headers(self, write_access=False):
         token = self.api_token.get()
         if not token and write_access:
@@ -2088,10 +2171,11 @@ class OCLManagementTab(ttk.Frame):
         }
 
     def load_ocl_concepts(self):
-        self.all_ocl_concepts = [] # Clear previous results
+        self.all_ocl_concepts = []  # Clear previous results
         for i in self.tree.get_children():
             self.tree.delete(i)
 
+        self.current_page = 1
         headers = self.get_headers()
         if not headers: return
 
@@ -2110,34 +2194,42 @@ class OCLManagementTab(ttk.Frame):
         owner_id = self.ocl_org.get()
         source = self.ocl_source.get()
         path_segment = "orgs" if self.owner_type.get() == "Organization" else "users"
-        url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/concepts/?limit=0" # Use limit=0 to get all
+        base_url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/concepts/"
+        
+        # Fetch all concepts with pagination
+        all_concepts = []
+        url = base_url
+        while url:
+            try:
+                response = requests.get(url, headers=headers)
+                response.raise_for_status()
+                data = response.json()
+                all_concepts.extend(data)
+                # Check for next page link in headers
+                if 'next' in response.links:
+                    url = response.links['next']['url']
+                else:
+                    url = None
+            except requests.exceptions.RequestException as e:
+                progress_win.destroy()
+                messagebox.showerror("Error", f"Failed to load concepts from OCL:\n{e}")
+                return
+            except json.JSONDecodeError:
+                progress_win.destroy()
+                messagebox.showerror("Error", "Failed to parse response from OCL. The source might be empty or invalid.")
+                return
 
-        try:
-            response = requests.get(url, headers=headers)
-            response.raise_for_status()
-            concepts = response.json()
-            for concept in concepts:
-                self.tree.insert("", "end", values=(
-                    concept.get('id', ''),
-                    concept.get('display_name', ''),
-                    concept.get('external_id', ''),
-                    concept.get('datatype', ''),
-                    concept.get('concept_class', '')
-                ))
-        except requests.exceptions.RequestException as e:
-            progress_win.destroy()
-            messagebox.showerror("Error", f"Failed to load concepts from OCL:\n{e}")
-
-        progress_win.destroy()
-        self.all_ocl_concepts = concepts
-        self.populate_treeview(self.all_ocl_concepts)
+        progress_win.destroy() # type: ignore
+        self.all_ocl_concepts = all_concepts
+        self.total_pages = (len(self.all_ocl_concepts) + 24) // 25
+        self.filter_ocl_concepts() # This will populate the first page
         messagebox.showinfo("Success", f"Loaded {len(self.all_ocl_concepts)} concepts from OCL.")
 
-    def populate_treeview(self, concepts):
+    def populate_treeview(self, concepts_to_display):
         """Clears and populates the treeview with a list of concepts."""
         for i in self.tree.get_children():
             self.tree.delete(i)
-        for concept in concepts:
+        for concept in concepts_to_display:
             self.tree.insert("", "end", values=(
                 concept.get('id', ''),
                 concept.get('display_name', ''),
@@ -2145,12 +2237,41 @@ class OCLManagementTab(ttk.Frame):
                 concept.get('datatype', ''),
                 concept.get('concept_class', '')
             ))
+        self.update_pagination_controls()
 
     def filter_ocl_concepts(self, event=None):
         """Filters the displayed concepts based on the local search bar."""
         search_term = self.local_search_var.get().lower()
-        filtered_concepts = [c for c in self.all_ocl_concepts if search_term in str(c.get('id','')).lower() or search_term in str(c.get('display_name','')).lower() or search_term in str(c.get('external_id','')).lower()]
-        self.populate_treeview(filtered_concepts)
+        if search_term:
+            self.filtered_list = [c for c in self.all_ocl_concepts if search_term in str(c.get('id','')).lower() or search_term in str(c.get('display_name','')).lower() or search_term in str(c.get('external_id','')).lower()]
+        else:
+            self.filtered_list = self.all_ocl_concepts
+
+        self.total_pages = (len(self.filtered_list) + 24) // 25
+        self.current_page = 1
+        self.show_current_page()
+
+    def show_current_page(self):
+        start_index = (self.current_page - 1) * 25
+        end_index = start_index + 25
+        page_concepts = self.filtered_list[start_index:end_index]
+        self.populate_treeview(page_concepts)
+
+    def next_page(self):
+        if self.current_page < self.total_pages:
+            self.current_page += 1
+            self.show_current_page()
+
+    def prev_page(self):
+        if self.current_page > 1:
+            self.current_page -= 1
+            self.show_current_page()
+
+    def update_pagination_controls(self):
+        self.page_label.config(text=f"Page {self.current_page} / {self.total_pages}")
+        self.prev_button.config(state="normal" if self.current_page > 1 else "disabled")
+        self.next_button.config(state="normal" if self.current_page < self.total_pages else "disabled")
+
     def create_single_concept_window(self): # No change here, just for context
         # Simple dialog to get a concept ID from OpenMRS
         dialog = tk.Toplevel(self)
@@ -2459,9 +2580,10 @@ class OCLManagementTab(ttk.Frame):
         headers = self.get_headers(write_access=True)
         if not headers: return
 
-        org = self.ocl_org.get()
+        owner_id = self.ocl_org.get()
         source = self.ocl_source.get()
-        url = f"https://api.openconceptlab.org/orgs/{org}/sources/{source}/concepts/{concept_id}/"
+        path_segment = "orgs" if self.owner_type.get() == "Organization" else "users"
+        url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/concepts/{concept_id}/"
 
         try:
             # In OCL, deletion is done by retiring the concept
@@ -2477,35 +2599,54 @@ class OCLManagementTab(ttk.Frame):
 
     def upload_bulk_from_excel(self):
         """Reads an Excel file and performs a bulk upload to OCL."""
-        headers = self.get_headers(write_access=True)
-        if not headers: return
+        # Disable button to prevent multiple submissions
+        self.upload_button.config(state="disabled")
+
+        # Get only the auth header, requests will set the multipart content type
+        auth_header = self.get_headers(write_access=True)
+        if not auth_header:
+            self.upload_button.config(state="normal")
+            return
+        headers = {"Authorization": auth_header.get("Authorization", "")}
 
         file_path = filedialog.askopenfilename(
             title="Select Excel file for OCL Bulk Upload",
             filetypes=[("Excel Files", "*.xlsx")]
         )
-        if not file_path: return
+        if not file_path:
+            self.upload_button.config(state="normal") # Re-enable if cancelled
+            return
 
         try:
             from openpyxl import load_workbook
             wb = load_workbook(filename=file_path)
             ws = wb.active
-            
+
             header_row = [cell.value for cell in ws[1]]
             required_headers = ["id", "external_id", "concept_class", "datatype", "name"]
             if not all(h in header_row for h in required_headers):
                 messagebox.showerror("Invalid Excel", f"Excel file must contain the headers: {', '.join(required_headers)}")
+                self.upload_button.config(state="normal")
                 return
 
-            bulk_payload = []
+            concepts_list = []
+            owner_id = self.ocl_org.get()
+            owner_type = self.owner_type.get()
+            source = self.ocl_source.get()
+
             for row in ws.iter_rows(min_row=2, values_only=True):
                 row_data = dict(zip(header_row, row))
-                
-                concept_payload = {
+
+                concept_definition = {
+                    "type": "Concept",
+                    "owner": owner_id,
+                    "owner_type": owner_type,
+                    "source": source,
                     "id": row_data.get("id"),
                     "external_id": row_data.get("external_id"),
                     "concept_class": row_data.get("concept_class", "Misc"), # Default if blank
                     "datatype": row_data.get("datatype", "N/A"),
+                    "retired": False,
                     "names": [{
                         "name": row_data.get("name"),
                         "locale": "en",
@@ -2514,30 +2655,35 @@ class OCLManagementTab(ttk.Frame):
                     }]
                 }
                 if row_data.get("description"):
-                    concept_payload["descriptions"] = [{"description": row_data.get("description"), "locale": "en"}]
+                    concept_definition["descriptions"] = [{"description": row_data.get("description"), "locale": "en"}]
 
-                bulk_payload.append({
-                    "action": "create",
-                    "type": "Concept",
-                    "data": concept_payload
-                })
+                concepts_list.append(concept_definition)
 
         except Exception as e:
             messagebox.showerror("Error", f"Failed to read or process Excel file:\n{e}")
+            self.upload_button.config(state="normal")
             return
 
-        owner_id = self.ocl_org.get()
-        source = self.ocl_source.get()
-        path_segment = "orgs" if self.owner_type.get() == "Organization" else "users"
-        url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/bulk-import/"
+        url = "https://api.openconceptlab.org/importers/bulk-import/"
+        form_data = {
+            "data": "\n".join(json.dumps(obj) for obj in concepts_list),
+            "update_if_exists": "true"
+        }
 
         try:
-            response = requests.post(url, headers=headers, data=json.dumps(bulk_payload))
+            response = requests.post(url, headers=headers, files=form_data)
             response.raise_for_status()
-            messagebox.showinfo("Success", "Bulk import request submitted successfully. It may take a few moments to process.")
+            result = response.json()
+            messagebox.showinfo("Success", f"Bulk import submitted successfully.\nTask ID: {result.get('task')}\nIt may take a few moments to process.")
             self.load_ocl_concepts() # Refresh list after a short delay
         except requests.exceptions.RequestException as e:
-            messagebox.showerror("Bulk Upload Failed", f"Failed to submit bulk import:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}")
+            error_message = f"Failed to submit bulk import:\n{e}\nResponse: {e.response.text if e.response else 'N/A'}"
+            if e.response and e.response.status_code == 409:
+                error_message += "\n\nThis '409 Conflict' error often means a previous import task is still running. Please wait a minute and try again."
+            messagebox.showerror("Bulk Upload Failed", error_message)
+        finally:
+            # Always re-enable the button
+            self.upload_button.config(state="normal")
 
 if __name__ == "__main__":
     root = tk.Tk()
