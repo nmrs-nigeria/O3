@@ -2191,6 +2191,7 @@ class OCLManagementTab(ttk.Frame):
         progress_bar = ttk.Progressbar(progress_win, mode='indeterminate')
         progress_bar.pack(pady=5, padx=20, fill='x')
         progress_bar.start()
+        # Force the UI to update to show the progress window immediately
         self.update_idletasks()
 
         try:
@@ -2198,25 +2199,29 @@ class OCLManagementTab(ttk.Frame):
             source = self.ocl_source.get()
             path_segment = "orgs" if self.owner_type.get() == "Organization" else "users"
             base_url = f"https://api.openconceptlab.org/{path_segment}/{owner_id}/sources/{source}/concepts/"
-            
+
             # Fetch all concepts with pagination
             all_concepts = []
-            url = base_url
+            # Start with the base URL, explicitly setting a limit for the first call.
+            # The API's 'next' link will handle subsequent pages.
+            url = f"{base_url}?limit=25"
             while url:
                 try:
                     response = requests.get(url, headers=headers)
                     response.raise_for_status()
                     data = response.json()
                     all_concepts.extend(data)
-                    # Check for next page link in headers
+                    # OCL API provides the URL for the next page in the 'Link' header
                     if 'next' in response.links:
                         url = response.links['next']['url']
                     else:
-                        url = None
+                        url = None # No more pages
                 except requests.exceptions.RequestException as e:
+                    progress_win.destroy()
                     messagebox.showerror("Error", f"Failed to load concepts from OCL:\n{e}")
                     return
                 except json.JSONDecodeError:
+                    progress_win.destroy()
                     messagebox.showerror("Error", "Failed to parse response from OCL. The source might be empty or invalid.")
                     return
 
@@ -2722,6 +2727,7 @@ class OCLManagementTab(ttk.Frame):
         progress_bar = ttk.Progressbar(progress_win, orient="horizontal", length=350, mode="determinate", maximum=num_batches)
         progress_bar.pack(pady=10)
 
+        progress_win.update_idletasks() # Show progress window immediately
         all_successful = True
         for i in range(num_batches):
             start = i * BATCH_SIZE
